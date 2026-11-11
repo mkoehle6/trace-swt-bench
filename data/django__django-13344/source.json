@@ -1,0 +1,8 @@
+{
+  "instance_id": "django__django-13344",
+  "repo": "django/django",
+  "base_commit": "e39e727ded673e74016b5d3658d23cbe20234d11",
+  "dataset": "princeton-nlp/SWE-bench_Verified",
+  "revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+  "split": "test"
+}

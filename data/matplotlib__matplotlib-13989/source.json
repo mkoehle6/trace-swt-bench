@@ -1,0 +1,8 @@
+{
+  "instance_id": "matplotlib__matplotlib-13989",
+  "repo": "matplotlib/matplotlib",
+  "base_commit": "a3e2897bfaf9eaac1d6649da535c4e721c89fa69",
+  "dataset": "princeton-nlp/SWE-bench_Verified",
+  "revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+  "split": "test"
+}

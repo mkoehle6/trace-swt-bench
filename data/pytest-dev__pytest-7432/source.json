@@ -1,0 +1,8 @@
+{
+  "instance_id": "pytest-dev__pytest-7432",
+  "repo": "pytest-dev/pytest",
+  "base_commit": "e6e300e729dd33956e5448d8be9a0b1540b4e53a",
+  "dataset": "princeton-nlp/SWE-bench_Verified",
+  "revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+  "split": "test"
+}

@@ -1,0 +1,8 @@
+{
+  "instance_id": "astropy__astropy-14508",
+  "repo": "astropy/astropy",
+  "base_commit": "a3f4ae6cd24d5ecdf49f213d77b3513dd509a06c",
+  "dataset": "princeton-nlp/SWE-bench_Verified",
+  "revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+  "split": "test"
+}

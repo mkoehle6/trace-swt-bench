@@ -1,0 +1,4 @@
+# Python 3.10+; separate research environment recommended.
+mini-swe-agent==2.4.6
+PyYAML>=6.0.2,<7
+datasets>=3,<5

@@ -3,8 +3,9 @@
 Research question: does a structured, evidence-grounded extraction and validation
 stage improve regression-test generation over the unchanged mini-SWE-agent baseline?
 
-Project location: `C:\Users\mlkoe\projects\swt-bench-work`.
-WSL location: `/mnt/c/Users/mlkoe/projects/swt-bench-work`.
+All commands below run from the repository root (the folder containing this README).
+In VS Code, open your cloned repository and use an Ubuntu/WSL terminal.
+The clone can live anywhere; no particular Windows username or folder is required.
 
 ## Preserved baseline
 
@@ -42,9 +43,9 @@ for output. Do not substitute a trajectory or a solution for the original report
 Use a separate environment to preserve your existing agent installation:
 
 ```bash
-cd /mnt/c/Users/mlkoe/projects/swt-bench-work
-python3 -m venv ~/.venvs/se433-swt
-source ~/.venvs/se433-swt/bin/activate
+# Run from the repository root.
+python3 -m venv .venv
+source .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m pip freeze > requirements.lock.local.txt
 python -m unittest -v
@@ -52,6 +53,10 @@ read -rsp 'DeepSeek API key: ' DEEPSEEK_API_KEY; echo
 export DEEPSEEK_API_KEY
 docker version
 ```
+
+For later terminal sessions, run `source .venv/bin/activate` from the repository root.
+The `.venv/` directory is excluded from Git. If you already have a working environment,
+you can activate that instead of creating a new one.
 
 If `venv` is unavailable, install the Ubuntu `python3-venv` package first.
 Docker Desktop must be running with Ubuntu integration enabled. API keys are

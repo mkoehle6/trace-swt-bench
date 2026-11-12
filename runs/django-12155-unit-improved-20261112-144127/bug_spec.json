@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "trim_docstring",
+    "evidence": "The culprit is this code in trim_docstring:"
+  },
+  "triggering_input": {
+    "value": "a view docstring whose first line is not empty",
+    "evidence": "docutils reports an error rendering view docstring when the first line is not empty"
+  },
+  "observed_behavior": {
+    "value": "Error in \"default-role\" directive:\nno content permitted.\n.. default-role:: cmsreference",
+    "evidence": "Error in \"default-role\" directive:\nno content permitted.\n.. default-role:: cmsreference"
+  },
+  "expected_behavior": {
+    "value": "admindoc works correctly with view docstrings where the first line is not empty",
+    "evidence": "Currently admindoc works correctly only with docstrings where the first line is empty"
+  },
+  "suggested_assertion": {
+    "value": "Rendering a view docstring whose first line is not empty should not produce an error.",
+    "evidence": "docutils reports an error rendering view docstring when the first line is not empty"
+  }
+}

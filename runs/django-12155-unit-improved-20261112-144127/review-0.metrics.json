@@ -1,0 +1,18 @@
+{
+  "seconds": 19.794059662002837,
+  "usage": {
+    "prompt_tokens": 564,
+    "completion_tokens": 3749,
+    "total_tokens": 4313,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3724
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 564
+  },
+  "model": "deepseek-flash",
+  "cost_usd": null
+}

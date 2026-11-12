@@ -1,0 +1,36 @@
+diff --git a/tests/admin_docs/test_utils.py b/tests/admin_docs/test_utils.py
+index 17ea912015..1b167fb4d8 100644
+--- a/tests/admin_docs/test_utils.py
++++ b/tests/admin_docs/test_utils.py
+@@ -44,6 +44,31 @@ class TestUtils(AdminDocsSimpleTestCase):
+         )
+         self.assertEqual(trim_docstring_output, trimmed_docstring)
+ 
++    def test_trim_docstring_with_first_line_content(self):
++        docstring = (
++            'This is the first line.\n'
++            '    This is the second line.\n'
++            '        This is the third line.'
++        )
++        self.assertEqual(
++            trim_docstring(docstring),
++            'This is the first line.\n'
++            'This is the second line.\n'
++            '    This is the third line.',
++        )
++
++    def test_parse_docstring_with_first_line_content(self):
++        docstring = (
++            'Title\n'
++            '\n'
++            '    Description.\n'
++            '    More description.'
++        )
++        self.assertEqual(
++            parse_docstring(docstring),
++            ('Title', 'Description.\nMore description.', {}),
++        )
++
+     def test_parse_docstring(self):
+         title, description, metadata = parse_docstring(self.docstring)
+         docstring_title = (

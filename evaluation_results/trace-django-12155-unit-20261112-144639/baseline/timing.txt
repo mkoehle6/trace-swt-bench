@@ -1,0 +1,3 @@
+command_exit_code=0
+elapsed_seconds=176
+run_id=trace-django-12155-unit-20261112-144639-baseline

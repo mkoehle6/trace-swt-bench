@@ -1,0 +1,31 @@
+<frozen runpy>:128: RuntimeWarning: 'src.main' found in sys.modules after import of package 'src', but prior to execution of 'src.main'; this may result in unpredictable behaviour
+Running 1 unevaluated instances...
+Found 1 existing instance images. Will reuse them.
+Running 1 instances...
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [02:26<00:00, 146.67s/it]100%|██████████| 1/1 [02:26<00:00, 146.67s/it]
+Base image exec.base.x86_64:latest already exists, skipping build.
+Env image exec.env.x86_64.8d48ddaf97462eaa0fa9d9:latest already exists, skipping build.
+Base image exec.base.x86_64:latest already exists, skipping build.
+Env image exec.env.x86_64.8d48ddaf97462eaa0fa9d9:latest already exists, skipping build.
+Base image exec.base.x86_64:latest already exists, skipping build.
+Env image exec.env.x86_64.8d48ddaf97462eaa0fa9d9:latest already exists, skipping build.
+Base image exec.base.x86_64:latest already exists, skipping build.
+Env image exec.env.x86_64.8d48ddaf97462eaa0fa9d9:latest already exists, skipping build.
+Base image exec.base.x86_64:latest already exists, skipping build.
+Env image exec.env.x86_64.8d48ddaf97462eaa0fa9d9:latest already exists, skipping build.
+Base image exec.base.x86_64:latest already exists, skipping build.
+Env image exec.env.x86_64.8d48ddaf97462eaa0fa9d9:latest already exists, skipping build.
+All instances run.
+Cleaning cached images...
+Removed 0 images.
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  3.78it/s]100%|██████████| 1/1 [00:00<00:00,  3.78it/s]
+Total instances: 1
+Instances completed: 0
+Mean coverage: 0.5333333333333333
+Mean coverage delta: 0.4666666666666667
+Instances resolved: 0
+Instances unresolved: 1
+Instances with errors: 0
+Instances still running: 0
+Still existing images: 1
+Report written to evaluation_results/trace-baseline-unit-test.trace-django-12155-unit-20261112-144639-baseline.json

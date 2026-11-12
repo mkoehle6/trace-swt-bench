@@ -1,0 +1,32 @@
+{
+  "id": "cbd6bd26-62e3-4979-a00a-b65cb8ab5192",
+  "object": "chat.completion",
+  "created": 1794449765,
+  "model": "deepseek-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"target_function\":{\"value\":\"model_to_dict\",\"evidence\":\"model_to_dict() should return an empty dict for an empty list of fields.\"},\"triggering_input\":{\"value\":\"model_to_dict(instance, fields=[])\",\"evidence\":\"Been called as model_to_dict(instance, fields=[]) function should return empty dict, because no fields were requested.\"},\"observed_behavior\":{\"value\":\"It returns all fields.\",\"evidence\":\"But it returns all fields\"},\"expected_behavior\":{\"value\":\"It should return an empty dict.\",\"evidence\":\"function should return empty dict, because no fields were requested.\"},\"suggested_assertion\":{\"value\":\"The result of model_to_dict(instance, fields=[]) should be an empty dict.\",\"evidence\":\"model_to_dict() should return an empty dict for an empty list of fields.\"}}",
+        "reasoning_content": "We need answer JSON only. Need extract spec from report. Need fields target_function, triggering_input, observed_behavior, expected_behavior, suggested_assertion. Each value string/null and evidence exact quote. Need no invented identifiers. We can use model_to_dict mentioned. Triggering input: call model_to_dict(instance, fields=[]). Evidence quote. Observed behavior: returns all fields. Expected: empty dict. Suggested assertion: model_to_dict(instance, fields=[]) == {}? Is that explicitly supported expected behavior yes. But \"Do not manufacture runnable identifiers\" - model_to_dict and instance are in report. Could express \"The result should be an empty dict when fields=[].\" Suggested assertion may be in prose or code. Need exact quote evidence. Null if unknown. All known.\n\nNeed JSON exact fields.\n\ntarget_function: \"model_to_dict\" evidence \"model_to_dict() should return an empty dict for an empty list of fields.\" Or \"Been called as model_to_dict(instance, fields=[]) function...\" Use exact contiguous quote. Value can be \"model_to_dict\". Evidence maybe \"model_to_dict() should return an empty dict for an empty list of fields.\" Good.\n\ntriggering_input: \"model_to_dict(instance, fields=[])\" evidence \"Been called as model_to_dict(instance, fields=[]) function should return empty dict, because no fields were requested.\" Need exact nonempty contiguous quote. Could use exact from report: \"model_to_dict(instance, fields=[])\" appears in quote? Report: \"Been called as model_to_dict(instance, fields=[]) function...\" Yes exact.\n\nobserved_behavior: \"It returns all fields.\" evidence \"But it returns all fields\". Exact quote. Or \"returns all fields\" exact? The report says \"But it returns all fields\". Use exact.\n\nexpected_behavior: \"It should return an empty dict.\" evidence \"function should return empty dict, because no fields were requested.\" exact contiguous. Good.\n\nsuggested_assertion: \"model_to_dict(instance, fields=[]) should equal {}.\" Evidence expected behavior quote? Must be supported. Maybe \"The function should return an empty dict when called with fields=[].\" Evidence \"should return an empty dict for an empty list of fields\" exact. But suggested assertion may only express explicitly supported expected behavior. We can use code assertion: \"assert model_to_dict(instance, fields=[]) == {}\" Is that too manufactured? identifiers from report. It's okay. Evidence quote \"model_to_dict() should return an empty dict for an empty list of fields.\" Use exact. Or value \"The result of model_to_dict(instance, fields=[]) should be an empty dict.\" Evidence same. Need no runnable identifiers? It says do not manufacture runnable identifiers; these are present. Good.\n\nNeed ensure evidence exact nonempty contiguous quote. Let's verify quotes:\n- \"model_to_dict() should return an empty dict for an empty list of fields.\" exact from start.\n- \"model_to_dict(instance, fields=[])\" exact within \"Been called as model_to_dict(instance, fields=[]) function should return empty dict...\" Yes.\n- \"But it returns all fields\" exact? Report: \"But it returns all fields\\nThe problem point is\" yes.\n- \"function should return empty dict, because no fields were requested.\" exact? Report: \"Been called as model_to_dict(instance, fields=[]) function should return empty dict, because no fields were requested.\" Yes substring starts function. Good.\n- For assertion evidence maybe same first quote exact.\n\nReturn JSON only."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 278,
+    "completion_tokens": 916,
+    "total_tokens": 1194,
+    "prompt_tokens_details": {
+      "cached_tokens": 128
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 743
+    },
+    "prompt_cache_hit_tokens": 128,
+    "prompt_cache_miss_tokens": 150
+  },
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+}

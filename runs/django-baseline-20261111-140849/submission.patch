@@ -1,0 +1,41 @@
+diff --git a/reproduce.py b/reproduce.py
+new file mode 100644
+index 0000000000..96f96b0344
+--- /dev/null
++++ b/reproduce.py
+@@ -0,0 +1,35 @@
++from django.conf import settings
++
++settings.configure(
++    INSTALLED_APPS=[],
++    DATABASES={
++        'default': {
++            'ENGINE': 'django.db.backends.sqlite3',
++            'NAME': ':memory:',
++        },
++    },
++)
++
++import django
++
++django.setup()
++
++from django.db import models
++from django.forms.models import model_to_dict
++
++
++class ExampleModel(models.Model):
++    name = models.CharField(max_length=100)
++
++    class Meta:
++        app_label = 'reproduce'
++
++
++instance = ExampleModel(name='example')
++result = model_to_dict(instance, fields=[])
++
++assert result == {}, (
++    "model_to_dict(instance, fields=[]) should return an empty dict, "
++    "but returned fields: %r" % sorted(result)
++)
++print('PASS: model_to_dict(instance, fields=[]) returned an empty dict')

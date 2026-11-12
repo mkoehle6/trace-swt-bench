@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "model_to_dict",
+    "evidence": "model_to_dict()"
+  },
+  "triggering_input": {
+    "value": "model_to_dict(instance, fields=[])",
+    "evidence": "model_to_dict(instance, fields=[])"
+  },
+  "observed_behavior": {
+    "value": "it returns all fields",
+    "evidence": "it returns all fields"
+  },
+  "expected_behavior": {
+    "value": "return an empty dict for an empty list of fields",
+    "evidence": "should return an empty dict for an empty list of fields"
+  },
+  "suggested_assertion": {
+    "value": "model_to_dict(instance, fields=[]) == {}",
+    "evidence": "model_to_dict(instance, fields=[]) function should return empty dict"
+  }
+}

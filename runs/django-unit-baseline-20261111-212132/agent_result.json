@@ -1,0 +1,4 @@
+{
+  "exit_status": "Submitted",
+  "submission": "diff --git a/tests/model_forms/tests.py b/tests/model_forms/tests.py\nindex f4f3169bc1..d2c28ac1c7 100644\n--- a/tests/model_forms/tests.py\n+++ b/tests/model_forms/tests.py\n@@ -2900,6 +2900,10 @@ class StrictAssignmentTests(SimpleTestCase):\n \n \n class ModelToDictTests(TestCase):\n+    def test_empty_fields(self):\n+        item = ColourfulItem.objects.create()\n+        self.assertEqual(model_to_dict(item, fields=[]), {})\n+\n     def test_many_to_many(self):\n         \"\"\"Data for a ManyToManyField is a list rather than a lazy QuerySet.\"\"\"\n         blue = Colour.objects.create(name='blue')\n"
+}

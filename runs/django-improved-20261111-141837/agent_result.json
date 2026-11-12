@@ -1,0 +1,4 @@
+{
+  "exit_status": "Submitted",
+  "submission": "diff --git a/reproduce.py b/reproduce.py\nnew file mode 100644\nindex 0000000000..a60c07ec03\n--- /dev/null\n+++ b/reproduce.py\n@@ -0,0 +1,30 @@\n+import django\n+from django.conf import settings\n+\n+\n+if not settings.configured:\n+    settings.configure(\n+        INSTALLED_APPS=[],\n+        DATABASES={},\n+        USE_TZ=True,\n+    )\n+    django.setup()\n+\n+from django.db import models\n+from django.forms.models import model_to_dict\n+\n+\n+class ExampleModel(models.Model):\n+    name = models.CharField(max_length=100)\n+\n+    class Meta:\n+        app_label = \"reproduce\"\n+\n+\n+instance = ExampleModel(name=\"example\")\n+result = model_to_dict(instance, fields=[])\n+assert result == {}, (\n+    \"model_to_dict(instance, fields=[]) should return an empty dict, \"\n+    \"but returned {!r}\".format(result)\n+)\n+print(\"PASS: model_to_dict() respects an explicitly empty fields list.\")\n"
+}

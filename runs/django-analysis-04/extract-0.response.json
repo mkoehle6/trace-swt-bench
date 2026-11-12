@@ -1,0 +1,32 @@
+{
+  "id": "36200acc-c62e-46b6-977a-1059f86493ec",
+  "object": "chat.completion",
+  "created": 1794369478,
+  "model": "deepseek-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"target_function\":{\"value\":\"model_to_dict\",\"evidence\":\"model_to_dict()\"},\"triggering_input\":{\"value\":\"model_to_dict(instance, fields=[])\",\"evidence\":\"model_to_dict(instance, fields=[])\"},\"observed_behavior\":{\"value\":\"it returns all fields\",\"evidence\":\"it returns all fields\"},\"expected_behavior\":{\"value\":\"return an empty dict for an empty list of fields\",\"evidence\":\"should return an empty dict for an empty list of fields\"},\"suggested_assertion\":{\"value\":\"model_to_dict(instance, fields=[]) == {}\",\"evidence\":\"model_to_dict(instance, fields=[]) function should return empty dict\"}}",
+        "reasoning_content": "We need answer JSON with exactly fields. Need extract bug spec ONLY report. We must not include fixes? The fields: target_function, triggering_input, observed_behavior, expected_behavior, suggested_assertion. Each {\"value\": string|null, \"evidence\": exact nonempty contiguous quote from report or null}. Need no external knowledge/invented. Report says model_to_dict() should return empty dict for empty list of fields. Called as model_to_dict(instance, fields=[]) should return empty dict because no fields requested. But returns all fields. Problem point if fields and f.name not in fields should be if fields is not None... We need target_function: model_to_dict likely. triggering_input: model_to_dict(instance, fields=[]) exact quote? Evidence exact contiguous quote from report. Could use \"model_to_dict(instance, fields=[])\" maybe exact substring? Report says \"Been called as model_to_dict(instance, fields=[]) function should return empty dict\". Contiguous exact quote includes that substring. Good.\n\nobserved_behavior: \"it returns all fields\" exact quote. expected_behavior: \"should return empty dict\" or \"model_to_dict(instance, fields=[]) function should return empty dict, because no fields were requested.\" Need value. suggested_assertion: explicit expected behavior. Can say \"model_to_dict(instance, fields=[]) == {}\" Is that supported? It expresses return empty dict. Is {} invented? Empty dict is explicit. Runnable identifier model_to_dict, instance fields explicit. Should be okay? They said do not manufacture runnable identifiers; model_to_dict and fields=[] are in report. instance is in report. Suggested assertion may only express explicitly supported expected behavior. Use \"model_to_dict(instance, fields=[]) should return an empty dict.\" But assertion ideally code. We can phrase \"assert model_to_dict(instance, fields=[]) == {}\" It adds assert syntax but expresses expected. Is okay? Maybe value \"model_to_dict(instance, fields=[]) == {}\" and evidence same quote. Need exact evidence nonempty contiguous quote from report. For suggested assertion, evidence quote \"model_to_dict(instance, fields=[]) function should return empty dict\" exact contiguous? Let's inspect: \"Been called as model_to_dict(instance, fields=[]) function should return empty dict, because no fields were requested.\" This contains \"model_to_dict(instance, fields=[]) function should return empty dict\". Yes. But our assertion value includes == {} not exact quote. Evidence can be quote.\n\nNeed ensure JSON exactly fields no extra. Null? all known.\n\nPotential issue target_function evidence: \"model_to_dict()\" exact quote from first sentence. But target_function value \"model_to_dict\" maybe. Evidence \"model_to_dict()\" exact. Good.\n\nNeed maybe observed behavior \"But it returns all fields\" or \"it returns all fields\". Exact quote from report: \"But it returns all fields\" including But? Contiguous. Value \"It returns all fields\" not exact case? We can use \"it returns all fields\" exact substring after But? The report has \"But it returns all fields\" with uppercase B, lower i. substring \"it returns all fields\" exact yes. Good.\n\nExpected behavior value: \"return an empty dict\" or \"return empty dict\". Report says \"should return an empty dict for an empty list of fields.\" and \"should return empty dict\". Use \"return an empty dict for an empty list of fields\" exact quote? Full: \"model_to_dict() should return an empty dict for an empty list of fields.\" Contains \"should return an empty dict for an empty list of fields\" exact. Good.\n\nTriggering input value: \"model_to_dict(instance, fields=[])\" exact. Evidence same. It's exact contiguous quote? Report has \"Been called as model_to_dict(instance, fields=[]) function should return empty dict\". Yes.\n\nSuggested assertion value maybe \"model_to_dict(instance, fields=[]) == {}\" with evidence \"model_to_dict(instance, fields=[]) function should return empty dict\". Does the quote support empty dict. Yes.\n\nNeed no markdown. JSON object. Use proper escaping? No issues."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 278,
+    "completion_tokens": 1004,
+    "total_tokens": 1282,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 865
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 278
+  },
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+}

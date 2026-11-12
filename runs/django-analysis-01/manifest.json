@@ -1,0 +1,13 @@
+{
+  "instance_id": "django__django-11163",
+  "mode": "improved",
+  "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+  "report_sha256": "8dbd8cae38c3a82b681a79bdfe8ffaa78aa6f1fad9744a1ca197f90265e5c80b",
+  "image": null,
+  "extract_model": "deepseek-flash",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "status": "failed",
+  "error_type": "HTTPError",
+  "seconds": 0.5081093730004795,
+  "baseline_unchanged": true
+}

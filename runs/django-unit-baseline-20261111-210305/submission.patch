@@ -1,0 +1,15 @@
+diff --git a/tests/model_forms/tests.py b/tests/model_forms/tests.py
+index f4f3169bc1..d2c28ac1c7 100644
+--- a/tests/model_forms/tests.py
++++ b/tests/model_forms/tests.py
+@@ -2900,6 +2900,10 @@ class StrictAssignmentTests(SimpleTestCase):
+ 
+ 
+ class ModelToDictTests(TestCase):
++    def test_empty_fields(self):
++        item = ColourfulItem.objects.create()
++        self.assertEqual(model_to_dict(item, fields=[]), {})
++
+     def test_many_to_many(self):
+         """Data for a ManyToManyField is a list rather than a lazy QuerySet."""
+         blue = Colour.objects.create(name='blue')

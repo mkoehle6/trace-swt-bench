@@ -4,6 +4,7 @@ import tempfile
 import unittest
 from unittest.mock import patch, Mock
 import types
+import os
 import controller as c
 
 
@@ -50,12 +51,42 @@ class ValidationTests(unittest.TestCase):
             report.write_text(self.report)
             config = Path(__file__).resolve().parent / 'baseline/swt_test.yaml'
             args = ['--report', str(report), '--config', str(config), '--out', str(root / 'run'), '--mode', 'baseline']
-            c.main(args)
+            with patch.dict(os.environ, {}, clear=True):
+                c.main(args)
             self.assertEqual((root / 'run/task.txt').read_text(), self.report)
             manifest = json.loads((root / 'run/manifest.json').read_text())
             self.assertTrue(manifest['baseline_unchanged'])
             with self.assertRaises(FileExistsError):
                 c.main(args)
+
+    def test_missing_key_stops_extraction_without_retries(self):
+        for value in (None, '', '   '):
+            with self.subTest(value=value), tempfile.TemporaryDirectory() as directory:
+                env = {} if value is None else {'DEEPSEEK_API_KEY': value}
+                with patch.dict(os.environ, env, clear=True), patch.object(c.urllib.request, 'urlopen') as network:
+                    with self.assertRaises(c.ConfigurationError):
+                        c.extract(self.report, 'mock', Path(directory))
+                    network.assert_not_called()
+                self.assertEqual(list(Path(directory).iterdir()), [])
+
+    def test_missing_key_records_configuration_failure_without_launch(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            report = root / 'report.txt'
+            report.write_text(self.report)
+            args = ['--report', str(report), '--out', str(root / 'run'),
+                    '--launch', '--image', 'mock-image']
+            with patch.dict(os.environ, {}, clear=True), patch.object(c, 'extract') as extract, patch.object(c, 'launch') as launch:
+                with self.assertRaises(c.ConfigurationError):
+                    c.main(args)
+                extract.assert_not_called()
+                launch.assert_not_called()
+            manifest = json.loads((root / 'run/manifest.json').read_text())
+            self.assertEqual(manifest['status'], 'failed')
+            self.assertEqual(manifest['failure_stage'], 'configuration')
+            self.assertEqual(manifest['attempts'], 0)
+            self.assertFalse(manifest['fallback'])
+            self.assertFalse((root / 'run/task.txt').exists())
 
     def test_launcher_preserves_config_and_collects_submission(self):
         config = Path(__file__).resolve().parent / 'baseline/swt_test.yaml'

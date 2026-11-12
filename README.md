@@ -61,6 +61,9 @@ you can activate that instead of creating a new one.
 If `venv` is unavailable, install the Ubuntu `python3-venv` package first.
 Docker Desktop must be running with Ubuntu integration enabled. API keys are
 read from the environment and are never saved into run artifacts.
+Improved mode requires a nonempty `DEEPSEEK_API_KEY`. If it is missing or blank,
+the controller records a configuration failure and stops before extraction or
+agent launch; it does not spend revision attempts or fall back to the baseline.
 
 See [PILOT.md](PILOT.md) for the Django pilot. `--help` documents controller options.
 All output run directories must be new, preventing accidental replacement.

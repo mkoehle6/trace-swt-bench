@@ -83,7 +83,7 @@ container, or invoke the CLI setup wizard. It is necessary because the unit test
 mock the agent and its version; a passing unit suite alone does not prove that
 mini-SWE-agent is installed.
 
-## 4. Run the six offline tests
+## 4. Run the eight offline tests
 
 ```bash
 python -m unittest -v
@@ -92,7 +92,7 @@ python -m unittest -v
 Expected ending (runtime varies):
 
 ```text
-Ran 6 tests in ...s
+Ran 8 tests in ...s
 
 OK
 ```
@@ -105,6 +105,8 @@ OK
 | Bounded failure | Invalid candidates stop after the allowed attempts |
 | Baseline preparation | Original report is retained; existing output is protected |
 | Launcher wiring | Configuration preservation, submission output, and cleanup |
+| Missing key during extraction | Stops immediately without calls or revisions |
+| Missing key in improved mode | Records configuration failure without launching the agent |
 
 Model calls and agent execution are mocked. Tests use temporary directories and
 do not edit the baseline or reports. A temporary path printed in the output is
@@ -174,7 +176,7 @@ a container. A matching benchmark image is still required for a live run.
 
 ## Report your results
 
-Share Python/package versions, the `pip check` result, the six-test summary, the
+Share Python/package versions, the `pip check` result, the eight-test summary, the
 snapshot-check result, and optional Docker readiness with the team. Never share
 API keys or environment-file contents.
 

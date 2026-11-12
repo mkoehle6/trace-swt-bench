@@ -14,6 +14,19 @@ FIELDS = ('target_function', 'triggering_input', 'observed_behavior',
 BASELINE_SHA = '32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0'
 
 
+class ConfigurationError(RuntimeError):
+    """An operational problem that must not trigger specification revisions."""
+
+
+def require_deepseek_key():
+    key = os.environ.get('DEEPSEEK_API_KEY', '').strip()
+    if not key:
+        raise ConfigurationError(
+            'DEEPSEEK_API_KEY is missing or empty. Set and export it in this '
+            'terminal before running improved mode. No fallback will be launched.')
+    return key
+
+
 def digest(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -59,9 +72,7 @@ def semantic_errors(review):
 
 
 def ask(model, system, payload, out, label):
-    key = os.environ.get('DEEPSEEK_API_KEY')
-    if not key:
-        raise ValueError('Set DEEPSEEK_API_KEY in the environment')
+    key = require_deepseek_key()
     body = {'model': model, 'messages': [
         {'role': 'system', 'content': system},
         {'role': 'user', 'content': json.dumps(payload)}],
@@ -173,9 +184,12 @@ def main(argv=None):
     (args.out / 'report.txt').write_text(report, encoding='utf-8')
     meta = {'instance_id': args.instance, 'mode': args.mode, 'baseline_sha256': digest(config_bytes),
             'report_sha256': digest(report.encode()), 'image': args.image,
-            'extract_model': args.extract_model, 'python': sys.version, 'status': 'started'}
+            'extract_model': args.extract_model, 'python': sys.version, 'status': 'started',
+            'attempts': 0, 'validated': False, 'fallback': False}
     started = time.monotonic()
     try:
+        if args.mode == 'improved':
+            require_deepseek_key()
         spec, attempts = (extract(report, args.extract_model, args.out, args.revisions)
                           if args.mode == 'improved' else (None, 0))
         meta.update(attempts=attempts, validated=spec is not None,
@@ -190,6 +204,9 @@ def main(argv=None):
     except Exception as exc:
         meta['status'] = 'failed'
         meta['error_type'] = type(exc).__name__
+        if isinstance(exc, ConfigurationError):
+            meta['failure_stage'] = 'configuration'
+            meta['error_message'] = str(exc)
         raise
     finally:
         meta['seconds'] = time.monotonic() - started
@@ -199,4 +216,7 @@ def main(argv=None):
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except ConfigurationError as exc:
+        sys.exit(f'Configuration error: {exc}')

@@ -5,3 +5,4 @@ baseline/swt_test.yaml -text
 data/**/report.txt -text
 profiles/unit_test.yaml -text
 runs/** -text
+evaluation_results/** -text

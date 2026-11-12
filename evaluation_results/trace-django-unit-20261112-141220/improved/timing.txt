@@ -1,0 +1,3 @@
+command_exit_code=0
+elapsed_seconds=84
+run_id=trace-django-unit-20261112-141220-improved

@@ -6,6 +6,7 @@ from unittest.mock import patch, Mock
 import types
 import os
 import controller as c
+from export_prediction import export_prediction
 
 
 class ValidationTests(unittest.TestCase):
@@ -29,6 +30,44 @@ class ValidationTests(unittest.TestCase):
         self.assertTrue(c.semantic_errors(review))
         review['valid'] = 'true'
         self.assertTrue(c.semantic_errors(review))
+
+    def test_unit_profile_preserves_settings_and_runner_failure_handling(self):
+        config = Path(__file__).resolve().parent / 'baseline/swt_test.yaml'
+        original = config.read_bytes()
+        script = c.load_agent_config(config, 'mock-image')
+        unit = c.load_agent_config(config, 'mock-image', 'unit_test')
+        self.assertIn('{{task}}', unit['agent']['instance_template'])
+        self.assertIn('UNIT TESTS', unit['agent']['instance_template'])
+        self.assertEqual(unit['environment']['interpreter'], ['bash', '-o', 'pipefail', '-c'])
+        self.assertIn('exit "$status"', unit['agent']['instance_template'])
+        unit['agent']['instance_template'] = script['agent']['instance_template']
+        unit['environment']['interpreter'] = script['environment']['interpreter']
+        self.assertEqual(unit, script)
+        self.assertEqual(config.read_bytes(), original)
+
+    def test_unit_prediction_export_preserves_patch_and_refuses_overwrite(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = Path(directory)
+            (run / 'manifest.json').write_text(json.dumps(dict(
+                test_format='unit_test', instance_id='django__django-11163', mode='baseline')))
+            patch_text = 'diff --git a/tests/example.py b/tests/example.py\n'
+            (run / 'agent_result.json').write_text(json.dumps(dict(exit_status='Submitted', submission=patch_text)))
+            out = run / 'prediction.jsonl'
+            export_prediction(run, out)
+            self.assertEqual(json.loads(out.read_text())['model_patch'], patch_text)
+            with self.assertRaises(FileExistsError):
+                export_prediction(run, out)
+
+    def test_prediction_export_keeps_failure_and_rejects_script_runs(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = Path(directory)
+            manifest = dict(test_format='unit_test', instance_id='django__django-11163', mode='improved', status='failed')
+            (run / 'manifest.json').write_text(json.dumps(manifest))
+            self.assertEqual(export_prediction(run, run / 'failed.jsonl')['model_patch'], '')
+            manifest['test_format'] = 'reproduction_script'
+            (run / 'manifest.json').write_text(json.dumps(manifest))
+            with self.assertRaises(ValueError):
+                export_prediction(run, run / 'script.jsonl')
 
     def test_revision_then_accept(self):
         review = dict(valid=True, unsupported_fields=[], contradictions=[], missing_information=[])

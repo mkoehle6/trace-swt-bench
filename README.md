@@ -104,3 +104,11 @@ The extraction model defaults to the direct-API name `deepseek-flash`, separatel
 configurable through `--extract-model`. This does not rename the model in the
 baseline YAML. Provider aliases and LiteLLM support must be checked before a paid
 run; record returned model identifiers. No paid run is performed during setup.
+
+## Unit-test-mode pilot
+
+The original baseline produces standalone reproduction scripts. For the course's
+unit-test requirement, use --test-format unit_test for BOTH methods. This applies
+a shared task-template adaptation and Bash pipefail while preserving the original baseline file,
+model, and limits. Follow [UNIT_TEST_PILOT.md](UNIT_TEST_PILOT.md) for generation
+and prediction export. Earlier script runs remain development smoke tests.

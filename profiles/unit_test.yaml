@@ -1,0 +1,60 @@
+# Shared submission-format adaptation for BOTH baseline and improved methods.
+# Task instructions and pipeline handling are shared across both methods.
+# All other settings come from the preserved baseline/swt_test.yaml.
+environment:
+  interpreter: ["bash", "-o", "pipefail", "-c"]
+agent:
+  instance_template: |
+    <pr_description>
+    {{task}}
+    </pr_description>
+
+    <instructions>
+    Write regression UNIT TESTS for the reported issue in the repository at /testbed.
+    Do not fix the bug or change production code, configuration, or dependencies.
+    Read the relevant source and existing tests to follow the repository's native
+    test framework, fixtures, naming conventions, and test runner.
+
+    Modify or add Python test files within the existing test suite. Add test methods
+    or test functions that the native runner will discover. Do not submit a standalone
+    reproduce.py script or a test that only runs under an if __name__ == '__main__' guard.
+    For Django, prefer the relevant existing tests/<app>/tests.py module and its models
+    and fixtures. Use Django/unittest test classes and self.assertEqual or another
+    meaningful assertion. Do not globally call settings.configure or django.setup in
+    a test module; use the existing Django test runner and test settings.
+
+    Assert the expected behavior from the issue. The new test should fail on the buggy
+    checkout for an issue-relevant reason, and pass when the issue is correctly fixed.
+    Do not weaken, remove, skip, or disable existing tests or assertions. Do not force
+    failures, swallow unexpected exceptions, or inspect commit IDs to choose outcomes.
+    Use only the supplied issue, current source, existing tests, and development tools.
+    Do not retrieve reference fixes, reference test patches, PR diffs, or evaluator results.
+
+    Run the relevant native test target on the current buggy checkout and inspect its
+    output. Distinguish the expected behavioral failure from syntax/import/setup errors.
+    For Django, inspect tests/runtests.py and existing test documentation for the target
+    and settings (for example, python tests/runtests.py model_forms --settings=test_sqlite).
+    No fixed-version result is available during generation. Preserve meaningful assertions.
+
+    Bash pipefail is enabled for every command: a failing test runner piped through
+    tail or tee must produce a nonzero command result. Do not mask failures with
+    "|| true" or append a successful command after the test pipeline. If you need
+    to print the exit status, capture it immediately and exit with that same status:
+    python tests/runtests.py model_forms --settings=test_sqlite 2>&1 | tail -80
+    status=$?; echo "test runner pipeline exit status: $status"; exit "$status"
+    Run patch creation and other follow-up work in separate tool calls.
+
+    Respond with reasoning text and at least one bash tool call on each turn. Commands
+    run in separate subshells; directory and environment changes do not persist. Work
+    non-interactively. Never commit. Do not inspect other branches or historical fixes.
+
+    Submission: submit a standard git unified diff containing ONLY unit-test changes.
+    First inspect git status and git diff. For any newly added test file, run git add -N
+    on that specific file so it appears in git diff. Do not stage unrelated files.
+    Create /tmp/trace-unit-test.patch using git diff restricted to your changed test paths.
+    In a SEPARATE command, inspect that patch and confirm it contains only intended test
+    changes, no production/config changes, and no standalone reproduction script.
+    Finally submit with this exact command, by itself:
+    echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && cat /tmp/trace-unit-test.patch
+    Do not continue working after submission.
+    </instructions>

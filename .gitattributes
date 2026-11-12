@@ -3,3 +3,4 @@
 *.sh text eol=lf
 baseline/swt_test.yaml -text
 data/**/report.txt -text
+profiles/unit_test.yaml -text

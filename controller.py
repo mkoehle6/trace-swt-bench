@@ -130,18 +130,33 @@ def extract(report, model, out, revisions=2):
     return None, revisions + 1
 
 
-def launch(config, image, task, out):
+def unit_test_profile():
+    return Path(__file__).resolve().parent / 'profiles/unit_test.yaml'
+
+
+def load_agent_config(config, image, test_format='reproduction_script'):
+    import yaml
+    cfg = yaml.safe_load(config.read_text(encoding='utf-8'))
+    if test_format == 'unit_test':
+        profile = yaml.safe_load(unit_test_profile().read_text(encoding='utf-8'))
+        cfg['agent']['instance_template'] = profile['agent']['instance_template']
+        cfg['environment']['interpreter'] = profile['environment']['interpreter']
+    elif test_format != 'reproduction_script':
+        raise ConfigurationError(f'Unknown test format: {test_format}')
+    if cfg['environment']['environment_class'] != 'docker':
+        raise ValueError('Expected the preserved Docker baseline')
+    cfg['environment']['image'] = image
+    return cfg
+
+
+def launch(config, image, task, out, test_format='reproduction_script'):
     """Use the v2.4.6 factories directly; do not merge interactive CLI defaults."""
     if importlib.metadata.version('mini-swe-agent') != '2.4.6':
         raise ValueError('Launcher requires mini-swe-agent==2.4.6')
-    import yaml
     from minisweagent.agents import get_agent
     from minisweagent.environments import get_environment
     from minisweagent.models import get_model
-    cfg = yaml.safe_load(config.read_text(encoding='utf-8'))
-    if cfg['environment']['environment_class'] != 'docker':
-        raise ValueError('Expected the preserved Docker baseline')
-    cfg['environment']['image'] = image  # required runtime selection, never saved into baseline
+    cfg = load_agent_config(config, image, test_format)
     save(out / 'effective_config.json', cfg)
     env = get_environment(cfg['environment'])
     agent = None
@@ -167,6 +182,8 @@ def main(argv=None):
     parser.add_argument('--config', type=Path, default=Path(__file__).resolve().parent / 'baseline/swt_test.yaml')
     parser.add_argument('--out', type=Path, required=True, help='New run directory; must not exist')
     parser.add_argument('--mode', choices=['baseline', 'improved'], default='improved')
+    parser.add_argument('--test-format', choices=['reproduction_script', 'unit_test'],
+                        default='reproduction_script', help='Shared generation format for both methods')
     parser.add_argument('--extract-model', default='deepseek-flash')
     parser.add_argument('--revisions', type=int, choices=range(3), default=2)
     parser.add_argument('--launch', action='store_true', help='Actually call mini-SWE-agent; otherwise prepare only')
@@ -177,6 +194,7 @@ def main(argv=None):
     config_bytes = args.config.read_bytes()
     if digest(config_bytes) != BASELINE_SHA:
         parser.error('Baseline YAML hash differs from the inspected original; refusing to run')
+    profile_sha = digest(unit_test_profile().read_bytes()) if args.test_format == 'unit_test' else None
     report = args.report.read_text(encoding='utf-8')
     if not report.strip():
         parser.error('Report must not be empty')
@@ -185,7 +203,8 @@ def main(argv=None):
     meta = {'instance_id': args.instance, 'mode': args.mode, 'baseline_sha256': digest(config_bytes),
             'report_sha256': digest(report.encode()), 'image': args.image,
             'extract_model': args.extract_model, 'python': sys.version, 'status': 'started',
-            'attempts': 0, 'validated': False, 'fallback': False}
+            'attempts': 0, 'validated': False, 'fallback': False,
+            'test_format': args.test_format, 'unit_test_profile_sha256': profile_sha}
     started = time.monotonic()
     try:
         if args.mode == 'improved':
@@ -199,7 +218,7 @@ def main(argv=None):
             task += '\n\nEvidence-grounded specification (supporting analysis):\n' + json.dumps(spec, indent=2)
         (args.out / 'task.txt').write_text(task, encoding='utf-8')
         if args.launch:
-            launch(args.config, args.image, task, args.out)
+            launch(args.config, args.image, task, args.out, test_format=args.test_format)
         meta['status'] = 'agent_finished' if args.launch else 'prepared'
     except Exception as exc:
         meta['status'] = 'failed'

@@ -1,0 +1,7 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-14894",
+  "repo": "scikit-learn/scikit-learn",
+  "base_commit": "fdbaa58acbead5a254f2e6d597dc1ab3b947f4c6",
+  "version": "0.22",
+  "environment_setup_commit": "7e85a6d1f038bbb932b36f18d75df6be937ed00d"
+}

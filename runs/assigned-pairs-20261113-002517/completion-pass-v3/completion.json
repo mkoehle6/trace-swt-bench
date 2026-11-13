@@ -1,0 +1,43 @@
+{
+  "completed_utc": "2026-11-13T03:04:52.540677+00:00",
+  "assigned_instances": 26,
+  "totals": {
+    "baseline": {
+      "assigned": 26,
+      "setup_errors": 1,
+      "submitted": 25,
+      "non_submission_or_generation_error": 0,
+      "empty_predictions": 1,
+      "fallbacks": 0,
+      "validated_specifications": 0,
+      "known_agent_cost": 0.3648670319999999,
+      "agent_cost_available_runs": 25
+    },
+    "improved": {
+      "assigned": 26,
+      "setup_errors": 1,
+      "submitted": 25,
+      "non_submission_or_generation_error": 0,
+      "empty_predictions": 1,
+      "fallbacks": 4,
+      "validated_specifications": 21,
+      "known_agent_cost": 0.37350890399999986,
+      "agent_cost_available_runs": 25
+    }
+  },
+  "recovered_setup_checks": [
+    "astropy__astropy-14508",
+    "sphinx-doc__sphinx-9711",
+    "sphinx-doc__sphinx-8548",
+    "sphinx-doc__sphinx-8638",
+    "sphinx-doc__sphinx-8551",
+    "sphinx-doc__sphinx-8721",
+    "sphinx-doc__sphinx-8621",
+    "matplotlib__matplotlib-13989",
+    "pydata__xarray-3677",
+    "scikit-learn__scikit-learn-14894"
+  ],
+  "remaining_setup_errors": 1,
+  "workflow_files_unchanged": true,
+  "official_evaluation_run": false
+}

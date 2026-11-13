@@ -1,0 +1,11 @@
+{"utc": "2026-11-13T11:31:56.213871+00:00", "stage": "waiting_for_primary_batch", "instance_id": null}
+{"utc": "2026-11-13T11:31:56.222069+00:00", "stage": "primary_batch_complete", "instance_id": null}
+{"utc": "2026-11-13T11:31:56.320629+00:00", "stage": "unchanged_recipe_setup_retry_started", "instance_id": "matplotlib__matplotlib-25311", "setup_timeout_seconds": 1800}
+{"utc": "2026-11-13T11:32:09.904517+00:00", "stage": "prescribed_setup_verification_started", "instance_id": "matplotlib__matplotlib-25311"}
+{"utc": "2026-11-13T11:32:11.880087+00:00", "stage": "recovery_setup_ready", "instance_id": "matplotlib__matplotlib-25311"}
+{"utc": "2026-11-13T11:32:11.885241+00:00", "stage": "generation_started", "instance_id": "matplotlib__matplotlib-25311", "mode": "baseline"}
+{"utc": "2026-11-13T11:34:21.107738+00:00", "stage": "generation_finished", "instance_id": "matplotlib__matplotlib-25311", "mode": "baseline", "exit_code": 0, "seconds": 129.18903890799993, "timed_out": false}
+{"utc": "2026-11-13T11:34:21.112503+00:00", "stage": "generation_started", "instance_id": "matplotlib__matplotlib-25311", "mode": "improved"}
+{"utc": "2026-11-13T11:36:05.370364+00:00", "stage": "generation_finished", "instance_id": "matplotlib__matplotlib-25311", "mode": "improved", "exit_code": 0, "seconds": 104.22795395799994, "timed_out": false}
+{"utc": "2026-11-13T11:36:05.381766+00:00", "stage": "pair_recorded", "instance_id": "matplotlib__matplotlib-25311"}
+{"utc": "2026-11-13T11:36:20.955357+00:00", "stage": "completion_pass_error", "instance_id": null, "error_type": "RuntimeError", "message": "Final identity audit needs review; preserved audit output contains details."}

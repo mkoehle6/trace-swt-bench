@@ -1,0 +1,45 @@
+2026-11-12 16:20:31,501 - WARNING - Starting evaluation at 1794518431.5014124
+2026-11-12 16:20:31,973 - INFO - Creating container for django__django-13513...
+2026-11-12 16:20:32,098 - INFO - Container for django__django-13513 created: 2d2dc6b8fc2e147af74dfcd30ceb278c8c33699731e1c22325a31e6f49a67e16
+2026-11-12 16:20:32,411 - INFO - Container for django__django-13513 started: 2d2dc6b8fc2e147af74dfcd30ceb278c8c33699731e1c22325a31e6f49a67e16
+2026-11-12 16:20:35,502 - INFO - Git diff before:
+
+2026-11-12 16:20:35,511 - INFO - Eval script for django__django-13513 written to eval.sh, now applying to container...
+2026-11-12 16:20:57,619 - INFO - Test output for django__django-13513 written to run_instance_swt_logs/trace-django-13513-unit-20261112-210808-improved-retry1/pred_pre__trace-improved-unit-test/django__django-13513/test_output.txt
+2026-11-12 16:20:57,722 - INFO - Git diff after:
+diff --git a/tests/view_tests/tests/test_debug.py b/tests/view_tests/tests/test_debug.py
+index 3cbeb2e03a..347fed5a8f 100644
+--- a/tests/view_tests/tests/test_debug.py
++++ b/tests/view_tests/tests/test_debug.py
+@@ -467,6 +467,26 @@ class ExceptionReporterTests(SimpleTestCase):
+         self.assertIn('<p>Request data not supplied</p>', html)
+         self.assertNotIn('During handling of the above exception', html)
+ 
++    def test_reporting_frames_with_suppressed_context(self):
++        try:
++            try:
++                raise RuntimeError('inner')
++            except RuntimeError:
++                raise ValueError('outer') from None
++        except ValueError:
++            exc_type, exc_value, tb = sys.exc_info()
++
++        reporter = ExceptionReporter(None, exc_type, exc_value, tb)
++        frames = reporter.get_traceback_frames()
++
++        self.assertTrue(frames)
++        self.assertNotIn(
++            exc_value.__context__,
++            [frame['exc_cause'] for frame in frames],
++        )
++        for frame in frames:
++            self.assertIsNone(frame['exc_cause'])
++
+     def test_reporting_of_nested_exceptions(self):
+         request = self.rf.get('/test_view/')
+         try:
+2026-11-12 16:20:57,725 - INFO - Git diff changed after running eval script
+2026-11-12 16:20:57,727 - INFO - Attempting to stop container exec.eval.x86_64.f904a9d2e0f61fc0d70077.734543d39d7aa1e46ffe89.132770791937312...
+2026-11-12 16:21:12,923 - INFO - Attempting to remove container exec.eval.x86_64.f904a9d2e0f61fc0d70077.734543d39d7aa1e46ffe89.132770791937312...
+2026-11-12 16:21:12,956 - INFO - Container exec.eval.x86_64.f904a9d2e0f61fc0d70077.734543d39d7aa1e46ffe89.132770791937312 removed.
+2026-11-12 16:21:12,957 - WARNING - End of eval at 1794518472.9577742

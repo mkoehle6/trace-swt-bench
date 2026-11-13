@@ -1,0 +1,32 @@
+{
+  "id": "a674477d-23cf-4b28-9c13-f35eb69b4404",
+  "object": "chat.completion",
+  "created": 1794536402,
+  "model": "deepseek-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"target_function\":{\"value\":null,\"evidence\":null},\"triggering_input\":{\"value\":\"A global variable exists, and inside a class a variable of the same name is documented while autodoc is used via apidoc.\",\"evidence\":\"If a global variable (or really, any kind of variable, just that this would be the most common occurrence) exists, and inside a class you decide to document a variable of the same name, the document of the instance variable will link to the other occurence of a variable under the same name.\"},\"observed_behavior\":{\"value\":\"The documentation of the instance variable links to another variable under the same name.\",\"evidence\":\"the document of the instance variable will link to the other occurence of a variable under the same name.\"},\"expected_behavior\":{\"value\":\"The class variable documentation is not linked to any other variable.\",\"evidence\":\"That the class variable documentation not be linked to any other.\"},\"suggested_assertion\":{\"value\":\"Assert that the class variable documentation is not linked to any other variable.\",\"evidence\":\"That the class variable documentation not be linked to any other.\"}}",
+        "reasoning_content": "We need answer JSON exactly fields, each {value, evidence}. Need extract bug spec ONLY report. Need no fixes. Need determine target_function? This is Sphinx bug likely autodoc/intersphinx? Report doesn't name function. Unknown null. triggering_input: scenario. observed_behavior: instance/class variable documentation links to other variable same name. expected_behavior: not linked to any other; user can explicit reference. suggested_assertion: should only express explicitly supported expected behavior. We can phrase \"Class variable documentation must not be linked to any other variable.\" Evidence exact quote. Need exact nonempty contiguous quote from report for each. For target function unknown null evidence null. Triggering input value maybe \"A global variable exists and inside a class a variable of the same name is documented while autodoc/apidoc is used.\" Evidence quote from report: \"If a global variable (or really, any kind of variable, just that this would be the most common occurrence) exists, and inside a class you decide to document a variable of the same name, the document of the instance variable will link to the other occurence of a variable under the same name.\" Need exact quote contiguous. We can use that as evidence. Observed value \"The documentation of the instance variable links to the other occurrence of a variable under the same name.\" evidence exact same? Good.\n\nExpected behavior: \"The class variable documentation should not be linked to any other variable.\" Evidence exact quote: \"That the class variable documentation not be linked to any other.\" Good. Suggested assertion: \"Assert that the documented class variable is not linked to any other variable.\" Evidence? Need may only express explicitly supported expected. Evidence same quote. But assertion could mention \"class variable documentation\" not linked. Use exact expected. Need no runnable identifiers.\n\nNeed maybe target_function null because report doesn't identify. triggering_input could be object. Ensure JSON object exactly fields. No markdown. Let's craft.\n\nCheck field expected_behavior value maybe quote itself \"That the class variable documentation not be linked to any other.\" Evidence exact. suggested_assertion value \"The class variable documentation must not link to any other variable.\" Evidence \"That the class variable documentation not be linked to any other.\" Good.\n\nNeed maybe observed_behavior mention across subpackages? But core. Use concise.\n\nNeed ensure evidence exact nonempty contiguous from report. Verify quotes.\n\nQuote 1 for triggering: \"If a global variable (or really, any kind of variable, just that this would be the most common occurrence) exists, and inside a class you decide to document a variable of the same name, the document of the instance variable will link to the other occurence of a variable under the same name.\" This includes observed too but okay. It is exact with \"occurence\" typo. Good.\n\nObserved evidence can use shorter exact: \"the document of the instance variable will link to the other occurence of a variable under the same name.\" Is this contiguous? Yes part after comma: \"the document...\" lower-case after comma. The report has \"...same name, the document...\" It is contiguous exact. Nonempty. Good.\n\nExpected quote: \"That the class variable documentation not be linked to any other.\" Exact at start after Expected behavior heading: \"That the class variable documentation not be linked to any other. It is unreasonable...\" Good.\n\nSuggested assertion evidence same expected. Good.\n\nTarget null.\n\nNeed only JSON."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 919,
+    "completion_tokens": 945,
+    "total_tokens": 1864,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 708
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 919
+  },
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+}

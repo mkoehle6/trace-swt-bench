@@ -1,0 +1,17 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8721",
+  "mode": "improved",
+  "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+  "report_sha256": "b2c02c41991ac92fa947e217323e8cb2a82d37f19dceccab7f4ce05aa1d2934a",
+  "image": "sha256:8cae056a843a69964c43dbb869b07375c1966b188011ada9d6be3ae9a310d772",
+  "extract_model": "deepseek-flash",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "status": "agent_finished",
+  "attempts": 1,
+  "validated": true,
+  "fallback": false,
+  "test_format": "unit_test",
+  "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+  "seconds": 155.06254208899918,
+  "baseline_unchanged": true
+}

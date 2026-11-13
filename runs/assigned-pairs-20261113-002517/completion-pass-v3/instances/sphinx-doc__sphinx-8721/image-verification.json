@@ -1,0 +1,37 @@
+{
+  "head": "82ef497a8c88f0f6e50d84520e7276bfbf65025d",
+  "clean": false,
+  "accepted": true,
+  "source_matches_base_except_prescribed_setup": true,
+  "modified_paths": [
+    "setup.py",
+    "tox.ini"
+  ],
+  "unexpected_paths": [],
+  "untracked_paths": [],
+  "file_hashes": {
+    "setup.py": {
+      "expected_sha256": "dfaf0d4db02c48e4dcdc2d56779245c4196614a0d371f65572a9db4e1d8f993a",
+      "actual_sha256": "dfaf0d4db02c48e4dcdc2d56779245c4196614a0d371f65572a9db4e1d8f993a",
+      "matches": true
+    },
+    "tox.ini": {
+      "expected_sha256": "1d9c561990f3fb80e3e4b77554ddf3da024eb6e3810d162ecc31a99032e13a13",
+      "actual_sha256": "1d9c561990f3fb80e3e4b77554ddf3da024eb6e3810d162ecc31a99032e13a13",
+      "matches": true
+    }
+  },
+  "expected_setup_commands": [
+    "sed -i 's/pytest/pytest -rA/' tox.ini",
+    "sed -i 's/Jinja2>=2.3/Jinja2<3.0/' setup.py",
+    "sed -i 's/sphinxcontrib-applehelp/sphinxcontrib-applehelp<=1.0.7/' setup.py",
+    "sed -i 's/sphinxcontrib-devhelp/sphinxcontrib-devhelp<=1.0.5/' setup.py",
+    "sed -i 's/sphinxcontrib-qthelp/sphinxcontrib-qthelp<=1.0.6/' setup.py",
+    "sed -i 's/alabaster>=0.7,<0.8/alabaster>=0.7,<0.7.12/' setup.py",
+    "sed -i \"s/'packaging',/'packaging', 'markupsafe<=2.0.1',/\" setup.py",
+    "sed -i 's/sphinxcontrib-htmlhelp/sphinxcontrib-htmlhelp<=2.0.4/' setup.py",
+    "sed -i 's/sphinxcontrib-serializinghtml/sphinxcontrib-serializinghtml<=1.1.9/' setup.py"
+  ],
+  "diff_sha256": "e2448cd24680a456e66c44e1fb65743f5a80db9d151a881fb59f4a8e5578e9d6",
+  "python": "3.9.25 (main, Nov  3 2025, 22:33:05) \n[GCC 11.2.0]"
+}

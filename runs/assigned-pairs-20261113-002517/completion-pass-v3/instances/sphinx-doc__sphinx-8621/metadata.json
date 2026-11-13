@@ -1,0 +1,7 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8621",
+  "repo": "sphinx-doc/sphinx",
+  "base_commit": "21698c14461d27933864d73e6fba568a154e83b3",
+  "version": "3.5",
+  "environment_setup_commit": "4f8cb861e3b29186b38248fe81e4944fd987fcce"
+}

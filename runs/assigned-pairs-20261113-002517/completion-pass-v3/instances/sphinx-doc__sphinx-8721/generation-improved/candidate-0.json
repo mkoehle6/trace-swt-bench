@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": null,
+    "evidence": null
+  },
+  "triggering_input": {
+    "value": "`make html epub` with `viewcode_enable_epub=False`",
+    "evidence": "viewcode creates pages for epub even if `viewcode_enable_epub=False` on `make html epub`"
+  },
+  "observed_behavior": {
+    "value": "viewcode creates pages for epub even if `viewcode_enable_epub=False` on `make html epub`",
+    "evidence": "viewcode creates pages for epub even if `viewcode_enable_epub=False` on `make html epub`"
+  },
+  "expected_behavior": {
+    "value": "module pages should not be created for epub by default.",
+    "evidence": "module pages should not be created for epub by default."
+  },
+  "suggested_assertion": {
+    "value": "module pages should not be created for epub by default.",
+    "evidence": "module pages should not be created for epub by default."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "baseline": {
+    "original": "runs/django-13513-unit-baseline-prediction-20261112-205739.jsonl",
+    "sha256": "70f1fe8c186d2b41add2c8dd61a7e2c6b2fbdca802e3a3ef2e86791f6ced560e"
+  },
+  "improved": {
+    "original": "runs/django-13513-unit-improved-prediction-20261112-205739-retry1.jsonl",
+    "sha256": "6c6d2e855ed36244cab3c4d76f6af436cea170a4e8d3e2ec2efc6a2efda167ee"
+  }
+}

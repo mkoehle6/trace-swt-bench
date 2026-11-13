@@ -1,0 +1,2 @@
+2026-11-12 21:34:21,195 - INFO - Environment image exec.env.x86_64.437918b9cd24690e5e9c56:latest found for scikit-learn__scikit-learn-14894
+Building instance image exec.eval.x86_64.437918b9cd24690e5e9c56.a13a54a72440a3821adc6d:latest for scikit-learn__scikit-learn-14894

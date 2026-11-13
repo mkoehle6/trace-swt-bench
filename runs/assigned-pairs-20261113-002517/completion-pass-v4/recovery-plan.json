@@ -1,0 +1,20 @@
+{
+  "setup_workers": 2,
+  "generation_workers": 1,
+  "setup_retry_timeout_seconds": 1800,
+  "candidates": [
+    {
+      "entry": {
+        "instance_id": "matplotlib__matplotlib-25311",
+        "group": "hard",
+        "report": "matplotlib__matplotlib-25311/report.txt",
+        "source": "matplotlib__matplotlib-25311/source.json",
+        "report_sha256": "a2583ca80e1609006e02901af35754c41bc9bb0c325da37d2f6fef434d7f2ff7",
+        "repo": "matplotlib/matplotlib",
+        "base_commit": "430fb1db88843300fb4baae3edc499bbfe073b0c"
+      },
+      "rebuild": true,
+      "environment_cached": false
+    }
+  ]
+}

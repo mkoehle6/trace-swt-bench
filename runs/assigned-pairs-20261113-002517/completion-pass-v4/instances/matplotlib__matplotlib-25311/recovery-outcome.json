@@ -1,0 +1,13 @@
+{
+  "status": "setup_retry_failed",
+  "initial_error": {
+    "error_type": "RuntimeError",
+    "message": "Image preparation failed or exceeded setup timeout; see preserved log.",
+    "generation_started": false
+  },
+  "retry": {
+    "exit_code": 1,
+    "seconds": 26.284246757999995,
+    "timed_out": false
+  }
+}

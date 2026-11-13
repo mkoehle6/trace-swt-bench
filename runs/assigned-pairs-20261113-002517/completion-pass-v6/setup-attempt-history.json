@@ -1,0 +1,229 @@
+[
+  {
+    "instance_id": "pydata__xarray-3677",
+    "phase": "primary",
+    "failure": {
+      "error_type": "RuntimeError",
+      "message": "Image preparation failed or exceeded setup timeout; see preserved log.",
+      "generation_started": false
+    },
+    "timing": {
+      "exit_code": -15,
+      "seconds": 610.617033314993,
+      "timed_out": true,
+      "stopped_own_build_containers": [
+        "c15e1b0f0896"
+      ]
+    },
+    "final_outcome": "generation_attempted_after_prescribed_setup_verification",
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pydata__xarray-3677"
+  },
+  {
+    "instance_id": "scikit-learn__scikit-learn-14894",
+    "phase": "primary",
+    "failure": {
+      "error_type": "RuntimeError",
+      "message": "Image preparation failed or exceeded setup timeout; see preserved log.",
+      "generation_started": false
+    },
+    "timing": {
+      "exit_code": -15,
+      "seconds": 610.7322585359943,
+      "timed_out": true,
+      "stopped_own_build_containers": [
+        "4fb47697f3ab"
+      ]
+    },
+    "final_outcome": "generation_attempted_after_prescribed_setup_verification",
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/scikit-learn__scikit-learn-14894"
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-9711",
+    "phase": "primary",
+    "failure": {
+      "error_type": "AssertionError",
+      "message": "",
+      "generation_started": false
+    },
+    "timing": {
+      "exit_code": 0,
+      "seconds": 334.9870197750133,
+      "timed_out": false
+    },
+    "final_outcome": "generation_attempted_after_prescribed_setup_verification",
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-9711"
+  },
+  {
+    "instance_id": "astropy__astropy-14508",
+    "phase": "primary",
+    "failure": {
+      "error_type": "AssertionError",
+      "message": "",
+      "generation_started": false
+    },
+    "timing": {
+      "exit_code": 0,
+      "seconds": 414.7689880580001,
+      "timed_out": false
+    },
+    "final_outcome": "generation_attempted_after_prescribed_setup_verification",
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/astropy__astropy-14508"
+  },
+  {
+    "instance_id": "matplotlib__matplotlib-13989",
+    "phase": "primary",
+    "failure": {
+      "error_type": "RuntimeError",
+      "message": "Image preparation failed or exceeded setup timeout; see preserved log.",
+      "generation_started": false
+    },
+    "timing": {
+      "exit_code": -15,
+      "seconds": 610.8357667490054,
+      "timed_out": true,
+      "stopped_own_build_containers": [
+        "096d19fe0e10"
+      ]
+    },
+    "final_outcome": "generation_attempted_after_prescribed_setup_verification",
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/matplotlib__matplotlib-13989"
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8548",
+    "phase": "primary",
+    "failure": {
+      "error_type": "AssertionError",
+      "message": "",
+      "generation_started": false
+    },
+    "timing": {
+      "exit_code": 0,
+      "seconds": 115.12409467299585,
+      "timed_out": false
+    },
+    "final_outcome": "generation_attempted_after_prescribed_setup_verification",
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8548"
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8638",
+    "phase": "primary",
+    "failure": {
+      "error_type": "AssertionError",
+      "message": "",
+      "generation_started": false
+    },
+    "timing": {
+      "exit_code": 0,
+      "seconds": 112.43156290099432,
+      "timed_out": false
+    },
+    "final_outcome": "generation_attempted_after_prescribed_setup_verification",
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8638"
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8551",
+    "phase": "primary",
+    "failure": {
+      "error_type": "AssertionError",
+      "message": "",
+      "generation_started": false
+    },
+    "timing": {
+      "exit_code": 0,
+      "seconds": 106.22524814200005,
+      "timed_out": false
+    },
+    "final_outcome": "generation_attempted_after_prescribed_setup_verification",
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8551"
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8721",
+    "phase": "primary",
+    "failure": {
+      "error_type": "AssertionError",
+      "message": "",
+      "generation_started": false
+    },
+    "timing": {
+      "exit_code": 0,
+      "seconds": 125.26413347700145,
+      "timed_out": false
+    },
+    "final_outcome": "generation_attempted_after_prescribed_setup_verification",
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8721"
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8621",
+    "phase": "primary",
+    "failure": {
+      "error_type": "AssertionError",
+      "message": "",
+      "generation_started": false
+    },
+    "timing": {
+      "exit_code": 0,
+      "seconds": 107.84391812200192,
+      "timed_out": false
+    },
+    "final_outcome": "generation_attempted_after_prescribed_setup_verification",
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8621"
+  },
+  {
+    "instance_id": "matplotlib__matplotlib-25311",
+    "phase": "primary",
+    "failure": {
+      "error_type": "RuntimeError",
+      "message": "Image preparation failed or exceeded setup timeout; see preserved log.",
+      "generation_started": false
+    },
+    "timing": {
+      "exit_code": -15,
+      "seconds": 610.7323558679927,
+      "timed_out": true,
+      "stopped_own_build_containers": [
+        "c1862afa36cb"
+      ]
+    },
+    "final_outcome": "generation_attempted_after_prescribed_setup_verification",
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/matplotlib__matplotlib-25311"
+  },
+  {
+    "instance_id": "matplotlib__matplotlib-25311",
+    "phase": "unchanged_recipe_retry",
+    "timing": {
+      "exit_code": 0,
+      "seconds": 13.572479252999983,
+      "timed_out": false
+    },
+    "final_outcome": "generation_attempted_after_prescribed_setup_verification",
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311"
+  },
+  {
+    "phase": "coordinator_history",
+    "record": {
+      "utc": "2026-11-13T01:26:57.473646+00:00",
+      "reason": "Replaced idle watcher with a completion pass that also permits one unchanged-recipe retry for setup timeouts.",
+      "generation_started": false,
+      "replacement": "completion-pass-v2"
+    },
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass"
+  },
+  {
+    "phase": "coordinator_history",
+    "record": {
+      "utc": "2026-11-13T02:08:10.620261+00:00",
+      "reason": "Primary batch finished during watcher replacement; the guarded handoff did not succeed, but a second coordinator was started. Stopped the redundant v2 coordinator and its own setup retry. V3 is authoritative.",
+      "generation_started": false,
+      "stopped_parent": 25164,
+      "stopped_children": [
+        27795
+      ],
+      "stopped_own_build_containers": [
+        "cc6e90f5420e"
+      ],
+      "artifacts_preserved": true,
+      "replacement": "completion-pass-v3"
+    },
+    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v2"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "instance_id": "matplotlib__matplotlib-13989",
+  "mode": "improved",
+  "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+  "report_sha256": "bd7e31c43fbb53f7445dfe566704554c351279f662b12305e48aadace4f4b688",
+  "image": "sha256:ae7a0384256ff0e3f28b36a75ea64179a98bbd291ae81918861f366da0a7e070",
+  "extract_model": "deepseek-flash",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "status": "agent_finished",
+  "attempts": 1,
+  "validated": true,
+  "fallback": false,
+  "test_format": "unit_test",
+  "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+  "seconds": 64.54184348799754,
+  "baseline_unchanged": true
+}

@@ -1,0 +1,17 @@
+{
+  "instance_id": "pydata__xarray-3677",
+  "mode": "improved",
+  "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+  "report_sha256": "947bc60baac2d264116ec65e0a512803908ae608f315bbbf622e5dbe282c10d5",
+  "image": "sha256:217a828fb3cc0d64d74aaf3bd56fad7b7e89ed06a0ba8eb103890a0bf184cddb",
+  "extract_model": "deepseek-flash",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "status": "agent_finished",
+  "attempts": 1,
+  "validated": true,
+  "fallback": false,
+  "test_format": "unit_test",
+  "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+  "seconds": 60.89984454899968,
+  "baseline_unchanged": true
+}

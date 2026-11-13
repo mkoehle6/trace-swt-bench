@@ -1,0 +1,40 @@
+This is mini-swe-agent version 2.4.6.
+Check the v2 migration guide at https://klieret.short.gy/mini-v2-migration
+Loading global config from '/home/mlkoe/.config/mini-swe-agent/.env'
+Global cost/call limit: $2.0000 / 0
+minisweagent.environment: DEBUG: Starting container with command: docker run -d 
+--name minisweagent-480b5da4 -w /testbed --rm                                   
+sha256:217a828fb3cc0d64d74aaf3bd56fad7b7e89ed06a0ba8eb103890a0bf184cddb sleep 2h
+minisweagent.environment: INFO: Started container minisweagent-480b5da4 with ID 
+87748e1db95f38918e6a770639dcb403aceee59849141e55110626f8aca2cb83                
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-baseline

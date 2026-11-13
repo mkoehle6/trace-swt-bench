@@ -1,0 +1,4 @@
+{
+  "exit_status": "Submitted",
+  "submission": "diff --git a/xarray/tests/test_dataset.py b/xarray/tests/test_dataset.py\nindex 2220abbe..34eafdc3 100644\n--- a/xarray/tests/test_dataset.py\n+++ b/xarray/tests/test_dataset.py\n@@ -3317,6 +3317,13 @@ class TestDataset:\n         with pytest.raises(ValueError):\n             data.merge(other)\n \n+    def test_merge_dataarray(self):\n+        ds = Dataset({\"a\": 0})\n+        da = DataArray(1, name=\"b\")\n+        expected = xr.merge([ds, da])\n+        actual = ds.merge(da)\n+        assert_identical(actual, expected)\n+\n     def test_setitem_original_non_unique_index(self):\n         # regression test for GH943\n         original = Dataset({\"data\": (\"x\", np.arange(5))}, coords={\"x\": [0, 1, 2, 0, 1]})\n"
+}

@@ -1,0 +1,53 @@
+viewcode creates pages for epub even if `viewcode_enable_epub=False` on `make html epub`
+**Describe the bug**
+viewcode creates pages for epub even if `viewcode_enable_epub=False` on `make html epub`
+
+**To Reproduce**
+```
+$ make html epub
+```
+
+**Expected behavior**
+module pages should not be created for epub by default.
+
+**Your project**
+No
+
+**Screenshots**
+No
+
+**Environment info**
+- OS: Mac
+- Python version: 3.9.1
+- Sphinx version: HEAD of 3.x
+- Sphinx extensions:  sphinx.ext.viewcode
+- Extra tools: No
+
+**Additional context**
+No
+
+
+
+Evidence-grounded specification (supporting analysis):
+{
+  "target_function": {
+    "value": null,
+    "evidence": null
+  },
+  "triggering_input": {
+    "value": "`make html epub` with `viewcode_enable_epub=False`",
+    "evidence": "viewcode creates pages for epub even if `viewcode_enable_epub=False` on `make html epub`"
+  },
+  "observed_behavior": {
+    "value": "viewcode creates pages for epub even if `viewcode_enable_epub=False` on `make html epub`",
+    "evidence": "viewcode creates pages for epub even if `viewcode_enable_epub=False` on `make html epub`"
+  },
+  "expected_behavior": {
+    "value": "module pages should not be created for epub by default.",
+    "evidence": "module pages should not be created for epub by default."
+  },
+  "suggested_assertion": {
+    "value": "module pages should not be created for epub by default.",
+    "evidence": "module pages should not be created for epub by default."
+  }
+}

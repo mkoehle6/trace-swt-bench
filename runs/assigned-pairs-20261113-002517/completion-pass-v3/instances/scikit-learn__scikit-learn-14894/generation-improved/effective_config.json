@@ -1,0 +1,37 @@
+{
+  "agent": {
+    "system_template": "You are a helpful assistant that can interact with a computer shell to solve programming tasks.\n",
+    "instance_template": "<pr_description>\n{{task}}\n</pr_description>\n\n<instructions>\nWrite regression UNIT TESTS for the reported issue in the repository at /testbed.\nDo not fix the bug or change production code, configuration, or dependencies.\nRead the relevant source and existing tests to follow the repository's native\ntest framework, fixtures, naming conventions, and test runner.\n\nModify or add Python test files within the existing test suite. Add test methods\nor test functions that the native runner will discover. Do not submit a standalone\nreproduce.py script or a test that only runs under an if __name__ == '__main__' guard.\nFor Django, prefer the relevant existing tests/<app>/tests.py module and its models\nand fixtures. Use Django/unittest test classes and self.assertEqual or another\nmeaningful assertion. Do not globally call settings.configure or django.setup in\na test module; use the existing Django test runner and test settings.\n\nAssert the expected behavior from the issue. The new test should fail on the buggy\ncheckout for an issue-relevant reason, and pass when the issue is correctly fixed.\nDo not weaken, remove, skip, or disable existing tests or assertions. Do not force\nfailures, swallow unexpected exceptions, or inspect commit IDs to choose outcomes.\nUse only the supplied issue, current source, existing tests, and development tools.\nDo not retrieve reference fixes, reference test patches, PR diffs, or evaluator results.\n\nRun the relevant native test target on the current buggy checkout and inspect its\noutput. Distinguish the expected behavioral failure from syntax/import/setup errors.\nFor Django, inspect tests/runtests.py and existing test documentation for the target\nand settings (for example, python tests/runtests.py model_forms --settings=test_sqlite).\nNo fixed-version result is available during generation. Preserve meaningful assertions.\n\nBash pipefail is enabled for every command: a failing test runner piped through\ntail or tee must produce a nonzero command result. Do not mask failures with\n\"|| true\" or append a successful command after the test pipeline. If you need\nto print the exit status, capture it immediately and exit with that same status:\npython tests/runtests.py model_forms --settings=test_sqlite 2>&1 | tail -80\nstatus=$?; echo \"test runner pipeline exit status: $status\"; exit \"$status\"\nRun patch creation and other follow-up work in separate tool calls.\n\nRespond with reasoning text and at least one bash tool call on each turn. Commands\nrun in separate subshells; directory and environment changes do not persist. Work\nnon-interactively. Never commit. Do not inspect other branches or historical fixes.\n\nSubmission: submit a standard git unified diff containing ONLY unit-test changes.\nFirst inspect git status and git diff. For any newly added test file, run git add -N\non that specific file so it appears in git diff. Do not stage unrelated files.\nCreate /tmp/trace-unit-test.patch using git diff restricted to your changed test paths.\nIn a SEPARATE command, inspect that patch and confirm it contains only intended test\nchanges, no production/config changes, and no standalone reproduction script.\nFinally submit with this exact command, by itself:\necho COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && cat /tmp/trace-unit-test.patch\nDo not continue working after submission.\n</instructions>\n",
+    "step_limit": 100,
+    "cost_limit": 0.5
+  },
+  "environment": {
+    "cwd": "/testbed",
+    "timeout": 60,
+    "interpreter": [
+      "bash",
+      "-o",
+      "pipefail",
+      "-c"
+    ],
+    "env": {
+      "PAGER": "cat",
+      "MANPAGER": "cat",
+      "LESS": "-R",
+      "PIP_PROGRESS_BAR": "off",
+      "TQDM_DISABLE": "1",
+      "BASH_ENV": "/root/.bashrc"
+    },
+    "environment_class": "docker",
+    "image": "sha256:bf7cc895493c7169a618bfea46d91e66259c6b9a7fc073ef98e6f71feaa29788"
+  },
+  "model": {
+    "observation_template": "{% if output.exception_info -%}\n<exception>{{output.exception_info}}</exception>\n{% endif -%}\n<returncode>{{output.returncode}}</returncode>\n{% if output.output | length < 10000 -%}\n<output>\n{{ output.output -}}\n</output>\n{%- else -%}\n<warning>\nThe output of your last command was too long.\nPlease try a different command that produces less output.\nIf you're looking at a file you can try use head, tail or sed to view a smaller number of lines selectively.\nIf you're using grep or find and it produced too much output, you can use a more selective search pattern.\nIf you really need to see something from the full command's output, you can redirect output to a file and then search in that file.\n</warning>\n{%- set elided_chars = output.output | length - 10000 -%}\n<output_head>\n{{ output.output[:5000] }}\n</output_head>\n<elided_chars>\n{{ elided_chars }} characters elided\n</elided_chars>\n<output_tail>\n{{ output.output[-5000:] }}\n</output_tail>\n{%- endif -%}\n",
+    "format_error_template": "{% if finish_reason is defined and (finish_reason == \"length\" or (finish_reason == \"tool_calls\" and not has_tool_calls)) -%}\nYour previous response reached the output token limit (finish_reason={{ finish_reason }}) before you produced a tool call, so it was cut off. Respond more concisely and finish with exactly one bash tool call. If you need to think more, do so briefly.\n{%- else -%}\nTool call error:\n\n<error>\n{{error}}\n</error>\n\nHere is general guidance on how to submit correct toolcalls:\n\nEvery response needs to use the 'bash' tool at least once to execute commands.\n\nCall the bash tool with your command as the argument:\n- Tool: bash\n- Arguments: {\"command\": \"your_command_here\"}\n\nIf you have completed your assignment, please consult the first message about how to\nsubmit your solution (you will not be able to continue working on this task after that).\n{%- endif %}\n",
+    "model_name": "deepseek/deepseek-v4-flash",
+    "model_kwargs": {
+      "drop_params": true,
+      "parallel_tool_calls": true
+    }
+  }
+}

@@ -1,0 +1,1640 @@
+{
+  "assigned_instances": 26,
+  "totals": {
+    "baseline": {
+      "assigned": 26,
+      "setup_errors": 1,
+      "submitted": 25,
+      "non_submission_or_generation_error": 0,
+      "empty_predictions": 1,
+      "fallbacks": 0,
+      "validated_specifications": 0,
+      "known_agent_cost": 0.3648670319999999,
+      "agent_cost_available_runs": 25
+    },
+    "improved": {
+      "assigned": 26,
+      "setup_errors": 1,
+      "submitted": 25,
+      "non_submission_or_generation_error": 0,
+      "empty_predictions": 1,
+      "fallbacks": 4,
+      "validated_specifications": 21,
+      "known_agent_cost": 0.37350890399999986,
+      "agent_cost_available_runs": 25
+    }
+  },
+  "instances": {
+    "pydata__xarray-3677": {
+      "outcome": "generation_attempted_after_prescribed_setup_verification",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-baseline",
+          "manifest": {
+            "instance_id": "pydata__xarray-3677",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "947bc60baac2d264116ec65e0a512803908ae608f315bbbf622e5dbe282c10d5",
+            "image": "sha256:217a828fb3cc0d64d74aaf3bd56fad7b7e89ed06a0ba8eb103890a0bf184cddb",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 44.97619519800355,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "2e165b152342e21878a922847dd5cfa09a422cdfcf1bcb1b31f9f8e914e0e215",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.005670635999999999,
+            "api_calls": 10
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-improved",
+          "manifest": {
+            "instance_id": "pydata__xarray-3677",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "947bc60baac2d264116ec65e0a512803908ae608f315bbbf622e5dbe282c10d5",
+            "image": "sha256:217a828fb3cc0d64d74aaf3bd56fad7b7e89ed06a0ba8eb103890a0bf184cddb",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 60.89984454899968,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "ff97da52607c08d467a605e028d8d51c03a321231fbce4d77378f97311196872",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.00720606,
+            "api_calls": 9
+          }
+        }
+      }
+    },
+    "django__django-14089": {
+      "outcome": "reused_completed_pair",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-14089-unit-baseline-20261112-214542",
+          "manifest": {
+            "instance_id": "django__django-14089",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "cbfb85cb9ea9b08049b15ffaff23b96640926088e725b8b70f7ef2a31b767118",
+            "image": "sha256:67ba7ad4e5efa618cc4c2017acea9a146a1ba641e01f0344746ef7734f1bdb34",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 28.376262425997993,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "6e3f23fdf01daa66cdd7baf3e8be38c9aae003c9fa8c1ad9112a1d85c980cfe5",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.0021845759999999997,
+            "api_calls": 9
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-14089-unit-improved-20261112-214542",
+          "manifest": {
+            "instance_id": "django__django-14089",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "cbfb85cb9ea9b08049b15ffaff23b96640926088e725b8b70f7ef2a31b767118",
+            "image": "sha256:67ba7ad4e5efa618cc4c2017acea9a146a1ba641e01f0344746ef7734f1bdb34",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 34.7298478379962,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "6ba53cbf694ce83f012cb7ce76b26fa88e1ac375bd4e0cd7669c409ac7b3d458",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.0016435560000000004,
+            "api_calls": 8
+          }
+        }
+      }
+    },
+    "django__django-11163": {
+      "outcome": "reused_completed_pair",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-unit-baseline-20261111-212132",
+          "manifest": {
+            "instance_id": "django__django-11163",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "8dbd8cae38c3a82b681a79bdfe8ffaa78aa6f1fad9744a1ca197f90265e5c80b",
+            "image": "exec.eval.x86_64.ee2ad6945f237e9160354f.9abfb63cef178bd684a2ce:latest",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 28.56759861399769,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "ae6f65c20f5490dcbf9eca5c50d54a095497ed178f88f60f211e45c8ee10d583",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.003609696,
+            "api_calls": 10
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-unit-improved-20261111-211606",
+          "manifest": {
+            "instance_id": "django__django-11163",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "8dbd8cae38c3a82b681a79bdfe8ffaa78aa6f1fad9744a1ca197f90265e5c80b",
+            "image": "exec.eval.x86_64.ee2ad6945f237e9160354f.9abfb63cef178bd684a2ce:latest",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 41.266308967999066,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "ae6f65c20f5490dcbf9eca5c50d54a095497ed178f88f60f211e45c8ee10d583",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.003834947999999999,
+            "api_calls": 9
+          }
+        }
+      }
+    },
+    "sympy__sympy-24539": {
+      "outcome": "generation_attempted",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-baseline",
+          "manifest": {
+            "instance_id": "sympy__sympy-24539",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "5645eb901ae72d922815da92b5483de0945f7b54e227337399305e3a845ec92b",
+            "image": "sha256:fc21e07ca56dcfa4dcdd9e6d27261fb451ee1ce7f9160131ee7b90a0677b6c06",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 35.37830582600145,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "686233e2a5301ecfc00400f04c22549c69c8fb822a14fbe032d4f018e82762ba",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.0026873339999999996,
+            "api_calls": 13
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-improved",
+          "manifest": {
+            "instance_id": "sympy__sympy-24539",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "5645eb901ae72d922815da92b5483de0945f7b54e227337399305e3a845ec92b",
+            "image": "sha256:fc21e07ca56dcfa4dcdd9e6d27261fb451ee1ce7f9160131ee7b90a0677b6c06",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 56.74139194600866,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "ff737632874783c41f96d3309ccbccc220b74d14a9423205a61bbcf71579ecb5",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.002339328,
+            "api_calls": 9
+          }
+        }
+      }
+    },
+    "scikit-learn__scikit-learn-14894": {
+      "outcome": "generation_attempted_after_prescribed_setup_verification",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-baseline",
+          "manifest": {
+            "instance_id": "scikit-learn__scikit-learn-14894",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "8cd34df360481dd31fe9a0cc13d8b7654534a8554c8987e2898d4e2cc9fd35c6",
+            "image": "sha256:bf7cc895493c7169a618bfea46d91e66259c6b9a7fc073ef98e6f71feaa29788",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 43.98439433600288,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "1c2068c6f1cc1c38da0de9036f4e2f962736fa71d462d7b02ef14abf8db65124",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.009461016,
+            "api_calls": 14
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-improved",
+          "manifest": {
+            "instance_id": "scikit-learn__scikit-learn-14894",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "8cd34df360481dd31fe9a0cc13d8b7654534a8554c8987e2898d4e2cc9fd35c6",
+            "image": "sha256:bf7cc895493c7169a618bfea46d91e66259c6b9a7fc073ef98e6f71feaa29788",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 68.85709043398674,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "cd5909cb2c680bd8c60c594a58c68ea273a4f90e236365809f571baeef18e4c8",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.008862923999999998,
+            "api_calls": 14
+          }
+        }
+      }
+    },
+    "sphinx-doc__sphinx-9711": {
+      "outcome": "generation_attempted_after_prescribed_setup_verification",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-baseline",
+          "manifest": {
+            "instance_id": "sphinx-doc__sphinx-9711",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "d0f04df4d27c6bdbbd772f1933ae843a07dafd0071f21e4249e16a99402b79c6",
+            "image": "sha256:02ccf27bbb9e26bd64f87819de3b955a4aae5509ff31df16c62c94e19cae0f21",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 53.33602063100261,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "8d94c1e36a371e0a28f3bb16f9cf604e6460dd736a526ef2b962def19c646377",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.009629556,
+            "api_calls": 15
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-improved",
+          "manifest": {
+            "instance_id": "sphinx-doc__sphinx-9711",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "d0f04df4d27c6bdbbd772f1933ae843a07dafd0071f21e4249e16a99402b79c6",
+            "image": "sha256:02ccf27bbb9e26bd64f87819de3b955a4aae5509ff31df16c62c94e19cae0f21",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 64.42993762900005,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "5d8bd0573551ff4bbc5586f22397190c1bd84f22cec142207943c9d3c45e1274",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.007823424,
+            "api_calls": 11
+          }
+        }
+      }
+    },
+    "astropy__astropy-14508": {
+      "outcome": "generation_attempted_after_prescribed_setup_verification",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-baseline",
+          "manifest": {
+            "instance_id": "astropy__astropy-14508",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "44e63d3eb02f28479ec3fe3e828506fac14ae5ffaf8965e0f732b702633161b7",
+            "image": "sha256:6e68b416120c0cfdbd7d3a7517cfd15f60ba2cab88e9e2b61111a2a88bcc7255",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 58.927967356998124,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "f4ee9507ce59752d53348f42e71292bb18a05bfa40d1fc28e9cae21ec3869556",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.008907635999999998,
+            "api_calls": 12
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-improved",
+          "manifest": {
+            "instance_id": "astropy__astropy-14508",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "44e63d3eb02f28479ec3fe3e828506fac14ae5ffaf8965e0f732b702633161b7",
+            "image": "sha256:6e68b416120c0cfdbd7d3a7517cfd15f60ba2cab88e9e2b61111a2a88bcc7255",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 2,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 101.87335922700004,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "2085bba37c9287c637267a62424fab4dcf4a6c1ed00d6b04654e9583d4c88f19",
+          "saved_extraction_requests": 2,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.007267043999999999,
+            "api_calls": 12
+          }
+        }
+      }
+    },
+    "pytest-dev__pytest-7432": {
+      "outcome": "generation_attempted",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-baseline",
+          "manifest": {
+            "instance_id": "pytest-dev__pytest-7432",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "e307671199926fe7f0b579f6701e4ca717b8d01ab1d629a2419dc3b23f78ce04",
+            "image": "sha256:599fbcbcfd387c21acd2090ec3653d9d2b2b1c0afb6299c08fe369a6bf6200f4",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 62.925983627006644,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "118c28361e5ec7868c9aa4a4d9cc171ea917f76316a60ef0f8544120d3a25398",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.010675596,
+            "api_calls": 14
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-improved",
+          "manifest": {
+            "instance_id": "pytest-dev__pytest-7432",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "e307671199926fe7f0b579f6701e4ca717b8d01ab1d629a2419dc3b23f78ce04",
+            "image": "sha256:599fbcbcfd387c21acd2090ec3653d9d2b2b1c0afb6299c08fe369a6bf6200f4",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 84.76840470499883,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "f07263cfec0714b71d52e41f9e8629a4b6ef8fd2b690fb64773de65341825e6d",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.011183712,
+            "api_calls": 16
+          }
+        }
+      }
+    },
+    "pallets__flask-5014": {
+      "outcome": "generation_attempted",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-baseline",
+          "manifest": {
+            "instance_id": "pallets__flask-5014",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "9634630d4a22c5655a4bfdcc0704bab4d67521546a9aa184f196b716d82b6d28",
+            "image": "sha256:5f1100b1896fe5ada954d281b7bb99c222c5e5c78ea0074373c625f18bb0e7ec",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 32.08869756499189,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "b089149892bc4274d6c9f637182c347b8c56f3f8170b4664c53e695c30f62d1f",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.005935188,
+            "api_calls": 10
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-improved",
+          "manifest": {
+            "instance_id": "pallets__flask-5014",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "9634630d4a22c5655a4bfdcc0704bab4d67521546a9aa184f196b716d82b6d28",
+            "image": "sha256:5f1100b1896fe5ada954d281b7bb99c222c5e5c78ea0074373c625f18bb0e7ec",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 47.99451275600586,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "b089149892bc4274d6c9f637182c347b8c56f3f8170b4664c53e695c30f62d1f",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.004881564,
+            "api_calls": 9
+          }
+        }
+      }
+    },
+    "matplotlib__matplotlib-13989": {
+      "outcome": "generation_attempted_after_prescribed_setup_verification",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-baseline",
+          "manifest": {
+            "instance_id": "matplotlib__matplotlib-13989",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "bd7e31c43fbb53f7445dfe566704554c351279f662b12305e48aadace4f4b688",
+            "image": "sha256:ae7a0384256ff0e3f28b36a75ea64179a98bbd291ae81918861f366da0a7e070",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 71.56613941100659,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "9078b0035e2723e9280cfeecd943de8d4e02565c6ac6b9bc312ce5a2ee407baa",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.011929763999999999,
+            "api_calls": 17
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-improved",
+          "manifest": {
+            "instance_id": "matplotlib__matplotlib-13989",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "bd7e31c43fbb53f7445dfe566704554c351279f662b12305e48aadace4f4b688",
+            "image": "sha256:ae7a0384256ff0e3f28b36a75ea64179a98bbd291ae81918861f366da0a7e070",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 64.54184348799754,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "a65a33b7da819317bfb504cf42c96c3d91571c2ca81694827bcd12ca0b6f3e4a",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.0074742479999999984,
+            "api_calls": 11
+          }
+        }
+      }
+    },
+    "psf__requests-2931": {
+      "outcome": "generation_attempted",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-baseline",
+          "manifest": {
+            "instance_id": "psf__requests-2931",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "c36c337f6c5d918e8d193684510213e2eaed8633e575b819757674cca0d980fd",
+            "image": "sha256:bdcc1b73c8f5290b5cb75ff1af20de52d1124c9228bc485ccdd20347cb48aff6",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 39.364901287990506,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "d8da2dd46002fdd9fc50201be685f18c9b340954fc67cfd0cd5c0315165bfe0f",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.006536652,
+            "api_calls": 14
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved",
+          "manifest": {
+            "instance_id": "psf__requests-2931",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "c36c337f6c5d918e8d193684510213e2eaed8633e575b819757674cca0d980fd",
+            "image": "sha256:bdcc1b73c8f5290b5cb75ff1af20de52d1124c9228bc485ccdd20347cb48aff6",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 55.883252425002865,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "b9209025e1e0ad7f951d84b81dd41529a6f7308e0c1e0d0d46dcb613442b7051",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.00731196,
+            "api_calls": 14
+          }
+        }
+      }
+    },
+    "pylint-dev__pylint-6903": {
+      "outcome": "generation_attempted",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-baseline",
+          "manifest": {
+            "instance_id": "pylint-dev__pylint-6903",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "0bdc3dd1eaa84d947733bea808a2aa7c6c18f69c90e26bddfc275c52cdd0417e",
+            "image": "sha256:1234455f1f4261e96636ec4012f3a3dbc41149eebe3673af853e7885bbc8d5e8",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 77.7540130349953,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "2c4a0561f405d8c5066164ec432a7a5688da5aa9f31a72acf3e96edde9c39e6c",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.015054983999999999,
+            "api_calls": 15
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-improved",
+          "manifest": {
+            "instance_id": "pylint-dev__pylint-6903",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "0bdc3dd1eaa84d947733bea808a2aa7c6c18f69c90e26bddfc275c52cdd0417e",
+            "image": "sha256:1234455f1f4261e96636ec4012f3a3dbc41149eebe3673af853e7885bbc8d5e8",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 72.72832317200664,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "80b9947a101bfc39a247a83694efe7b5d6f6ff554f0280ad0a51427971fcd35a",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.010184111999999999,
+            "api_calls": 10
+          }
+        }
+      }
+    },
+    "mwaskom__seaborn-3187": {
+      "outcome": "generation_attempted",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-baseline",
+          "manifest": {
+            "instance_id": "mwaskom__seaborn-3187",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "3fbb504a4a9117e3faae220f3ea233c37924cff5b85905ffeb5a98eb55d6e1b1",
+            "image": "sha256:0ecdc051f07630889fd5d12e2fc513030fcafb17e5197c9a082a9fb83bc5fe6d",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 206.55354263099434,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "b55376b8a04320515de15c934974f2741bbc46529bd14c1cfb61f4dfa9ccf31c",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.043894380000000004,
+            "api_calls": 36
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-improved",
+          "manifest": {
+            "instance_id": "mwaskom__seaborn-3187",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "3fbb504a4a9117e3faae220f3ea233c37924cff5b85905ffeb5a98eb55d6e1b1",
+            "image": "sha256:0ecdc051f07630889fd5d12e2fc513030fcafb17e5197c9a082a9fb83bc5fe6d",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 3,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 324.77031860100396,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "6874c86d1e93bb0c51f0871cfaf534e8dbec8d2e7abbed7df087838ed8e94bd3",
+          "saved_extraction_requests": 3,
+          "saved_review_requests": 3,
+          "agent_stats": {
+            "instance_cost": 0.040890467999999985,
+            "api_calls": 36
+          }
+        }
+      }
+    },
+    "django__django-13513": {
+      "outcome": "reused_completed_pair",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13513-unit-baseline-20261112-205739",
+          "manifest": {
+            "instance_id": "django__django-13513",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "db52b2ac85d9ffdc2d35533770ede3c4c61472b7e111b351053abd0d678468d5",
+            "image": "sha256:677635982b65db91a2592d980a197d34dae09dd634d11f58bb35be956f3c4f2c",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 58.10482601399417,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "a5233b91f9090c66d2767e983773164065d2550d9c94a9dc9d1b3b146a72a579",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.006054978000000001,
+            "api_calls": 15
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13513-unit-improved-20261112-205739-retry1",
+          "manifest": {
+            "instance_id": "django__django-13513",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "db52b2ac85d9ffdc2d35533770ede3c4c61472b7e111b351053abd0d678468d5",
+            "image": "sha256:677635982b65db91a2592d980a197d34dae09dd634d11f58bb35be956f3c4f2c",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 71.04312199800916,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "fe123894520414abe0ae3f4b8541b1bb7d35f6fd31f004991eea6ce3a3a1815e",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.004988112,
+            "api_calls": 12
+          }
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8548": {
+      "outcome": "generation_attempted_after_prescribed_setup_verification",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-baseline",
+          "manifest": {
+            "instance_id": "sphinx-doc__sphinx-8548",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "f0c8a912cffb03b9d6346146e11cf044329280bfe2a193fd9e46980b193cffb0",
+            "image": "sha256:28c4aa5a52e483a3a3ceca850c87bbdadc9b7790664b633441f154490717a938",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 156.44238054200832,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "0d8b1f8d9e05befad78dd37d1a95b419a70c2cd6939bcb1d743a899721bc2e04",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.028940423999999996,
+            "api_calls": 34
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-improved",
+          "manifest": {
+            "instance_id": "sphinx-doc__sphinx-8548",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "f0c8a912cffb03b9d6346146e11cf044329280bfe2a193fd9e46980b193cffb0",
+            "image": "sha256:28c4aa5a52e483a3a3ceca850c87bbdadc9b7790664b633441f154490717a938",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 184.03934364201268,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "efe1b694bd674b6638d19b9a9d4f9263a6cda1b4037ee40df3cb7c3786fdec1a",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.035901143999999996,
+            "api_calls": 35
+          }
+        }
+      }
+    },
+    "django__django-13344": {
+      "outcome": "reused_completed_pair",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13344-unit-baseline-20261112-151544",
+          "manifest": {
+            "instance_id": "django__django-13344",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "fa0d64caaae3c17b9e52c447593c2c8ac3354046b1df2ceb293645b293b06090",
+            "image": "exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038:latest",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 153.71427780100203,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "957b27fa7a40dc61d1345e8ad666bac75c55f4c897fda60075d3e055127f2edd",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.017649587999999997,
+            "api_calls": 30
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13344-unit-improved-20261112-151925",
+          "manifest": {
+            "instance_id": "django__django-13344",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "fa0d64caaae3c17b9e52c447593c2c8ac3354046b1df2ceb293645b293b06090",
+            "image": "exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038:latest",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 2,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 271.1984693370032,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "d18e4ac0f4bb2010252ad89f92379fc511e809daf11f52b6ade1a80d84f3b09d",
+          "saved_extraction_requests": 2,
+          "saved_review_requests": 2,
+          "agent_stats": {
+            "instance_cost": 0.022968078000000003,
+            "api_calls": 45
+          }
+        }
+      }
+    },
+    "django__django-15098": {
+      "outcome": "generation_attempted",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-baseline",
+          "manifest": {
+            "instance_id": "django__django-15098",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "d851e9e482d434693a8ffd0b6f1452774897d663326ba7f51d28aa70893506b5",
+            "image": "sha256:84ac708d594e14d5390648e83b32e961fc2031de2084c69fc64903e0a56763c7",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 133.005745344999,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "fdfea03257eab421848e349402d2e1a9d6d742ee153bd4ec87ac4e3018143083",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.015512772,
+            "api_calls": 28
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-improved",
+          "manifest": {
+            "instance_id": "django__django-15098",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "d851e9e482d434693a8ffd0b6f1452774897d663326ba7f51d28aa70893506b5",
+            "image": "sha256:84ac708d594e14d5390648e83b32e961fc2031de2084c69fc64903e0a56763c7",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 3,
+            "validated": false,
+            "fallback": true,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 237.5355483940075,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "b1de65bfd460713cc08e9bf2e3a9cf9a2c4c7ff8c74c855851c92198ad4d5c6c",
+          "saved_extraction_requests": 3,
+          "saved_review_requests": 3,
+          "agent_stats": {
+            "instance_cost": 0.020098080000000004,
+            "api_calls": 25
+          }
+        }
+      }
+    },
+    "django__django-12155": {
+      "outcome": "reused_completed_pair",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-12155-unit-baseline-20261112-143526",
+          "manifest": {
+            "instance_id": "django__django-12155",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "9f32a4a285f49a0f7005c54b76bcfa9d413dcf203ccc4e6f03bdb5bd89f537a4",
+            "image": "exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9:latest",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 64.26030059299956,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "f4aabec7d7f81ec2c8a7ad8394bb881810e46e594648b79649d7f895f129b9e8",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.006123251999999999,
+            "api_calls": 18
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-12155-unit-improved-20261112-144127",
+          "manifest": {
+            "instance_id": "django__django-12155",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "9f32a4a285f49a0f7005c54b76bcfa9d413dcf203ccc4e6f03bdb5bd89f537a4",
+            "image": "exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9:latest",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 104.22351676899416,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "f3dcb12f36967519bdb8893991e690bf48fc4352c9636adb369b61f3d80aa588",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.007280718,
+            "api_calls": 20
+          }
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8638": {
+      "outcome": "generation_attempted_after_prescribed_setup_verification",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-baseline",
+          "manifest": {
+            "instance_id": "sphinx-doc__sphinx-8638",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "db3680583b1b7c0ace2bbea45365b75ad242368e515f066413dca0107a099392",
+            "image": "sha256:b7b12c0eb821aeed9b0b5c12d63b162d3c7931bf4b2bddceed4fa7eefbdba51a",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 184.22521653500735,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "d710cc5fb7f09d91f1d1b6b84e9dfe0533766ece8f7113ebe695cc0a60d7e484",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.040474908000000004,
+            "api_calls": 40
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-improved",
+          "manifest": {
+            "instance_id": "sphinx-doc__sphinx-8638",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "db3680583b1b7c0ace2bbea45365b75ad242368e515f066413dca0107a099392",
+            "image": "sha256:b7b12c0eb821aeed9b0b5c12d63b162d3c7931bf4b2bddceed4fa7eefbdba51a",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 296.00968854199164,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "5300b5a07f30dc5408e78c88c445e5c7e32ff0ccbfa34a4020dfb77484694e34",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.06039928799999998,
+            "api_calls": 47
+          }
+        }
+      }
+    },
+    "django__django-15252": {
+      "outcome": "generation_attempted",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline",
+          "manifest": {
+            "instance_id": "django__django-15252",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "ac94dfb5dfb9903b30502daafec445b4d52b5549b1ab13215baf510048fc3e7d",
+            "image": "sha256:657fd3f51a17038a2b60f49072075f7c376bcf5d2e187dd2784a9025f37b641b",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 221.30811099499988,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "9a40a18fd1d89cf863e8aa2e6e5c31a343c116eac27c34bb594d416761c596e2",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.026755104,
+            "api_calls": 39
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-improved",
+          "manifest": {
+            "instance_id": "django__django-15252",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "ac94dfb5dfb9903b30502daafec445b4d52b5549b1ab13215baf510048fc3e7d",
+            "image": "sha256:657fd3f51a17038a2b60f49072075f7c376bcf5d2e187dd2784a9025f37b641b",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 161.4466987180058,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "ab07bcc7c4b61452ecc1767be74fa047333bb84ecc0db42ebabb2aec0d219619",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.015701609999999998,
+            "api_calls": 29
+          }
+        }
+      }
+    },
+    "django__django-16631": {
+      "outcome": "generation_attempted",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-baseline",
+          "manifest": {
+            "instance_id": "django__django-16631",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "32af93df5e62a2e558611028be5030691d5720d2a172c9a0e83213c68d779a8a",
+            "image": "sha256:b80fb7e55de32a4e60dd7d5f314e9d316bcfc0ca65f4f667296babe93cf5681c",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 77.60612871299963,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "f9f10b022ed18ec1d3d6e11ce10c54522464de338c24d9c8857a1f8bee48a1dc",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.008372448,
+            "api_calls": 18
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-improved",
+          "manifest": {
+            "instance_id": "django__django-16631",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "32af93df5e62a2e558611028be5030691d5720d2a172c9a0e83213c68d779a8a",
+            "image": "sha256:b80fb7e55de32a4e60dd7d5f314e9d316bcfc0ca65f4f667296babe93cf5681c",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 3,
+            "validated": false,
+            "fallback": true,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 185.10919944400666,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "2590061ffcd9d075f4fb3ab42b40a1c2cdbd51100566164efae4e74d3ee5392a",
+          "saved_extraction_requests": 3,
+          "saved_review_requests": 3,
+          "agent_stats": {
+            "instance_cost": 0.009762666,
+            "api_calls": 22
+          }
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8551": {
+      "outcome": "generation_attempted_after_prescribed_setup_verification",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-baseline",
+          "manifest": {
+            "instance_id": "sphinx-doc__sphinx-8551",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "55ab6b317422e0f7ba3b455ef4e2306949cafbb0a17b02fac8ed87ebad92b2da",
+            "image": "sha256:10d1952a87f2d5842ea8414198ef45e0cf13bfcc9e99988dabcf9b73edf15153",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 177.74125593299686,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "2053da1006bd208e91de7f84a80d8daf72239673d41b9c53bfb983236b166b24",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.031117356000000002,
+            "api_calls": 40
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-improved",
+          "manifest": {
+            "instance_id": "sphinx-doc__sphinx-8551",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "55ab6b317422e0f7ba3b455ef4e2306949cafbb0a17b02fac8ed87ebad92b2da",
+            "image": "sha256:10d1952a87f2d5842ea8414198ef45e0cf13bfcc9e99988dabcf9b73edf15153",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 3,
+            "validated": false,
+            "fallback": true,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 206.29900832500425,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "dcf33b4fb316c1750e1243fd9938f076fee8e7f5ec6f75198f56b4ad433aa38c",
+          "saved_extraction_requests": 3,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.024385728000000006,
+            "api_calls": 33
+          }
+        }
+      }
+    },
+    "django__django-13810": {
+      "outcome": "generation_attempted",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-baseline",
+          "manifest": {
+            "instance_id": "django__django-13810",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "56e9927b1d405bb6be5bd7a327cea4ed7a83858f705590310391df2fd2066379",
+            "image": "sha256:cee670d2218c1c79cfeaa8f8a9ab7adb4044d1eec3b8e412a7276a192a77bb2f",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 76.63386596599594,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "cbbb0f6a7a150eee3b5f54f4602b38bf2cfd206f605c81e43a24255fc7bb9005",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.008022647999999999,
+            "api_calls": 16
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-improved",
+          "manifest": {
+            "instance_id": "django__django-13810",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "56e9927b1d405bb6be5bd7a327cea4ed7a83858f705590310391df2fd2066379",
+            "image": "sha256:cee670d2218c1c79cfeaa8f8a9ab7adb4044d1eec3b8e412a7276a192a77bb2f",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 3,
+            "validated": false,
+            "fallback": true,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 101.43173856000067,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "5006b52a46f63975dfc6d174c65f9193579918c4d6ee379bc51da1a469e7c474",
+          "saved_extraction_requests": 3,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.004279740000000001,
+            "api_calls": 12
+          }
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8721": {
+      "outcome": "generation_attempted_after_prescribed_setup_verification",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-baseline",
+          "manifest": {
+            "instance_id": "sphinx-doc__sphinx-8721",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "b2c02c41991ac92fa947e217323e8cb2a82d37f19dceccab7f4ce05aa1d2934a",
+            "image": "sha256:8cae056a843a69964c43dbb869b07375c1966b188011ada9d6be3ae9a310d772",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 105.15103933899081,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "6b56be985de088e8e1a3fe2745293f14977415c60b5da905f0a2236644b13e09",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.019211844,
+            "api_calls": 27
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-improved",
+          "manifest": {
+            "instance_id": "sphinx-doc__sphinx-8721",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "b2c02c41991ac92fa947e217323e8cb2a82d37f19dceccab7f4ce05aa1d2934a",
+            "image": "sha256:8cae056a843a69964c43dbb869b07375c1966b188011ada9d6be3ae9a310d772",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 155.06254208899918,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "fe5d2235a977ebed2e42f08f66315b0c16093da40ac493b68ecba5c7b2e10df5",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.020943648000000002,
+            "api_calls": 25
+          }
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8621": {
+      "outcome": "generation_attempted_after_prescribed_setup_verification",
+      "methods": {
+        "baseline": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-baseline",
+          "manifest": {
+            "instance_id": "sphinx-doc__sphinx-8621",
+            "mode": "baseline",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "3f0347c9f81580fca8b2e6d6adc6da42b04284bb83a30cc7ef60834d30113873",
+            "image": "sha256:0ade63be18ea339f4b301933a63edd04a68f0de0c5dda31f48be637647801b13",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 0,
+            "validated": false,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 109.90486622099706,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "c5f6f808c6807635192d9d2045a03c0834ca0a3bef78587b41e088fec6abf7b4",
+          "saved_extraction_requests": 0,
+          "saved_review_requests": 0,
+          "agent_stats": {
+            "instance_cost": 0.020454695999999998,
+            "api_calls": 19
+          }
+        },
+        "improved": {
+          "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-improved",
+          "manifest": {
+            "instance_id": "sphinx-doc__sphinx-8621",
+            "mode": "improved",
+            "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+            "report_sha256": "3f0347c9f81580fca8b2e6d6adc6da42b04284bb83a30cc7ef60834d30113873",
+            "image": "sha256:0ade63be18ea339f4b301933a63edd04a68f0de0c5dda31f48be637647801b13",
+            "extract_model": "deepseek-flash",
+            "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+            "status": "agent_finished",
+            "attempts": 1,
+            "validated": true,
+            "fallback": false,
+            "test_format": "unit_test",
+            "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+            "seconds": 148.4870994380035,
+            "baseline_unchanged": true
+          },
+          "agent_exit_status": "Submitted",
+          "prediction_empty": false,
+          "model_patch_sha256": "81fcac023aa9b5b3a8550e25e8124a9271fab3fe7fd9fef3a9b47df78cc812e6",
+          "saved_extraction_requests": 1,
+          "saved_review_requests": 1,
+          "agent_stats": {
+            "instance_cost": 0.025896744000000003,
+            "api_calls": 19
+          }
+        }
+      }
+    },
+    "matplotlib__matplotlib-25311": {
+      "outcome": "setup_failed",
+      "methods": {
+        "baseline": {
+          "run": null,
+          "manifest": null,
+          "agent_exit_status": null,
+          "prediction_empty": true,
+          "model_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "improved": {
+          "run": null,
+          "manifest": null,
+          "agent_exit_status": null,
+          "prediction_empty": true,
+          "model_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    }
+  },
+  "recovered_setup_checks": [
+    "astropy__astropy-14508",
+    "sphinx-doc__sphinx-9711",
+    "sphinx-doc__sphinx-8548",
+    "sphinx-doc__sphinx-8638",
+    "sphinx-doc__sphinx-8551",
+    "sphinx-doc__sphinx-8721",
+    "sphinx-doc__sphinx-8621",
+    "matplotlib__matplotlib-13989",
+    "pydata__xarray-3677",
+    "scikit-learn__scikit-learn-14894"
+  ],
+  "rejected_setup_recoveries": [
+    "matplotlib__matplotlib-25311"
+  ],
+  "official_evaluation_run": false,
+  "cost_note": "Known agent-only cost; preprocessing cost is additional."
+}

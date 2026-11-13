@@ -1,0 +1,20 @@
+{
+    "total_instances": 1,
+    "completed_instances": 0,
+    "resolved_instances": 0,
+    "unresolved_instances": 1,
+    "error_instances": 0,
+    "Mean coverage": 1.0,
+    "Mean coverage delta": 0.6470588235294118,
+    "unstopped_instances": 0,
+    "completed_ids": [],
+    "resolved_ids": [],
+    "unresolved_ids": [
+        "django__django-13513"
+    ],
+    "error_ids": [],
+    "unstopped_containers": [],
+    "unremoved_images": [
+        "exec.eval.x86_64.f904a9d2e0f61fc0d70077.734543d39d7aa1e46ffe89:latest"
+    ]
+}

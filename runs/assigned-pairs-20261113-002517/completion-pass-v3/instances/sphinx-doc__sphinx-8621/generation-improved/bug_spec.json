@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "kbd role",
+    "evidence": "kbd role produces incorrect HTML when compound-key separators (-, + or ^) are used as keystrokes"
+  },
+  "triggering_input": {
+    "value": ":kbd:`-`, :kbd:`+`, and :kbd:`Shift-+`",
+    "evidence": "(1) :kbd:`-`\n(2) :kbd:`+`\n(3) :kbd:`Shift-+`"
+  },
+  "observed_behavior": {
+    "value": "The kbd role generates nested kbd elements with empty inner kbd elements around a separator when a separator is used as a keystroke.",
+    "evidence": "<kbd class=\"kbd docutils literal notranslate\"><kbd class=\"kbd docutils literal notranslate\"></kbd>-<kbd class=\"kbd docutils literal notranslate\"></kbd></kbd>"
+  },
+  "expected_behavior": {
+    "value": "For single keystrokes that use -, +, or ^, just a single kbd element should be created; for compound keystrokes, the algorithm should differentiate between separator and keystroke positions.",
+    "evidence": "For single keystrokes that use `-`, `+` or`^`, just a single `kbd` element should be created.\n\nFor compound-keystrokes, the algorithm should differentiate between `-`, `+` and `^` characters appearing in separator vs keystroke positions (currently, it's very simplistic, it just treats all these characters as separators using a simple regexp)."
+  },
+  "suggested_assertion": {
+    "value": "A single keystroke using '-', '+', or '^' should render as just a single kbd element.",
+    "evidence": "For single keystrokes that use `-`, `+` or`^`, just a single `kbd` element should be created."
+  }
+}

@@ -1,0 +1,2320 @@
+[
+  {
+    "instance_id": "pydata__xarray-3677",
+    "group": "easy",
+    "title": "Merging dataArray into dataset using dataset method fails",
+    "narrative": "Both methods compare Dataset.merge(DataArray) with the top-level merge result. Both fail with AttributeError because DataArray has no items attribute. Baseline places the test in test_dataset.py; improved uses test_merge.py, where the broader run has one failure and eight passes.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-baseline",
+        "status": "Submitted",
+        "seconds": 44.97619519800355,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.005670635999999999,
+        "files": [
+          "xarray/tests/test_dataset.py"
+        ],
+        "patch_sha256": "2e165b152342e21878a922847dd5cfa09a422cdfcf1bcb1b31f9f8e914e0e215",
+        "execution_evidence": [
+          {
+            "message_index": 15,
+            "lines": [
+              "E       AttributeError: 'DataArray' object has no attribute 'items'. Did you mean: 'item'?",
+              "1 failed, 9 warnings in 7.44s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-improved",
+        "status": "Submitted",
+        "seconds": 60.89984454899968,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.00720606,
+        "files": [
+          "xarray/tests/test_merge.py"
+        ],
+        "patch_sha256": "ff97da52607c08d467a605e028d8d51c03a321231fbce4d77378f97311196872",
+        "execution_evidence": [
+          {
+            "message_index": 12,
+            "lines": [
+              "E       AttributeError: 'DataArray' object has no attribute 'items'. Did you mean: 'item'?",
+              "1 failed, 9 warnings in 7.00s"
+            ]
+          },
+          {
+            "message_index": 14,
+            "lines": [
+              "E       AttributeError: 'DataArray' object has no attribute 'items'. Did you mean: 'item'?",
+              "1 failed, 8 passed, 26 warnings in 4.73s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "django__django-14089",
+    "group": "easy",
+    "title": "Allow calling reversed() on an OrderedSet",
+    "narrative": "Both add an OrderedSet reversal test and encounter TypeError: the object is not reversible. Baseline also includes an empty-set assertion, although execution stops at the first error. Baseline runs seven tests; improved runs 44, each with one error.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-14089-unit-baseline-20261112-214542",
+        "status": "Submitted",
+        "seconds": 28.376262425997993,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.0021845759999999997,
+        "files": [
+          "tests/utils_tests/test_datastructures.py"
+        ],
+        "patch_sha256": "6e3f23fdf01daa66cdd7baf3e8be38c9aae003c9fa8c1ad9112a1d85c980cfe5",
+        "execution_evidence": [
+          {
+            "message_index": 14,
+            "lines": [
+              "Ran 6 tests in 0.001s",
+              "OK"
+            ]
+          },
+          {
+            "message_index": 18,
+            "lines": [
+              "ERROR: test_reversed (utils_tests.test_datastructures.OrderedSetTests)",
+              "TypeError: 'OrderedSet' object is not reversible",
+              "Ran 7 tests in 0.001s",
+              "FAILED (errors=1)"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-14089-unit-improved-20261112-214542",
+        "status": "Submitted",
+        "seconds": 34.7298478379962,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.0016435560000000004,
+        "files": [
+          "tests/utils_tests/test_datastructures.py"
+        ],
+        "patch_sha256": "6ba53cbf694ce83f012cb7ce76b26fa88e1ac375bd4e0cd7669c409ac7b3d458",
+        "execution_evidence": [
+          {
+            "message_index": 11,
+            "lines": [
+              "ERROR: test_reversed (utils_tests.test_datastructures.OrderedSetTests)",
+              "TypeError: 'OrderedSet' object is not reversible",
+              "Ran 44 tests in 0.072s",
+              "FAILED (errors=1)"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "django__django-11163",
+    "group": "easy",
+    "title": "model_to_dict() should return an empty dict for an empty list of fields.",
+    "narrative": "Both submit identical model_to_dict(fields=[]) tests. Each runs 165 tests with one failure: the result contains model fields instead of an empty dictionary.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-unit-baseline-20261111-212132",
+        "status": "Submitted",
+        "seconds": 28.56759861399769,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.003609696,
+        "files": [
+          "tests/model_forms/tests.py"
+        ],
+        "patch_sha256": "ae6f65c20f5490dcbf9eca5c50d54a095497ed178f88f60f211e45c8ee10d583",
+        "execution_evidence": [
+          {
+            "message_index": 15,
+            "lines": [
+              "FAIL: test_empty_fields (model_forms.tests.ModelToDictTests)",
+              "AssertionError: {'id': 1, 'name': '', 'colours': []} != {}",
+              "Ran 165 tests in 0.266s",
+              "FAILED (failures=1)"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-unit-improved-20261111-211606",
+        "status": "Submitted",
+        "seconds": 41.266308967999066,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.003834947999999999,
+        "files": [
+          "tests/model_forms/tests.py"
+        ],
+        "patch_sha256": "ae6f65c20f5490dcbf9eca5c50d54a095497ed178f88f60f211e45c8ee10d583",
+        "execution_evidence": [
+          {
+            "message_index": 13,
+            "lines": [
+              "FAIL: test_empty_fields (model_forms.tests.ModelToDictTests)",
+              "AssertionError: {'id': 1, 'name': '', 'colours': []} != {}",
+              "Ran 165 tests in 0.263s",
+              "FAILED (failures=1)"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "sympy__sympy-24539",
+    "group": "easy",
+    "title": "`PolyElement.as_expr()` not accepting symbols",
+    "narrative": "Both exercise PolyElement.as_expr() with replacement symbols u, v, w and observe an assertion failure. Baseline adds assertions while preserving the existing symbol case; improved changes the existing case to use different symbols. This distinction matters when reviewing the instruction to preserve existing assertions.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-baseline",
+        "status": "Submitted",
+        "seconds": 35.37830582600145,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.0026873339999999996,
+        "files": [
+          "sympy/polys/tests/test_rings.py"
+        ],
+        "patch_sha256": "686233e2a5301ecfc00400f04c22549c69c8fb822a14fbe032d4f018e82762ba",
+        "execution_evidence": [
+          {
+            "message_index": 17,
+            "lines": [
+              "============= tests finished: 0 passed, 1 failed, in 0.26 seconds =============="
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-improved",
+        "status": "Submitted",
+        "seconds": 56.74139194600866,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.002339328,
+        "files": [
+          "sympy/polys/tests/test_rings.py"
+        ],
+        "patch_sha256": "ff737632874783c41f96d3309ccbccc220b74d14a9423205a61bbcf71579ecb5",
+        "execution_evidence": [
+          {
+            "message_index": 13,
+            "lines": [
+              "============= tests finished: 0 passed, 1 failed, in 0.28 seconds =============="
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "scikit-learn__scikit-learn-14894",
+    "group": "easy",
+    "title": "ZeroDivisionError in _sparse_fit for SVM with empty support_vectors_",
+    "narrative": "Both add sparse SVR coverage for empty support vectors and encounter ZeroDivisionError in the sparse fitting path. Each focused run has one failure.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-baseline",
+        "status": "Submitted",
+        "seconds": 43.98439433600288,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.009461016,
+        "files": [
+          "sklearn/svm/tests/test_sparse.py"
+        ],
+        "patch_sha256": "1c2068c6f1cc1c38da0de9036f4e2f962736fa71d462d7b02ef14abf8db65124",
+        "execution_evidence": [
+          {
+            "message_index": 21,
+            "lines": [
+              "E       ZeroDivisionError: float division by zero",
+              "1 failed, 1 warning in 0.36s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-improved",
+        "status": "Submitted",
+        "seconds": 68.85709043398674,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.008862923999999998,
+        "files": [
+          "sklearn/svm/tests/test_sparse.py"
+        ],
+        "patch_sha256": "cd5909cb2c680bd8c60c594a58c68ea273a4f90e236365809f571baeef18e4c8",
+        "execution_evidence": [
+          {
+            "message_index": 23,
+            "lines": [
+              "E       ZeroDivisionError: float division by zero",
+              "1 failed, 1 warning in 0.90s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-9711",
+    "group": "easy",
+    "title": "needs_extensions checks versions using strings",
+    "narrative": "Both test extension version comparison with a multi-digit minor version. Baseline has one failing case. Improved adds an older-version rejection control, producing one failure and one pass.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-baseline",
+        "status": "Submitted",
+        "seconds": 53.33602063100261,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.009629556,
+        "files": [
+          "tests/test_config.py"
+        ],
+        "patch_sha256": "8d94c1e36a371e0a28f3bb16f9cf604e6460dd736a526ef2b962def19c646377",
+        "execution_evidence": [
+          {
+            "message_index": 23,
+            "lines": [
+              "E               sphinx.errors.VersionRequirementError: This project needs the extension test_extension at least in version 0.6.0 and therefore cannot be built with the loaded version (0.10.0).",
+              "1 failed, 6 warnings in 0.16s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-improved",
+        "status": "Submitted",
+        "seconds": 64.42993762900005,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.007823424,
+        "files": [
+          "tests/test_extension.py"
+        ],
+        "patch_sha256": "5d8bd0573551ff4bbc5586f22397190c1bd84f22cec142207943c9d3c45e1274",
+        "execution_evidence": [
+          {
+            "message_index": 17,
+            "lines": [
+              "E               sphinx.errors.VersionRequirementError: This project needs the extension sphinx_gallery.gen_gallery at least in version 0.6.0 and therefore cannot be built with the loaded version (0.10.0).",
+              "1 failed, 1 passed, 6 warnings in 0.11s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "astropy__astropy-14508",
+    "group": "easy",
+    "title": "`io.fits.Card` may use a string representation of floats that is larger than necessary",
+    "narrative": "Both construct the reported HIERARCH FITS card with 0.009125 and expect a short float representation that leaves the comment intact. Each focused run fails with VerifyWarning that the card is too long and its comment will be truncated. Baseline also asserts the value and comment. The saved image has prescribed build-time configuration edits; those are separate from the exported test patch.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-baseline",
+        "status": "Submitted",
+        "seconds": 58.927967356998124,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.008907635999999998,
+        "files": [
+          "astropy/io/fits/tests/test_header.py"
+        ],
+        "patch_sha256": "f4ee9507ce59752d53348f42e71292bb18a05bfa40d1fc28e9cae21ec3869556",
+        "execution_evidence": [
+          {
+            "message_index": 21,
+            "lines": [
+              "E               astropy.io.fits.verify.VerifyWarning: Card is too long, comment will be truncated.",
+              "1 failed in 1.55s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-improved",
+        "status": "Submitted",
+        "seconds": 101.87335922700004,
+        "attempts": 2,
+        "fallback": false,
+        "agent_cost": 0.007267043999999999,
+        "files": [
+          "astropy/io/fits/tests/test_header.py"
+        ],
+        "patch_sha256": "2085bba37c9287c637267a62424fab4dcf4a6c1ed00d6b04654e9583d4c88f19",
+        "execution_evidence": [
+          {
+            "message_index": 22,
+            "lines": [
+              "E               astropy.io.fits.verify.VerifyWarning: Card is too long, comment will be truncated.",
+              "1 failed in 1.05s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "pytest-dev__pytest-7432",
+    "group": "easy",
+    "title": "skipping: --runxfail breaks pytest.mark.skip location reporting",
+    "narrative": "Both add skip-location checks with --runxfail. Baseline adds separate skip and skipif cases; the broader run has two failures and 77 passes. Improved combines checks into a new test and records one failure. Earlier passing exploratory runs are not the final regression outcome.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-baseline",
+        "status": "Submitted",
+        "seconds": 62.925983627006644,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.010675596,
+        "files": [
+          "testing/test_skipping.py"
+        ],
+        "patch_sha256": "118c28361e5ec7868c9aa4a4d9cc171ea917f76316a60ef0f8544120d3a25398",
+        "execution_evidence": [
+          {
+            "message_index": 13,
+            "lines": [
+              "1 passed in 0.13s"
+            ]
+          },
+          {
+            "message_index": 17,
+            "lines": [
+              "2 failed in 0.26s"
+            ]
+          },
+          {
+            "message_index": 21,
+            "lines": [
+              "2 failed, 77 passed in 3.50s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-improved",
+        "status": "Submitted",
+        "seconds": 84.76840470499883,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.011183712,
+        "files": [
+          "testing/test_skipping.py"
+        ],
+        "patch_sha256": "f07263cfec0714b71d52e41f9e8629a4b6ef8fd2b690fb64773de65341825e6d",
+        "execution_evidence": [
+          {
+            "message_index": 21,
+            "lines": [
+              "1 failed in 0.20s"
+            ]
+          },
+          {
+            "message_index": 27,
+            "lines": [
+              "1 failed in 0.22s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "pallets__flask-5014",
+    "group": "easy",
+    "title": "Require a non-empty name for Blueprints",
+    "narrative": "Both add an empty Blueprint-name rejection test. The expected ValueError is not raised. Baseline records one failure; improved records one failure and 59 passes in the broader file.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-baseline",
+        "status": "Submitted",
+        "seconds": 32.08869756499189,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.005935188,
+        "files": [
+          "tests/test_blueprints.py"
+        ],
+        "patch_sha256": "b089149892bc4274d6c9f637182c347b8c56f3f8170b4664c53e695c30f62d1f",
+        "execution_evidence": [
+          {
+            "message_index": 17,
+            "lines": [
+              "1 failed in 0.16s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-improved",
+        "status": "Submitted",
+        "seconds": 47.99451275600586,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.004881564,
+        "files": [
+          "tests/test_blueprints.py"
+        ],
+        "patch_sha256": "b089149892bc4274d6c9f637182c347b8c56f3f8170b4664c53e695c30f62d1f",
+        "execution_evidence": [
+          {
+            "message_index": 15,
+            "lines": [
+              "1 failed, 59 passed in 0.49s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "matplotlib__matplotlib-13989",
+    "group": "easy",
+    "title": "hist() no longer respects range=... when density=True",
+    "narrative": "Both test density histogram normalization with an explicit range. Baseline records one assertion failure. Improved parameterizes coverage and records two failing cases. These are generation-time observations, not fixed-version validation.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-baseline",
+        "status": "Submitted",
+        "seconds": 71.56613941100659,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.011929763999999999,
+        "files": [
+          "lib/matplotlib/tests/test_axes.py"
+        ],
+        "patch_sha256": "9078b0035e2723e9280cfeecd943de8d4e02565c6ac6b9bc312ce5a2ee407baa",
+        "execution_evidence": [
+          {
+            "message_index": 21,
+            "lines": [
+              "E       AssertionError: ",
+              "1 failed, 13 warnings in 1.64s"
+            ]
+          },
+          {
+            "message_index": 29,
+            "lines": [
+              "E       AssertionError: ",
+              "1 failed, 13 warnings in 1.06s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-improved",
+        "status": "Submitted",
+        "seconds": 64.54184348799754,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.0074742479999999984,
+        "files": [
+          "lib/matplotlib/tests/test_axes.py"
+        ],
+        "patch_sha256": "a65a33b7da819317bfb504cf42c96c3d91571c2ca81694827bcd12ca0b6f3e4a",
+        "execution_evidence": [
+          {
+            "message_index": 19,
+            "lines": [
+              "E       AssertionError: ",
+              "E       AssertionError: ",
+              "2 failed, 651 deselected, 13 warnings in 1.88s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "psf__requests-2931",
+    "group": "easy",
+    "title": "Request with binary payload fails due to calling to_native_string",
+    "narrative": "Both add a request with a non-ASCII binary payload. Execution fails with UnicodeDecodeError because an ASCII conversion is attempted. Each focused run records one failure.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-baseline",
+        "status": "Submitted",
+        "seconds": 39.364901287990506,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.006536652,
+        "files": [
+          "test_requests.py"
+        ],
+        "patch_sha256": "d8da2dd46002fdd9fc50201be685f18c9b340954fc67cfd0cd5c0315165bfe0f",
+        "execution_evidence": [
+          {
+            "message_index": 21,
+            "lines": [
+              "E               UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 0: ordinal not in range(128)",
+              "1 failed, 167 deselected, 2 warnings in 0.43s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved",
+        "status": "Submitted",
+        "seconds": 55.883252425002865,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.00731196,
+        "files": [
+          "test_requests.py"
+        ],
+        "patch_sha256": "b9209025e1e0ad7f951d84b81dd41529a6f7308e0c1e0d0d46dcb613442b7051",
+        "execution_evidence": [
+          {
+            "message_index": 22,
+            "lines": [
+              "E               UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 0: ordinal not in range(128)",
+              "1 failed, 2 warnings in 0.28s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "pylint-dev__pylint-6903",
+    "group": "easy",
+    "title": "Running pylint in Kubernetes Pod with --jobs=0 fails",
+    "narrative": "Both simulate restricted CPU availability and require a positive worker/CPU count. Baseline records one failing case; improved records two. The tests model the Kubernetes symptom rather than launching Kubernetes.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-baseline",
+        "status": "Submitted",
+        "seconds": 77.7540130349953,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.015054983999999999,
+        "files": [
+          "tests/lint/test_run.py"
+        ],
+        "patch_sha256": "2c4a0561f405d8c5066164ec432a7a5688da5aa9f31a72acf3e96edde9c39e6c",
+        "execution_evidence": [
+          {
+            "message_index": 23,
+            "lines": [
+              "1 failed, 1 warning in 0.08s"
+            ]
+          },
+          {
+            "message_index": 25,
+            "lines": [
+              "1 failed, 1 warning in 0.06s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-improved",
+        "status": "Submitted",
+        "seconds": 72.72832317200664,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.010184111999999999,
+        "files": [
+          "tests/lint/test_run.py"
+        ],
+        "patch_sha256": "80b9947a101bfc39a247a83694efe7b5d6f6ff554f0280ad0a51427971fcd35a",
+        "execution_evidence": [
+          {
+            "message_index": 15,
+            "lines": [
+              "2 failed, 1 warning in 0.07s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "mwaskom__seaborn-3187",
+    "group": "easy",
+    "title": "Wrong legend values of large ranges",
+    "narrative": "Baseline checks large-range legend labels in both plotting and utility coverage and records two failures: labels such as 2 or 1.6 do not represent the million-scale values. Improved submits a continuous-legend test with one failure. Improved preprocessing needed three extraction attempts before acceptance. Its trajectory also contains a history-inspection flag.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-baseline",
+        "status": "Submitted",
+        "seconds": 206.55354263099434,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.043894380000000004,
+        "files": [
+          "tests/_core/test_scales.py",
+          "tests/test_utils.py"
+        ],
+        "patch_sha256": "b55376b8a04320515de15c934974f2741bbc46529bd14c1cfb61f4dfa9ccf31c",
+        "execution_evidence": [
+          {
+            "message_index": 61,
+            "lines": [
+              "E           AssertionError: Legend label '2' does not represent value 2000000.0",
+              "E           AssertionError: Legend label '1.6' does not represent value 1600000.0",
+              "2 failed in 1.39s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-improved",
+        "status": "Submitted",
+        "seconds": 324.77031860100396,
+        "attempts": 3,
+        "fallback": false,
+        "agent_cost": 0.040890467999999985,
+        "files": [
+          "tests/_core/test_plot.py"
+        ],
+        "patch_sha256": "6874c86d1e93bb0c51f0871cfaf534e8dbec8d2e7abbed7df087838ed8e94bd3",
+        "execution_evidence": [
+          {
+            "message_index": 59,
+            "lines": [
+              "1 failed in 1.44s"
+            ]
+          },
+          {
+            "message_index": 61,
+            "lines": [
+              "E       AssertionError: assert (False or False)",
+              "1 failed in 1.86s"
+            ]
+          },
+          {
+            "message_index": 67,
+            "lines": [
+              "E       AssertionError: assert (False or False)",
+              "1 failed in 1.58s"
+            ]
+          }
+        ],
+        "review_flags": [
+          {
+            "message_index": 52,
+            "categories": [
+              "history_inspection_review"
+            ],
+            "command": "cd /testbed && git log --oneline -20"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "instance_id": "django__django-13513",
+    "group": "hard",
+    "title": "debug error view doesn't respect exc.__suppress_context__ (PEP 415)",
+    "narrative": "Both add exception-context suppression checks in the debug reporter tests, but both saved generation runs finish with 24 tests passing. These runs do not demonstrate a failing regression on the supplied checkout. Baseline inspected Git history and a historical commit summary; this requires protocol review. The selected improved run is a historical retry; earlier attempts remain preserved.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13513-unit-baseline-20261112-205739",
+        "status": "Submitted",
+        "seconds": 58.10482601399417,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.006054978000000001,
+        "files": [
+          "tests/view_tests/tests/test_debug.py"
+        ],
+        "patch_sha256": "a5233b91f9090c66d2767e983773164065d2550d9c94a9dc9d1b3b146a72a579",
+        "execution_evidence": [
+          {
+            "message_index": 17,
+            "lines": [
+              "OK"
+            ]
+          },
+          {
+            "message_index": 23,
+            "lines": [
+              "OK"
+            ]
+          },
+          {
+            "message_index": 25,
+            "lines": [
+              "Ran 24 tests in 1.417s",
+              "OK"
+            ]
+          }
+        ],
+        "review_flags": [
+          {
+            "message_index": 12,
+            "categories": [
+              "history_inspection_review"
+            ],
+            "command": "cd /testbed && git status --short; git show HEAD:django/views/debug.py | sed -n '392,405p'; git log --oneline -5 -- tests/view_tests/tests/test_debug.py; git log --oneline -5 -- django/views/debug.py"
+          },
+          {
+            "message_index": 14,
+            "categories": [
+              "historical_commit_inspection_review"
+            ],
+            "command": "cd /testbed && grep -n \"exc_cause\\|suppress\" -n django/views/debug.py django/views/templates/technical_500.html django/views/templates/technical_500.txt 2>/dev/null; grep -R \"exc_cause_explicit\\|exc_cause\" -n django/views/templates django/views/debug.py | head -50; git show --stat --oneline f36862b69c 2>/dev/null | head"
+          }
+        ]
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13513-unit-improved-20261112-205739-retry1",
+        "status": "Submitted",
+        "seconds": 71.04312199800916,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.004988112,
+        "files": [
+          "tests/view_tests/tests/test_debug.py"
+        ],
+        "patch_sha256": "fe123894520414abe0ae3f4b8541b1bb7d35f6fd31f004991eea6ce3a3a1815e",
+        "execution_evidence": [
+          {
+            "message_index": 12,
+            "lines": [
+              "OK"
+            ]
+          },
+          {
+            "message_index": 20,
+            "lines": [
+              "OK"
+            ]
+          },
+          {
+            "message_index": 22,
+            "lines": [
+              "Ran 24 tests in 1.182s",
+              "OK"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8548",
+    "group": "hard",
+    "title": "autodoc inherited-members won't work for inherited attributes (data members).",
+    "narrative": "Both add inherited-attribute fixtures and autodoc checks. Final focused runs show the inherited attribute missing. Baseline records one failure with five passes in a focused group; improved records a focused failure and broader unrelated failures. Other exploratory runs pass, so the chronological evidence must be interpreted with the command used. Improved also encountered missing roman dependencies and has a history-inspection flag.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-baseline",
+        "status": "Submitted",
+        "seconds": 156.44238054200832,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.028940423999999996,
+        "files": [
+          "tests/roots/test-ext-autodoc/target/inheritance.py",
+          "tests/test_ext_autodoc.py"
+        ],
+        "patch_sha256": "0d8b1f8d9e05befad78dd37d1a95b419a70c2cd6939bcb1d743a899721bc2e04",
+        "execution_evidence": [
+          {
+            "message_index": 19,
+            "lines": [
+              "E               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')"
+            ]
+          },
+          {
+            "message_index": 25,
+            "lines": [
+              "1 passed, 6 warnings in 0.76s"
+            ]
+          },
+          {
+            "message_index": 39,
+            "lines": [
+              "E       AssertionError: assert '   .. py:attribute:: Derived.inheritedattr' in StringList(['', '.. py:class:: Derived()', '   :module: target.inheritance', '', '', '   .. py:method:: Derived.inheri...test-of-root/pytest-2/ext-autodoc/target/inheritance.py:docstring of target.inheritance.Base.inheritedstaticmeth', 1)])",
+              "1 failed, 6 warnings in 0.62s"
+            ]
+          },
+          {
+            "message_index": 47,
+            "lines": [
+              "E       AssertionError: assert '   .. py:attribute:: Derived.inheritedattr' in StringList(['', '.. py:class:: Derived()', '   :module: target.inheritance', '', '', '   .. py:method:: Derived.inheritedclassmeth()', '      :module: target.inheritance', '      :classmethod:', '', '      Inherited class method.', '', '', '   .. py:method:: Derived.inheritedmeth()', '      :module: target.inheritance', '', '      Inherited function.', '', '', '   .. py:method:: Derived.inheritedstaticmeth(cls)', '   ",
+              "======================== 1 failed, 6 warnings in 0.55s ========================="
+            ]
+          },
+          {
+            "message_index": 49,
+            "lines": [
+              "E       AssertionError: assert '   .. py:attribute:: Derived.inheritedattr' in StringList(['', '.. py:class:: Derived()', '   :module: target.inheritance', '', '', '   .. py:method:: Derived.inheri...test-of-root/pytest-4/ext-autodoc/target/inheritance.py:docstring of target.inheritance.Base.inheritedstaticmeth', 1)])",
+              "1 failed, 6 warnings in 0.61s"
+            ]
+          },
+          {
+            "message_index": 53,
+            "lines": [
+              "1 passed, 6 warnings in 0.51s"
+            ]
+          },
+          {
+            "message_index": 55,
+            "lines": [
+              "E       AssertionError: assert '   .. py:attribute:: Derived.inheritedattr' in StringList(['', '.. py:class:: Derived()', '   :module: target.inheritance', '', '', '   .. py:method:: Derived.inheri...test-of-root/pytest-6/ext-autodoc/target/inheritance.py:docstring of target.inheritance.Base.inheritedstaticmeth', 1)])",
+              "E       AssertionError: assert '\\x1b[91mWARN...b[39;49;00m\\n' == ''",
+              "4 failed, 64 passed, 41 warnings in 8.06s"
+            ]
+          },
+          {
+            "message_index": 57,
+            "lines": [
+              "E       AssertionError: assert ['.. py:class...ticmeth(cls)'] == ['.. py:class...ticmeth(cls)']",
+              "E       AssertionError: assert ['.. py:class...dclassmeth()'] == ['.. py:class...dclassmeth()']",
+              "2 failed, 6 warnings in 0.67s"
+            ]
+          },
+          {
+            "message_index": 61,
+            "lines": [
+              "E       AssertionError: assert '   .. py:attribute:: InheritedAttributeDerived.inheritedattr' in StringList(['', '.. py:class:: InheritedAttributeDerived()', '   :module: target.inheritance', ''], items=[('/tmp/pyte...est-of-root/pytest-8/ext-autodoc/target/inheritance.py:docstring of target.inheritance.InheritedAttributeDerived', 0)])",
+              "1 failed, 5 passed, 6 warnings in 0.89s"
+            ]
+          },
+          {
+            "message_index": 63,
+            "lines": [
+              "6 passed, 6 warnings in 0.57s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-improved",
+        "status": "Submitted",
+        "seconds": 184.03934364201268,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.035901143999999996,
+        "files": [
+          "tests/roots/test-ext-autodoc/target/inheritance.py",
+          "tests/test_ext_autodoc.py"
+        ],
+        "patch_sha256": "efe1b694bd674b6638d19b9a9d4f9263a6cda1b4037ee40df3cb7c3786fdec1a",
+        "execution_evidence": [
+          {
+            "message_index": 41,
+            "lines": [
+              "E       ModuleNotFoundError: No module named 'docutils.utils.roman'",
+              "E       ModuleNotFoundError: No module named 'roman'",
+              "E               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')"
+            ]
+          },
+          {
+            "message_index": 48,
+            "lines": [
+              "E       AssertionError: assert '   .. py:attribute:: DerivedWithAttribute.inherited_attr' in StringList(['', '.. py:class:: DerivedWithAttribute()', '   :module: target.inheritance', ''], items=[('/tmp/pytest-of...p/pytest-of-root/pytest-1/ext-autodoc/target/inheritance.py:docstring of target.inheritance.DerivedWithAttribute', 0)])",
+              "1 failed, 6 warnings in 0.91s"
+            ]
+          },
+          {
+            "message_index": 54,
+            "lines": [
+              "ModuleNotFoundError: No module named 'target'"
+            ]
+          },
+          {
+            "message_index": 58,
+            "lines": [
+              "E       AssertionError: assert '      Docstring for inherited attribute.' in StringList(['', '.. py:class:: DerivedWithAttribute()', '   :module: target.inheritance', '', '', '   .. py:attribute:...t/pytest-2/ext-autodoc/target/inheritance.py:docstring of target.inheritance.DerivedWithAttribute.inherited_attr', 0)])",
+              "1 failed, 6 warnings in 0.47s"
+            ]
+          },
+          {
+            "message_index": 64,
+            "lines": [
+              "E       AssertionError: assert ['.. py:class...hAttribute()'] == ['.. py:class...herited_attr']",
+              "1 failed, 6 warnings in 0.56s"
+            ]
+          },
+          {
+            "message_index": 66,
+            "lines": [
+              "1 passed, 6 warnings in 0.38s"
+            ]
+          },
+          {
+            "message_index": 68,
+            "lines": [
+              "2 failed, 66 passed, 41 warnings in 6.15s"
+            ]
+          },
+          {
+            "message_index": 70,
+            "lines": [
+              "1 failed, 41 warnings in 0.57s"
+            ]
+          },
+          {
+            "message_index": 72,
+            "lines": [
+              "E       AssertionError: assert '\\x1b[91mWARN...b[39;49;00m\\n' == ''"
+            ]
+          }
+        ],
+        "review_flags": [
+          {
+            "message_index": 2,
+            "categories": [
+              "history_inspection_review"
+            ],
+            "command": "cd /testbed && pwd && git status --short && git log --oneline -3"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "instance_id": "django__django-13344",
+    "group": "hard",
+    "title": "Coroutine passed to the first middleware's process_response() instead of HttpResponse.",
+    "narrative": "Both exercise async middleware process_response receiving a coroutine instead of HttpResponse. Baseline submits ASGI-suite coverage and records one failure among ten tests. Improved submits middleware-suite coverage and records one failure among 33 tests after exploratory fixtures and an incorrect test-target import attempt.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13344-unit-baseline-20261112-151544",
+        "status": "Submitted",
+        "seconds": 153.71427780100203,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.017649587999999997,
+        "files": [
+          "tests/asgi/tests.py"
+        ],
+        "patch_sha256": "957b27fa7a40dc61d1345e8ad666bac75c55f4c897fda60075d3e055127f2edd",
+        "execution_evidence": [
+          {
+            "message_index": 35,
+            "lines": [
+              "OK"
+            ]
+          },
+          {
+            "message_index": 37,
+            "lines": [
+              "FAIL: test_first_middleware_gets_response (asgi.test_temp_regression.RegressionTest)",
+              "AssertionError: <coroutine object MiddlewareMixin.__acall__ at 0x76645d977830> is not an instance of <class 'django.http.response.HttpResponse'>",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 39,
+            "lines": [
+              "FAIL: test_first_middleware_gets_response (asgi.test_temp_regression.RegressionTest)",
+              "AssertionError: <coroutine object MiddlewareMixin.__acall__ at 0x780ea0320888> is not an instance of <class 'django.http.response.HttpResponse'>",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 43,
+            "lines": [
+              "FAIL: test_first_middleware_gets_response (asgi.test_temp_regression.RegressionTest)",
+              "AssertionError: <coroutine object MiddlewareMixin.__acall__ at 0x76095219e360> is not an instance of <class 'django.http.response.HttpResponse'>",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 45,
+            "lines": [
+              "ERROR: test_first_middleware_gets_response (asgi.test_temp_regression.RegressionTest)",
+              "FAILED (errors=1)"
+            ]
+          },
+          {
+            "message_index": 51,
+            "lines": [
+              "FAIL: test_first_middleware_process_response (asgi.tests.ASGITest)",
+              "AssertionError: <coroutine object MiddlewareMixin.__acall__ at 0x77488d03f8e0> is not an instance of <class 'django.http.response.HttpResponse'>",
+              "Ran 10 tests in 0.865s",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 55,
+            "lines": [
+              "FAIL: test_first_middleware_process_response (asgi.tests.ASGITest)",
+              "AssertionError: <coroutine object MiddlewareMixin.__acall__ at 0x7ff848955888> is not an instance of <class 'django.http.response.HttpResponse'>",
+              "Ran 10 tests in 2.051s",
+              "FAILED (failures=1)"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13344-unit-improved-20261112-151925",
+        "status": "Submitted",
+        "seconds": 271.1984693370032,
+        "attempts": 2,
+        "fallback": false,
+        "agent_cost": 0.022968078000000003,
+        "files": [
+          "tests/middleware_exceptions/middleware.py",
+          "tests/middleware_exceptions/tests.py"
+        ],
+        "patch_sha256": "d18e4ac0f4bb2010252ad89f92379fc511e809daf11f52b6ade1a80d84f3b09d",
+        "execution_evidence": [
+          {
+            "message_index": 38,
+            "lines": [
+              "Ran 9 tests in 2.074s",
+              "OK"
+            ]
+          },
+          {
+            "message_index": 52,
+            "lines": [
+              "FAIL: test_capture (tmp_asgi_mw.tests.TmpTest)",
+              "AssertionError: Lists differ: [(<class 'django.core.handlers.asgi.ASGIRe[49 chars]e'>)] != []",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 58,
+            "lines": [
+              "OK"
+            ]
+          },
+          {
+            "message_index": 60,
+            "lines": [
+              "OK"
+            ]
+          },
+          {
+            "message_index": 72,
+            "lines": [
+              "FAIL: test_capture (tmp_asgi_mw.tests.TmpTest)",
+              "AssertionError: <coroutine object AsyncMiddleware.__call__ at 0x7d0f40e60200> is not an instance of <class 'django.http.response.HttpResponse'>",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 76,
+            "lines": [
+              "FAIL: test_process_response_receives_response (middleware_exceptions.tests.AsyncMiddlewareTests)",
+              "AssertionError: <coroutine object AsyncMiddleware.__call__ at 0x78030b95d938> is not an instance of <class 'django.http.response.HttpResponse'>",
+              "Ran 33 tests in 0.412s",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 82,
+            "lines": [
+              "ModuleNotFoundError: No module named 'middleware_exceptions.AsyncMiddlewareTests'",
+              "FAILED (errors=1)"
+            ]
+          },
+          {
+            "message_index": 84,
+            "lines": [
+              "FAIL: test_process_response_receives_response (middleware_exceptions.tests.AsyncMiddlewareTests)",
+              "AssertionError: <coroutine object AsyncMiddleware.__call__ at 0x749df5885938> is not an instance of <class 'django.http.response.HttpResponse'>",
+              "Ran 33 tests in 0.279s",
+              "FAILED (failures=1)"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "django__django-15098",
+    "group": "hard",
+    "title": "Internationalisation didn't support language locale containing both script and region.",
+    "narrative": "Both test locales containing script and region, such as en-latn-us. Baseline observes a 404 instead of 200 and a language-path lookup returning None during exploration. Improved submits both checks and observes two failures; its broader run also has an unrelated tests-module import error and 74 skips. Improved exhausted three preprocessing attempts and fell back to the raw report. Baseline has history-inspection flags.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-baseline",
+        "status": "Submitted",
+        "seconds": 133.005745344999,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.015512772,
+        "files": [
+          "tests/i18n/patterns/tests.py",
+          "tests/i18n/tests.py"
+        ],
+        "patch_sha256": "fdfea03257eab421848e349402d2e1a9d6d742ee153bd4ec87ac4e3018143083",
+        "execution_evidence": [
+          {
+            "message_index": 23,
+            "lines": [
+              "ModuleNotFoundError: No module named 'tests'",
+              "Ran 214 tests in 0.646s",
+              "FAILED (errors=1, skipped=74)"
+            ]
+          },
+          {
+            "message_index": 25,
+            "lines": [
+              "ERROR: test_i18n_app_dirs (i18n.tests.WatchForTranslationChangesTests)"
+            ]
+          },
+          {
+            "message_index": 27,
+            "lines": [
+              "Ran 37 tests in 0.097s",
+              "OK"
+            ]
+          },
+          {
+            "message_index": 45,
+            "lines": [
+              "FAIL: test_get_language_from_path_real (i18n.tests.MiscTests)",
+              "AssertionError: None != 'en-latn-us'",
+              "FAIL: test_en_latn_us_url (i18n.patterns.tests.URLResponseTests)",
+              "AssertionError: 404 != 200",
+              "Ran 2 tests in 0.033s",
+              "FAILED (failures=2)"
+            ]
+          },
+          {
+            "message_index": 49,
+            "lines": [
+              "FAIL: test_en_latn_us_url (i18n.patterns.tests.URLResponseTests)",
+              "AssertionError: 404 != 200",
+              "Ran 38 tests in 0.086s",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 50,
+            "lines": [
+              "FAIL: test_get_language_from_path_real (i18n.tests.MiscTests)",
+              "AssertionError: None != 'en-latn-us'",
+              "Ran 13 tests in 0.012s",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 52,
+            "lines": [
+              "OK"
+            ]
+          }
+        ],
+        "review_flags": [
+          {
+            "message_index": 16,
+            "categories": [
+              "history_inspection_review"
+            ],
+            "command": "cd /testbed && git log -5 --oneline && python -c \"import django; print(django.get_version())\" && grep -R \"language code.*lowercase\\|script.*region\\|RFC 5646\\|en-latn-us\" -n docs tests django --exclude='*.mo' --exclude='*.po' | head -100"
+          },
+          {
+            "message_index": 28,
+            "categories": [
+              "history_inspection_review"
+            ],
+            "command": "cd /testbed && git log --oneline --all -- django/utils/translation/trans_real.py | head -30"
+          }
+        ]
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-improved",
+        "status": "Submitted",
+        "seconds": 237.5355483940075,
+        "attempts": 3,
+        "fallback": true,
+        "agent_cost": 0.020098080000000004,
+        "files": [
+          "tests/i18n/patterns/tests.py",
+          "tests/i18n/tests.py"
+        ],
+        "patch_sha256": "b1de65bfd460713cc08e9bf2e3a9cf9a2c4c7ff8c74c855851c92198ad4d5c6c",
+        "execution_evidence": [
+          {
+            "message_index": 30,
+            "lines": [
+              "Ran 37 tests in 0.091s",
+              "OK"
+            ]
+          },
+          {
+            "message_index": 47,
+            "lines": [
+              "ModuleNotFoundError: No module named 'i18n'"
+            ]
+          },
+          {
+            "message_index": 55,
+            "lines": [
+              "FAIL: test_get_language_from_path_with_script_and_region (i18n.tests.MiscTests)",
+              "AssertionError: None != 'en-latn-us'",
+              "FAIL: test_en_latn_us_url (i18n.patterns.tests.URLResponseTests)",
+              "AssertionError: 404 != 200",
+              "Ran 2 tests in 0.030s",
+              "FAILED (failures=2)"
+            ]
+          },
+          {
+            "message_index": 57,
+            "lines": [
+              "ERROR: test_i18n_app_dirs (i18n.tests.WatchForTranslationChangesTests)",
+              "ModuleNotFoundError: No module named 'tests'",
+              "FAIL: test_get_language_from_path_with_script_and_region (i18n.tests.MiscTests)",
+              "AssertionError: None != 'en-latn-us'",
+              "FAIL: test_en_latn_us_url (i18n.patterns.tests.URLResponseTests)",
+              "AssertionError: 404 != 200",
+              "Ran 216 tests in 0.626s",
+              "FAILED (failures=2, errors=1, skipped=74)"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "django__django-12155",
+    "group": "hard",
+    "title": "docutils reports an error rendering view docstring when the first line is not empty",
+    "narrative": "Both add docstring trimming/parsing tests for a first line containing text. Each records two failures caused by retained indentation. Improved additionally checks rendered output and observes a docutils System Message. Baseline focuses on nine utility tests; improved also runs the broader suite.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-12155-unit-baseline-20261112-143526",
+        "status": "Submitted",
+        "seconds": 64.26030059299956,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.006123251999999999,
+        "files": [
+          "tests/admin_docs/test_utils.py"
+        ],
+        "patch_sha256": "f4aabec7d7f81ec2c8a7ad8394bb881810e46e594648b79649d7f895f129b9e8",
+        "execution_evidence": [
+          {
+            "message_index": 15,
+            "lines": [
+              "Ran 57 tests in 1.351s",
+              "OK"
+            ]
+          },
+          {
+            "message_index": 31,
+            "lines": [
+              "FAIL: test_parse_docstring_with_first_line_content (admin_docs.test_utils.TestUtils)",
+              "AssertionError: Tuples differ: ('Title', '    Description.\\n    More description.', {}) != ('Title', 'Description.\\nMore description.', {})",
+              "FAIL: test_trim_docstring_with_first_line_content (admin_docs.test_utils.TestUtils)",
+              "AssertionError: 'This[16 chars]ne.\\n    This is the second line.\\n        Thi[16 chars]ine.' != 'This[16 chars]ne.\\nThis is the second line.\\n    This is the third line.'",
+              "Ran 9 tests in 0.079s",
+              "FAILED (failures=2)"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-12155-unit-improved-20261112-144127",
+        "status": "Submitted",
+        "seconds": 104.22351676899416,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.007280718,
+        "files": [
+          "tests/admin_docs/test_utils.py"
+        ],
+        "patch_sha256": "f3dcb12f36967519bdb8893991e690bf48fc4352c9636adb369b61f3d80aa588",
+        "execution_evidence": [
+          {
+            "message_index": 13,
+            "lines": [
+              "Ran 57 tests in 1.554s",
+              "OK"
+            ]
+          },
+          {
+            "message_index": 27,
+            "lines": [
+              "FAIL: test_parse_docstring_first_line_not_empty (admin_docs.test_utils.TestUtils)",
+              "AssertionError: '    This is the body.' != 'This is the body.'",
+              "FAIL: test_trim_docstring_first_line_not_empty (admin_docs.test_utils.TestUtils)",
+              "AssertionError: 'This is a docstring.\\n\\n    This is the body.' != 'This is a docstring.\\n\\nThis is the body.'",
+              "Ran 59 tests in 1.346s",
+              "FAILED (failures=2)"
+            ]
+          },
+          {
+            "message_index": 31,
+            "lines": [
+              "FAIL: test_parse_docstring_first_line_not_empty (admin_docs.test_utils.TestUtils)",
+              "AssertionError: 'System Message' unexpectedly found in '<div class=\"system-message\">\\n<p class=\"system-message-title\">System Message: ERROR/3 (<tt class=\"docutils\">&lt;view:admindocs&gt;</tt>, line 2)</p>\\n<p>Error in &quot;default-role&quot; directive:\\nno content permitted.</p>\\n<pre class=\"literal-block\">\\n.. default-role:: cmsreference\\n\\n    This is the body.\\n\\n</pre>\\n</div>\\n'",
+              "FAIL: test_trim_docstring_first_line_not_empty (admin_docs.test_utils.TestUtils)",
+              "AssertionError: 'This is a docstring.\\n\\n    This is the body.' != 'This is a docstring.\\n\\nThis is the body.'",
+              "Ran 9 tests in 0.080s",
+              "FAILED (failures=2)"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8638",
+    "group": "hard",
+    "title": "Instance variables link to other variables of the same name in the project",
+    "narrative": "Both add cross-reference tests for an instance variable whose name collides with another documented object. Final focused runs fail, with broader runs showing one failure and 34 passes. Exploration includes scratch fixtures, passing alternatives and temporary dependency stubs; improved has a history-inspection flag. Baseline also clones the issue-example repository during exploration. These details limit a clean source-only protocol claim.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-baseline",
+        "status": "Submitted",
+        "seconds": 184.22521653500735,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.040474908000000004,
+        "files": [
+          "tests/roots/test-domain-py/index.rst",
+          "tests/roots/test-domain-py/instance_variable.rst",
+          "tests/test_domain_py.py"
+        ],
+        "patch_sha256": "d710cc5fb7f09d91f1d1b6b84e9dfe0533766ece8f7113ebe695cc0a60d7e484",
+        "execution_evidence": [
+          {
+            "message_index": 29,
+            "lines": [
+              "E               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')"
+            ]
+          },
+          {
+            "message_index": 33,
+            "lines": [
+              "1 passed, 154 warnings in 0.68s"
+            ]
+          },
+          {
+            "message_index": 57,
+            "lines": [
+              "1 failed, 449 warnings in 0.82s"
+            ]
+          },
+          {
+            "message_index": 59,
+            "lines": [
+              "1 failed, 449 warnings in 0.80s"
+            ]
+          },
+          {
+            "message_index": 63,
+            "lines": [
+              "1 failed, 34 passed, 1722 warnings in 1.99s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-improved",
+        "status": "Submitted",
+        "seconds": 296.00968854199164,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.06039928799999998,
+        "files": [
+          "tests/roots/test-domain-py-variable/conf.py",
+          "tests/roots/test-domain-py-variable/index.rst",
+          "tests/test_domain_py.py"
+        ],
+        "patch_sha256": "5300b5a07f30dc5408e78c88c445e5c7e32ff0ccbfa34a4020dfb77484694e34",
+        "execution_evidence": [
+          {
+            "message_index": 25,
+            "lines": [
+              "E               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')",
+              "1 passed, 6 warnings, 1 error in 0.46s"
+            ]
+          },
+          {
+            "message_index": 33,
+            "lines": [
+              "34 passed, 1257 warnings in 1.94s"
+            ]
+          },
+          {
+            "message_index": 35,
+            "lines": [
+              "1 failed, 30 warnings in 0.35s"
+            ]
+          },
+          {
+            "message_index": 49,
+            "lines": [
+              "E       KeyError: 'docname'",
+              "1 failed, 7 warnings in 0.50s"
+            ]
+          },
+          {
+            "message_index": 51,
+            "lines": [
+              "E       AssertionError: assert [('mod.limit'...nical=False))] == []",
+              "1 failed, 7 warnings in 0.47s"
+            ]
+          },
+          {
+            "message_index": 57,
+            "lines": [
+              "E       FileNotFoundError: [Errno 2] No such file or directory: path('/testbed/tests/roots/test-test-scratch-variable')"
+            ]
+          },
+          {
+            "message_index": 59,
+            "lines": [
+              "1 passed, 155 warnings in 0.74s"
+            ]
+          },
+          {
+            "message_index": 73,
+            "lines": [
+              "1 failed, 155 warnings in 0.51s"
+            ]
+          },
+          {
+            "message_index": 75,
+            "lines": [
+              "1 failed, 7 warnings in 0.44s"
+            ]
+          },
+          {
+            "message_index": 77,
+            "lines": [
+              "1 passed, 155 warnings in 0.53s"
+            ]
+          },
+          {
+            "message_index": 81,
+            "lines": [
+              "1 failed, 155 warnings in 0.83s"
+            ]
+          },
+          {
+            "message_index": 83,
+            "lines": [
+              "1 failed, 34 passed, 1405 warnings in 2.07s"
+            ]
+          },
+          {
+            "message_index": 85,
+            "lines": [
+              "1 passed, 6 warnings in 0.08s"
+            ]
+          },
+          {
+            "message_index": 89,
+            "lines": [
+              "1 failed, 155 warnings in 0.75s"
+            ]
+          }
+        ],
+        "review_flags": [
+          {
+            "message_index": 66,
+            "categories": [
+              "history_inspection_review"
+            ],
+            "command": "cd /testbed && git show -s --format='%H%n%ci%n%s' HEAD && git log --oneline -5"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "instance_id": "django__django-15252",
+    "group": "hard",
+    "title": "MigrationRecorder does not obey db_router allow_migrate rules",
+    "narrative": "Baseline tests MigrationRecorder schema creation and applied/unapplied recording under a denying router; its final group has three failures among four tests. Improved tests the migrate command and observes that the migration table is created despite router denial, with one failure among 42 tests. Exploratory target/import and database errors are preserved.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline",
+        "status": "Submitted",
+        "seconds": 221.30811099499988,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.026755104,
+        "files": [
+          "tests/migrations/test_loader.py"
+        ],
+        "patch_sha256": "9a40a18fd1d89cf863e8aa2e6e5c31a343c116eac27c34bb594d416761c596e2",
+        "execution_evidence": [
+          {
+            "message_index": 51,
+            "lines": [
+              "OK"
+            ]
+          },
+          {
+            "message_index": 55,
+            "lines": [
+              "FAIL: test_ensure_schema_respects_router (migrations.test_loader.RecorderTests)",
+              "AssertionError: Expected 'schema_editor' to not have been called. Called 1 times.",
+              "FAIL: test_record_applied_respects_router (migrations.test_loader.RecorderTests)",
+              "AssertionError: True is not false",
+              "FAIL: test_record_unapplied_respects_router (migrations.test_loader.RecorderTests)",
+              "AssertionError: False is not true",
+              "Ran 4 tests in 0.010s",
+              "FAILED (failures=3)"
+            ]
+          },
+          {
+            "message_index": 59,
+            "lines": [
+              "FAIL: test_ensure_schema_respects_router (migrations.test_loader.RecorderTests)",
+              "AssertionError: Expected 'schema_editor' to not have been called. Called 1 times.",
+              "FAIL: test_record_applied_respects_router (migrations.test_loader.RecorderTests)",
+              "AssertionError: True is not false",
+              "FAIL: test_record_unapplied_respects_router (migrations.test_loader.RecorderTests)",
+              "AssertionError: False is not true",
+              "Ran 4 tests in 0.010s",
+              "FAILED (failures=3)"
+            ]
+          },
+          {
+            "message_index": 61,
+            "lines": [
+              "ERROR: test_ensure_schema_respects_router (migrations.test_loader.RecorderTests)",
+              "ERROR: test_record_applied_respects_router (migrations.test_loader.RecorderTests)",
+              "ERROR: test_record_unapplied_respects_router (migrations.test_loader.RecorderTests)",
+              "Ran 4 tests in 0.008s",
+              "FAILED (errors=3)"
+            ]
+          },
+          {
+            "message_index": 63,
+            "lines": [
+              "ERROR: test_record_unapplied_respects_router (migrations.test_loader.RecorderRouterTests)",
+              "ERROR: test_record_unapplied_respects_router (migrations.test_loader.RecorderRouterTests)",
+              "ERROR: test_record_unapplied_respects_router (migrations.test_loader.RecorderRouterTests)",
+              "FAILED (errors=3)"
+            ]
+          },
+          {
+            "message_index": 67,
+            "lines": [
+              "FAIL: test_ensure_schema_respects_router (migrations.test_loader.RecorderRouterTests)",
+              "AssertionError: True is not false",
+              "FAIL: test_record_applied_respects_router (migrations.test_loader.RecorderRouterTests)",
+              "AssertionError: True is not false",
+              "FAIL: test_record_unapplied_respects_router (migrations.test_loader.RecorderRouterTests)",
+              "AssertionError: True is not false",
+              "Ran 4 tests in 0.046s",
+              "FAILED (failures=3)"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-improved",
+        "status": "Submitted",
+        "seconds": 161.4466987180058,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.015701609999999998,
+        "files": [
+          "tests/migrations/test_commands.py"
+        ],
+        "patch_sha256": "ab07bcc7c4b61452ecc1767be74fa047333bb84ecc0db42ebabb2aec0d219619",
+        "execution_evidence": [
+          {
+            "message_index": 29,
+            "lines": [
+              "ModuleNotFoundError: No module named 'migrations.MigrateTests'",
+              "FAILED (errors=1)"
+            ]
+          },
+          {
+            "message_index": 33,
+            "lines": [
+              "OK"
+            ]
+          },
+          {
+            "message_index": 39,
+            "lines": [
+              "FAIL: test_migrate_does_not_create_migration_table_when_router_disallows (migrations.test_commands.MigrateTests)",
+              "AssertionError: True is not false",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 43,
+            "lines": [
+              "FAIL: test_migrate_does_not_create_migration_table_when_router_disallows (migrations.test_commands.MigrateTests)",
+              "AssertionError: True is not false",
+              "Ran 42 tests in 1.228s",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 53,
+            "lines": [
+              "FAIL: test_migrate_does_not_create_migration_table_when_router_disallows (migrations.test_commands.MigrateTests)",
+              "AssertionError: True is not false",
+              "Ran 42 tests in 0.996s",
+              "FAILED (failures=1)"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "django__django-16631",
+    "group": "hard",
+    "title": "SECRET_KEY_FALLBACKS is not used for sessions",
+    "narrative": "Both test authenticated-session recovery after secret-key rotation with SECRET_KEY_FALLBACKS. Each finds AnonymousUser instead of the expected user and records one failure. Improved falls back to the original report after three rejected preprocessing attempts. Baseline has a history-inspection flag.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-baseline",
+        "status": "Submitted",
+        "seconds": 77.60612871299963,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.008372448,
+        "files": [
+          "tests/auth_tests/test_basic.py"
+        ],
+        "patch_sha256": "f9f10b022ed18ec1d3d6e11ce10c54522464de338c24d9c8857a1f8bee48a1dc",
+        "execution_evidence": [
+          {
+            "message_index": 28,
+            "lines": [
+              "FAIL: test_get_user_with_secret_key_fallback (auth_tests.test_basic.TestGetUser.test_get_user_with_secret_key_fallback)",
+              "AssertionError: <django.contrib.auth.models.AnonymousUser object at 0x753130444850> != <User: testuser>",
+              "Ran 4 tests in 0.069s",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 30,
+            "lines": [
+              "FAIL: test_get_user_with_secret_key_fallback (auth_tests.test_basic.TestGetUser.test_get_user_with_secret_key_fallback)",
+              "AssertionError: <django.contrib.auth.models.AnonymousUser object at 0x7f9a3452f610> != <User: testuser>",
+              "Ran 14 tests in 0.144s",
+              "FAILED (failures=1)"
+            ]
+          }
+        ],
+        "review_flags": [
+          {
+            "message_index": 17,
+            "categories": [
+              "history_inspection_review"
+            ],
+            "command": "cd /testbed && grep -Rni \"fallback.*session\\|session.*fallback\\|secret key fallback\" docs/releases docs/topics/auth docs/ref | head -100 && git log --oneline --all -- django/contrib/auth/base_user.py | head -20"
+          }
+        ]
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-improved",
+        "status": "Submitted",
+        "seconds": 185.10919944400666,
+        "attempts": 3,
+        "fallback": true,
+        "agent_cost": 0.009762666,
+        "files": [
+          "tests/auth_tests/test_basic.py"
+        ],
+        "patch_sha256": "2590061ffcd9d075f4fb3ab42b40a1c2cdbd51100566164efae4e74d3ee5392a",
+        "execution_evidence": [
+          {
+            "message_index": 33,
+            "lines": [
+              "Ran 12 tests in 0.088s",
+              "OK"
+            ]
+          },
+          {
+            "message_index": 35,
+            "lines": [
+              "Ran 2 tests in 0.011s",
+              "OK"
+            ]
+          },
+          {
+            "message_index": 43,
+            "lines": [
+              "FAIL: test_get_user_with_secret_key_fallbacks (auth_tests.test_basic.TestGetUser.test_get_user_with_secret_key_fallbacks)",
+              "AssertionError: <django.contrib.auth.models.AnonymousUser object at 0x79a54c9a78d0> is not an instance of <class 'django.contrib.auth.models.User'>",
+              "Ran 3 tests in 0.020s",
+              "FAILED (failures=1)"
+            ]
+          },
+          {
+            "message_index": 45,
+            "lines": [
+              "FAIL: test_get_user_with_secret_key_fallbacks (auth_tests.test_basic.TestGetUser.test_get_user_with_secret_key_fallbacks)",
+              "AssertionError: <django.contrib.auth.models.AnonymousUser object at 0x78b78f284350> is not an instance of <class 'django.contrib.auth.models.User'>",
+              "FAILED (failures=1)"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8551",
+    "group": "hard",
+    "title": ":type: and :rtype: gives false ambiguous class lookup warnings",
+    "narrative": "Both test Python-domain type-field cross-references with colliding class names. Baseline observes a link to mod.A where mod.submod.A is expected; the broader run has one failure and 32 passes. Improved observes an ambiguous-reference warning and records one failure with 32 passes; a later diagnostic run reports 33 passes and must be interpreted with its preceding command rather than treated as official fixed-version validation. Improved falls back after three preprocessing attempts.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-baseline",
+        "status": "Submitted",
+        "seconds": 177.74125593299686,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.031117356000000002,
+        "files": [
+          "tests/test_domain_py.py"
+        ],
+        "patch_sha256": "2053da1006bd208e91de7f84a80d8daf72239673d41b9c53bfb983236b166b24",
+        "execution_evidence": [
+          {
+            "message_index": 27,
+            "lines": [
+              "E               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')",
+              "1 passed, 6 warnings, 1 error in 0.69s"
+            ]
+          },
+          {
+            "message_index": 35,
+            "lines": [
+              "32 passed, 1245 warnings in 2.94s"
+            ]
+          },
+          {
+            "message_index": 45,
+            "lines": [
+              "1 passed, 30 warnings in 0.42s"
+            ]
+          },
+          {
+            "message_index": 61,
+            "lines": [
+              "1 passed, 30 warnings in 0.60s"
+            ]
+          },
+          {
+            "message_index": 63,
+            "lines": [
+              "E       AssertionError: assert 'more than one target found' not in '\\x1b[91mWAR...[39;49;00m\\n'",
+              "1 failed, 30 warnings in 0.50s"
+            ]
+          },
+          {
+            "message_index": 65,
+            "lines": [
+              "E       AssertionError: assert 'more than one target found' not in '\\x1b[91mWAR...[39;49;00m\\n'",
+              "1 failed, 30 warnings in 0.43s"
+            ]
+          },
+          {
+            "message_index": 69,
+            "lines": [
+              "E               AssertionError: The node[refid] is not 'mod.submod.A': 'mod.A'",
+              "1 failed, 30 warnings in 0.59s"
+            ]
+          },
+          {
+            "message_index": 71,
+            "lines": [
+              "1 passed, 30 warnings in 0.45s"
+            ]
+          },
+          {
+            "message_index": 75,
+            "lines": [
+              "E               AssertionError: The node[refid] is not 'mod.submod.A': 'mod.A'",
+              "1 failed, 32 passed, 1269 warnings in 2.97s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-improved",
+        "status": "Submitted",
+        "seconds": 206.29900832500425,
+        "attempts": 3,
+        "fallback": true,
+        "agent_cost": 0.024385728000000006,
+        "files": [
+          "tests/roots/test-domain-py-field-types/conf.py",
+          "tests/roots/test-domain-py-field-types/index.rst",
+          "tests/test_domain_py.py"
+        ],
+        "patch_sha256": "dcf33b4fb316c1750e1243fd9938f076fee8e7f5ec6f75198f56b4ad433aa38c",
+        "execution_evidence": [
+          {
+            "message_index": 36,
+            "lines": [
+              "E               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')",
+              "1 passed, 6 warnings, 1 error in 0.76s"
+            ]
+          },
+          {
+            "message_index": 42,
+            "lines": [
+              "32 passed, 1245 warnings in 2.42s"
+            ]
+          },
+          {
+            "message_index": 44,
+            "lines": [
+              "E       AssertionError: assert 'more than o...ss-reference' not in '\\x1b[91mWAR...[39;49;00m\\n'",
+              "1 failed, 149 warnings in 0.88s"
+            ]
+          },
+          {
+            "message_index": 46,
+            "lines": [
+              "1 failed, 149 warnings in 1.11s"
+            ]
+          },
+          {
+            "message_index": 52,
+            "lines": [
+              "E       AssertionError: assert 'more than o...ss-reference' not in '\\x1b[91mWAR...[39;49;00m\\n'",
+              "1 failed, 149 warnings in 1.00s"
+            ]
+          },
+          {
+            "message_index": 54,
+            "lines": [
+              "1 passed, 149 warnings in 0.67s"
+            ]
+          },
+          {
+            "message_index": 56,
+            "lines": [
+              "1 failed, 32 passed, 1388 warnings in 2.93s"
+            ]
+          },
+          {
+            "message_index": 58,
+            "lines": [
+              "33 passed, 1388 warnings in 5.27s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "django__django-13810",
+    "group": "hard",
+    "title": "MiddlewareNotUsed leaves undesired side effects when loading middleware in ASGI context",
+    "narrative": "Both add async middleware coverage with MiddlewareNotUsed. Baseline records two errors among 34 tests; improved records one error among 33. Both errors are RuntimeError from AsyncToSync being used in a thread with an active event loop. Improved falls back to the original report after three preprocessing attempts.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-baseline",
+        "status": "Submitted",
+        "seconds": 76.63386596599594,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.008022647999999999,
+        "files": [
+          "tests/middleware_exceptions/tests.py"
+        ],
+        "patch_sha256": "cbbb0f6a7a150eee3b5f54f4602b38bf2cfd206f605c81e43a24255fc7bb9005",
+        "execution_evidence": [
+          {
+            "message_index": 18,
+            "lines": [
+              "Ran 32 tests in 0.272s",
+              "OK"
+            ]
+          },
+          {
+            "message_index": 20,
+            "lines": [
+              "ModuleNotFoundError: No module named 'middleware_exceptions.MiddlewareSyncAsyncTests'",
+              "FAILED (errors=1)"
+            ]
+          },
+          {
+            "message_index": 22,
+            "lines": [
+              "ERROR: test_skipped_middleware_does_not_break_async_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)",
+              "FAILED (errors=1)"
+            ]
+          },
+          {
+            "message_index": 26,
+            "lines": [
+              "ERROR: test_only_skipped_middleware_async (middleware_exceptions.tests.MiddlewareSyncAsyncTests)",
+              "FAILED (errors=1)"
+            ]
+          },
+          {
+            "message_index": 30,
+            "lines": [
+              "ERROR: test_only_skipped_middleware_async (middleware_exceptions.tests.MiddlewareSyncAsyncTests)",
+              "ERROR: test_skipped_middleware_does_not_break_async_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)",
+              "Ran 34 tests in 0.512s",
+              "FAILED (errors=2)"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-improved",
+        "status": "Submitted",
+        "seconds": 101.43173856000067,
+        "attempts": 3,
+        "fallback": true,
+        "agent_cost": 0.004279740000000001,
+        "files": [
+          "tests/middleware_exceptions/tests.py"
+        ],
+        "patch_sha256": "5006b52a46f63975dfc6d174c65f9193579918c4d6ee379bc51da1a469e7c474",
+        "execution_evidence": [
+          {
+            "message_index": 15,
+            "lines": [
+              "Ran 32 tests in 0.249s",
+              "OK"
+            ]
+          },
+          {
+            "message_index": 19,
+            "lines": [
+              "ERROR: test_middleware_not_used_does_not_break_async_chain (middleware_exceptions.tests.MiddlewareSyncAsyncTests)",
+              "Ran 33 tests in 0.279s",
+              "FAILED (errors=1)"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8721",
+    "group": "hard",
+    "title": "viewcode creates pages for epub even if `viewcode_enable_epub=False` on `make html epub`",
+    "narrative": "Both extend EPUB viewcode coverage across successive builds with viewcode_enable_epub disabled and find unwanted generated pages. Focused runs fail on an assertion that a page should not exist. Missing roman dependencies occur during setup/exploration; improved also runs a broader group with two failures and two passes.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-baseline",
+        "status": "Submitted",
+        "seconds": 105.15103933899081,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.019211844,
+        "files": [
+          "tests/test_ext_viewcode.py"
+        ],
+        "patch_sha256": "6b56be985de088e8e1a3fe2745293f14977415c60b5da905f0a2236644b13e09",
+        "execution_evidence": [
+          {
+            "message_index": 27,
+            "lines": [
+              "ModuleNotFoundError: No module named 'docutils.utils.roman'",
+              "ModuleNotFoundError: No module named 'roman'"
+            ]
+          },
+          {
+            "message_index": 29,
+            "lines": [
+              "E               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')"
+            ]
+          },
+          {
+            "message_index": 35,
+            "lines": [
+              "1 failed, 2 passed, 117 warnings in 2.58s"
+            ]
+          },
+          {
+            "message_index": 45,
+            "lines": [
+              "E       AssertionError: assert not True",
+              "1 failed, 50 warnings in 2.46s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-improved",
+        "status": "Submitted",
+        "seconds": 155.06254208899918,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.020943648000000002,
+        "files": [
+          "tests/test_ext_viewcode.py"
+        ],
+        "patch_sha256": "fe5d2235a977ebed2e42f08f66315b0c16093da40ac493b68ecba5c7b2e10df5",
+        "execution_evidence": [
+          {
+            "message_index": 21,
+            "lines": [
+              "ModuleNotFoundError: No module named 'docutils.utils.roman'",
+              "ModuleNotFoundError: No module named 'roman'"
+            ]
+          },
+          {
+            "message_index": 39,
+            "lines": [
+              "1 failed, 459 warnings in 2.67s"
+            ]
+          },
+          {
+            "message_index": 41,
+            "lines": [
+              "E       AssertionError: assert not True",
+              "1 failed in 1.47s"
+            ]
+          },
+          {
+            "message_index": 43,
+            "lines": [
+              "E       AssertionError: assert not True",
+              "2 failed, 2 passed in 10.85s"
+            ]
+          },
+          {
+            "message_index": 45,
+            "lines": [
+              "1 failed in 1.72s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8621",
+    "group": "hard",
+    "title": "kbd role produces incorrect HTML when compound-key separators (-, + or ^) are used as keystrokes",
+    "narrative": "Both extend keyboard-role markup coverage for separator characters used as keys. Baseline records six failures in its first expanded selection and later three failures under a temporary plugin; a modified temporary kbd_fix_plugin then yields nine passes. That plugin is an agent-authored diagnostic change, not an official reference fix or official evaluation. Improved records four failures in the keyboard selection and six failures with 31 passes in the full file, including two PEP-link failures. Both encountered missing roman dependencies. The exported patches contain tests, while diagnostic plugin results require separate interpretation.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-baseline",
+        "status": "Submitted",
+        "seconds": 109.90486622099706,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.020454695999999998,
+        "files": [
+          "tests/test_markup.py"
+        ],
+        "patch_sha256": "c5f6f808c6807635192d9d2045a03c0834ca0a3bef78587b41e088fec6abf7b4",
+        "execution_evidence": [
+          {
+            "message_index": 14,
+            "lines": [
+              "E   ModuleNotFoundError: No module named 'docutils.utils.roman'",
+              "E   ModuleNotFoundError: No module named 'roman'"
+            ]
+          },
+          {
+            "message_index": 20,
+            "lines": [
+              "3 passed, 30 deselected, 309 warnings in 0.99s"
+            ]
+          },
+          {
+            "message_index": 26,
+            "lines": [
+              "E       AssertionError: from :kbd:`Shift-^`",
+              "6 failed, 3 passed, 30 deselected, 909 warnings in 1.03s"
+            ]
+          },
+          {
+            "message_index": 32,
+            "lines": [
+              "3 failed, 6 passed, 30 deselected, 908 warnings in 0.83s"
+            ]
+          },
+          {
+            "message_index": 34,
+            "lines": [
+              "E       AssertionError: from :kbd:`Shift-+`",
+              "E       AssertionError: from :kbd:`Shift--`",
+              "E       AssertionError: from :kbd:`Shift-^`"
+            ]
+          },
+          {
+            "message_index": 36,
+            "lines": [
+              "9 passed, 30 deselected, 908 warnings in 0.63s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-improved",
+        "status": "Submitted",
+        "seconds": 148.4870994380035,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.025896744000000003,
+        "files": [
+          "tests/test_markup.py"
+        ],
+        "patch_sha256": "81fcac023aa9b5b3a8550e25e8124a9271fab3fe7fd9fef3a9b47df78cc812e6",
+        "execution_evidence": [
+          {
+            "message_index": 13,
+            "lines": [
+              "E   ModuleNotFoundError: No module named 'docutils.utils.roman'",
+              "E   ModuleNotFoundError: No module named 'roman'"
+            ]
+          },
+          {
+            "message_index": 21,
+            "lines": [
+              "3 passed, 30 deselected, 309 warnings in 0.73s"
+            ]
+          },
+          {
+            "message_index": 29,
+            "lines": [
+              "4 failed, 3 passed, 30 deselected, 709 warnings in 0.90s"
+            ]
+          },
+          {
+            "message_index": 33,
+            "lines": [
+              "6 failed, 31 passed, 3490 warnings in 2.05s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  },
+  {
+    "instance_id": "matplotlib__matplotlib-25311",
+    "group": "hard",
+    "title": "[Bug]: Unable to pickle figure with draggable legend",
+    "narrative": "Both test pickling figures with draggable legends and annotations while attaching an unpicklable object to the canvas. Baseline uses a helper object; improved uses threading.Lock. Both focused runs have two TypeError failures. Baseline also runs the whole file and records three failures with 182 passes, including an additional subprocess-pickling failure. Setup was recovered only after Docker restart, dependency installation, compilation, and coordinator recovery; baseline then improved ran once on the same immutable image.",
+    "methods": {
+      "baseline": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-baseline",
+        "status": "Submitted",
+        "seconds": 127.80059515900007,
+        "attempts": 0,
+        "fallback": false,
+        "agent_cost": 0.014204867999999999,
+        "files": [
+          "lib/matplotlib/tests/test_pickle.py"
+        ],
+        "patch_sha256": "e26568a7804f356f7aae4a019dc7e77a3842dd838f21d6a332123b47d6a76d2e",
+        "execution_evidence": [
+          {
+            "message_index": 39,
+            "lines": [
+              "E       AttributeError: Can't pickle local object 'test_pickle_draggable_artist.<locals>.<lambda>'",
+              "E       AttributeError: Can't pickle local object 'test_pickle_draggable_artist.<locals>.<lambda>'",
+              "2 failed, 183 deselected in 0.29s"
+            ]
+          },
+          {
+            "message_index": 49,
+            "lines": [
+              "E       TypeError: cannot pickle this object",
+              "E       TypeError: cannot pickle this object",
+              "2 failed, 183 deselected in 0.27s"
+            ]
+          },
+          {
+            "message_index": 55,
+            "lines": [
+              "E       TypeError: cannot pickle this object",
+              "E       TypeError: cannot pickle this object",
+              "3 failed, 182 passed in 2.62s"
+            ]
+          }
+        ],
+        "review_flags": []
+      },
+      "improved": {
+        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-improved",
+        "status": "Submitted",
+        "seconds": 102.95680393300017,
+        "attempts": 1,
+        "fallback": false,
+        "agent_cost": 0.009672102000000002,
+        "files": [
+          "lib/matplotlib/tests/test_pickle.py"
+        ],
+        "patch_sha256": "76fa7ee386b29005a9c8b395b8f867ce838821d1b8b50c17dfca1d619298e5cc",
+        "execution_evidence": [
+          {
+            "message_index": 24,
+            "lines": [
+              "TypeError: cannot pickle '_thread.lock' object",
+              "TypeError: cannot pickle '_thread.lock' object"
+            ]
+          },
+          {
+            "message_index": 34,
+            "lines": [
+              "E       TypeError: cannot pickle '_thread.lock' object",
+              "E       TypeError: cannot pickle '_thread.lock' object",
+              "2 failed, 183 deselected in 0.30s"
+            ]
+          }
+        ],
+        "review_flags": []
+      }
+    }
+  }
+]

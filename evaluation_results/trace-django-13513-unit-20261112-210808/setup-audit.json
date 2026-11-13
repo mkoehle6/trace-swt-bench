@@ -1,0 +1,65 @@
+{
+  "audited_utc": "2026-11-12T21:30:09.928634+00:00",
+  "scope": "evaluation_only; no generation or repair",
+  "finding": "Pinned benchmark issue text and reference regression are inconsistent in this case. No local image-selection or pre/post patch-order error found.",
+  "source": {
+    "instance_id": "django__django-13513",
+    "repo": "django/django",
+    "base_commit": "6599608c4d0befdcb820ddccce55f183f247ae4f",
+    "dataset": "princeton-nlp/SWE-bench_Verified",
+    "revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+    "split": "test"
+  },
+  "image_id": "sha256:677635982b65db91a2592d980a197d34dae09dd634d11f58bb35be956f3c4f2c",
+  "image_head": "6599608c4d0befdcb820ddccce55f183f247ae4f",
+  "image_checkout_clean": true,
+  "image_source_git_blob": "7a89f7bd1563e8ce17b066e7c5df28a8e5c2dde1",
+  "image_worktree_blob_matches_head": true,
+  "git_replace_refs": [],
+  "issue_text_matches_pinned_row": true,
+  "reference_test_observation": "test_innermost_exception_without_traceback fails pre-fix and passes post-fix.",
+  "reference_fix_observation": "Reference code retains existing suppression handling and changes traversal of exception tracebacks.",
+  "existing_failure": "test_template_exception fails in base_pre, base_post, gold_pre, gold_post and both prediction states; it is not introduced by either prediction.",
+  "checks": [
+    {
+      "mode": "baseline",
+      "state": "pre",
+      "base_commit_matches": true,
+      "patch_order_matches": true,
+      "test_directives": [
+        "view_tests.tests.test_debug"
+      ]
+    },
+    {
+      "mode": "baseline",
+      "state": "post",
+      "base_commit_matches": true,
+      "patch_order_matches": true,
+      "test_directives": [
+        "view_tests.tests.test_debug"
+      ]
+    },
+    {
+      "mode": "improved",
+      "state": "pre",
+      "base_commit_matches": true,
+      "patch_order_matches": true,
+      "test_directives": [
+        "view_tests.tests.test_debug"
+      ]
+    },
+    {
+      "mode": "improved",
+      "state": "post",
+      "base_commit_matches": true,
+      "patch_order_matches": true,
+      "test_directives": [
+        "view_tests.tests.test_debug"
+      ]
+    }
+  ],
+  "existing_results_reclassified": false,
+  "workflow_changed": false,
+  "predictions_repaired": false,
+  "github_push": false
+}

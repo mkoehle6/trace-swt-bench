@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "ds.merge() method",
+    "evidence": "if you try the same thing with the `ds.merge()` method it fails."
+  },
+  "triggering_input": {
+    "value": "ds = xr.Dataset({'a': 0})\nda = xr.DataArray(1, name='b')\n\nexpected = xr.merge([ds, da])  # works fine\nprint(expected)\n\nds.merge(da)  # fails",
+    "evidence": "ds = xr.Dataset({'a': 0})\nda = xr.DataArray(1, name='b')\n\nexpected = xr.merge([ds, da])  # works fine\nprint(expected)\n\nds.merge(da)  # fails"
+  },
+  "observed_behavior": {
+    "value": "Calling ds.merge(da) raises AttributeError: 'DataArray' object has no attribute 'items'.",
+    "evidence": "AttributeError: 'DataArray' object has no attribute 'items'"
+  },
+  "expected_behavior": {
+    "value": "Merging a DataArray into a Dataset using the ds.merge() method should work like the top-level merge() function.",
+    "evidence": "While it's possible to merge a dataset and a dataarray object using the top-level `merge()` function, if you try the same thing with the `ds.merge()` method it fails."
+  },
+  "suggested_assertion": {
+    "value": "ds.merge(da) should not raise an AttributeError and should produce the same merged Dataset as xr.merge([ds, da]).",
+    "evidence": "expected = xr.merge([ds, da])  # works fine"
+  }
+}

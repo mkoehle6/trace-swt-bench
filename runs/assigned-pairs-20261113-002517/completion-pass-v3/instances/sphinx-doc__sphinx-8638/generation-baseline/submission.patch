@@ -1,0 +1,56 @@
+diff --git a/tests/roots/test-domain-py/index.rst b/tests/roots/test-domain-py/index.rst
+index 35a0c1927..ed0f1b795 100644
+--- a/tests/roots/test-domain-py/index.rst
++++ b/tests/roots/test-domain-py/index.rst
+@@ -5,3 +5,5 @@ test-domain-py
+ 
+     roles
+     module
++
++    instance_variable
+diff --git a/tests/roots/test-domain-py/instance_variable.rst b/tests/roots/test-domain-py/instance_variable.rst
+new file mode 100644
+index 000000000..8cc7dfe45
+--- /dev/null
++++ b/tests/roots/test-domain-py/instance_variable.rst
+@@ -0,0 +1,19 @@
++instance_variable
++=================
++
++.. py:module:: module_a.submodule
++
++.. py:data:: limit
++
++   A global variable named limit.
++
++.. py:class:: OtherClass
++
++   .. py:attribute:: other
++
++      An attribute of another class.
++
++.. py:class:: Foo
++
++   :ivar limit: An instance variable named limit.
++   :ivar other: An instance variable named other.
+diff --git a/tests/test_domain_py.py b/tests/test_domain_py.py
+index e0c690518..64c82edb5 100644
+--- a/tests/test_domain_py.py
++++ b/tests/test_domain_py.py
+@@ -164,6 +164,16 @@ def test_domain_py_objects(app, status, warning):
+     assert objects['NestedParentB.child_1'][2] == 'method'
+ 
+ 
++@pytest.mark.sphinx('html', testroot='domain-py')
++def test_domain_py_instance_variable_xrefs(app, status, warning):
++    """Instance variables must not link to unrelated objects with the same name."""
++    app.builder.build_all()
++
++    content = (app.outdir / 'instance_variable.html').read_text()
++    assert '<p><strong>limit</strong> – An instance variable named limit.</p>' in content
++    assert '<p><strong>other</strong> – An instance variable named other.</p>' in content
++
++
+ @pytest.mark.sphinx('html', testroot='domain-py')
+ def test_resolve_xref_for_properties(app, status, warning):
+     app.builder.build_all()

@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": null,
+    "evidence": null
+  },
+  "triggering_input": {
+    "value": "A global variable exists, and inside a class a variable of the same name is documented while autodoc is used via apidoc.",
+    "evidence": "If a global variable (or really, any kind of variable, just that this would be the most common occurrence) exists, and inside a class you decide to document a variable of the same name, the document of the instance variable will link to the other occurence of a variable under the same name."
+  },
+  "observed_behavior": {
+    "value": "The documentation of the instance variable links to another variable under the same name.",
+    "evidence": "the document of the instance variable will link to the other occurence of a variable under the same name."
+  },
+  "expected_behavior": {
+    "value": "The class variable documentation is not linked to any other variable.",
+    "evidence": "That the class variable documentation not be linked to any other."
+  },
+  "suggested_assertion": {
+    "value": "Assert that the class variable documentation is not linked to any other variable.",
+    "evidence": "That the class variable documentation not be linked to any other."
+  }
+}

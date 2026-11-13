@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "pickle.dumps",
+    "evidence": "pickle.dumps(fig)"
+  },
+  "triggering_input": {
+    "value": "A figure with a legend made draggable via leg.set_draggable(True), followed by pickle.dumps(fig).",
+    "evidence": "leg.set_draggable(True) #pickling works after removing this line"
+  },
+  "observed_behavior": {
+    "value": "TypeError: cannot pickle 'FigureCanvasQTAgg' object",
+    "evidence": "TypeError: cannot pickle 'FigureCanvasQTAgg' object"
+  },
+  "expected_behavior": {
+    "value": "Pickling successful",
+    "evidence": "Pickling successful"
+  },
+  "suggested_assertion": {
+    "value": "pickle.dumps(fig) should be successful after leg.set_draggable(True).",
+    "evidence": "Pickling successful"
+  }
+}

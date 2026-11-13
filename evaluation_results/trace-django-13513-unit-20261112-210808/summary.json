@@ -1,0 +1,54 @@
+{
+  "baseline": {
+    "patch_successfully_applied": true,
+    "resolved": false,
+    "added_f2p": 0,
+    "coverage_pred": 1.0,
+    "coverage_delta_pred": 0.6470588235294118,
+    "evaluation_timing": {
+      "seconds": 265.37412415198924,
+      "exit_code": 0
+    },
+    "report": "run_instance_swt_logs/trace-django-13513-unit-20261112-210808-baseline-retry1/trace-baseline-unit-test/django__django-13513/report.json",
+    "test_results": {
+      "pre": [
+        "test_suppressed_context_not_in_traceback_frames (view_tests.tests.test_debug.ExceptionReporterTests) ... ok",
+        "FAIL: test_template_exception (view_tests.tests.test_debug.PlainTextReportTests)",
+        "Ran 89 tests in 12.309s",
+        "FAILED (failures=1)"
+      ],
+      "post": [
+        "test_suppressed_context_not_in_traceback_frames (view_tests.tests.test_debug.ExceptionReporterTests) ... ok",
+        "FAIL: test_template_exception (view_tests.tests.test_debug.PlainTextReportTests)",
+        "Ran 89 tests in 12.446s",
+        "FAILED (failures=1)"
+      ]
+    }
+  },
+  "improved": {
+    "patch_successfully_applied": true,
+    "resolved": false,
+    "added_f2p": 0,
+    "coverage_pred": 1.0,
+    "coverage_delta_pred": 0.6470588235294118,
+    "evaluation_timing": {
+      "seconds": 116.86114881699905,
+      "exit_code": 0
+    },
+    "report": "run_instance_swt_logs/trace-django-13513-unit-20261112-210808-improved-retry1/trace-improved-unit-test/django__django-13513/report.json",
+    "test_results": {
+      "pre": [
+        "test_reporting_frames_with_suppressed_context (view_tests.tests.test_debug.ExceptionReporterTests) ... ok",
+        "FAIL: test_template_exception (view_tests.tests.test_debug.PlainTextReportTests)",
+        "Ran 89 tests in 13.264s",
+        "FAILED (failures=1)"
+      ],
+      "post": [
+        "test_reporting_frames_with_suppressed_context (view_tests.tests.test_debug.ExceptionReporterTests) ... ok",
+        "FAIL: test_template_exception (view_tests.tests.test_debug.PlainTextReportTests)",
+        "Ran 89 tests in 11.740s",
+        "FAILED (failures=1)"
+      ]
+    }
+  }
+}

@@ -1,0 +1,383 @@
+{
+  "audited_utc": "2026-11-13T11:36:59.212875+00:00",
+  "scope": "Heuristic flags from saved generation commands, not an automated test-quality classifier.",
+  "predictions_changed": false,
+  "runs": [
+    {
+      "instance_id": "django__django-14089",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-14089-unit-baseline-20261112-214542",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-14089",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-14089-unit-improved-20261112-214542",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-11163",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-unit-baseline-20261111-212132",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-11163",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-unit-improved-20261111-211606",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-13513",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13513-unit-baseline-20261112-205739",
+      "flagged_commands": [
+        {
+          "message_index": 12,
+          "categories": [
+            "history_inspection_review"
+          ],
+          "command": "cd /testbed && git status --short; git show HEAD:django/views/debug.py | sed -n '392,405p'; git log --oneline -5 -- tests/view_tests/tests/test_debug.py; git log --oneline -5 -- django/views/debug.py"
+        },
+        {
+          "message_index": 14,
+          "categories": [
+            "historical_commit_inspection_review"
+          ],
+          "command": "cd /testbed && grep -n \"exc_cause\\|suppress\" -n django/views/debug.py django/views/templates/technical_500.html django/views/templates/technical_500.txt 2>/dev/null; grep -R \"exc_cause_explicit\\|exc_cause\" -n django/views/templates django/views/debug.py | head -50; git show --stat --oneline f36862b69c 2>/dev/null | head"
+        }
+      ]
+    },
+    {
+      "instance_id": "django__django-13513",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13513-unit-improved-20261112-205739-retry1",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-13344",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13344-unit-baseline-20261112-151544",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-13344",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13344-unit-improved-20261112-151925",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-12155",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-12155-unit-baseline-20261112-143526",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-12155",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-12155-unit-improved-20261112-144127",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-15098",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-baseline",
+      "flagged_commands": [
+        {
+          "message_index": 16,
+          "categories": [
+            "history_inspection_review"
+          ],
+          "command": "cd /testbed && git log -5 --oneline && python -c \"import django; print(django.get_version())\" && grep -R \"language code.*lowercase\\|script.*region\\|RFC 5646\\|en-latn-us\" -n docs tests django --exclude='*.mo' --exclude='*.po' | head -100"
+        },
+        {
+          "message_index": 28,
+          "categories": [
+            "history_inspection_review"
+          ],
+          "command": "cd /testbed && git log --oneline --all -- django/utils/translation/trans_real.py | head -30"
+        }
+      ]
+    },
+    {
+      "instance_id": "django__django-15098",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-15252",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-15252",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-16631",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-baseline",
+      "flagged_commands": [
+        {
+          "message_index": 17,
+          "categories": [
+            "history_inspection_review"
+          ],
+          "command": "cd /testbed && grep -Rni \"fallback.*session\\|session.*fallback\\|secret key fallback\" docs/releases docs/topics/auth docs/ref | head -100 && git log --oneline --all -- django/contrib/auth/base_user.py | head -20"
+        }
+      ]
+    },
+    {
+      "instance_id": "django__django-16631",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-13810",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "django__django-13810",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "sympy__sympy-24539",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "sympy__sympy-24539",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9711",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9711",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "astropy__astropy-14508",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "astropy__astropy-14508",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7432",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7432",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "pallets__flask-5014",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "pallets__flask-5014",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "psf__requests-2931",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "psf__requests-2931",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-13989",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-13989",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "pylint-dev__pylint-6903",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "pylint-dev__pylint-6903",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "mwaskom__seaborn-3187",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "mwaskom__seaborn-3187",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-improved",
+      "flagged_commands": [
+        {
+          "message_index": 52,
+          "categories": [
+            "history_inspection_review"
+          ],
+          "command": "cd /testbed && git log --oneline -20"
+        }
+      ]
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8548",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8548",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-improved",
+      "flagged_commands": [
+        {
+          "message_index": 2,
+          "categories": [
+            "history_inspection_review"
+          ],
+          "command": "cd /testbed && pwd && git status --short && git log --oneline -3"
+        }
+      ]
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8551",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8551",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8638",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8638",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-improved",
+      "flagged_commands": [
+        {
+          "message_index": 66,
+          "categories": [
+            "history_inspection_review"
+          ],
+          "command": "cd /testbed && git show -s --format='%H%n%ci%n%s' HEAD && git log --oneline -5"
+        }
+      ]
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8621",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8621",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-25311",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-25311",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-improved",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "pydata__xarray-3677",
+      "mode": "baseline",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-baseline",
+      "flagged_commands": []
+    },
+    {
+      "instance_id": "pydata__xarray-3677",
+      "mode": "improved",
+      "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-improved",
+      "flagged_commands": []
+    }
+  ],
+  "flagged_run_count": 6,
+  "flagged_command_count": 8
+}

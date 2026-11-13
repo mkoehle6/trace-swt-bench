@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "_sparse_fit",
+    "evidence": "ZeroDivisionError in _sparse_fit for SVM with empty support_vectors_"
+  },
+  "triggering_input": {
+    "value": "Fitting SVR on sparse csr_matrix input converted from x_train, in the case where support_vectors_ is empty",
+    "evidence": "xtrain= scipy.sparse.csr_matrix(x_train)\nmodel.fit(xtrain, y_train)"
+  },
+  "observed_behavior": {
+    "value": "ZeroDivisionError: float division by zero",
+    "evidence": "ZeroDivisionError: float division by zero"
+  },
+  "expected_behavior": {
+    "value": "No error is thrown and self.dual_coef_ = sp.csr_matrix([])",
+    "evidence": "No error is thrown and  `self.dual_coef_ = sp.csr_matrix([])`"
+  },
+  "suggested_assertion": {
+    "value": "Fitting the sparse input should not raise an error and self.dual_coef_ should equal sp.csr_matrix([]).",
+    "evidence": "No error is thrown and  `self.dual_coef_ = sp.csr_matrix([])`"
+  }
+}

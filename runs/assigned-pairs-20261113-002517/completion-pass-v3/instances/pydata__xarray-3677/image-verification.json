@@ -1,0 +1,13 @@
+{
+  "head": "ef6e6a7b86f8479b9a1fecf15ad5b88a2326b31e",
+  "clean": true,
+  "accepted": true,
+  "source_matches_base_except_prescribed_setup": true,
+  "modified_paths": [],
+  "unexpected_paths": [],
+  "untracked_paths": [],
+  "file_hashes": {},
+  "expected_setup_commands": [],
+  "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]"
+}

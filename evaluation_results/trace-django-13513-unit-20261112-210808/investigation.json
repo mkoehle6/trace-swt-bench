@@ -1,0 +1,18 @@
+{
+  "generation_image_head": "6599608c4d0befdcb820ddccce55f183f247ae4f",
+  "generation_image_clean": true,
+  "source_observation": "django/views/debug.py get_traceback_frames() already reads __suppress_context__ and returns explicit or (None if suppress_context else implicit).",
+  "existing_test_observation": "ExceptionReporterTests.test_suppressed_context is present in the generation image.",
+  "generation_outcome": "Both added tests pass on the generation image.",
+  "baseline_protocol_deviation": {
+    "description": "Agent inspected historical commits despite shared profile instruction not to inspect historical fixes.",
+    "commands": [
+      "git log --oneline -5 -- tests/view_tests/tests/test_debug.py",
+      "git log --oneline -5 -- django/views/debug.py",
+      "git show --stat --oneline f36862b69c"
+    ],
+    "scope": "No evaluator output was provided to either generation run. History inspection was performed by the baseline agent inside its generation container. This is a recorded protocol deviation; do not describe this run as fully compliant with history restrictions."
+  },
+  "interpretation": "The added suppression assertions exercise behavior already present in the supplied base checkout; passing generated tests do not establish regression reproduction.",
+  "submission_repair_performed": false
+}

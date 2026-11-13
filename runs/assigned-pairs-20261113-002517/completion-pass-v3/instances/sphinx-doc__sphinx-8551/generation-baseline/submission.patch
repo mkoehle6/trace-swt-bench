@@ -1,0 +1,38 @@
+diff --git a/tests/test_domain_py.py b/tests/test_domain_py.py
+index 2dc97bed9..b968dbc48 100644
+--- a/tests/test_domain_py.py
++++ b/tests/test_domain_py.py
+@@ -206,6 +206,33 @@ def test_domain_py_find_obj(app, status, warning):
+               ('roles', 'NestedParentA.NestedChildA.subchild_1', 'method'))])
+ 
+ 
++@pytest.mark.sphinx('html', freshenv=True)
++def test_domain_py_field_type_xrefs(app, status, warning):
++    text = (".. py:class:: mod.A\n"
++            ".. py:class:: mod.submod.A\n"
++            "\n"
++            ".. py:currentmodule:: mod.submod\n"
++            "\n"
++            ".. py:function:: f()\n"
++            "\n"
++            "   :param A a:\n"
++            "   :param b:\n"
++            "   :type b: A\n"
++            "   :rtype: A\n")
++    doctree = restructuredtext.parse(app, text)
++    domain = app.env.get_domain('py')
++    xrefs = list(doctree.traverse(addnodes.pending_xref))
++    assert [xref.astext() for xref in xrefs] == ['A', 'A', 'A']
++
++    for xref in xrefs:
++        refnode = domain.resolve_xref(app.env, 'index', app.builder,
++                                      xref['reftype'], xref['reftarget'],
++                                      xref, xref[0])
++        assert_node(refnode, nodes.reference, refid='mod.submod.A')
++
++    assert 'more than one target found for cross-reference' not in warning.getvalue()
++
++
+ def test_get_full_qualified_name():
+     env = Mock(domaindata={})
+     domain = PythonDomain(env)

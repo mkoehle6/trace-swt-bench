@@ -1,0 +1,33 @@
+{
+  "completed_utc": "2026-11-13T11:36:59.143806+00:00",
+  "assigned_instances": 26,
+  "totals": {
+    "baseline": {
+      "assigned": 26,
+      "setup_errors": 0,
+      "submitted": 26,
+      "non_submission_or_generation_error": 0,
+      "empty_predictions": 0,
+      "fallbacks": 0,
+      "validated_specifications": 0,
+      "known_agent_cost": 0.3790718999999999,
+      "agent_cost_available_runs": 26
+    },
+    "improved": {
+      "assigned": 26,
+      "setup_errors": 0,
+      "submitted": 26,
+      "non_submission_or_generation_error": 0,
+      "empty_predictions": 0,
+      "fallbacks": 4,
+      "validated_specifications": 22,
+      "known_agent_cost": 0.3831810059999999,
+      "agent_cost_available_runs": 26
+    }
+  },
+  "remaining_setup_errors": 0,
+  "workflow_files_unchanged": true,
+  "official_evaluation_run": false,
+  "identity_audit": "runs/assigned-pairs-20261113-002517/verification/pair-verification-final-v6.json",
+  "coordinator_error_resolved": "Read-only audit repeated with exclusive new filename after prior filename collision."
+}

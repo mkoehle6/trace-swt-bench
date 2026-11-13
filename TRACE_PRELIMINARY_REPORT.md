@@ -1,148 +1,124 @@
 # TRACE: Preliminary Research Report
 
-Date: November 11, 2026
+Updated: November 13, 2026. Supersedes the November 11 single-instance pilot summary; the prior report is preserved in the generation archive.
 
 ## Research question and preliminary answer
 
-**Does adding evidence-grounded bug-specification extraction and validation improve
-DeepSeek-Flash's issue reproduction success rate compared with the baseline?**
+**Does adding evidence-grounded bug-specification extraction and validation improve DeepSeek-Flash’s issue reproduction success rate compared with the baseline?**
 
-The current pilot does **not demonstrate an improvement**. On one Django instance,
-both methods generated identical unit-test patches and exhibited the same
-issue-relevant failure on buggy code. The improved workflow added runtime and
-preprocessing calls. Official reproduction success remains unknown because
-before/after evaluation has not yet been completed. This is an inconclusive
-development pilot, not evidence that the workflow cannot help on harder issues.
+The completed generation phase does **not yet establish a success-rate improvement**. Both methods submitted nonempty patches for all 26 assigned instances. Improved preprocessing accepted 22 specifications and fell back to the original report in four cases. Official evaluation of the complete selected set remains pending, so submission counts and generation-time failures must not be reported as reproduction success rates.
 
-## Method
+Generation evidence is mixed: many runs reach issue-relevant failures, but Django 13513’s generated tests pass on the supplied checkout, some broader runs include unrelated failures, and exploratory modifications complicate several Sphinx results. The two methods produce byte-identical patches on two instances. Neither patch similarity nor patch difference establishes a quality advantage.
 
-We compared two methods on `django__django-11163`:
+## Method and assignment
 
-- **Baseline:** original issue report passed directly to mini-SWE-agent with DeepSeek-Flash.
-- **Improved:** DeepSeek extracted five behavioral fields with supporting quotations;
-  Python checked structure and verbatim evidence; a second DeepSeek call reviewed
-  semantic support before the accepted specification accompanied the original report.
+- **Baseline:** the original issue report is passed directly to mini-SWE-agent with DeepSeek-Flash.
+- **Improved:** DeepSeek extracts five behavioral fields with supporting quotations; Python validates structure and verbatim evidence; a separate DeepSeek call reviews semantic support. Accepted analysis accompanies the original report. Validation exhaustion falls back to that report and remains an improved-method outcome.
 
-The proposed benefit is to make triggering conditions and expected behavior explicit
-while filtering unsupported assumptions before test generation.
+The fixed assignment contains 13 Easy and 13 Hard instances from SWE-bench Verified revision `c104f840cc67f8b6eec6f759ebc8b2693d585d4a`. These groups are assignment labels derived from historical benchmark outcomes, not measured TRACE outcomes. All 26 IDs appear exactly once in each final prediction file.
 
-Both runs used mini-SWE-agent 2.4.6, the same report, Docker image tag, model
-configuration, 100-step/$0.50 agent limits, and shared unit-test profile hash. The
-profile adapts the preserved standalone-script baseline instructions to native
-unit-test output and enables Bash pipefail for both methods. It is therefore an
-adapted unit-test baseline, not an exact replay of the original script protocol.
-Both agent and preprocessing responses identified the model as `deepseek-flash`;
-an immutable provider implementation version was not established.
+The workflows retain mini-SWE-agent 2.4.6, DeepSeek-Flash settings, 100-step/$0.50 agent limits, the original baseline configuration, shared native-unit-test instructions, and Bash pipefail. The native-test profile is a shared adaptation of the original standalone-script protocol. Recorded report and workflow hashes passed the final identity audit. No experimental workflow was changed during recovery or report preparation.
 
-The dataset snapshot is SWE-bench Verified revision
-`c104f840cc67f8b6eec6f759ebc8b2693d585d4a`, with 13 Easy and 13 Hard instances.
-Only one distinct instance has been reviewed in this report. The case was selected
-as the first end-to-end development smoke test, not as a representative sample.
+Completed historical pairs were retained. New pairs ran baseline then improved; setup recovery occurred before generation for affected instances. The selected ledger represents 52 runs, not a repeated-trials experiment. An immutable provider implementation version was not established.
 
-## Django case: issue, test, and behavior
-
-The issue states that `model_to_dict(instance, fields=[])` should return `{}`, but
-instead returns model fields. Both submissions added the same method to the
-existing `ModelToDictTests` class in `tests/model_forms/tests.py`:
-
-```python
-def test_empty_fields(self):
-    item = ColourfulItem.objects.create()
-    self.assertEqual(model_to_dict(item, fields=[]), {})
-```
-
-Both generation trajectories show Django running 165 tests. Exactly one failed:
-the new test reached its assertion and received
-`{'id': 1, 'name': '', 'colours': []}` instead of `{}`. The recorded command returned
-exit status 1. This supports an issue-relevant failure rather than a syntax,
-import, fixture, or database-setup failure in the observed executions. Existing
-tests in that executed suite passed.
-
-The assertion meaningfully represents the issue because it checks the requested
-empty-field behavior using an existing model and native test framework. Neither
-submitted patch changes production code. Behavior after the reference fix has not
-been measured, so neither candidate is yet an officially successful reproduction.
-
-## Observed results
+## Generation results across all 26 instances
 
 | Measure | Baseline | Improved |
 | --- | ---: | ---: |
-| Distinct pilot instances | 1 | 1 |
-| Submitted native unit-test patch | Yes | Yes |
-| Buggy execution | 1 intended failure / 165 tests | 1 intended failure / 165 tests |
-| Specification acceptance | Not applicable | First attempt; no fallback |
-| Agent API calls | 10 | 9 |
-| Additional preprocessing calls | 0 | 2 |
-| Controller runtime | 28.57 s | 41.27 s |
-| Agent-only cost, trajectory estimate | $0.003609696 | $0.003834948 |
-| Preprocessing usage | None | 2,717 tokens |
-| Total generation dollar cost | $0.003609696, recorded estimate | N/A: preprocessing cost not calculated |
-| Official reproduction success rate | N/A: not evaluated | N/A: not evaluated |
-| Official patch applicability | N/A: not evaluated | N/A: not evaluated |
-| Coverage delta | N/A: no harness results | N/A: no harness results |
-| Evaluation time | N/A: evaluation not run | N/A: evaluation not run |
+| Assigned instances | 26 | 26 |
+| Submitted nonempty patches | 26 | 26 |
+| Remaining setup failures | 0 | 0 |
+| Selected non-submissions or operational generation errors | 0 | 0 |
+| Accepted specifications | N/A | 22 |
+| Raw-report fallbacks | N/A | 4 |
+| Mean selected controller runtime | 93.45 s | 127.09 s |
+| Total selected controller runtime | 2,429.70 s | 3,304.33 s |
+| Known selected-run agent-only cost | $0.379071900 | $0.383181006 |
+| Total generation cost including preprocessing and historical attempts | Not fully aggregated | Not fully aggregated |
+| Official full-set reproduction success rate | N/A: pending | N/A: pending |
+| Official full-set patch applicability | N/A: pending | N/A: pending |
+| Official full-set coverage delta | N/A: pending | N/A: pending |
+| Official full-set evaluation time | N/A: pending | N/A: pending |
 
-The improved run took 12.70 seconds longer, approximately 44% in this single pair.
-Its nine generation calls plus two preprocessing calls total eleven model calls,
-compared with ten for baseline. The agent-only cost excludes preprocessing and
-must not be reported as the improved method's total. No repeated-run average or
-statistical conclusion is justified by these observations.
+Improved selected-run mean runtime is 33.64 seconds higher, approximately 36%. These descriptive controller times include preprocessing where applicable and exclude image setup. Host concurrency, cached environments, historical runs, and lack of repeated randomized trials prevent a controlled method-speed conclusion. Agent-only cost excludes preprocessing; historical unsuccessful attempts and infrastructure costs are also outside these selected-run sums.
 
-Identical submitted patches indicate no observed test-content benefit on this
-instance. The original issue already describes the trigger, expected result, and
-suggested correction clearly, which may leave little benefit for extraction.
+Improved fallbacks occurred on `django__django-15098`, `django__django-16631`, `sphinx-doc__sphinx-8551`, and `django__django-13810`, each after three extraction attempts. They remain in the improved denominator and must not be excluded as failed preprocessing.
 
-## Limitations and threats to validity
+## Per-instance observations
 
-- **One easy instance:** the pilot cannot establish a success-rate effect across
-  the assigned set, particularly the Hard instances.
-- **Correlated review errors:** DeepSeek performs both extraction and semantic
-  review. A real supporting quotation does not guarantee logical correctness.
-- **Uncontrolled variability:** there is one run per method; sampling, provider
-  caching, and timing variation may influence cost and runtime.
-- **Evaluation incomplete:** generation-time failure is a candidate reproduction,
-  not proof of passing after the reference fix or satisfying the harness criterion.
-- **Protocol identity:** matching image tags and model names are recorded, but
-  immutable image/provider identities should also be captured for reproducibility.
+Every row below has a submitted patch from each method. Counts and error descriptions are generation-time observations, not official fixed-version outcomes. Some instances generate several individual test cases. See the [26-instance report](TRACE_26_INSTANCE_REPORT_20261113.md) for method-specific counts, changed files, timings, costs, trajectory links, and review flags.
 
-Six distinct cases cannot yet be analyzed: only one evaluation candidate has been
-reviewed and no official evaluated successes, failures, or disagreements are
-available. This report does not satisfy the final six-case analysis requirement.
+| Instance | What happened during generation |
+| --- | --- |
+| pydata__xarray-3677 | Both fail merging a DataArray through Dataset.merge with a missing items attribute; improved’s broader run has eight passes alongside the failure. |
+| django__django-14089 | Both reversal tests raise TypeError because OrderedSet is not reversible. |
+| django__django-11163 | Identical patches; both fail the empty-fields dictionary assertion, with one failure among 165 tests. |
+| sympy__sympy-24539 | Both fail replacement-symbol assertions for PolyElement.as_expr; improved alters an existing symbol case while baseline adds coverage. |
+| scikit-learn__scikit-learn-14894 | Both sparse SVR tests encounter ZeroDivisionError with empty support vectors. |
+| sphinx-doc__sphinx-9711 | Both reject a newer multi-digit extension version incorrectly; improved adds a passing older-version rejection control. |
+| astropy__astropy-14508 | Both HIERARCH float-format tests fail with a comment-truncation VerifyWarning. |
+| pytest-dev__pytest-7432 | Baseline records two skip-location failures with --runxfail; improved records one combined-test failure. |
+| pallets__flask-5014 | Both fail because an empty Blueprint name does not raise the expected ValueError. |
+| matplotlib__matplotlib-13989 | Density-histogram range assertions fail: one baseline case and two improved cases. |
+| psf__requests-2931 | Both binary-payload tests fail with UnicodeDecodeError from ASCII conversion. |
+| pylint-dev__pylint-6903 | Restricted-CPU simulations fail positive-count assertions: one baseline case and two improved cases. |
+| mwaskom__seaborn-3187 | Large-range legend-label checks fail in both methods; improved needs three extraction attempts before acceptance and has a history-inspection flag. |
+| django__django-13513 | Both generated checks pass in 24-test runs, so no failing regression is demonstrated; baseline has history/commit-inspection flags. |
+| sphinx-doc__sphinx-8548 | Both final focused tests fail for inherited attributes; exploratory passing runs, missing dependencies, and broader unrelated failures require care. Improved has a history flag. |
+| django__django-13344 | Both expose a coroutine reaching process_response instead of HttpResponse, using different native suites. |
+| django__django-15098 | Locale-with-script-and-region checks fail; improved falls back and its broader run also has an import error. Baseline has history flags. |
+| django__django-12155 | Both record two docstring indentation/parsing failures; improved also observes a docutils rendering error. |
+| sphinx-doc__sphinx-8638 | Both final cross-reference tests fail; scratch fixtures and dependency stubs complicate evidence. Improved has a history flag; baseline clones issue examples. |
+| django__django-15252 | Baseline recorder-router checks have three failures; improved migrate-command coverage has one failure because a forbidden migration table is created. |
+| django__django-16631 | Both return AnonymousUser after secret-key rotation instead of the expected user. Improved falls back; baseline has a history flag. |
+| sphinx-doc__sphinx-8551 | Both expose incorrect or ambiguous class links. Improved falls back; its later passing diagnostic is not official fixed-version validation. |
+| django__django-13810 | Both hit AsyncToSync RuntimeError in MiddlewareNotUsed scenarios; baseline has two errors and improved one. Improved falls back. |
+| sphinx-doc__sphinx-8721 | Both find unwanted EPUB viewcode pages after successive builds; missing roman dependencies appear during exploration. |
+| sphinx-doc__sphinx-8621 | Keyboard markup cases fail in both methods. Baseline later obtains nine passes using an agent-authored temporary fix plugin; this is a diagnostic deviation, not official evaluation. |
+| matplotlib__matplotlib-25311 | Both legend/annotation pickle tests fail with TypeError. The final setup recovery completed after Docker and coordinator interruptions; baseline’s broader run adds another failure. |
 
-## Next steps and future improvement
+## Infrastructure, provenance, and protocol limitations
 
-Export the matched predictions and evaluate both using official SWT-Bench
-unit-test mode. Keep reference fixes, reference tests, and evaluator-only results
-isolated from generation. Then evaluate both methods on the full assigned set,
-keeping missing predictions and generation failures in the denominator. Record
-infrastructure failures separately and retry unchanged predictions after recovery.
+All original results, failures, intermediate empty predictions, and retry logs were retained. Initial setup failures included timeouts and a clean-checkout admission check that rejected prescribed benchmark installation edits. Recovery used the unchanged recipes and verified those edits before generation. No selected submission was repaired based on evaluator feedback.
 
-Report official success counts over all assigned instances, patch applicability,
-the exact coverage-delta field/units/aggregation and availability count, total
-generation cost, average generation time, and evaluation time. Treat unavailable
-coverage as N/A, not zero.
+Matplotlib 25311 was the last unfinished environment. Docker Desktop was initially unreachable. A sandboxed retry then failed on dependency-host resolution. An approved retry built the image; a server restart interrupted its coordinator while the build survived. A resumed coordinator reused the completed image and ran baseline then improved on the same immutable image. The final audit initially encountered an existing output filename and succeeded under a new filename.
 
-For the final case study, sort IDs and select two successes, two unsuccessful
-cases, and two method disagreements; deduplicate and fill to six distinct cases
-using remaining failures then other available cases in ID order. Report category
-shortfalls and any diagnostic exceptions explicitly.
+The final pair audit reports 23 matched pairs and three matched pairs with evidence limitations: Django 11163, 13344, and 12155 used mutable image tags at historical launch. Current tag resolution is consistent within those pairs, but historical immutable image identity cannot be established retrospectively.
 
-A future improvement is a diagnostic quality checker applied consistently to both
-methods: inspect assertions and classify execution failures using the issue and
-traceback. Begin without automatic repair so this remains a measurement step.
-Human review on a development sample would help assess semantic correctness
-independently of DeepSeek's own reviewer.
+A heuristic command audit flags six runs and eight commands: baseline Django 13513, 15098, and 16631; improved Seaborn 3187, Sphinx 8548, and Sphinx 8638. The flagged commands inspect repository history or a historical commit summary. Flags require human review and are not a complete contamination determination. The baseline Sphinx 8621 diagnostic fix plugin and other temporary stubs illustrate actions the history heuristic does not capture. Unchanged test-only exports alone do not establish that generation followed every protocol constraint.
+
+Generation orchestration kept evaluator-only data and reference patches separate from its inputs. That orchestration boundary must not be presented as proof that every agent action was compliant. No evaluation outputs or official reference fixes were fed back to regenerate or repair these selected predictions. No GitHub push was performed.
+
+## Interpretation and threats to validity
+
+- **Outcome validity:** Submitted status, an assertion failure, and official reproduction success are distinct. Some runs pass, and some failures are dependency, collection, or unrelated-suite failures.
+- **Preprocessing validity:** Same-model semantic review can repeat extraction mistakes. Acceptance does not independently establish correctness; four fallbacks remain improved outcomes.
+- **Protocol deviations:** History inspection, temporary diagnostic changes, dependency stubs, and changes to existing test cases require explicit review before strong method claims.
+- **Experimental control:** One selected run per method per instance, reused historical pairs, host concurrency, and cached environments limit timing and causal interpretation.
+- **Reproducibility:** Three historical image identities have limitations; provider model names do not establish an immutable model implementation.
+- **Incomplete cost and evaluation:** Preprocessing dollars, historical-attempt totals, official coverage, and complete-set evaluation time remain unaggregated or unavailable.
+
+The full-set generation report covers 26 distinct cases. It does not yet satisfy the final requirement to analyze two official successes, two unsuccessful cases, and two method disagreements: those outcome categories require official evaluation. Generation-time case descriptions must not be substituted for that selection.
+
+## Next steps
+
+1. Evaluate both unchanged 26-row prediction files with the official SWT-Bench unit-test harness and consistent dataset/settings. Preserve outputs in new directories and keep them isolated from generation.
+2. Record applicability, official success counts over all 26 assigned instances, exact coverage fields/units and availability counts, and evaluation time. Infrastructure failures must remain visible; retry unchanged predictions after infrastructure recovery.
+3. Review the six flagged runs and other observed diagnostic deviations. Report sensitivity analyses transparently while retaining the complete assigned-set denominator; do not silently discard difficult cases.
+4. Aggregate preprocessing usage/cost, selected generation cost, historical failed-attempt cost, and setup/evaluation overhead separately. Treat unavailable coverage or cost as N/A rather than zero.
+5. After official outcomes exist, sort IDs and select two successes, two unsuccessful cases, and two method disagreements; deduplicate and fill to six distinct cases using remaining failures then other cases in ID order. Report category shortfalls.
+
+A future quality checker could inspect issue relevance, assertions, and execution failures consistently across both methods, initially without automatic repair. This remains proposed measurement work, not part of the current experiment.
 
 ## Evidence
 
-Matched run directories, relative to the project root:
-
-- `runs/django-unit-baseline-20261111-212132/`
-- `runs/django-unit-improved-20261111-211606/`
-
-Evidence comes from their `manifest.json`, `submission.patch`, `agent.traj.json`,
-and the improved run's preprocessing metrics. Baseline test output is at zero-based
-trajectory message 15; improved test output is at message 13. The submitted patches
-were previously verified as byte-for-byte identical. Earlier standalone-script
-runs and the missing-key fallback run remain development records and are not
-substituted for this matched pair.
+- [Detailed report for all 26 instances](TRACE_26_INSTANCE_REPORT_20261113.md)
+- [Final generation summary](runs/assigned-pairs-20261113-002517/completion-pass-v6/generation-summary.json)
+- [Final pair identity audit](runs/assigned-pairs-20261113-002517/verification/pair-verification-final-v6.json)
+- [Per-instance structured generation evidence](runs/assigned-pairs-20261113-002517/completion-pass-v6/instance-report-evidence-20261113.json)
+- [Command-review flags](runs/assigned-pairs-20261113-002517/completion-pass-v6/generation-command-review-flags.json)
+- [Export validation](runs/assigned-pairs-20261113-002517/completion-pass-v6/export-validation.json)
+- [Historical generation attempts](runs/assigned-pairs-20261113-002517/completion-pass-v6/historical-generation-attempts.json)
+- [Baseline predictions](runs/assigned-pairs-20261113-002517/completion-pass-v6/baseline-predictions.jsonl)
+- [Improved predictions](runs/assigned-pairs-20261113-002517/completion-pass-v6/improved-predictions.jsonl)
+- [Preserved November 11 preliminary report](runs/assigned-pairs-20261113-002517/completion-pass-v6/TRACE_PRELIMINARY_REPORT_before_20261113.md)

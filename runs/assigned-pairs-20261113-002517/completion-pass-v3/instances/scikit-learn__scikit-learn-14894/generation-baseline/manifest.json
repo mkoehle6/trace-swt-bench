@@ -1,0 +1,17 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-14894",
+  "mode": "baseline",
+  "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+  "report_sha256": "8cd34df360481dd31fe9a0cc13d8b7654534a8554c8987e2898d4e2cc9fd35c6",
+  "image": "sha256:bf7cc895493c7169a618bfea46d91e66259c6b9a7fc073ef98e6f71feaa29788",
+  "extract_model": "deepseek-flash",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "status": "agent_finished",
+  "attempts": 0,
+  "validated": false,
+  "fallback": false,
+  "test_format": "unit_test",
+  "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+  "seconds": 43.98439433600288,
+  "baseline_unchanged": true
+}

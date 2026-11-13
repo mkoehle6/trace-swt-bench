@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "i18n_patterns",
+    "evidence": "The i18n_patterns didn't work with locale contains both script and region, like en-latn-us."
+  },
+  "triggering_input": {
+    "value": "locale containing both script and region, like en-latn-us",
+    "evidence": "The i18n_patterns didn't work with locale contains both script and region, like en-latn-us."
+  },
+  "observed_behavior": {
+    "value": "The response of http://localhost:8000/en-lat-us/ is 404 not found, and the response of http://localhost:8000/en-Latn-US/ is 404 not found.",
+    "evidence": "The response of http://localhost:8000/en-lat-us/ is 404 not found.\nThe response of http://localhost:8000/en-Latn-US/ is 404 not found."
+  },
+  "expected_behavior": {
+    "value": "The response of http://localhost:8000/en-latn-us/ and http://localhost:8000/en-Latn-US/ should be 200 U!.",
+    "evidence": "The response of http://localhost:8000/en-latn-us/ and http://localhost:8000/en-Latn-US/ should be 200 U!."
+  },
+  "suggested_assertion": {
+    "value": "The response of http://localhost:8000/en-latn-us/ and http://localhost:8000/en-Latn-US/ should be 200 U!.",
+    "evidence": "The response of http://localhost:8000/en-latn-us/ and http://localhost:8000/en-Latn-US/ should be 200 U!."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "instance_id": "sympy__sympy-24539",
+  "mode": "improved",
+  "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+  "report_sha256": "5645eb901ae72d922815da92b5483de0945f7b54e227337399305e3a845ec92b",
+  "image": "sha256:fc21e07ca56dcfa4dcdd9e6d27261fb451ee1ce7f9160131ee7b90a0677b6c06",
+  "extract_model": "deepseek-flash",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "status": "agent_finished",
+  "attempts": 1,
+  "validated": true,
+  "fallback": false,
+  "test_format": "unit_test",
+  "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+  "seconds": 56.74139194600866,
+  "baseline_unchanged": true
+}

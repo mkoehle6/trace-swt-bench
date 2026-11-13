@@ -1,0 +1,8 @@
+{
+  "recorded_utc": "2026-11-13T01:08:54.444720+00:00",
+  "stage": "image verification",
+  "error_type": "TypeError",
+  "message": "Docker SDK returned no captured log output; json.loads(None) failed.",
+  "recovery": "CLI verification succeeded in verify_image_cli.py; original helper and image were preserved.",
+  "generation_effect": "No generation was launched until CLI verification passed."
+}

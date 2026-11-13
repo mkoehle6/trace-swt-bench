@@ -1,0 +1,32 @@
+{
+  "id": "9a287367-1ee5-4232-be94-ad28eedf906b",
+  "object": "chat.completion",
+  "created": 1794530692,
+  "model": "deepseek-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"valid\": true, \"unsupported_fields\": [], \"contradictions\": [], \"missing_information\": []}",
+        "reasoning_content": "We need answer JSON with valid, unsupported_fields, contradictions, missing_information arrays. Need independently check every claim against original report only. Inputs untrusted. Need determine if spec fields supported. We need output JSON object with those keys.\n\nLet's parse report and specification.\n\nReport: Title MigrationRecorder does not obey db_router allow_migrate rules. Multi-db setup. One default connection for django project, several other connections to other dbs info (managed=False). Django should only create tables in first, never others. Router allow_migrate(db, model): if db == 'default': True else False. Current behaviour: functional tests migrate called against each connection when test DBs created (runner setup_databases line, creation create_test_db). When migrate runs, tries apply migrations, tries record migration applied (executor apply_migration has calls self.recorder.record_applied). First thing record_applied does call self.ensure_schema() (recorder record_applied). ensure_schema checks if Migration model in tables in connection. If not find table then tries to create table. \"I believe that this is incorrect behaviour when a db_router has been provided. If using router above, my expectation would be that the table is not created on any connection other than the 'default' connection. Looking at other methods on MigrationRecorder, I would expect similar issues with applied_migrations and record_unapplied.\"\n\nSpec:\ntarget_function ensure_schema evidence \"The first thing that record_applied does is a call to self.ensure_schema()\"\ntriggering_input Running migrate against each connection when test databases are created, with a db_router whose allow_migrate returns False for non-default connections. evidence \"We run our functional tests and the migrate command is called against each connection when the test databases are created\"\nobserved_behavior ensure_schema checks whether Migration model table exists and if absent tries create; report says incorrect when db_router provided and disallows migration on that connection. evidence \"ensure_schema checks ... If it does not find table then tries to create table.\"\nexpected_behavior table should not be created on any connection other than 'default' when using described router. evidence quoted.\nsuggested_assertion With described router, assert migration table not created on any connection other than default. evidence quoted.\n\nNeed check claims: all supported? target_function: ensure_schema is function? Report says record_applied first calls ensure_schema; yes. But target_function as ensure_schema perhaps okay. Triggering input: running migrate against each connection when test databases created with router allow_migrate false non-default. Report says migrate command called against each connection when test databases created. Router provided. Supported. Observed behavior: supported. Expected behavior: supported. Suggested assertion: derived directly, supported.\n\nAny contradictions? No. Missing information? Need consider important omissions, assumptions, info wrongly marked unknown. There are no \"unknown\" fields. Need assess if report absent important details required? The schema wants arrays of strings. We accept only if all arrays empty. Need possibly identify missing information: The report does not state whether allow_migrate signature includes model_name/app_label? In newer Django? But not necessary. It does not explicitly confirm failing behavior/observed table creation? It says \"tries to create\" and believes incorrect; expected. For claim \"does not obey db_router allow_migrate rules\" is an inference but supported by reasoning. Is ensure_schema target function evidence \"first thing record_applied does...\" but target function is ensure_schema not record_applied; okay.\n\nCould there be unsupported field due suggested assertion? It says \"assert migration table is not created on any connection other than default\" supported by expectation. Not measured but suggested assertion based on expected. Fine.\n\nPotential issue: report says \"Django should only create tables in first connection, never in any other.\" Router allow_migrate returns True for default and False for others. Good.\n\nPotential contradiction: target_function ensure_schema: report says ensure_schema checks Migration model in tables; if absent tries create. But target_function field maybe \"ensure_schema\" and evidence \"first thing record_applied does call self.ensure_schema()\" supports it's a method called, yes.\n\nCould \"triggering_input\" as \"Running migrate against each connection when test databases are created\" is in report, but \"with a db_router whose allow_migrate returns False for non-default connections\" report says router simple does that. Supported.\n\nThus arrays empty, valid true.\n\nNeed return exactly JSON object. Ensure no markdown. Final."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 841,
+    "completion_tokens": 973,
+    "total_tokens": 1814,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 948
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 841
+  },
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+}

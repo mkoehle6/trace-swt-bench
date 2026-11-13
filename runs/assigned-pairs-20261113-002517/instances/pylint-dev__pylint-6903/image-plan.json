@@ -1,0 +1,6 @@
+{
+  "instance_tag": "exec.eval.x86_64.fc8235bb41fea90b41065e.0e61b8e442dd90882e9ff4:latest",
+  "env_tag": "exec.env.x86_64.fc8235bb41fea90b41065e:latest",
+  "repo_script": "#!/bin/bash\nset -euxo pipefail\ngit clone -o origin https://github.com/pylint-dev/pylint /testbed\nchmod -R 777 /testbed\ncd /testbed\ngit reset --hard ca80f03a43bc39e4cc2c67dc99817b3c9f13b8a6\ngit remote remove origin\nsource /opt/miniconda3/bin/activate\nconda activate testbed\necho \"Current environment: $CONDA_DEFAULT_ENV\"\npython -m pip install -e .\n",
+  "env_script": "#!/bin/bash\nset -euxo pipefail\nsource /opt/miniconda3/bin/activate\nconda create -n testbed python=3.9 -y\ncat <<'EOF_59812759871' > $HOME/requirements.txt\nblack==22.6.0\nflake8==5.0.4\nflake8-typing-imports==1.13.0\nisort==5.10.1\nmypy==0.971\n\nastroid==2.12.13  # Pinned to a specific version for tests\ntyping-extensions~=4.4\npy~=1.11.0\npytest~=7.2\npytest-benchmark~=4.0\npytest-timeout~=2.1\ntowncrier~=22.8\nrequests\n\ncoveralls~=3.3\ncoverage~=6.4\npre-commit~=2.20\ntbump~=6.9.0\ncontributors-txt>=0.9.0\npytest-cov~=3.0\npytest-profiling~=1.7\npytest-xdist~=2.5\ntypes-pkg_resources==0.1.3\ntox>=3\n\nEOF_59812759871\nconda activate testbed && python -m pip install -r $HOME/requirements.txt\nrm $HOME/requirements.txt\nconda activate testbed\n"
+}

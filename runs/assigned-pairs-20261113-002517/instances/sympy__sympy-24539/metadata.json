@@ -1,0 +1,7 @@
+{
+  "instance_id": "sympy__sympy-24539",
+  "repo": "sympy/sympy",
+  "base_commit": "193e3825645d93c73e31cdceb6d742cc6919624d",
+  "version": "1.12",
+  "environment_setup_commit": "c6cb7c5602fa48034ab1bd43c2347a7e8488f12e"
+}

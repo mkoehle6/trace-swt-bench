@@ -1,0 +1,8 @@
+{
+  "exit_code": -15,
+  "seconds": 610.7323558679927,
+  "timed_out": true,
+  "stopped_own_build_containers": [
+    "c1862afa36cb"
+  ]
+}

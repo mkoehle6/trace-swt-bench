@@ -1,0 +1,6 @@
+{
+  "instance_tag": "exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d:latest",
+  "env_tag": "exec.env.x86_64.3a9417a9d4b5c62087edb6:latest",
+  "repo_script": "#!/bin/bash\nset -euxo pipefail\ngit clone -o origin https://github.com/psf/requests /testbed\nchmod -R 777 /testbed\ncd /testbed\ngit reset --hard 5f7a3a74aab1625c2bb65f643197ee885e3da576\ngit remote remove origin\nsource /opt/miniconda3/bin/activate\nconda activate testbed\necho \"Current environment: $CONDA_DEFAULT_ENV\"\npython -m pip install .\n",
+  "env_script": "#!/bin/bash\nset -euxo pipefail\nsource /opt/miniconda3/bin/activate\nconda create -n testbed python=3.9 pytest -y\nconda activate testbed\n"
+}

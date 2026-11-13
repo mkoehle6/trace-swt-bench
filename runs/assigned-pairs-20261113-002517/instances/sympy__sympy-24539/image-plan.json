@@ -1,0 +1,6 @@
+{
+  "instance_tag": "exec.eval.x86_64.deec2122407a414e380748.4875ffbbf816883aa80c99:latest",
+  "env_tag": "exec.env.x86_64.deec2122407a414e380748:latest",
+  "repo_script": "#!/bin/bash\nset -euxo pipefail\ngit clone -o origin https://github.com/sympy/sympy /testbed\nchmod -R 777 /testbed\ncd /testbed\ngit reset --hard 193e3825645d93c73e31cdceb6d742cc6919624d\ngit remote remove origin\nsource /opt/miniconda3/bin/activate\nconda activate testbed\necho \"Current environment: $CONDA_DEFAULT_ENV\"\npython -m pip install -e .\n",
+  "env_script": "#!/bin/bash\nset -euxo pipefail\nsource /opt/miniconda3/bin/activate\nconda create -n testbed python=3.9 mpmath flake8 -y\nconda activate testbed\npython -m pip install mpmath==1.3.0 flake8-comprehensions\n"
+}

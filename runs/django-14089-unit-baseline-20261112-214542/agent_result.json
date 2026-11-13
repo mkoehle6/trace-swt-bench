@@ -1,0 +1,4 @@
+{
+  "exit_status": "Submitted",
+  "submission": "diff --git a/tests/utils_tests/test_datastructures.py b/tests/utils_tests/test_datastructures.py\nindex 45d172f984..47ea49edfa 100644\n--- a/tests/utils_tests/test_datastructures.py\n+++ b/tests/utils_tests/test_datastructures.py\n@@ -55,6 +55,11 @@ class OrderedSetTests(SimpleTestCase):\n         s.add(2)\n         self.assertEqual(len(s), 2)\n \n+    def test_reversed(self):\n+        s = OrderedSet([1, 2, 3])\n+        self.assertEqual(list(reversed(s)), [3, 2, 1])\n+        self.assertEqual(list(reversed(OrderedSet())), [])\n+\n \n class MultiValueDictTests(SimpleTestCase):\n \n"
+}

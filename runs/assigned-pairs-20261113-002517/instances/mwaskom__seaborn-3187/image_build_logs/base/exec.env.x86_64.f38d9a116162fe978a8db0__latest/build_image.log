@@ -1,0 +1,382 @@
+2026-11-12 20:24:19,330 - INFO - Building image exec.env.x86_64.f38d9a116162fe978a8db0:latest
+Using dockerfile:
+FROM --platform=linux/x86_64 exec.base.x86_64:latest
+
+COPY ./setup_env.sh /root/
+RUN chmod +x /root/setup_env.sh
+RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+
+WORKDIR /testbed/
+
+# Automatically activate the testbed environment
+RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+
+Adding (1) setup scripts to image build repo
+2026-11-12 20:24:19,331 - INFO - [SETUP SCRIPT] setup_env.sh:
+#!/bin/bash
+set -euxo pipefail
+source /opt/miniconda3/bin/activate
+conda create -n testbed python=3.9  -y
+conda activate testbed
+python -m pip install contourpy==1.1.0 cycler==0.11.0 fonttools==4.42.1 importlib-resources==6.0.1 kiwisolver==1.4.5 matplotlib==3.7.2 numpy==1.25.2 packaging==23.1 pandas==2.0.0 pillow==10.0.0 pyparsing==3.0.9 pytest python-dateutil==2.8.2 pytz==2023.3.post1 scipy==1.11.2 six==1.16.0 tzdata==2023.1 zipp==3.16.2
+
+2026-11-12 20:24:19,949 - INFO - Step 1/6 : FROM --platform=linux/x86_64 exec.base.x86_64:latest
+2026-11-12 20:24:19,950 - INFO - 
+2026-11-12 20:24:19,964 - INFO - ---> cee4fac7d9eb
+2026-11-12 20:24:19,965 - INFO - Step 2/6 : COPY ./setup_env.sh /root/
+2026-11-12 20:24:19,966 - INFO - 
+2026-11-12 20:24:26,104 - INFO - ---> e1e4938a658a
+2026-11-12 20:24:26,110 - INFO - Step 3/6 : RUN chmod +x /root/setup_env.sh
+2026-11-12 20:24:26,114 - INFO - 
+2026-11-12 20:24:26,253 - INFO - ---> Running in 9f38d70a636d
+2026-11-12 20:24:32,207 - INFO - ---> Removed intermediate container 9f38d70a636d
+2026-11-12 20:24:32,211 - INFO - ---> a91b6bb3ef10
+2026-11-12 20:24:32,214 - INFO - Step 4/6 : RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+2026-11-12 20:24:32,217 - INFO - 
+2026-11-12 20:24:32,376 - INFO - ---> Running in 06b3c33cae5d
+2026-11-12 20:24:32,632 - INFO - + source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+2026-11-12 20:24:32,637 - INFO - +++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
+2026-11-12 20:24:32,641 - INFO - +++++ dirname /opt/miniconda3/bin/conda
+2026-11-12 20:24:32,644 - INFO - ++++ dirname /opt/miniconda3/bin
+2026-11-12 20:24:32,648 - INFO - +++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+2026-11-12 20:24:32,658 - INFO - ++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
+2026-11-12 20:24:32,662 - INFO - +++ PS1=
++++ __conda_exe shell.posix activate
+2026-11-12 20:24:32,671 - INFO - +++ /opt/miniconda3/bin/conda shell.posix activate
+2026-11-12 20:24:32,896 - INFO - ++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda create -n testbed python=3.9 -y
++ local cmd=create
++ case "$cmd" in
++ __conda_exe create -n testbed python=3.9 -y
+2026-11-12 20:24:32,898 - INFO - + /opt/miniconda3/bin/conda create -n testbed python=3.9 -y
+2026-11-12 20:24:33,833 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2026-11-12 20:26:41,168 - INFO - done
+2026-11-12 20:26:41,172 - INFO - Solving environment: ...working...
+2026-11-12 20:26:44,591 - INFO - done
+2026-11-12 20:27:01,491 - INFO - ## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/testbed
+
+  added / updated specs:
+    - python=3.9
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _openmp_mutex-5.1          |           52_gnu           7 KB
+    bzip2-1.0.8                |       h5eee18b_6         262 KB
+    ca-certificates-2026.11.5  |       h59cdc77_0         113 KB
+    expat-2.10.0               |       h7354ed3_0          24 KB
+    ld_impl_linux-64-2.44      |       h9e0c5a2_3         725 KB
+    libexpat-2.10.0            |       h7354ed3_0         132 KB
+    libffi-3.4.8               |       h06d3fd0_3         137 KB
+    libgcc-15.2.0              |       h69a1729_8         803 KB
+    libgcc-ng-15.2.0           |       h166f726_8          28 KB
+    libnsl-2.0.0               |       h5eee18b_0          31 KB
+    libstdcxx-15.2.0           |       h39759b7_8         3.7 MB
+    libxcb-1.17.0              |       h9b100fa_0         430 KB
+    libzlib-1.3.2              |       h47b2149_0          60 KB
+    ncurses-6.6                |       hfaaeb4e_0         893 KB
+    openssl-3.5.9              |       h1b28b03_0         5.7 MB
+    pip-26.0.1                 |     pyhc872135_1         1.1 MB
+    pthread-stubs-0.3          |       h47b2149_2           7 KB
+    python-3.9.25              |       h0dcde21_1        23.0 MB
+    readline-8.3               |       hc2a1206_0         471 KB
+    setuptools-80.9.0          |   py39h06a4308_0         1.4 MB
+    sqlite-3.54.1              |       h795bf6d_0         1.3 MB
+    tk-8.6.15                  |       h54e0aa7_0         3.4 MB
+    tzdata-2026c               |       he532380_0         117 KB
+    wheel-0.45.1               |   py39h06a4308_0         114 KB
+    xorg-libx11-1.8.14         |       h65de747_0         820 KB
+    xorg-libxau-1.0.12         |       h9b100fa_0          13 KB
+    xorg-libxdmcp-1.1.5        |       h9b100fa_0          19 KB
+    xorg-xorgproto-2025.1      |       h47b2149_0         555 KB
+    xz-5.8.4                   |       h140a991_0         652 KB
+    zlib-1.3.2                 |       h47b2149_0          92 KB
+    ------------------------------------------------------------
+                                           Total:        46.1 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main 
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-52_gnu 
+  bzip2              pkgs/main/linux-64::bzip2-1.0.8-h5eee18b_6 
+  ca-certificates    pkgs/main/noarch::ca-certificates-2026.11.5-h59cdc77_0 
+  expat              pkgs/main/linux-64::expat-2.10.0-h7354ed3_0 
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.44-h9e0c5a2_3 
+  libexpat           pkgs/main/linux-64::libexpat-2.10.0-h7354ed3_0 
+  libffi             pkgs/main/linux-64::libffi-3.4.8-h06d3fd0_3 
+  libgcc             pkgs/main/linux-64::libgcc-15.2.0-h69a1729_8 
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-15.2.0-h166f726_8 
+  libnsl             pkgs/main/linux-64::libnsl-2.0.0-h5eee18b_0 
+  libstdcxx          pkgs/main/linux-64::libstdcxx-15.2.0-h39759b7_8 
+  libuuid            pkgs/main/linux-64::libuuid-1.41.5-h5eee18b_0 
+  libxcb             pkgs/main/linux-64::libxcb-1.17.0-h9b100fa_0 
+  libzlib            pkgs/main/linux-64::libzlib-1.3.2-h47b2149_0 
+  ncurses            pkgs/main/linux-64::ncurses-6.6-hfaaeb4e_0 
+  openssl            pkgs/main/linux-64::openssl-3.5.9-h1b28b03_0 
+  pip                pkgs/main/noarch::pip-26.0.1-pyhc872135_1 
+  pthread-stubs      pkgs/main/linux-64::pthread-stubs-0.3-h47b2149_2 
+  python             pkgs/main/linux-64::python-3.9.25-h0dcde21_1 
+  readline           pkgs/main/linux-64::readline-8.3-hc2a1206_0 
+  setuptools         pkgs/main/linux-64::setuptools-80.9.0-py39h06a4308_0 
+  sqlite             pkgs/main/linux-64::sqlite-3.54.1-h795bf6d_0 
+  tk                 pkgs/main/linux-64::tk-8.6.15-h54e0aa7_0 
+  tzdata             pkgs/main/noarch::tzdata-2026c-he532380_0 
+  wheel              pkgs/main/linux-64::wheel-0.45.1-py39h06a4308_0 
+  xorg-libx11        pkgs/main/linux-64::xorg-libx11-1.8.14-h65de747_0 
+  xorg-libxau        pkgs/main/linux-64::xorg-libxau-1.0.12-h9b100fa_0 
+  xorg-libxdmcp      pkgs/main/linux-64::xorg-libxdmcp-1.1.5-h9b100fa_0 
+  xorg-xorgproto     pkgs/main/linux-64::xorg-xorgproto-2025.1-h47b2149_0 
+  xz                 pkgs/main/linux-64::xz-5.8.4-h140a991_0 
+  zlib               pkgs/main/linux-64::zlib-1.3.2-h47b2149_0 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2026-11-12 20:27:01,890 - INFO - done
+Verifying transaction: ...working...
+2026-11-12 20:27:03,822 - INFO - done
+2026-11-12 20:27:03,824 - INFO - Executing transaction: ...working...
+2026-11-12 20:27:06,533 - INFO - done
+2026-11-12 20:27:06,587 - INFO - #
+# To activate this environment, use
+#
+#     $ conda activate testbed
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+2026-11-12 20:27:07,027 - INFO - + conda activate testbed
+2026-11-12 20:27:07,029 - INFO - + local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2026-11-12 20:27:07,030 - INFO - ++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+2026-11-12 20:27:07,033 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2026-11-12 20:27:07,212 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2026-11-12 20:27:07,214 - INFO - + python -m pip install contourpy==1.1.0 cycler==0.11.0 fonttools==4.42.1 importlib-resources==6.0.1 kiwisolver==1.4.5 matplotlib==3.7.2 numpy==1.25.2 packaging==23.1 pandas==2.0.0 pillow==10.0.0 pyparsing==3.0.9 pytest python-dateutil==2.8.2 pytz==2023.3.post1 scipy==1.11.2 six==1.16.0 tzdata==2023.1 zipp==3.16.2
+2026-11-12 20:27:08,295 - INFO - Collecting contourpy==1.1.0
+2026-11-12 20:27:08,783 - INFO - Downloading contourpy-1.1.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.7 kB)
+2026-11-12 20:27:08,866 - INFO - Collecting cycler==0.11.0
+2026-11-12 20:27:08,962 - INFO - Downloading cycler-0.11.0-py3-none-any.whl.metadata (785 bytes)
+2026-11-12 20:27:09,293 - INFO - Collecting fonttools==4.42.1
+2026-11-12 20:27:09,385 - INFO - Downloading fonttools-4.42.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (150 kB)
+2026-11-12 20:27:10,162 - INFO - Collecting importlib-resources==6.0.1
+2026-11-12 20:27:10,268 - INFO - Downloading importlib_resources-6.0.1-py3-none-any.whl.metadata (4.0 kB)
+2026-11-12 20:27:10,469 - INFO - Collecting kiwisolver==1.4.5
+2026-11-12 20:27:10,557 - INFO - Downloading kiwisolver-1.4.5-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (6.4 kB)
+2026-11-12 20:27:10,883 - INFO - Collecting matplotlib==3.7.2
+2026-11-12 20:27:10,968 - INFO - Downloading matplotlib-3.7.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+2026-11-12 20:27:11,395 - INFO - Collecting numpy==1.25.2
+2026-11-12 20:27:11,480 - INFO - Downloading numpy-1.25.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+2026-11-12 20:27:11,534 - INFO - Collecting packaging==23.1
+2026-11-12 20:27:11,627 - INFO - Downloading packaging-23.1-py3-none-any.whl.metadata (3.1 kB)
+2026-11-12 20:27:11,903 - INFO - Collecting pandas==2.0.0
+2026-11-12 20:27:11,989 - INFO - Downloading pandas-2.0.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2026-11-12 20:27:12,447 - INFO - Collecting pillow==10.0.0
+2026-11-12 20:27:12,540 - INFO - Downloading Pillow-10.0.0-cp39-cp39-manylinux_2_28_x86_64.whl.metadata (9.5 kB)
+2026-11-12 20:27:12,601 - INFO - Collecting pyparsing==3.0.9
+2026-11-12 20:27:12,685 - INFO - Downloading pyparsing-3.0.9-py3-none-any.whl.metadata (4.2 kB)
+2026-11-12 20:27:12,767 - INFO - Collecting pytest
+2026-11-12 20:27:12,853 - INFO - Downloading pytest-8.4.2-py3-none-any.whl.metadata (7.7 kB)
+2026-11-12 20:27:12,901 - INFO - Collecting python-dateutil==2.8.2
+2026-11-12 20:27:12,991 - INFO - Downloading python_dateutil-2.8.2-py2.py3-none-any.whl.metadata (8.2 kB)
+2026-11-12 20:27:13,079 - INFO - Collecting pytz==2023.3.post1
+2026-11-12 20:27:13,169 - INFO - Downloading pytz-2023.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+2026-11-12 20:27:13,398 - INFO - Collecting scipy==1.11.2
+2026-11-12 20:27:13,497 - INFO - Downloading scipy-1.11.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (59 kB)
+2026-11-12 20:27:13,579 - INFO - Collecting six==1.16.0
+2026-11-12 20:27:13,664 - INFO - Downloading six-1.16.0-py2.py3-none-any.whl.metadata (1.8 kB)
+2026-11-12 20:27:13,710 - INFO - Collecting tzdata==2023.1
+2026-11-12 20:27:13,861 - INFO - Downloading tzdata-2023.1-py2.py3-none-any.whl.metadata (1.4 kB)
+2026-11-12 20:27:13,986 - INFO - Collecting zipp==3.16.2
+2026-11-12 20:27:14,076 - INFO - Downloading zipp-3.16.2-py3-none-any.whl.metadata (3.7 kB)
+2026-11-12 20:27:14,191 - INFO - Collecting exceptiongroup>=1 (from pytest)
+2026-11-12 20:27:14,278 - INFO - Downloading exceptiongroup-1.3.1-py3-none-any.whl.metadata (6.7 kB)
+2026-11-12 20:27:14,322 - INFO - Collecting iniconfig>=1 (from pytest)
+2026-11-12 20:27:14,415 - INFO - Downloading iniconfig-2.1.0-py3-none-any.whl.metadata (2.7 kB)
+2026-11-12 20:27:14,463 - INFO - Collecting pluggy<2,>=1.5 (from pytest)
+2026-11-12 20:27:14,554 - INFO - Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+2026-11-12 20:27:14,635 - INFO - Collecting pygments>=2.7.2 (from pytest)
+2026-11-12 20:27:14,721 - INFO - Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-11-12 20:27:14,797 - INFO - Collecting tomli>=1 (from pytest)
+2026-11-12 20:27:14,883 - INFO - Downloading tomli-2.5.0-py3-none-any.whl.metadata (10 kB)
+2026-11-12 20:27:14,931 - INFO - Collecting typing-extensions>=4.6.0 (from exceptiongroup>=1->pytest)
+2026-11-12 20:27:15,017 - INFO - Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-11-12 20:27:15,116 - INFO - Downloading contourpy-1.1.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (300 kB)
+2026-11-12 20:27:15,434 - INFO - Downloading cycler-0.11.0-py3-none-any.whl (6.4 kB)
+2026-11-12 20:27:15,541 - INFO - Downloading fonttools-4.42.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.5 MB)
+2026-11-12 20:27:18,126 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 1.8 MB/s  0:00:02
+2026-11-12 20:27:18,131 - INFO - 
+2026-11-12 20:27:18,221 - INFO - Downloading importlib_resources-6.0.1-py3-none-any.whl (34 kB)
+2026-11-12 20:27:18,326 - INFO - Downloading kiwisolver-1.4.5-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+2026-11-12 20:27:19,162 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 1.9 MB/s  0:00:00
+2026-11-12 20:27:19,253 - INFO - Downloading matplotlib-3.7.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.6 MB)
+2026-11-12 20:27:24,828 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.6/11.6 MB 2.1 MB/s  0:00:05
+2026-11-12 20:27:24,830 - INFO - 
+2026-11-12 20:27:24,922 - INFO - Downloading pyparsing-3.0.9-py3-none-any.whl (98 kB)
+2026-11-12 20:27:25,050 - INFO - Downloading numpy-1.25.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.3 MB)
+2026-11-12 20:27:29,607 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.3/18.3 MB 4.0 MB/s  0:00:04
+2026-11-12 20:27:29,609 - INFO - 
+2026-11-12 20:27:29,699 - INFO - Downloading packaging-23.1-py3-none-any.whl (48 kB)
+2026-11-12 20:27:29,805 - INFO - Downloading pandas-2.0.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+2026-11-12 20:27:31,382 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 7.9 MB/s  0:00:01
+2026-11-12 20:27:31,385 - INFO - 
+2026-11-12 20:27:31,477 - INFO - Downloading Pillow-10.0.0-cp39-cp39-manylinux_2_28_x86_64.whl (3.4 MB)
+2026-11-12 20:27:31,840 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 9.5 MB/s  0:00:00
+2026-11-12 20:27:31,842 - INFO - 
+2026-11-12 20:27:31,931 - INFO - Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+2026-11-12 20:27:32,050 - INFO - Downloading pytz-2023.3.post1-py2.py3-none-any.whl (502 kB)
+2026-11-12 20:27:32,210 - INFO - Downloading scipy-1.11.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (36.5 MB)
+2026-11-12 20:27:36,657 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 36.5/36.5 MB 8.2 MB/s  0:00:04
+2026-11-12 20:27:36,660 - INFO - 
+2026-11-12 20:27:36,753 - INFO - Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+2026-11-12 20:27:36,933 - INFO - Downloading tzdata-2023.1-py2.py3-none-any.whl (341 kB)
+2026-11-12 20:27:37,087 - INFO - Downloading zipp-3.16.2-py3-none-any.whl (7.2 kB)
+2026-11-12 20:27:37,186 - INFO - Downloading pytest-8.4.2-py3-none-any.whl (365 kB)
+2026-11-12 20:27:37,324 - INFO - Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+2026-11-12 20:27:37,423 - INFO - Downloading exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
+2026-11-12 20:27:37,520 - INFO - Downloading iniconfig-2.1.0-py3-none-any.whl (6.0 kB)
+2026-11-12 20:27:37,621 - INFO - Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-11-12 20:27:37,755 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 8.9 MB/s  0:00:00
+2026-11-12 20:27:37,757 - INFO - 
+2026-11-12 20:27:37,848 - INFO - Downloading tomli-2.5.0-py3-none-any.whl (14 kB)
+2026-11-12 20:27:37,953 - INFO - Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-11-12 20:27:38,352 - INFO - Installing collected packages: pytz, zipp, tzdata, typing-extensions, tomli, six, pyparsing, pygments, pluggy, pillow, packaging, numpy, kiwisolver, iniconfig, fonttools, cycler, scipy, python-dateutil, importlib-resources, exceptiongroup, contourpy, pytest, pandas, matplotlib
+2026-11-12 20:27:56,715 - INFO - 
+2026-11-12 20:27:56,721 - INFO - Successfully installed contourpy-1.1.0 cycler-0.11.0 exceptiongroup-1.3.1 fonttools-4.42.1 importlib-resources-6.0.1 iniconfig-2.1.0 kiwisolver-1.4.5 matplotlib-3.7.2 numpy-1.25.2 packaging-23.1 pandas-2.0.0 pillow-10.0.0 pluggy-1.6.0 pygments-2.21.0 pyparsing-3.0.9 pytest-8.4.2 python-dateutil-2.8.2 pytz-2023.3.post1 scipy-1.11.2 six-1.16.0 tomli-2.5.0 typing-extensions-4.16.0 tzdata-2023.1 zipp-3.16.2
+2026-11-12 20:27:56,724 - INFO - WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+2026-11-12 20:29:02,418 - INFO - ---> Removed intermediate container 06b3c33cae5d
+2026-11-12 20:29:02,421 - INFO - ---> 55cbfb2bbe34
+2026-11-12 20:29:02,424 - INFO - Step 5/6 : WORKDIR /testbed/
+2026-11-12 20:29:02,427 - INFO - 
+2026-11-12 20:29:02,599 - INFO - ---> Running in 8864d48d0d3d
+2026-11-12 20:29:13,307 - INFO - ---> Removed intermediate container 8864d48d0d3d
+2026-11-12 20:29:13,310 - INFO - ---> af55ee1d81c7
+2026-11-12 20:29:13,314 - INFO - Step 6/6 : RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+2026-11-12 20:29:13,320 - INFO - 
+2026-11-12 20:29:13,490 - INFO - ---> Running in 68034d23c511
+2026-11-12 20:29:24,880 - INFO - ---> Removed intermediate container 68034d23c511
+2026-11-12 20:29:24,889 - INFO - ---> 8fec4f8fd1dc
+2026-11-12 20:29:24,901 - INFO - Successfully built 8fec4f8fd1dc
+2026-11-12 20:29:24,954 - INFO - Successfully tagged exec.env.x86_64.f38d9a116162fe978a8db0:latest
+2026-11-12 20:29:24,982 - INFO - Image built successfully!

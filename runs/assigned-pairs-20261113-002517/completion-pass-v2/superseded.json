@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-13T02:08:10.620261+00:00",
+  "reason": "Primary batch finished during watcher replacement; the guarded handoff did not succeed, but a second coordinator was started. Stopped the redundant v2 coordinator and its own setup retry. V3 is authoritative.",
+  "generation_started": false,
+  "stopped_parent": 25164,
+  "stopped_children": [
+    27795
+  ],
+  "stopped_own_build_containers": [
+    "cc6e90f5420e"
+  ],
+  "artifacts_preserved": true,
+  "replacement": "completion-pass-v3"
+}

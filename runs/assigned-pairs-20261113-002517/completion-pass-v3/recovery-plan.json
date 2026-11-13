@@ -1,0 +1,150 @@
+{
+  "setup_workers": 2,
+  "generation_workers": 1,
+  "setup_retry_timeout_seconds": 1800,
+  "candidates": [
+    {
+      "entry": {
+        "instance_id": "sphinx-doc__sphinx-9711",
+        "group": "easy",
+        "report": "sphinx-doc__sphinx-9711/report.txt",
+        "source": "sphinx-doc__sphinx-9711/source.json",
+        "report_sha256": "774dbded97246fc337cc3a9f01569a66641396f3952440385d51e6f7e095234a",
+        "repo": "sphinx-doc/sphinx",
+        "base_commit": "81a4fd973d4cfcb25d01a7b0be62cdb28f82406d"
+      },
+      "rebuild": false,
+      "environment_cached": false
+    },
+    {
+      "entry": {
+        "instance_id": "astropy__astropy-14508",
+        "group": "easy",
+        "report": "astropy__astropy-14508/report.txt",
+        "source": "astropy__astropy-14508/source.json",
+        "report_sha256": "d08eb8c70acd4f003f7f477092385046092d36ff4e4155594b286795e7f9cd9f",
+        "repo": "astropy/astropy",
+        "base_commit": "a3f4ae6cd24d5ecdf49f213d77b3513dd509a06c"
+      },
+      "rebuild": false,
+      "environment_cached": false
+    },
+    {
+      "entry": {
+        "instance_id": "sphinx-doc__sphinx-8548",
+        "group": "hard",
+        "report": "sphinx-doc__sphinx-8548/report.txt",
+        "source": "sphinx-doc__sphinx-8548/source.json",
+        "report_sha256": "f0c8a912cffb03b9d6346146e11cf044329280bfe2a193fd9e46980b193cffb0",
+        "repo": "sphinx-doc/sphinx",
+        "base_commit": "dd1615c59dc6fff633e27dbb3861f2d27e1fb976"
+      },
+      "rebuild": false,
+      "environment_cached": false
+    },
+    {
+      "entry": {
+        "instance_id": "sphinx-doc__sphinx-8638",
+        "group": "hard",
+        "report": "sphinx-doc__sphinx-8638/report.txt",
+        "source": "sphinx-doc__sphinx-8638/source.json",
+        "report_sha256": "bcfbf8c2f2b843cf3892b3ec7af0762b44dbf3e9d2d0ed45b4024391108a3677",
+        "repo": "sphinx-doc/sphinx",
+        "base_commit": "4b452338f914d4f6b54704222d70ae8a746e3db5"
+      },
+      "rebuild": false,
+      "environment_cached": false
+    },
+    {
+      "entry": {
+        "instance_id": "sphinx-doc__sphinx-8551",
+        "group": "hard",
+        "report": "sphinx-doc__sphinx-8551/report.txt",
+        "source": "sphinx-doc__sphinx-8551/source.json",
+        "report_sha256": "59b1b15138bca3802f81a94c49ced00a098c6dc015474f0a7c06967bc623d7b6",
+        "repo": "sphinx-doc/sphinx",
+        "base_commit": "57ed10c68057c96491acbd3e62254ccfaf9e3861"
+      },
+      "rebuild": false,
+      "environment_cached": false
+    },
+    {
+      "entry": {
+        "instance_id": "sphinx-doc__sphinx-8721",
+        "group": "hard",
+        "report": "sphinx-doc__sphinx-8721/report.txt",
+        "source": "sphinx-doc__sphinx-8721/source.json",
+        "report_sha256": "684041d7ab737dd04914a0017b92d238cd8dae72182457e3f3a21f494e7acb3e",
+        "repo": "sphinx-doc/sphinx",
+        "base_commit": "82ef497a8c88f0f6e50d84520e7276bfbf65025d"
+      },
+      "rebuild": false,
+      "environment_cached": false
+    },
+    {
+      "entry": {
+        "instance_id": "sphinx-doc__sphinx-8621",
+        "group": "hard",
+        "report": "sphinx-doc__sphinx-8621/report.txt",
+        "source": "sphinx-doc__sphinx-8621/source.json",
+        "report_sha256": "3e046e4b32763535effb1e5d144ce265b213b55f236d73a32390a316abc44a7a",
+        "repo": "sphinx-doc/sphinx",
+        "base_commit": "21698c14461d27933864d73e6fba568a154e83b3"
+      },
+      "rebuild": false,
+      "environment_cached": false
+    },
+    {
+      "entry": {
+        "instance_id": "matplotlib__matplotlib-13989",
+        "group": "easy",
+        "report": "matplotlib__matplotlib-13989/report.txt",
+        "source": "matplotlib__matplotlib-13989/source.json",
+        "report_sha256": "13d52a70d283b3677d5258aadda203f99ac501d0073989215713092077f6e3ff",
+        "repo": "matplotlib/matplotlib",
+        "base_commit": "a3e2897bfaf9eaac1d6649da535c4e721c89fa69"
+      },
+      "rebuild": true,
+      "environment_cached": true
+    },
+    {
+      "entry": {
+        "instance_id": "pydata__xarray-3677",
+        "group": "easy",
+        "report": "pydata__xarray-3677/report.txt",
+        "source": "pydata__xarray-3677/source.json",
+        "report_sha256": "4d1a08fa41ecef39ce23af292d1139cdc7d030bef74172654e29d4876338b716",
+        "repo": "pydata/xarray",
+        "base_commit": "ef6e6a7b86f8479b9a1fecf15ad5b88a2326b31e"
+      },
+      "rebuild": true,
+      "environment_cached": false
+    },
+    {
+      "entry": {
+        "instance_id": "scikit-learn__scikit-learn-14894",
+        "group": "easy",
+        "report": "scikit-learn__scikit-learn-14894/report.txt",
+        "source": "scikit-learn__scikit-learn-14894/source.json",
+        "report_sha256": "0cf2009aebab59ce0221a4ccda59465d8506a274a5d76a4f9e35338c5373ced5",
+        "repo": "scikit-learn/scikit-learn",
+        "base_commit": "fdbaa58acbead5a254f2e6d597dc1ab3b947f4c6"
+      },
+      "rebuild": true,
+      "environment_cached": false
+    },
+    {
+      "entry": {
+        "instance_id": "matplotlib__matplotlib-25311",
+        "group": "hard",
+        "report": "matplotlib__matplotlib-25311/report.txt",
+        "source": "matplotlib__matplotlib-25311/source.json",
+        "report_sha256": "a2583ca80e1609006e02901af35754c41bc9bb0c325da37d2f6fef434d7f2ff7",
+        "repo": "matplotlib/matplotlib",
+        "base_commit": "430fb1db88843300fb4baae3edc499bbfe073b0c"
+      },
+      "rebuild": true,
+      "environment_cached": false
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "AbstractBaseUser.get_session_auth_hash",
+    "evidence": "AbstractBaseUser.get_session_auth_hash method does not call salted_hmac with a value for the secret keyword argument."
+  },
+  "triggering_input": {
+    "value": "Rotating the secret key by setting a new SECRET_KEY and making the old one available in SECRET_KEY_FALLBACKS",
+    "evidence": "I recently rotated my secret key, made the old one available in SECRET_KEY_FALLBACKS"
+  },
+  "observed_behavior": {
+    "value": "Users are logged out after secret key rotation with the old key in SECRET_KEY_FALLBACKS",
+    "evidence": "I'm pretty sure everyone on our site is logged out now."
+  },
+  "expected_behavior": {
+    "value": "Sessions should remain valid until the old values are removed from SECRET_KEY_FALLBACKS",
+    "evidence": "Then remove the old values from the end of the SECRET_KEY_FALLBACKS when you are ready to expire the sessions, password reset tokens, and so on, that make use of them."
+  },
+  "suggested_assertion": {
+    "value": "Sessions are not expired merely by moving the previous SECRET_KEY to SECRET_KEY_FALLBACKS; they expire when the old value is removed from SECRET_KEY_FALLBACKS",
+    "evidence": "Then remove the old values from the end of the SECRET_KEY_FALLBACKS when you are ready to expire the sessions, password reset tokens, and so on, that make use of them."
+  }
+}

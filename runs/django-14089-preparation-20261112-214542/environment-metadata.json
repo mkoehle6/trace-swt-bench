@@ -1,0 +1,7 @@
+{
+  "instance_id": "django__django-14089",
+  "repo": "django/django",
+  "base_commit": "d01709aae21de9cd2565b9c52f32732ea28a2d98",
+  "version": "4.0",
+  "environment_setup_commit": "475cffd1d64c690cdad16ede4d5e81985738ceb4"
+}

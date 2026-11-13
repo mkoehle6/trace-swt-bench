@@ -1,0 +1,17 @@
+{
+  "instance_id": "astropy__astropy-14508",
+  "mode": "baseline",
+  "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+  "report_sha256": "44e63d3eb02f28479ec3fe3e828506fac14ae5ffaf8965e0f732b702633161b7",
+  "image": "sha256:6e68b416120c0cfdbd7d3a7517cfd15f60ba2cab88e9e2b61111a2a88bcc7255",
+  "extract_model": "deepseek-flash",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "status": "agent_finished",
+  "attempts": 0,
+  "validated": false,
+  "fallback": false,
+  "test_format": "unit_test",
+  "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+  "seconds": 58.927967356998124,
+  "baseline_unchanged": true
+}

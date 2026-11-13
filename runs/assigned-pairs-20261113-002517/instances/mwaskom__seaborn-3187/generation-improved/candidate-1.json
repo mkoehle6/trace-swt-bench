@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": null,
+    "evidence": null
+  },
+  "triggering_input": {
+    "value": "A seaborn objects Plot using `body_mass_mg = body_mass_g * 1000` as the `pointsize`, with `color=\"species\"`.",
+    "evidence": "import seaborn as sns\nimport seaborn.objects as so\n\npenguins = sns.load_dataset(\"Penguins\")\npenguins[\"body_mass_mg\"] = penguins[\"body_mass_g\"]*1000\n(\n    so.Plot(\n        penguins, x=\"bill_length_mm\", y=\"bill_depth_mm\",\n        color=\"species\", pointsize=\"body_mass_mg\",\n    )\n    .add(so.Dot())\n)"
+  },
+  "observed_behavior": {
+    "value": "Legends for large-number values are formatted without their multiplicative offset value.",
+    "evidence": "legends describing large numbers that were created using `ScalarFormatter` with an offset are formatted without their multiplicative offset value."
+  },
+  "expected_behavior": {
+    "value": "The formatter offset value should be used to create the legend title and/or labels.",
+    "evidence": "The offset value can be safely retrieved from all formatters and based on that it can be used to create the legend title and/or labels."
+  },
+  "suggested_assertion": {
+    "value": "The legend title and/or labels should include the formatter offset value when one is present.",
+    "evidence": "The offset value can be safely retrieved from all formatters and based on that it can be used to create the legend title and/or labels."
+  }
+}

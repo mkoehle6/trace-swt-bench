@@ -1,0 +1,17 @@
+{
+  "instance_id": "pytest-dev__pytest-7432",
+  "mode": "baseline",
+  "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+  "report_sha256": "e307671199926fe7f0b579f6701e4ca717b8d01ab1d629a2419dc3b23f78ce04",
+  "image": "sha256:599fbcbcfd387c21acd2090ec3653d9d2b2b1c0afb6299c08fe369a6bf6200f4",
+  "extract_model": "deepseek-flash",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "status": "agent_finished",
+  "attempts": 0,
+  "validated": false,
+  "fallback": false,
+  "test_format": "unit_test",
+  "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+  "seconds": 62.925983627006644,
+  "baseline_unchanged": true
+}

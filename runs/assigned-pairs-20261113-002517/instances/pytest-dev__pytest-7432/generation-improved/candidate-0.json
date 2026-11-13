@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "pytest_runtest_makereport",
+    "evidence": "Hint: the bug is in `src/_pytest/skipping.py`, the `pytest_runtest_makereport` hook."
+  },
+  "triggering_input": {
+    "value": "Running `pytest -rs --runxfail` on a test skipped by `@pytest.mark.skip`/`skipif`.",
+    "evidence": "However, adding `pytest -rs --runxfail` breaks this:"
+  },
+  "observed_behavior": {
+    "value": "The skip location is reported as `src/_pytest/skipping.py:238`, not the test item, when `--runxfail` is added.",
+    "evidence": "SKIPPED [1] src/_pytest/skipping.py:238: unconditional skip"
+  },
+  "expected_behavior": {
+    "value": "The skip location should point to the item itself, as it does with `pytest -rs`; `--runxfail` should not affect this.",
+    "evidence": "the expected skip location reported should point to the item itself, and this is indeed what happens when running with `pytest -rs`:"
+  },
+  "suggested_assertion": {
+    "value": "With `pytest -rs --runxfail`, the reported skip location should point to the test item itself.",
+    "evidence": "the expected skip location reported should point to the item itself"
+  }
+}

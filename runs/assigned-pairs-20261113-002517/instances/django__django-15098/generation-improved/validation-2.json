@@ -1,0 +1,5 @@
+{
+  "errors": [
+    "Semantic review rejected specification: {\"valid\": false, \"unsupported_fields\": [], \"contradictions\": [\"The report claims the failing locale is 'en-latn-us' (script+region), but the observed 404 URL is '/en-lat-us/', which omits the 'n' and is not the same locale.\"], \"missing_information\": [\"No observed HTTP response is given for '/en-latn-us/', despite LANGUAGES including it and expected_behavior asserting it should return 200; only '/en-lat-us/' and '/en-Latn-US/' are observed.\", \"The observed '/en-lat-us/' URL is not a valid BCP 47 tag with a 4-letter script, so the report does not directly show the lowercase script+region case it claims.\"]}"
+  ]
+}

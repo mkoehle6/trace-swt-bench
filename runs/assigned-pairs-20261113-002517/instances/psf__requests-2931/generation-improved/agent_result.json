@@ -1,0 +1,4 @@
+{
+  "exit_status": "Submitted",
+  "submission": "diff --git a/test_requests.py b/test_requests.py\nindex 137edc08..b2c2710a 100755\n--- a/test_requests.py\n+++ b/test_requests.py\n@@ -521,6 +521,13 @@ class TestRequests(object):\n             headers={str('Content-Type'): 'application/octet-stream'},\n             data='\\xff')  # compat.str is unicode.\n \n+    def test_binary_payload(self):\n+        data = u'ööö'.encode('utf-8')\n+        request = requests.Request('PUT', 'http://httpbin.org/put', data=data)\n+        prepared = request.prepare()\n+\n+        assert prepared.body == data\n+\n     def test_pyopenssl_redirect(self, httpsbin_url, httpbin_ca_bundle):\n         requests.get(httpsbin_url('status', '301'), verify=httpbin_ca_bundle)\n \n"
+}

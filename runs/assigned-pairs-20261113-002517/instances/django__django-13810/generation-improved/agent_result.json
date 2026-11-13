@@ -1,0 +1,4 @@
+{
+  "exit_status": "Submitted",
+  "submission": "diff --git a/tests/middleware_exceptions/tests.py b/tests/middleware_exceptions/tests.py\nindex 8b019ba524..c152b63c5e 100644\n--- a/tests/middleware_exceptions/tests.py\n+++ b/tests/middleware_exceptions/tests.py\n@@ -252,6 +252,14 @@ class MiddlewareSyncAsyncTests(SimpleTestCase):\n             'Payment Required: /middleware_exceptions/view/',\n         )\n \n+    @override_settings(MIDDLEWARE=[\n+        'middleware_exceptions.middleware.async_payment_middleware',\n+        'middleware_exceptions.tests.MyMiddleware',\n+    ])\n+    async def test_middleware_not_used_does_not_break_async_chain(self):\n+        response = await self.async_client.get('/middleware_exceptions/view/')\n+        self.assertEqual(response.status_code, 402)\n+\n     @override_settings(\n         DEBUG=False,\n         MIDDLEWARE=[\n"
+}

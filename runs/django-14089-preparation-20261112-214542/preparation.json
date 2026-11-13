@@ -1,0 +1,22 @@
+{
+  "instance_id": "django__django-14089",
+  "selection": "Next unrun manifest entry after deferring xarray environment preparation",
+  "pair_id": "20261112-214542",
+  "source": {
+    "instance_id": "django__django-14089",
+    "repo": "django/django",
+    "base_commit": "d01709aae21de9cd2565b9c52f32732ea28a2d98",
+    "dataset": "princeton-nlp/SWE-bench_Verified",
+    "revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+    "split": "test"
+  },
+  "sha256": {
+    "controller.py": "6a5922b0cf5f591f477e37881246d58fd11de5fb94df43c278b3bed07ef24d9e",
+    "export_prediction.py": "7fe8fecb0c4dcde1cdf16bd2bc97eed3f2bcf9d0c7e3674d3ebdda87045378da",
+    "baseline/swt_test.yaml": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+    "profiles/unit_test.yaml": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+    "data/django__django-14089/report.txt": "cbfb85cb9ea9b08049b15ffaff23b96640926088e725b8b70f7ef2a31b767118",
+    "data/django__django-14089/source.json": "c19c53c1ddcfc8385e3041bb2f7a40584cef836bf8186dea2d670f0de62c6aef"
+  },
+  "generation_started": false
+}

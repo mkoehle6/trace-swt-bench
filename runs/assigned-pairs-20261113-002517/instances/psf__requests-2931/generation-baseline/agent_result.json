@@ -1,0 +1,4 @@
+{
+  "exit_status": "Submitted",
+  "submission": "diff --git a/test_requests.py b/test_requests.py\nindex 137edc08..816d1ac1 100755\n--- a/test_requests.py\n+++ b/test_requests.py\n@@ -118,6 +118,12 @@ class TestRequests(object):\n         assert pr.url == req.url\n         assert pr.body == 'life=42'\n \n+    def test_binary_payload(self):\n+        data = u('ööö').encode('utf-8')\n+        request = requests.Request('PUT', 'http://httpbin.org/put',\n+                                   data=data).prepare()\n+        assert request.body == data\n+\n     def test_no_content_length(self, httpbin):\n         get_req = requests.Request('GET', httpbin('get')).prepare()\n         assert 'Content-Length' not in get_req.headers\n"
+}

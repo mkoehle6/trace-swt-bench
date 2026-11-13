@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "io.fits.Card._format_float()",
+    "evidence": "the root issue is the `io.fits.Card._format_float()` function"
+  },
+  "triggering_input": {
+    "value": "Float value 0.009125 supplied to io.fits.Card formatting.",
+    "evidence": "when `0.009125` is used as the input"
+  },
+  "observed_behavior": {
+    "value": "The formatted value is '0.009124999999999999' instead of '0.009125', causing the comment to be truncated and a VerifyWarning.",
+    "evidence": "Essentially the value \"0.009125\" is being unnecessarily expanded to \"0.009124999999999999\", which forces the comment to be truncated."
+  },
+  "expected_behavior": {
+    "value": "Any valid FITS Card can be created via io.fits.Card.",
+    "evidence": "Being able to create any valid FITS Card via `io.fits.Card`."
+  },
+  "suggested_assertion": {
+    "value": "A fits.Card for value 0.009125 with comment '[m] radius arround actuator to avoid' can be created via io.fits.Card without truncating the comment.",
+    "evidence": "Being able to create any valid FITS Card via `io.fits.Card`."
+  }
+}

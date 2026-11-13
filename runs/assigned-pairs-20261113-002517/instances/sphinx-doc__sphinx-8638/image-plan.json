@@ -1,0 +1,6 @@
+{
+  "instance_tag": "exec.eval.x86_64.77d82541416cab86d0d86a.1622f4ab259b2666752891:latest",
+  "env_tag": "exec.env.x86_64.77d82541416cab86d0d86a:latest",
+  "repo_script": "#!/bin/bash\nset -euxo pipefail\ngit clone -o origin https://github.com/sphinx-doc/sphinx /testbed\nchmod -R 777 /testbed\ncd /testbed\ngit reset --hard 4b452338f914d4f6b54704222d70ae8a746e3db5\ngit remote remove origin\nsource /opt/miniconda3/bin/activate\nconda activate testbed\necho \"Current environment: $CONDA_DEFAULT_ENV\"\nsed -i 's/pytest/pytest -rA/' tox.ini\nsed -i 's/Jinja2>=2.3/Jinja2<3.0/' setup.py\nsed -i 's/sphinxcontrib-applehelp/sphinxcontrib-applehelp<=1.0.7/' setup.py\nsed -i 's/sphinxcontrib-devhelp/sphinxcontrib-devhelp<=1.0.5/' setup.py\nsed -i 's/sphinxcontrib-qthelp/sphinxcontrib-qthelp<=1.0.6/' setup.py\nsed -i 's/alabaster>=0.7,<0.8/alabaster>=0.7,<0.7.12/' setup.py\nsed -i \"s/'packaging',/'packaging', 'markupsafe<=2.0.1',/\" setup.py\nsed -i 's/sphinxcontrib-htmlhelp/sphinxcontrib-htmlhelp<=2.0.4/' setup.py\nsed -i 's/sphinxcontrib-serializinghtml/sphinxcontrib-serializinghtml<=1.1.9/' setup.py\npython -m pip install -e .[test]\n",
+  "env_script": "#!/bin/bash\nset -euxo pipefail\nsource /opt/miniconda3/bin/activate\nconda create -n testbed python=3.9  -y\nconda activate testbed\npython -m pip install tox==4.16.0 tox-current-env==0.0.11\n"
+}

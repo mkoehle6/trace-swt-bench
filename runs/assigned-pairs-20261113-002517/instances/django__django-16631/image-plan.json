@@ -1,0 +1,6 @@
+{
+  "instance_tag": "exec.eval.x86_64.9097b18874f4d0ac315ef2.9fe46469c62633c45bbc90:latest",
+  "env_tag": "exec.env.x86_64.9097b18874f4d0ac315ef2:latest",
+  "repo_script": "#!/bin/bash\nset -euxo pipefail\ngit clone -o origin https://github.com/django/django /testbed\nchmod -R 777 /testbed\ncd /testbed\ngit reset --hard 9b224579875e30203d079cc2fee83b116d98eb78\ngit remote remove origin\nsource /opt/miniconda3/bin/activate\nconda activate testbed\necho \"Current environment: $CONDA_DEFAULT_ENV\"\npython -m pip install -e .\n",
+  "env_script": "#!/bin/bash\nset -euxo pipefail\nsource /opt/miniconda3/bin/activate\nconda create -n testbed python=3.11 -y\ncat <<'EOF_59812759871' > $HOME/requirements.txt\naiosmtpd\nasgiref >= 3.7.0\nargon2-cffi >= 19.2.0\nbcrypt\nblack\ndocutils\ngeoip2; python_version < '3.12'\njinja2 >= 2.11.0\nnumpy; python_version < '3.12'\nPillow >= 6.2.1; sys.platform != 'win32' or python_version < '3.12'\npylibmc; sys.platform != 'win32'\npymemcache >= 3.4.0\npywatchman; sys.platform != 'win32'\nPyYAML\nredis >= 3.4.0\nselenium >= 4.8.0\nsqlparse >= 0.3.1\ntblib >= 1.5.0\ntzdata\ncolorama; sys.platform == 'win32'\n\nEOF_59812759871\nconda activate testbed && python -m pip install -r $HOME/requirements.txt\nrm $HOME/requirements.txt\nconda activate testbed\n"
+}

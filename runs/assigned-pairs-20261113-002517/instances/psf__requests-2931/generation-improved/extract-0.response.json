@@ -1,0 +1,32 @@
+{
+  "id": "813eec63-da6b-46d3-ad13-1a0632464539",
+  "object": "chat.completion",
+  "created": 1794532986,
+  "model": "deepseek-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"target_function\":{\"value\":\"to_native_string\",\"evidence\":\"calling to_native_string\"},\"triggering_input\":{\"value\":\"requests.put(\\\"http://httpbin.org/put\\\", data=u\\\"ööö\\\".encode(\\\"utf-8\\\"))\",\"evidence\":\"requests.put(\\\"http://httpbin.org/put\\\", data=u\\\"ööö\\\".encode(\\\"utf-8\\\"))\"},\"observed_behavior\":{\"value\":\"The request with a binary payload fails in requests 2.9, although it works with 2.8.1.\",\"evidence\":\"This works with 2.8.1, but not with 2.9.\"},\"expected_behavior\":{\"value\":\"The request with the binary payload should work as it did in 2.8.1.\",\"evidence\":\"This works with 2.8.1, but not with 2.9.\"},\"suggested_assertion\":{\"value\":\"The request with the UTF-8 encoded binary payload should not fail in 2.9.\",\"evidence\":\"This works with 2.8.1, but not with 2.9.\"}}",
+        "reasoning_content": "We need answer JSON exact fields with value/evidence. Need extract bug spec only supplied report. Need identify target_function? Report mentions \"calling to_native_string\". Function likely to_native_string? But exact? It says request with binary payload fails due to calling to_native_string. No explicit function signature. target_function maybe \"to_native_string\" as identifier mentioned. Need not manufacture runnable identifiers. Evidence quote \"Request with binary payload fails due to calling to_native_string\" or \"Introduced with ...\". Triggering input: requests.put(\"http://httpbin.org/put\", data=u\"ööö\".encode(\"utf-8\")). Observed: fails / works 2.8.1 not 2.9. Expected: works? Report says This works with 2.8.1, but not with 2.9. Expected behavior explicitly supported: request with binary payload should work / not fail? Need assertion only express explicitly supported expected behavior. Could suggest assertion that requests.put with utf-8 encoded data does not raise? But report doesn't explicitly state expected no error? It says works in 2.8.1 but not 2.9, request fails. This implies expected to work. Need be careful.\n\nFields:\ntarget_function: value \"to_native_string\", evidence \"calling to_native_string\" exact quote? The quote must be contiguous and nonempty. \"calling to_native_string\" appears in title. Good.\ntriggering_input: value maybe code snippet line `requests.put(\"http://httpbin.org/put\", data=u\"ööö\".encode(\"utf-8\"))` evidence exact contiguous quote from report. Need exact quote includes? Report has `requests.put(\"http://httpbin.org/put\", data=u\"ööö\".encode(\"utf-8\"))`. Use exact.\nobserved_behavior: \"Request with binary payload fails\" evidence exact \"Request with binary payload fails due to calling to_native_string\" or \"This works with 2.8.1, but not with 2.9.\" Need observed. Value: \"The request fails in requests 2.9 although it works with 2.8.1.\" evidence \"This works with 2.8.1, but not with 2.9.\" Good.\nexpected_behavior: \"The request with a binary payload should work.\" Evidence? \"This works with 2.8.1\" is explicit but not exactly expected. Could set value \"Requests should work with a binary payload as it did in 2.8.1.\" evidence \"This works with 2.8.1, but not with 2.9.\" That's explicit enough? Suggested assertion: maybe \"assert requests.put(\\\"http://httpbin.org/put\\\", data=u\\\"ööö\\\".encode(\\\"utf-8\\\")) does not raise\" but this uses runnable identifier requests? Report code includes requests.put. Is that okay? \"Do not manufacture runnable identifiers\" means don't invent. requests.put is supplied. However assertion should only express explicitly supported expected. It might be okay. But network endpoint in assertion not ideal. Could set suggested_assertion value \"The request with the UTF-8 encoded binary payload should not fail in 2.9.\" evidence \"This works with 2.8.1, but not with 2.9.\" This is not runnable identifier. Good.\n\nNeed JSON only. Ensure exactly fields. Evidence null if no. We have all. target_function evidence exact. For triggering input evidence exact snippet maybe includes \"requests.put...\" Need validate exact quote. Report contains:\n```\nimport requests\nrequests.put(\"http://httpbin.org/put\", data=u\"ööö\".encode(\"utf-8\"))\n```\nExact line no trailing. Good.\n\nNeed no extra. final JSON."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 278,
+    "completion_tokens": 1048,
+    "total_tokens": 1326,
+    "prompt_tokens_details": {
+      "cached_tokens": 128
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 805
+    },
+    "prompt_cache_hit_tokens": 128,
+    "prompt_cache_miss_tokens": 150
+  },
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+}

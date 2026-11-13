@@ -1,0 +1,7 @@
+{
+  "head": "d01709aae21de9cd2565b9c52f32732ea28a2d98",
+  "clean": true,
+  "python": "3.8.20 (default, Oct  3 2024, 15:24:27) \n[GCC 11.2.0]",
+  "django": "4.0",
+  "django_path": "/testbed/django/__init__.py"
+}

@@ -1,0 +1,7 @@
+{
+  "status": "environment_preparation_deferred",
+  "reason": "Conda dependency resolution did not complete after more than ten minutes; stopped this attempt to proceed with the next assigned instance.",
+  "generation_started": false,
+  "replacement_instance": "django__django-14089",
+  "existing_images_removed": false
+}

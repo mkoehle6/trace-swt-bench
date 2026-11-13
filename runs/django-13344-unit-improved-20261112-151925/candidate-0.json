@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "process_response",
+    "evidence": "def process_response(self, request, response):"
+  },
+  "triggering_input": {
+    "value": "Using ASGI (uvicorn) with the dummy middleware first in settings.py and performing any request.",
+    "evidence": "Launch the server and perform any request, observe console output:"
+  },
+  "observed_behavior": {
+    "value": "The first middleware's process_response receives a coroutine as its response parameter, while all other middlewares receive a django.http.response.HttpResponse object.",
+    "evidence": "the first middleware (according to the list in settings.py) receives a coroutine as its response parameter, while all other middlewares down the line receive a django.http.response.HttpResponse object."
+  },
+  "expected_behavior": {
+    "value": "The first middleware's process_response should receive a django.http.response.HttpResponse object instead of a coroutine.",
+    "evidence": "Coroutine passed to the first middleware's process_response() instead of HttpResponse."
+  },
+  "suggested_assertion": {
+    "value": "The response passed to the first middleware's process_response() should be a django.http.response.HttpResponse object.",
+    "evidence": "while all other middlewares down the line receive a django.http.response.HttpResponse object."
+  }
+}

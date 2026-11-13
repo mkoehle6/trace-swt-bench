@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "i18n_patterns",
+    "evidence": "The i18n_patterns didn't work with locale contains both script and region, like en-latn-us."
+  },
+  "triggering_input": {
+    "value": "A locale containing both script and region, such as en-latn-us, requested via http://localhost:8000/en-latn-us/ or http://localhost:8000/en-Latn-US/.",
+    "evidence": "The response of http://localhost:8000/en-latn-us/ and http://localhost:8000/en-Latn-US/ should be 200 U!."
+  },
+  "observed_behavior": {
+    "value": "Requests to http://localhost:8000/en-lat-us/ and http://localhost:8000/en-Latn-US/ return 404 not found.",
+    "evidence": "The response of http://localhost:8000/en-lat-us/ is 404 not found.\nThe response of http://localhost:8000/en-Latn-US/ is 404 not found."
+  },
+  "expected_behavior": {
+    "value": "Requests to http://localhost:8000/en-latn-us/ and http://localhost:8000/en-Latn-US/ should return 200 U!.",
+    "evidence": "The response of http://localhost:8000/en-latn-us/ and http://localhost:8000/en-Latn-US/ should be 200 U!."
+  },
+  "suggested_assertion": {
+    "value": "A request to http://localhost:8000/en-latn-us/ or http://localhost:8000/en-Latn-US/ returns 200 U!.",
+    "evidence": "The response of http://localhost:8000/en-latn-us/ and http://localhost:8000/en-Latn-US/ should be 200 U!."
+  }
+}

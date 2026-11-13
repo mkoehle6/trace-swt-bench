@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": null,
+    "evidence": null
+  },
+  "triggering_input": {
+    "value": "A seaborn objects Plot with pointsize=\"body_mass_mg\", where body_mass_mg is body_mass_g * 1000.",
+    "evidence": "penguins[\"body_mass_mg\"] = penguins[\"body_mass_g\"]*1000"
+  },
+  "observed_behavior": {
+    "value": "Legends describing large numbers created with a ScalarFormatter offset are formatted without their multiplicative offset value, so the body_mass_mg scale on the order of 1E6 is shown incorrectly.",
+    "evidence": "legends describing large numbers that were created using `ScalarFormatter` with an offset are formatted without their multiplicative offset value"
+  },
+  "expected_behavior": {
+    "value": "The ScalarFormatter offset value should be used to create the legend title and/or labels.",
+    "evidence": "The offset value can be safely retrieved from all formatters and based on that it can be used to create the legend title and/or labels."
+  },
+  "suggested_assertion": {
+    "value": "Assert that the legend title and/or labels are created using the ScalarFormatter offset value.",
+    "evidence": "The offset value can be safely retrieved from all formatters and based on that it can be used to create the legend title and/or labels."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "i18n_patterns",
+    "evidence": "The i18n_patterns didn't work with locale contains both script and region, like en-latn-us."
+  },
+  "triggering_input": {
+    "value": "A request to a URL prefixed with a locale containing both script and region, such as en-Latn-US, when LANGUAGES includes ('en-latn-us', \"Latin English\") and ('en-Latn-US', \"BCP 47 case format\") and i18n_patterns(path('', bangiah)) is used.",
+    "evidence": "LANGUAGES = [\n\t('en-us', \"English\"),\n\t('en-latn-us', \"Latin English\"),\n\t('en-Latn-US', \"BCP 47 case format\"),\n]"
+  },
+  "observed_behavior": {
+    "value": "http://localhost:8000/en-us/ returns 200 U!; http://localhost:8000/en-lat-us/ returns 404 not found; http://localhost:8000/en-Latn-US/ returns 404 not found.",
+    "evidence": "The response of http://localhost:8000/en-us/ is 200 U!.\nThe response of http://localhost:8000/en-lat-us/ is 404 not found.\nThe response of http://localhost:8000/en-Latn-US/ is 404 not found."
+  },
+  "expected_behavior": {
+    "value": "http://localhost:8000/en-latn-us/ and http://localhost:8000/en-Latn-US/ should return 200 U!.",
+    "evidence": "The response of http://localhost:8000/en-latn-us/ and http://localhost:8000/en-Latn-US/ should be 200 U!."
+  },
+  "suggested_assertion": {
+    "value": "Requests to /en-latn-us/ and /en-Latn-US/ should return 200 with body 'U!'.",
+    "evidence": "The response of http://localhost:8000/en-latn-us/ and http://localhost:8000/en-Latn-US/ should be 200 U!."
+  }
+}

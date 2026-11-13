@@ -1,0 +1,108 @@
+{"utc": "2026-11-13T00:27:35.316772+00:00", "stage": "existing_pair_preserved", "instance_id": "django__django-14089"}
+{"utc": "2026-11-13T00:27:35.420173+00:00", "stage": "existing_pair_preserved", "instance_id": "django__django-11163"}
+{"utc": "2026-11-13T00:27:35.526886+00:00", "stage": "existing_pair_preserved", "instance_id": "django__django-13513"}
+{"utc": "2026-11-13T00:27:35.633966+00:00", "stage": "existing_pair_preserved", "instance_id": "django__django-13344"}
+{"utc": "2026-11-13T00:27:35.741130+00:00", "stage": "existing_pair_preserved", "instance_id": "django__django-12155"}
+{"utc": "2026-11-13T00:27:35.793275+00:00", "stage": "setup_started", "instance_id": "django__django-15252"}
+{"utc": "2026-11-13T00:34:39.746097+00:00", "stage": "setup_ready", "instance_id": "django__django-15098"}
+{"utc": "2026-11-13T00:34:39.755562+00:00", "stage": "generation_started", "instance_id": "django__django-15098", "mode": "baseline"}
+{"utc": "2026-11-13T00:34:42.539416+00:00", "stage": "setup_ready", "instance_id": "django__django-15252"}
+{"utc": "2026-11-13T00:36:54.734723+00:00", "stage": "generation_finished", "instance_id": "django__django-15098", "mode": "baseline", "exit_code": 0, "seconds": 134.98166302399477, "timed_out": false}
+{"utc": "2026-11-13T00:36:54.799306+00:00", "stage": "generation_started", "instance_id": "django__django-15098", "mode": "improved"}
+{"utc": "2026-11-13T00:40:54.151085+00:00", "stage": "generation_finished", "instance_id": "django__django-15098", "mode": "improved", "exit_code": 0, "seconds": 239.36072607900132, "timed_out": false}
+{"utc": "2026-11-13T00:40:54.235251+00:00", "stage": "pair_recorded", "instance_id": "django__django-15098", "status": "generation_attempted"}
+{"utc": "2026-11-13T00:40:54.242898+00:00", "stage": "generation_started", "instance_id": "django__django-15252", "mode": "baseline"}
+{"utc": "2026-11-13T00:40:54.260224+00:00", "stage": "setup_started", "instance_id": "django__django-16631"}
+{"utc": "2026-11-13T00:44:38.302632+00:00", "stage": "generation_finished", "instance_id": "django__django-15252", "mode": "baseline", "exit_code": 0, "seconds": 224.06496860500192, "timed_out": false}
+{"utc": "2026-11-13T00:44:38.358565+00:00", "stage": "generation_started", "instance_id": "django__django-15252", "mode": "improved"}
+{"utc": "2026-11-13T00:46:06.584705+00:00", "stage": "setup_ready", "instance_id": "django__django-16631"}
+{"utc": "2026-11-13T00:47:21.816182+00:00", "stage": "generation_finished", "instance_id": "django__django-15252", "mode": "improved", "exit_code": 0, "seconds": 163.45524355600355, "timed_out": false}
+{"utc": "2026-11-13T00:47:21.887086+00:00", "stage": "pair_recorded", "instance_id": "django__django-15252", "status": "generation_attempted"}
+{"utc": "2026-11-13T00:47:21.893981+00:00", "stage": "generation_started", "instance_id": "django__django-16631", "mode": "baseline"}
+{"utc": "2026-11-13T00:47:21.905026+00:00", "stage": "setup_started", "instance_id": "django__django-13810"}
+{"utc": "2026-11-13T00:48:42.228593+00:00", "stage": "generation_finished", "instance_id": "django__django-16631", "mode": "baseline", "exit_code": 0, "seconds": 80.32568915800948, "timed_out": false}
+{"utc": "2026-11-13T00:48:42.279463+00:00", "stage": "generation_started", "instance_id": "django__django-16631", "mode": "improved"}
+{"utc": "2026-11-13T00:49:14.216191+00:00", "stage": "setup_ready", "instance_id": "django__django-13810"}
+{"utc": "2026-11-13T00:51:49.359850+00:00", "stage": "generation_finished", "instance_id": "django__django-16631", "mode": "improved", "exit_code": 0, "seconds": 187.077834309006, "timed_out": false}
+{"utc": "2026-11-13T00:51:49.442236+00:00", "stage": "pair_recorded", "instance_id": "django__django-16631", "status": "generation_attempted"}
+{"utc": "2026-11-13T00:51:49.449537+00:00", "stage": "generation_started", "instance_id": "django__django-13810", "mode": "baseline"}
+{"utc": "2026-11-13T00:51:49.465895+00:00", "stage": "setup_started", "instance_id": "sympy__sympy-24539"}
+{"utc": "2026-11-13T00:53:08.433814+00:00", "stage": "generation_finished", "instance_id": "django__django-13810", "mode": "baseline", "exit_code": 0, "seconds": 78.96722578600748, "timed_out": false}
+{"utc": "2026-11-13T00:53:08.472897+00:00", "stage": "generation_started", "instance_id": "django__django-13810", "mode": "improved"}
+{"utc": "2026-11-13T00:53:35.244541+00:00", "stage": "setup_ready", "instance_id": "sympy__sympy-24539"}
+{"utc": "2026-11-13T00:54:51.678135+00:00", "stage": "generation_finished", "instance_id": "django__django-13810", "mode": "improved", "exit_code": 0, "seconds": 103.19566166501318, "timed_out": false}
+{"utc": "2026-11-13T00:54:51.753552+00:00", "stage": "pair_recorded", "instance_id": "django__django-13810", "status": "generation_attempted"}
+{"utc": "2026-11-13T00:54:51.762409+00:00", "stage": "generation_started", "instance_id": "sympy__sympy-24539", "mode": "baseline"}
+{"utc": "2026-11-13T00:54:51.779022+00:00", "stage": "setup_started", "instance_id": "scikit-learn__scikit-learn-14894"}
+{"utc": "2026-11-13T00:55:29.138960+00:00", "stage": "generation_finished", "instance_id": "sympy__sympy-24539", "mode": "baseline", "exit_code": 0, "seconds": 37.364908469011425, "timed_out": false}
+{"utc": "2026-11-13T00:55:29.191060+00:00", "stage": "generation_started", "instance_id": "sympy__sympy-24539", "mode": "improved"}
+{"utc": "2026-11-13T00:56:28.054841+00:00", "stage": "generation_finished", "instance_id": "sympy__sympy-24539", "mode": "improved", "exit_code": 0, "seconds": 58.84820788500656, "timed_out": false}
+{"utc": "2026-11-13T00:56:28.124127+00:00", "stage": "pair_recorded", "instance_id": "sympy__sympy-24539", "status": "generation_attempted"}
+{"utc": "2026-11-13T00:56:28.151750+00:00", "stage": "setup_started", "instance_id": "sphinx-doc__sphinx-9711"}
+{"utc": "2026-11-13T01:02:04.237678+00:00", "stage": "setup_failed", "instance_id": "sphinx-doc__sphinx-9711", "error_type": "AssertionError", "message": "", "generation_started": false}
+{"utc": "2026-11-13T01:02:04.279206+00:00", "stage": "pair_recorded", "instance_id": "sphinx-doc__sphinx-9711", "status": "setup_failed"}
+{"utc": "2026-11-13T01:02:04.301911+00:00", "stage": "setup_started", "instance_id": "astropy__astropy-14508"}
+{"utc": "2026-11-13T01:05:02.468478+00:00", "stage": "setup_failed", "instance_id": "scikit-learn__scikit-learn-14894", "error_type": "RuntimeError", "message": "Image preparation failed or exceeded setup timeout; see preserved log.", "generation_started": false}
+{"utc": "2026-11-13T01:05:02.496418+00:00", "stage": "pair_recorded", "instance_id": "scikit-learn__scikit-learn-14894", "status": "setup_failed"}
+{"utc": "2026-11-13T01:05:02.511588+00:00", "stage": "setup_started", "instance_id": "pytest-dev__pytest-7432"}
+{"utc": "2026-11-13T01:09:00.918754+00:00", "stage": "setup_failed", "instance_id": "astropy__astropy-14508", "error_type": "AssertionError", "message": "", "generation_started": false}
+{"utc": "2026-11-13T01:09:00.978582+00:00", "stage": "pair_recorded", "instance_id": "astropy__astropy-14508", "status": "setup_failed"}
+{"utc": "2026-11-13T01:09:01.013746+00:00", "stage": "setup_started", "instance_id": "pallets__flask-5014"}
+{"utc": "2026-11-13T01:10:30.605950+00:00", "stage": "setup_ready", "instance_id": "pytest-dev__pytest-7432"}
+{"utc": "2026-11-13T01:10:30.618203+00:00", "stage": "generation_started", "instance_id": "pytest-dev__pytest-7432", "mode": "baseline"}
+{"utc": "2026-11-13T01:11:35.742085+00:00", "stage": "generation_finished", "instance_id": "pytest-dev__pytest-7432", "mode": "baseline", "exit_code": 0, "seconds": 65.10582334600622, "timed_out": false}
+{"utc": "2026-11-13T01:11:35.782307+00:00", "stage": "generation_started", "instance_id": "pytest-dev__pytest-7432", "mode": "improved"}
+{"utc": "2026-11-13T01:13:02.819567+00:00", "stage": "generation_finished", "instance_id": "pytest-dev__pytest-7432", "mode": "improved", "exit_code": 0, "seconds": 87.02677000800031, "timed_out": false}
+{"utc": "2026-11-13T01:13:02.882497+00:00", "stage": "pair_recorded", "instance_id": "pytest-dev__pytest-7432", "status": "generation_attempted"}
+{"utc": "2026-11-13T01:13:02.904375+00:00", "stage": "setup_started", "instance_id": "matplotlib__matplotlib-13989"}
+{"utc": "2026-11-13T01:15:20.548676+00:00", "stage": "setup_ready", "instance_id": "pallets__flask-5014"}
+{"utc": "2026-11-13T01:15:20.558225+00:00", "stage": "generation_started", "instance_id": "pallets__flask-5014", "mode": "baseline"}
+{"utc": "2026-11-13T01:15:54.959766+00:00", "stage": "generation_finished", "instance_id": "pallets__flask-5014", "mode": "baseline", "exit_code": 0, "seconds": 34.38445965599385, "timed_out": false}
+{"utc": "2026-11-13T01:15:55.011205+00:00", "stage": "generation_started", "instance_id": "pallets__flask-5014", "mode": "improved"}
+{"utc": "2026-11-13T01:16:45.026159+00:00", "stage": "generation_finished", "instance_id": "pallets__flask-5014", "mode": "improved", "exit_code": 0, "seconds": 50.00272400699032, "timed_out": false}
+{"utc": "2026-11-13T01:16:45.071247+00:00", "stage": "pair_recorded", "instance_id": "pallets__flask-5014", "status": "generation_attempted"}
+{"utc": "2026-11-13T01:16:45.086030+00:00", "stage": "setup_started", "instance_id": "psf__requests-2931"}
+{"utc": "2026-11-13T01:22:24.118179+00:00", "stage": "setup_ready", "instance_id": "psf__requests-2931"}
+{"utc": "2026-11-13T01:22:24.126560+00:00", "stage": "generation_started", "instance_id": "psf__requests-2931", "mode": "baseline"}
+{"utc": "2026-11-13T01:23:05.562523+00:00", "stage": "generation_finished", "instance_id": "psf__requests-2931", "mode": "baseline", "exit_code": 0, "seconds": 41.42080822499702, "timed_out": false}
+{"utc": "2026-11-13T01:23:05.604801+00:00", "stage": "generation_started", "instance_id": "psf__requests-2931", "mode": "improved"}
+{"utc": "2026-11-13T01:23:13.704097+00:00", "stage": "setup_failed", "instance_id": "matplotlib__matplotlib-13989", "error_type": "RuntimeError", "message": "Image preparation failed or exceeded setup timeout; see preserved log.", "generation_started": false}
+{"utc": "2026-11-13T01:24:03.553404+00:00", "stage": "generation_finished", "instance_id": "psf__requests-2931", "mode": "improved", "exit_code": 0, "seconds": 57.9332977640006, "timed_out": false}
+{"utc": "2026-11-13T01:24:03.642826+00:00", "stage": "pair_recorded", "instance_id": "psf__requests-2931", "status": "generation_attempted"}
+{"utc": "2026-11-13T01:24:03.672608+00:00", "stage": "setup_started", "instance_id": "pylint-dev__pylint-6903"}
+{"utc": "2026-11-13T01:24:03.682817+00:00", "stage": "pair_recorded", "instance_id": "matplotlib__matplotlib-13989", "status": "setup_failed"}
+{"utc": "2026-11-13T01:24:03.698432+00:00", "stage": "setup_started", "instance_id": "mwaskom__seaborn-3187"}
+{"utc": "2026-11-13T01:30:03.259096+00:00", "stage": "setup_ready", "instance_id": "pylint-dev__pylint-6903"}
+{"utc": "2026-11-13T01:30:03.269364+00:00", "stage": "generation_started", "instance_id": "pylint-dev__pylint-6903", "mode": "baseline"}
+{"utc": "2026-11-13T01:30:32.122652+00:00", "stage": "setup_ready", "instance_id": "mwaskom__seaborn-3187"}
+{"utc": "2026-11-13T01:31:23.078187+00:00", "stage": "generation_finished", "instance_id": "pylint-dev__pylint-6903", "mode": "baseline", "exit_code": 0, "seconds": 79.78744024399202, "timed_out": false}
+{"utc": "2026-11-13T01:31:23.149787+00:00", "stage": "generation_started", "instance_id": "pylint-dev__pylint-6903", "mode": "improved"}
+{"utc": "2026-11-13T01:32:37.730212+00:00", "stage": "generation_finished", "instance_id": "pylint-dev__pylint-6903", "mode": "improved", "exit_code": 0, "seconds": 74.56444425000518, "timed_out": false}
+{"utc": "2026-11-13T01:32:37.811321+00:00", "stage": "pair_recorded", "instance_id": "pylint-dev__pylint-6903", "status": "generation_attempted"}
+{"utc": "2026-11-13T01:32:37.818622+00:00", "stage": "generation_started", "instance_id": "mwaskom__seaborn-3187", "mode": "baseline"}
+{"utc": "2026-11-13T01:32:37.838299+00:00", "stage": "setup_started", "instance_id": "sphinx-doc__sphinx-8548"}
+{"utc": "2026-11-13T01:34:34.004063+00:00", "stage": "setup_failed", "instance_id": "sphinx-doc__sphinx-8548", "error_type": "AssertionError", "message": "", "generation_started": false}
+{"utc": "2026-11-13T01:36:06.190962+00:00", "stage": "generation_finished", "instance_id": "mwaskom__seaborn-3187", "mode": "baseline", "exit_code": 0, "seconds": 208.37150800900417, "timed_out": false}
+{"utc": "2026-11-13T01:36:06.252062+00:00", "stage": "generation_started", "instance_id": "mwaskom__seaborn-3187", "mode": "improved"}
+{"utc": "2026-11-13T01:41:32.951221+00:00", "stage": "generation_finished", "instance_id": "mwaskom__seaborn-3187", "mode": "improved", "exit_code": 0, "seconds": 326.71417356499296, "timed_out": false}
+{"utc": "2026-11-13T01:41:33.024302+00:00", "stage": "pair_recorded", "instance_id": "mwaskom__seaborn-3187", "status": "generation_attempted"}
+{"utc": "2026-11-13T01:41:33.048097+00:00", "stage": "setup_started", "instance_id": "sphinx-doc__sphinx-8638"}
+{"utc": "2026-11-13T01:41:33.056937+00:00", "stage": "pair_recorded", "instance_id": "sphinx-doc__sphinx-8548", "status": "setup_failed"}
+{"utc": "2026-11-13T01:41:33.072260+00:00", "stage": "setup_started", "instance_id": "sphinx-doc__sphinx-8551"}
+{"utc": "2026-11-13T01:43:20.660712+00:00", "stage": "setup_failed", "instance_id": "sphinx-doc__sphinx-8551", "error_type": "AssertionError", "message": "", "generation_started": false}
+{"utc": "2026-11-13T01:43:20.714504+00:00", "stage": "pair_recorded", "instance_id": "sphinx-doc__sphinx-8551", "status": "setup_failed"}
+{"utc": "2026-11-13T01:43:20.742769+00:00", "stage": "setup_started", "instance_id": "sphinx-doc__sphinx-8721"}
+{"utc": "2026-11-13T01:43:26.779043+00:00", "stage": "setup_failed", "instance_id": "sphinx-doc__sphinx-8638", "error_type": "AssertionError", "message": "", "generation_started": false}
+{"utc": "2026-11-13T01:43:26.821857+00:00", "stage": "pair_recorded", "instance_id": "sphinx-doc__sphinx-8638", "status": "setup_failed"}
+{"utc": "2026-11-13T01:43:26.842676+00:00", "stage": "setup_started", "instance_id": "sphinx-doc__sphinx-8621"}
+{"utc": "2026-11-13T01:45:16.077149+00:00", "stage": "setup_failed", "instance_id": "sphinx-doc__sphinx-8621", "error_type": "AssertionError", "message": "", "generation_started": false}
+{"utc": "2026-11-13T01:45:16.137022+00:00", "stage": "pair_recorded", "instance_id": "sphinx-doc__sphinx-8621", "status": "setup_failed"}
+{"utc": "2026-11-13T01:45:16.169551+00:00", "stage": "setup_started", "instance_id": "matplotlib__matplotlib-25311"}
+{"utc": "2026-11-13T01:45:27.464278+00:00", "stage": "setup_failed", "instance_id": "sphinx-doc__sphinx-8721", "error_type": "AssertionError", "message": "", "generation_started": false}
+{"utc": "2026-11-13T01:45:27.506248+00:00", "stage": "pair_recorded", "instance_id": "sphinx-doc__sphinx-8721", "status": "setup_failed"}
+{"utc": "2026-11-13T01:45:27.527462+00:00", "stage": "setup_started", "instance_id": "pydata__xarray-3677"}
+{"utc": "2026-11-13T01:55:26.861903+00:00", "stage": "setup_failed", "instance_id": "matplotlib__matplotlib-25311", "error_type": "RuntimeError", "message": "Image preparation failed or exceeded setup timeout; see preserved log.", "generation_started": false}
+{"utc": "2026-11-13T01:55:26.890196+00:00", "stage": "pair_recorded", "instance_id": "matplotlib__matplotlib-25311", "status": "setup_failed"}
+{"utc": "2026-11-13T01:55:38.114627+00:00", "stage": "setup_failed", "instance_id": "pydata__xarray-3677", "error_type": "RuntimeError", "message": "Image preparation failed or exceeded setup timeout; see preserved log.", "generation_started": false}
+{"utc": "2026-11-13T01:55:38.157358+00:00", "stage": "pair_recorded", "instance_id": "pydata__xarray-3677", "status": "setup_failed"}
+{"utc": "2026-11-13T01:55:38.569960+00:00", "stage": "batch_complete", "instance_id": null, "assigned_instances": 26, "recorded_instances": 26}

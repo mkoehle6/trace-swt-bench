@@ -1,0 +1,7 @@
+{
+  "image_id": "sha256:bdcc1b73c8f5290b5cb75ff1af20de52d1124c9228bc485ccdd20347cb48aff6",
+  "image_tag": "exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d:latest",
+  "repo_digests": [
+    "exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d@sha256:bdcc1b73c8f5290b5cb75ff1af20de52d1124c9228bc485ccdd20347cb48aff6"
+  ]
+}

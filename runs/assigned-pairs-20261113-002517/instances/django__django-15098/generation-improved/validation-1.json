@@ -1,0 +1,5 @@
+{
+  "errors": [
+    "Semantic review rejected specification: {\"valid\": false, \"unsupported_fields\": [], \"contradictions\": [\"The report observes /en-lat-us/ (missing the 'n') but the trigger and expected behavior refer to /en-latn-us/.\"], \"missing_information\": [\"No observed response is reported for /en-latn-us/, the locale named in the triggering input; only /en-lat-us/ is shown returning 404.\"]}"
+  ]
+}

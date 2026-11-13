@@ -1,0 +1,6 @@
+{
+  "instance_tag": "exec.eval.x86_64.4e6c6a611c1e7eeede5a3f.3f4d6e0225aeb345230f37:latest",
+  "env_tag": "exec.env.x86_64.4e6c6a611c1e7eeede5a3f:latest",
+  "repo_script": "#!/bin/bash\nset -euxo pipefail\ngit clone -o origin https://github.com/matplotlib/matplotlib /testbed\nchmod -R 777 /testbed\ncd /testbed\ngit reset --hard a3e2897bfaf9eaac1d6649da535c4e721c89fa69\ngit remote remove origin\nsource /opt/miniconda3/bin/activate\nconda activate testbed\necho \"Current environment: $CONDA_DEFAULT_ENV\"\napt-get -y update && apt-get -y upgrade && apt-get install -y imagemagick ffmpeg libfreetype6-dev pkg-config\npython -m pip install -e .\n",
+  "env_script": "#!/bin/bash\nset -euxo pipefail\nsource /opt/miniconda3/bin/activate\nconda create -n testbed python=3.7 -y\ncat <<'EOF_59812759871' > $HOME/requirements.txt\n\ncodecov\ncoverage\ncycler\nnumpy\npillow\npyparsing\npytest\npytest-cov\npytest-faulthandler\npytest-rerunfailures\npytest-timeout\npytest-xdist\npython-dateutil\ntornado\ntox\n\nEOF_59812759871\nconda activate testbed && python -m pip install -r $HOME/requirements.txt\nrm $HOME/requirements.txt\nconda activate testbed\npython -m pip install pytest\n"
+}

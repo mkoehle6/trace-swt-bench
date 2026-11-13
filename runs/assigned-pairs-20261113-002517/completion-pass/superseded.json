@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-13T01:26:57.473646+00:00",
+  "reason": "Replaced idle watcher with a completion pass that also permits one unchanged-recipe retry for setup timeouts.",
+  "generation_started": false,
+  "replacement": "completion-pass-v2"
+}

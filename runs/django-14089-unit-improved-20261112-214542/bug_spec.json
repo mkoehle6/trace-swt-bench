@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "OrderedSet (via a __reversed__() method)",
+    "evidence": "This should be straightforward to add by adding a __reversed__() method to OrderedSet."
+  },
+  "triggering_input": {
+    "value": "Passing an OrderedSet as an argument to Python's reversed().",
+    "evidence": "Currently, ​OrderedSet isn't reversible (i.e. allowed to be passed as an argument to Python's ​reversed())."
+  },
+  "observed_behavior": {
+    "value": "OrderedSet is not reversible; it is not allowed to be passed as an argument to reversed().",
+    "evidence": "Currently, ​OrderedSet isn't reversible (i.e. allowed to be passed as an argument to Python's ​reversed())."
+  },
+  "expected_behavior": {
+    "value": "OrderedSet should be reversible, i.e. allowed to be passed as an argument to reversed().",
+    "evidence": "This would be natural to support given that OrderedSet is ordered."
+  },
+  "suggested_assertion": {
+    "value": "reversed() should accept an OrderedSet as its argument.",
+    "evidence": "This would be natural to support given that OrderedSet is ordered."
+  }
+}

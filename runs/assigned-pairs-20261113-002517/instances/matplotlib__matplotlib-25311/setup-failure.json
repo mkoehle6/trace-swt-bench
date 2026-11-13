@@ -1,0 +1,5 @@
+{
+  "error_type": "RuntimeError",
+  "message": "Image preparation failed or exceeded setup timeout; see preserved log.",
+  "generation_started": false
+}

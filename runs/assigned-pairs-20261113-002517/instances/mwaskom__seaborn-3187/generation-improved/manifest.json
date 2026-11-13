@@ -1,0 +1,17 @@
+{
+  "instance_id": "mwaskom__seaborn-3187",
+  "mode": "improved",
+  "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+  "report_sha256": "3fbb504a4a9117e3faae220f3ea233c37924cff5b85905ffeb5a98eb55d6e1b1",
+  "image": "sha256:0ecdc051f07630889fd5d12e2fc513030fcafb17e5197c9a082a9fb83bc5fe6d",
+  "extract_model": "deepseek-flash",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "status": "agent_finished",
+  "attempts": 3,
+  "validated": true,
+  "fallback": false,
+  "test_format": "unit_test",
+  "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+  "seconds": 324.77031860100396,
+  "baseline_unchanged": true
+}

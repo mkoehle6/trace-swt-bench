@@ -1,0 +1,6 @@
+{
+  "instance_tag": "exec.eval.x86_64.f904a9d2e0f61fc0d70077.70805dd72ec6ff2bc3de1b:latest",
+  "env_tag": "exec.env.x86_64.f904a9d2e0f61fc0d70077:latest",
+  "repo_script": "#!/bin/bash\nset -euxo pipefail\ngit clone -o origin https://github.com/django/django /testbed\nchmod -R 777 /testbed\ncd /testbed\ngit reset --hard 429d089d0a8fbd400e0c010708df4f0d16218970\ngit remote remove origin\nsource /opt/miniconda3/bin/activate\nconda activate testbed\necho \"Current environment: $CONDA_DEFAULT_ENV\"\npython -m pip install -e .\n",
+  "env_script": "#!/bin/bash\nset -euxo pipefail\nsource /opt/miniconda3/bin/activate\nconda create -n testbed python=3.6 -y\ncat <<'EOF_59812759871' > $HOME/requirements.txt\nasgiref >= 3.3.2\nargon2-cffi >= 16.1.0\nbackports.zoneinfo; python_version < '3.9'\nbcrypt\ndocutils\ngeoip2\njinja2 >= 2.9.2\nnumpy\nPillow >= 6.2.0\npylibmc; sys.platform != 'win32'\npymemcache >= 3.4.0\npython-memcached >= 1.59\npytz\npywatchman; sys.platform != 'win32'\nPyYAML\nselenium\nsqlparse >= 0.2.2\ntblib >= 1.5.0\ntzdata\ncolorama; sys.platform == 'win32'\n\nEOF_59812759871\nconda activate testbed && python -m pip install -r $HOME/requirements.txt\nrm $HOME/requirements.txt\nconda activate testbed\n"
+}

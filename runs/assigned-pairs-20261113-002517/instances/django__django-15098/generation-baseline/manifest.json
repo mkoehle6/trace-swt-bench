@@ -1,0 +1,17 @@
+{
+  "instance_id": "django__django-15098",
+  "mode": "baseline",
+  "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+  "report_sha256": "d851e9e482d434693a8ffd0b6f1452774897d663326ba7f51d28aa70893506b5",
+  "image": "sha256:84ac708d594e14d5390648e83b32e961fc2031de2084c69fc64903e0a56763c7",
+  "extract_model": "deepseek-flash",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "status": "agent_finished",
+  "attempts": 0,
+  "validated": false,
+  "fallback": false,
+  "test_format": "unit_test",
+  "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+  "seconds": 133.005745344999,
+  "baseline_unchanged": true
+}

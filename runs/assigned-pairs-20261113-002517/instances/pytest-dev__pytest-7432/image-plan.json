@@ -1,0 +1,6 @@
+{
+  "instance_tag": "exec.eval.x86_64.bfa0b4daea744b5aaefba0.64d7f7c86507f17e222a4c:latest",
+  "env_tag": "exec.env.x86_64.bfa0b4daea744b5aaefba0:latest",
+  "repo_script": "#!/bin/bash\nset -euxo pipefail\ngit clone -o origin https://github.com/pytest-dev/pytest /testbed\nchmod -R 777 /testbed\ncd /testbed\ngit reset --hard e6e300e729dd33956e5448d8be9a0b1540b4e53a\ngit remote remove origin\nsource /opt/miniconda3/bin/activate\nconda activate testbed\necho \"Current environment: $CONDA_DEFAULT_ENV\"\npython -m pip install -e .\n",
+  "env_script": "#!/bin/bash\nset -euxo pipefail\nsource /opt/miniconda3/bin/activate\nconda create -n testbed python=3.9  -y\nconda activate testbed\npython -m pip install py==1.11.0 packaging==23.1 attrs==23.1.0 more-itertools==10.1.0 pluggy==0.13.1\n"
+}

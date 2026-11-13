@@ -1,0 +1,35 @@
+{
+  "instance_id": "django__django-13513",
+  "evaluation_run": false,
+  "workflows_and_inputs_unchanged": true,
+  "configuration_failure_preserved": "django-13513-unit-improved-20261112-205739",
+  "configuration_recovery": "Loaded existing mini-swe-agent credential configuration into process environment; no workflow changes.",
+  "runs": {
+    "baseline": {
+      "directory": "django-13513-unit-baseline-20261112-205739",
+      "status": "Submitted",
+      "seconds": 58.10482601399417,
+      "agent_stats": {
+        "instance_cost": 0.006054978000000001,
+        "api_calls": 15
+      },
+      "validated": false,
+      "fallback": false,
+      "observed_native_results": "Generated test passed on buggy checkout; ExceptionReporterTests suite passed all 24 tests.",
+      "regression_failure_demonstrated": false
+    },
+    "improved": {
+      "directory": "django-13513-unit-improved-20261112-205739-retry1",
+      "status": "Submitted",
+      "seconds": 71.04312199800916,
+      "agent_stats": {
+        "instance_cost": 0.004988112,
+        "api_calls": 12
+      },
+      "validated": true,
+      "fallback": false,
+      "observed_native_results": "Generated test passed on buggy checkout; ExceptionReporterTests suite passed all 24 tests.",
+      "regression_failure_demonstrated": false
+    }
+  }
+}

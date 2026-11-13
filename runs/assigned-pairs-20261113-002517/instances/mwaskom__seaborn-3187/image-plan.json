@@ -1,0 +1,6 @@
+{
+  "instance_tag": "exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5:latest",
+  "env_tag": "exec.env.x86_64.f38d9a116162fe978a8db0:latest",
+  "repo_script": "#!/bin/bash\nset -euxo pipefail\ngit clone -o origin https://github.com/mwaskom/seaborn /testbed\nchmod -R 777 /testbed\ncd /testbed\ngit reset --hard 22cdfb0c93f8ec78492d87edb810f10cb7f57a31\ngit remote remove origin\nsource /opt/miniconda3/bin/activate\nconda activate testbed\necho \"Current environment: $CONDA_DEFAULT_ENV\"\npython -m pip install -e .[dev]\n",
+  "env_script": "#!/bin/bash\nset -euxo pipefail\nsource /opt/miniconda3/bin/activate\nconda create -n testbed python=3.9  -y\nconda activate testbed\npython -m pip install contourpy==1.1.0 cycler==0.11.0 fonttools==4.42.1 importlib-resources==6.0.1 kiwisolver==1.4.5 matplotlib==3.7.2 numpy==1.25.2 packaging==23.1 pandas==2.0.0 pillow==10.0.0 pyparsing==3.0.9 pytest python-dateutil==2.8.2 pytz==2023.3.post1 scipy==1.11.2 six==1.16.0 tzdata==2023.1 zipp==3.16.2\n"
+}

@@ -1,0 +1,1136 @@
+{
+  "verified_utc": "2026-11-13T01:42:53.873252+00:00",
+  "final": false,
+  "assigned_instances": 26,
+  "workflow_hash_checks": {
+    "controller.py": true,
+    "export_prediction.py": true,
+    "baseline/swt_test.yaml": true,
+    "profiles/unit_test.yaml": true
+  },
+  "source_report_hash_checks": {
+    "pydata__xarray-3677": true,
+    "django__django-14089": true,
+    "django__django-11163": true,
+    "sympy__sympy-24539": true,
+    "scikit-learn__scikit-learn-14894": true,
+    "sphinx-doc__sphinx-9711": true,
+    "astropy__astropy-14508": true,
+    "pytest-dev__pytest-7432": true,
+    "pallets__flask-5014": true,
+    "matplotlib__matplotlib-13989": true,
+    "psf__requests-2931": true,
+    "pylint-dev__pylint-6903": true,
+    "mwaskom__seaborn-3187": true,
+    "django__django-13513": true,
+    "sphinx-doc__sphinx-8548": true,
+    "django__django-13344": true,
+    "django__django-15098": true,
+    "django__django-12155": true,
+    "sphinx-doc__sphinx-8638": true,
+    "django__django-15252": true,
+    "django__django-16631": true,
+    "sphinx-doc__sphinx-8551": true,
+    "django__django-13810": true,
+    "sphinx-doc__sphinx-8721": true,
+    "sphinx-doc__sphinx-8621": true,
+    "matplotlib__matplotlib-25311": true
+  },
+  "pairs": {
+    "pydata__xarray-3677": {
+      "status": "pending"
+    },
+    "django__django-14089": {
+      "status": "matched",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-14089-unit-baseline-20261112-214542",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "cbfb85cb9ea9b08049b15ffaff23b96640926088e725b8b70f7ef2a31b767118",
+          "effective_config_sha256_canonical": "8ef3c26fde04bb4b5813ec386c7e2827e4b237c3395544ebd034912872ec688e",
+          "image_reference": "sha256:67ba7ad4e5efa618cc4c2017acea9a146a1ba641e01f0344746ef7734f1bdb34",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:67ba7ad4e5efa618cc4c2017acea9a146a1ba641e01f0344746ef7734f1bdb34",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-14089-unit-improved-20261112-214542",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "cbfb85cb9ea9b08049b15ffaff23b96640926088e725b8b70f7ef2a31b767118",
+          "effective_config_sha256_canonical": "8ef3c26fde04bb4b5813ec386c7e2827e4b237c3395544ebd034912872ec688e",
+          "image_reference": "sha256:67ba7ad4e5efa618cc4c2017acea9a146a1ba641e01f0344746ef7734f1bdb34",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:67ba7ad4e5efa618cc4c2017acea9a146a1ba641e01f0344746ef7734f1bdb34",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 1
+        }
+      }
+    },
+    "django__django-11163": {
+      "status": "matched_with_evidence_limitations",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [
+        "baseline: launch recorded a mutable tag; current resolution cannot prove historical image identity",
+        "improved: launch recorded a mutable tag; current resolution cannot prove historical image identity"
+      ],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-unit-baseline-20261111-212132",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "8dbd8cae38c3a82b681a79bdfe8ffaa78aa6f1fad9744a1ca197f90265e5c80b",
+          "effective_config_sha256_canonical": "7cac7ce7e2ed3a29a82ee89ce20ef113465f47b6b78619586a4d968a72fe599f",
+          "image_reference": "exec.eval.x86_64.ee2ad6945f237e9160354f.9abfb63cef178bd684a2ce:latest",
+          "image_reference_is_immutable": false,
+          "currently_resolved_image": {
+            "image_id": "sha256:eb8dc96fcf49e270b27ab24b6c8933014ff7e4b625efb5cae4dff7a6b66394ac",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-unit-improved-20261111-211606",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "8dbd8cae38c3a82b681a79bdfe8ffaa78aa6f1fad9744a1ca197f90265e5c80b",
+          "effective_config_sha256_canonical": "7cac7ce7e2ed3a29a82ee89ce20ef113465f47b6b78619586a4d968a72fe599f",
+          "image_reference": "exec.eval.x86_64.ee2ad6945f237e9160354f.9abfb63cef178bd684a2ce:latest",
+          "image_reference_is_immutable": false,
+          "currently_resolved_image": {
+            "image_id": "sha256:eb8dc96fcf49e270b27ab24b6c8933014ff7e4b625efb5cae4dff7a6b66394ac",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 1
+        }
+      }
+    },
+    "sympy__sympy-24539": {
+      "status": "matched",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-baseline",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "5645eb901ae72d922815da92b5483de0945f7b54e227337399305e3a845ec92b",
+          "effective_config_sha256_canonical": "baf4e9f0cc5684eba87c826dcfcc9a71ad0e0b84b59190fbfa4d9dde0b4d1ca0",
+          "image_reference": "sha256:fc21e07ca56dcfa4dcdd9e6d27261fb451ee1ce7f9160131ee7b90a0677b6c06",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:fc21e07ca56dcfa4dcdd9e6d27261fb451ee1ce7f9160131ee7b90a0677b6c06",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-improved",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "5645eb901ae72d922815da92b5483de0945f7b54e227337399305e3a845ec92b",
+          "effective_config_sha256_canonical": "baf4e9f0cc5684eba87c826dcfcc9a71ad0e0b84b59190fbfa4d9dde0b4d1ca0",
+          "image_reference": "sha256:fc21e07ca56dcfa4dcdd9e6d27261fb451ee1ce7f9160131ee7b90a0677b6c06",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:fc21e07ca56dcfa4dcdd9e6d27261fb451ee1ce7f9160131ee7b90a0677b6c06",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 1
+        }
+      }
+    },
+    "scikit-learn__scikit-learn-14894": {
+      "status": "setup_error_no_generation_pair",
+      "setup_error": {
+        "error_type": "RuntimeError",
+        "message": "Image preparation failed or exceeded setup timeout; see preserved log.",
+        "generation_started": false
+      }
+    },
+    "sphinx-doc__sphinx-9711": {
+      "status": "setup_error_no_generation_pair",
+      "setup_error": {
+        "error_type": "AssertionError",
+        "message": "",
+        "generation_started": false
+      }
+    },
+    "astropy__astropy-14508": {
+      "status": "setup_error_no_generation_pair",
+      "setup_error": {
+        "error_type": "AssertionError",
+        "message": "",
+        "generation_started": false
+      }
+    },
+    "pytest-dev__pytest-7432": {
+      "status": "matched",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-baseline",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "e307671199926fe7f0b579f6701e4ca717b8d01ab1d629a2419dc3b23f78ce04",
+          "effective_config_sha256_canonical": "36b45531a7752e8ee6c525a458b7029a0357c54ef9f0272484ae108f1c52220b",
+          "image_reference": "sha256:599fbcbcfd387c21acd2090ec3653d9d2b2b1c0afb6299c08fe369a6bf6200f4",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:599fbcbcfd387c21acd2090ec3653d9d2b2b1c0afb6299c08fe369a6bf6200f4",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-improved",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "e307671199926fe7f0b579f6701e4ca717b8d01ab1d629a2419dc3b23f78ce04",
+          "effective_config_sha256_canonical": "36b45531a7752e8ee6c525a458b7029a0357c54ef9f0272484ae108f1c52220b",
+          "image_reference": "sha256:599fbcbcfd387c21acd2090ec3653d9d2b2b1c0afb6299c08fe369a6bf6200f4",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:599fbcbcfd387c21acd2090ec3653d9d2b2b1c0afb6299c08fe369a6bf6200f4",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 1
+        }
+      }
+    },
+    "pallets__flask-5014": {
+      "status": "matched",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-baseline",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "9634630d4a22c5655a4bfdcc0704bab4d67521546a9aa184f196b716d82b6d28",
+          "effective_config_sha256_canonical": "63af34e5afd48cceae3f8393c46636273d0ff48fb494a5f7c36389237ce07adb",
+          "image_reference": "sha256:5f1100b1896fe5ada954d281b7bb99c222c5e5c78ea0074373c625f18bb0e7ec",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:5f1100b1896fe5ada954d281b7bb99c222c5e5c78ea0074373c625f18bb0e7ec",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-improved",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "9634630d4a22c5655a4bfdcc0704bab4d67521546a9aa184f196b716d82b6d28",
+          "effective_config_sha256_canonical": "63af34e5afd48cceae3f8393c46636273d0ff48fb494a5f7c36389237ce07adb",
+          "image_reference": "sha256:5f1100b1896fe5ada954d281b7bb99c222c5e5c78ea0074373c625f18bb0e7ec",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:5f1100b1896fe5ada954d281b7bb99c222c5e5c78ea0074373c625f18bb0e7ec",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 1
+        }
+      }
+    },
+    "matplotlib__matplotlib-13989": {
+      "status": "setup_error_no_generation_pair",
+      "setup_error": {
+        "error_type": "RuntimeError",
+        "message": "Image preparation failed or exceeded setup timeout; see preserved log.",
+        "generation_started": false
+      }
+    },
+    "psf__requests-2931": {
+      "status": "matched",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-baseline",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "c36c337f6c5d918e8d193684510213e2eaed8633e575b819757674cca0d980fd",
+          "effective_config_sha256_canonical": "5eff3ef1dc25df66c3a5df3a2dae9019664b57ae34616968008d4cc4d02517d7",
+          "image_reference": "sha256:bdcc1b73c8f5290b5cb75ff1af20de52d1124c9228bc485ccdd20347cb48aff6",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:bdcc1b73c8f5290b5cb75ff1af20de52d1124c9228bc485ccdd20347cb48aff6",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "c36c337f6c5d918e8d193684510213e2eaed8633e575b819757674cca0d980fd",
+          "effective_config_sha256_canonical": "5eff3ef1dc25df66c3a5df3a2dae9019664b57ae34616968008d4cc4d02517d7",
+          "image_reference": "sha256:bdcc1b73c8f5290b5cb75ff1af20de52d1124c9228bc485ccdd20347cb48aff6",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:bdcc1b73c8f5290b5cb75ff1af20de52d1124c9228bc485ccdd20347cb48aff6",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 1
+        }
+      }
+    },
+    "pylint-dev__pylint-6903": {
+      "status": "matched",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-baseline",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "0bdc3dd1eaa84d947733bea808a2aa7c6c18f69c90e26bddfc275c52cdd0417e",
+          "effective_config_sha256_canonical": "c172163bd477e51751f8144be9b1e6ecca09a4936ed60bbe57dc6b0e9492c5ed",
+          "image_reference": "sha256:1234455f1f4261e96636ec4012f3a3dbc41149eebe3673af853e7885bbc8d5e8",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:1234455f1f4261e96636ec4012f3a3dbc41149eebe3673af853e7885bbc8d5e8",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-improved",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "0bdc3dd1eaa84d947733bea808a2aa7c6c18f69c90e26bddfc275c52cdd0417e",
+          "effective_config_sha256_canonical": "c172163bd477e51751f8144be9b1e6ecca09a4936ed60bbe57dc6b0e9492c5ed",
+          "image_reference": "sha256:1234455f1f4261e96636ec4012f3a3dbc41149eebe3673af853e7885bbc8d5e8",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:1234455f1f4261e96636ec4012f3a3dbc41149eebe3673af853e7885bbc8d5e8",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 1
+        }
+      }
+    },
+    "mwaskom__seaborn-3187": {
+      "status": "matched",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-baseline",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "3fbb504a4a9117e3faae220f3ea233c37924cff5b85905ffeb5a98eb55d6e1b1",
+          "effective_config_sha256_canonical": "b7a2aa0ab68d03ec19ae98e2e778b601fb8daeb3f3b393959a7358e877313f86",
+          "image_reference": "sha256:0ecdc051f07630889fd5d12e2fc513030fcafb17e5197c9a082a9fb83bc5fe6d",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:0ecdc051f07630889fd5d12e2fc513030fcafb17e5197c9a082a9fb83bc5fe6d",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-improved",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "3fbb504a4a9117e3faae220f3ea233c37924cff5b85905ffeb5a98eb55d6e1b1",
+          "effective_config_sha256_canonical": "b7a2aa0ab68d03ec19ae98e2e778b601fb8daeb3f3b393959a7358e877313f86",
+          "image_reference": "sha256:0ecdc051f07630889fd5d12e2fc513030fcafb17e5197c9a082a9fb83bc5fe6d",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:0ecdc051f07630889fd5d12e2fc513030fcafb17e5197c9a082a9fb83bc5fe6d",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 3
+        }
+      }
+    },
+    "django__django-13513": {
+      "status": "matched",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13513-unit-baseline-20261112-205739",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "db52b2ac85d9ffdc2d35533770ede3c4c61472b7e111b351053abd0d678468d5",
+          "effective_config_sha256_canonical": "707f70f8e45f9072d9f0dc320cfc4b8a6fa39da26ff2b8ccd4c67b04cdc63d10",
+          "image_reference": "sha256:677635982b65db91a2592d980a197d34dae09dd634d11f58bb35be956f3c4f2c",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:677635982b65db91a2592d980a197d34dae09dd634d11f58bb35be956f3c4f2c",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13513-unit-improved-20261112-205739-retry1",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "db52b2ac85d9ffdc2d35533770ede3c4c61472b7e111b351053abd0d678468d5",
+          "effective_config_sha256_canonical": "707f70f8e45f9072d9f0dc320cfc4b8a6fa39da26ff2b8ccd4c67b04cdc63d10",
+          "image_reference": "sha256:677635982b65db91a2592d980a197d34dae09dd634d11f58bb35be956f3c4f2c",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:677635982b65db91a2592d980a197d34dae09dd634d11f58bb35be956f3c4f2c",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 1
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8548": {
+      "status": "setup_error_no_generation_pair",
+      "setup_error": {
+        "error_type": "AssertionError",
+        "message": "",
+        "generation_started": false
+      }
+    },
+    "django__django-13344": {
+      "status": "matched_with_evidence_limitations",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [
+        "baseline: launch recorded a mutable tag; current resolution cannot prove historical image identity",
+        "improved: launch recorded a mutable tag; current resolution cannot prove historical image identity"
+      ],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13344-unit-baseline-20261112-151544",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "fa0d64caaae3c17b9e52c447593c2c8ac3354046b1df2ceb293645b293b06090",
+          "effective_config_sha256_canonical": "e0c812924edec456283ba17b334d00cafba2b4cd44ea6485483d260fb8e54ba1",
+          "image_reference": "exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038:latest",
+          "image_reference_is_immutable": false,
+          "currently_resolved_image": {
+            "image_id": "sha256:1b1c679f678b197d7a8d0c3c47d1b79904683bb184b802e79b80e730b4ca101c",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13344-unit-improved-20261112-151925",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "fa0d64caaae3c17b9e52c447593c2c8ac3354046b1df2ceb293645b293b06090",
+          "effective_config_sha256_canonical": "e0c812924edec456283ba17b334d00cafba2b4cd44ea6485483d260fb8e54ba1",
+          "image_reference": "exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038:latest",
+          "image_reference_is_immutable": false,
+          "currently_resolved_image": {
+            "image_id": "sha256:1b1c679f678b197d7a8d0c3c47d1b79904683bb184b802e79b80e730b4ca101c",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 2
+        }
+      }
+    },
+    "django__django-15098": {
+      "status": "matched",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-baseline",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "d851e9e482d434693a8ffd0b6f1452774897d663326ba7f51d28aa70893506b5",
+          "effective_config_sha256_canonical": "c85b50c553ea620c2b5ba62546b6417c4399822e05b8ff257368cd0c4922672b",
+          "image_reference": "sha256:84ac708d594e14d5390648e83b32e961fc2031de2084c69fc64903e0a56763c7",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:84ac708d594e14d5390648e83b32e961fc2031de2084c69fc64903e0a56763c7",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-improved",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "d851e9e482d434693a8ffd0b6f1452774897d663326ba7f51d28aa70893506b5",
+          "effective_config_sha256_canonical": "c85b50c553ea620c2b5ba62546b6417c4399822e05b8ff257368cd0c4922672b",
+          "image_reference": "sha256:84ac708d594e14d5390648e83b32e961fc2031de2084c69fc64903e0a56763c7",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:84ac708d594e14d5390648e83b32e961fc2031de2084c69fc64903e0a56763c7",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": true,
+          "preprocessing_attempts": 3
+        }
+      }
+    },
+    "django__django-12155": {
+      "status": "matched_with_evidence_limitations",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [
+        "baseline: launch recorded a mutable tag; current resolution cannot prove historical image identity",
+        "improved: launch recorded a mutable tag; current resolution cannot prove historical image identity"
+      ],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-12155-unit-baseline-20261112-143526",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "9f32a4a285f49a0f7005c54b76bcfa9d413dcf203ccc4e6f03bdb5bd89f537a4",
+          "effective_config_sha256_canonical": "eb582758e5529046c0becd94a10d1d82e278a822a4662fd941e7e219d18cb03a",
+          "image_reference": "exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9:latest",
+          "image_reference_is_immutable": false,
+          "currently_resolved_image": {
+            "image_id": "sha256:475e2fc8a57569d5b04acb93ea95e0bb37ec3a65125bb8b89145259901e4596d",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-12155-unit-improved-20261112-144127",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "9f32a4a285f49a0f7005c54b76bcfa9d413dcf203ccc4e6f03bdb5bd89f537a4",
+          "effective_config_sha256_canonical": "eb582758e5529046c0becd94a10d1d82e278a822a4662fd941e7e219d18cb03a",
+          "image_reference": "exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9:latest",
+          "image_reference_is_immutable": false,
+          "currently_resolved_image": {
+            "image_id": "sha256:475e2fc8a57569d5b04acb93ea95e0bb37ec3a65125bb8b89145259901e4596d",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 1
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8638": {
+      "status": "pending"
+    },
+    "django__django-15252": {
+      "status": "matched",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "ac94dfb5dfb9903b30502daafec445b4d52b5549b1ab13215baf510048fc3e7d",
+          "effective_config_sha256_canonical": "b92023ae81591ff2f4f8ce2d675cd6e8d88a29c34482c8358f88d19645bf1e04",
+          "image_reference": "sha256:657fd3f51a17038a2b60f49072075f7c376bcf5d2e187dd2784a9025f37b641b",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:657fd3f51a17038a2b60f49072075f7c376bcf5d2e187dd2784a9025f37b641b",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-improved",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "ac94dfb5dfb9903b30502daafec445b4d52b5549b1ab13215baf510048fc3e7d",
+          "effective_config_sha256_canonical": "b92023ae81591ff2f4f8ce2d675cd6e8d88a29c34482c8358f88d19645bf1e04",
+          "image_reference": "sha256:657fd3f51a17038a2b60f49072075f7c376bcf5d2e187dd2784a9025f37b641b",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:657fd3f51a17038a2b60f49072075f7c376bcf5d2e187dd2784a9025f37b641b",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 1
+        }
+      }
+    },
+    "django__django-16631": {
+      "status": "matched",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-baseline",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "32af93df5e62a2e558611028be5030691d5720d2a172c9a0e83213c68d779a8a",
+          "effective_config_sha256_canonical": "f692b7182005275dafd94b5e98872884b5e6d381f29b015ed49b1476b394298d",
+          "image_reference": "sha256:b80fb7e55de32a4e60dd7d5f314e9d316bcfc0ca65f4f667296babe93cf5681c",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:b80fb7e55de32a4e60dd7d5f314e9d316bcfc0ca65f4f667296babe93cf5681c",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-improved",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "32af93df5e62a2e558611028be5030691d5720d2a172c9a0e83213c68d779a8a",
+          "effective_config_sha256_canonical": "f692b7182005275dafd94b5e98872884b5e6d381f29b015ed49b1476b394298d",
+          "image_reference": "sha256:b80fb7e55de32a4e60dd7d5f314e9d316bcfc0ca65f4f667296babe93cf5681c",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:b80fb7e55de32a4e60dd7d5f314e9d316bcfc0ca65f4f667296babe93cf5681c",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": true,
+          "preprocessing_attempts": 3
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8551": {
+      "status": "pending"
+    },
+    "django__django-13810": {
+      "status": "matched",
+      "paired_checks": {
+        "report_identity_matches": true,
+        "effective_config_identity_matches": true,
+        "baseline_config_identity_matches": true,
+        "profile_identity_matches": true,
+        "current_image_identity_matches": true
+      },
+      "issues": [],
+      "limitations": [],
+      "runs": {
+        "baseline": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-baseline",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "56e9927b1d405bb6be5bd7a327cea4ed7a83858f705590310391df2fd2066379",
+          "effective_config_sha256_canonical": "5706135db96035ae8dcd390b9be520f37ab32f00bbf1ebb86b15bd21a80f5764",
+          "image_reference": "sha256:cee670d2218c1c79cfeaa8f8a9ab7adb4044d1eec3b8e412a7276a192a77bb2f",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:cee670d2218c1c79cfeaa8f8a9ab7adb4044d1eec3b8e412a7276a192a77bb2f",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": false,
+          "preprocessing_attempts": 0
+        },
+        "improved": {
+          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-improved",
+          "checks": {
+            "instance_id": true,
+            "mode": true,
+            "unit_test_format": true,
+            "report_matches_saved_input_after_controller_newline_read": true,
+            "report_hash_matches_artifact": true,
+            "baseline_config_hash": true,
+            "baseline_unchanged_flag": true,
+            "unit_test_profile_hash": true,
+            "effective_config_matches_unchanged_loader": true,
+            "effective_image_matches_manifest": true,
+            "task_matches_recorded_workflow": true
+          },
+          "report_sha256": "56e9927b1d405bb6be5bd7a327cea4ed7a83858f705590310391df2fd2066379",
+          "effective_config_sha256_canonical": "5706135db96035ae8dcd390b9be520f37ab32f00bbf1ebb86b15bd21a80f5764",
+          "image_reference": "sha256:cee670d2218c1c79cfeaa8f8a9ab7adb4044d1eec3b8e412a7276a192a77bb2f",
+          "image_reference_is_immutable": true,
+          "currently_resolved_image": {
+            "image_id": "sha256:cee670d2218c1c79cfeaa8f8a9ab7adb4044d1eec3b8e412a7276a192a77bb2f",
+            "error": null
+          },
+          "generation_status": "agent_finished",
+          "fallback": true,
+          "preprocessing_attempts": 3
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8721": {
+      "status": "pending"
+    },
+    "sphinx-doc__sphinx-8621": {
+      "status": "pending"
+    },
+    "matplotlib__matplotlib-25311": {
+      "status": "pending"
+    }
+  },
+  "counts": {
+    "pending": 6,
+    "matched": 12,
+    "matched_with_evidence_limitations": 3,
+    "setup_error_no_generation_pair": 5
+  },
+  "all_recorded_workflow_files_unchanged": true,
+  "all_saved_reports_unchanged": true
+}

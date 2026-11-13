@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "needs_extensions",
+    "evidence": "The `needs_extensions` check is handy for verifying minimum extension versions, but it only checks versions in a 'string-like' manner."
+  },
+  "triggering_input": {
+    "value": "A loaded extension version of 0.10.0 with a minimum required version of 0.6.0.",
+    "evidence": "This project needs the extension sphinx_gallery.gen_gallery at least in version 0.6.0 and therefore cannot be built with the loaded version (0.10.0)."
+  },
+  "observed_behavior": {
+    "value": "sphinx-gallery 0.10.0 is rejected as not new enough even though the minimum specified is 0.6.0.",
+    "evidence": "This project needs the extension sphinx_gallery.gen_gallery at least in version 0.6.0 and therefore cannot be built with the loaded version (0.10.0)."
+  },
+  "expected_behavior": {
+    "value": "sphinx-gallery 0.10.0 should be accepted if 0.6 is the minimum specified.",
+    "evidence": "sphinx-gallery 0.10.0 should be accepted if 0.6 is the minimum specified."
+  },
+  "suggested_assertion": {
+    "value": "sphinx-gallery 0.10.0 is accepted when the minimum specified version is 0.6.",
+    "evidence": "sphinx-gallery 0.10.0 should be accepted if 0.6 is the minimum specified."
+  }
+}

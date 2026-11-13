@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "pylint.run._query_cpu()",
+    "evidence": "The newly introduced function [pylint.run._query_cpu()](https://github.com/PyCQA/pylint/blob/main/pylint/lint/run.py#L34) is called to determine the number of cpus to use and returns 0 in this case."
+  },
+  "triggering_input": {
+    "value": "pylint --jobs 0",
+    "evidence": "pylint --msg-template \"{path}:{module}:{line}: [{msg_id}({symbol}), {obj}] {msg}\" --exit-zero --jobs 0 --verbose my_package"
+  },
+  "observed_behavior": {
+    "value": "pylint crashes with ValueError: Number of processes must be at least 1",
+    "evidence": "raise ValueError(\"Number of processes must be at least 1\")"
+  },
+  "expected_behavior": {
+    "value": "pylint should not crash when the number of available CPUs is miscalculated; the calculated number should never be 0",
+    "evidence": "I expect pylint to not crash if the number of available cpu is misscalculated in this special case.\nThe calculated number should never be 0."
+  },
+  "suggested_assertion": {
+    "value": "assert pylint.run._query_cpu() != 0",
+    "evidence": "The calculated number should never be 0."
+  }
+}

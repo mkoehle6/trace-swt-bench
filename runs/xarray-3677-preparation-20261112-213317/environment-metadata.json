@@ -1,0 +1,7 @@
+{
+  "instance_id": "pydata__xarray-3677",
+  "repo": "pydata/xarray",
+  "base_commit": "ef6e6a7b86f8479b9a1fecf15ad5b88a2326b31e",
+  "version": "0.12",
+  "environment_setup_commit": "1c198a191127c601d091213c4b3292a8bb3054e1"
+}

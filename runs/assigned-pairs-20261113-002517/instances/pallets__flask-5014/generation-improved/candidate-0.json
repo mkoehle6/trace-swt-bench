@@ -1,0 +1,22 @@
+{
+  "target_function": {
+    "value": "Blueprint",
+    "evidence": "a Blueprint is given an empty name"
+  },
+  "triggering_input": {
+    "value": "an empty name for a Blueprint",
+    "evidence": "a Blueprint is given an empty name"
+  },
+  "observed_behavior": {
+    "value": "Things do not work correctly when a Blueprint is given an empty name",
+    "evidence": "Things do not work correctly if a Blueprint is given an empty name"
+  },
+  "expected_behavior": {
+    "value": "A ValueError is raised when trying to give a Blueprint an empty name",
+    "evidence": "It would be helpful if a `ValueError` was raised when trying to do that."
+  },
+  "suggested_assertion": {
+    "value": "Trying to give a Blueprint an empty name raises a ValueError.",
+    "evidence": "It would be helpful if a `ValueError` was raised when trying to do that."
+  }
+}

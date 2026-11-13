@@ -1,0 +1,17 @@
+{
+  "instance_id": "pylint-dev__pylint-6903",
+  "mode": "improved",
+  "baseline_sha256": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+  "report_sha256": "0bdc3dd1eaa84d947733bea808a2aa7c6c18f69c90e26bddfc275c52cdd0417e",
+  "image": "sha256:1234455f1f4261e96636ec4012f3a3dbc41149eebe3673af853e7885bbc8d5e8",
+  "extract_model": "deepseek-flash",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "status": "agent_finished",
+  "attempts": 1,
+  "validated": true,
+  "fallback": false,
+  "test_format": "unit_test",
+  "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+  "seconds": 72.72832317200664,
+  "baseline_unchanged": true
+}

@@ -1,0 +1,39 @@
+{
+  "baseline": {
+    "run": "runs/django-14089-unit-baseline-20261112-214542",
+    "seconds": 28.376262425997993,
+    "exit_status": "Submitted",
+    "attempts": 0,
+    "validated": false,
+    "fallback": false,
+    "agent_stats": {
+      "instance_cost": 0.0021845759999999997,
+      "api_calls": 9
+    },
+    "native_test_observations": [
+      "<returncode>0</returncode>\n<output>\n......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK\nTesting against Django installed in '/testbed/django' with up to 20 processes\nSystem check identified no issues (0 silenced).\ntest runner pipeline exit status: 0\n</output>",
+      "<returncode>1</returncode>\n<output>\nTesting against Django installed in '/testbed/django' with up to 20 processes\nSystem check identified no issues (0 silenced).\n......E\n======================================================================\nERROR: test_reversed (utils_tests.test_datastructures.OrderedSetTests)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/testbed/tests/utils_tests/test_datastructures.py\", line 60, in test_reversed\n    self.assertEqual(list(reversed(s)), [3, 2, 1])\nTypeError: 'OrderedSet' object is not reversible\n\n----------------------------------------------------------------------\nRan 7 tests in 0.001s\n\nFAILED (errors=1)\ntest runner pipeline exit status: 1\n</output>"
+    ],
+    "image": "sha256:67ba7ad4e5efa618cc4c2017acea9a146a1ba641e01f0344746ef7734f1bdb34",
+    "report_sha256": "cbfb85cb9ea9b08049b15ffaff23b96640926088e725b8b70f7ef2a31b767118",
+    "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b"
+  },
+  "improved": {
+    "run": "runs/django-14089-unit-improved-20261112-214542",
+    "seconds": 34.7298478379962,
+    "exit_status": "Submitted",
+    "attempts": 1,
+    "validated": true,
+    "fallback": false,
+    "agent_stats": {
+      "instance_cost": 0.0016435560000000004,
+      "api_calls": 8
+    },
+    "native_test_observations": [
+      "<returncode>1</returncode>\n<output>\nTesting against Django installed in '/testbed/django' with up to 20 processes\nSystem check identified no issues (0 silenced).\n...........................................E\n======================================================================\nERROR: test_reversed (utils_tests.test_datastructures.OrderedSetTests)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/opt/miniconda3/envs/testbed/lib/python3.8/unittest/case.py\", line 60, in testPartExecutor\n    yield\n  File \"/opt/miniconda3/envs/testbed/lib/python3.8/unittest/case.py\", line 676, in run\n    self._callTestMethod(testMethod)\n  File \"/opt/miniconda3/envs/testbed/lib/python3.8/unittest/case.py\", line 633, in _callTestMethod\n    method()\n  File \"/testbed/tests/utils_tests/test_datastructures.py\", line 60, in test_reversed\n    self.assertEqual(list(reversed(s)), [3, 2, 1])\nTypeError: 'OrderedSet' object is not reversible\n\n----------------------------------------------------------------------\nRan 44 tests in 0.072s\n\nFAILED (errors=1)\ntest runner pipeline exit status: 1\n</output>"
+    ],
+    "image": "sha256:67ba7ad4e5efa618cc4c2017acea9a146a1ba641e01f0344746ef7734f1bdb34",
+    "report_sha256": "cbfb85cb9ea9b08049b15ffaff23b96640926088e725b8b70f7ef2a31b767118",
+    "unit_test_profile_sha256": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b"
+  }
+}

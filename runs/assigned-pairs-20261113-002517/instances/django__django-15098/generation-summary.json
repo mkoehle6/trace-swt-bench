@@ -1,0 +1,16 @@
+{
+  "baseline": {
+    "status": "Submitted",
+    "seconds": 133.005745344999,
+    "attempts": 0,
+    "validated": false,
+    "fallback": false
+  },
+  "improved": {
+    "status": "Submitted",
+    "seconds": 237.5355483940075,
+    "attempts": 3,
+    "validated": false,
+    "fallback": true
+  }
+}

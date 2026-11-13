@@ -1,0 +1,44 @@
+{
+  "instance_id": "django__django-13513",
+  "status": "prepared_not_generated",
+  "prepared_utc": "20261112-205739",
+  "source": {
+    "instance_id": "django__django-13513",
+    "repo": "django/django",
+    "base_commit": "6599608c4d0befdcb820ddccce55f183f247ae4f",
+    "dataset": "princeton-nlp/SWE-bench_Verified",
+    "revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+    "split": "test"
+  },
+  "image": "sha256:677635982b65db91a2592d980a197d34dae09dd634d11f58bb35be956f3c4f2c",
+  "image_tag": "exec.eval.x86_64.f904a9d2e0f61fc0d70077.734543d39d7aa1e46ffe89:latest",
+  "checkout_head": "6599608c4d0befdcb820ddccce55f183f247ae4f",
+  "checkout_clean": true,
+  "container_python": "3.6.13",
+  "container_django": "3.2",
+  "host_python": "/home/mlkoe/.venvs/se433-swt/bin/python",
+  "packages": {
+    "mini-swe-agent": "2.4.6",
+    "PyYAML": "6.0.3",
+    "datasets": "4.8.5"
+  },
+  "offline_tests": {
+    "run": 11,
+    "passed": 11
+  },
+  "pip_check": "No broken requirements found.",
+  "saved_report_hashes": "all 26 verified",
+  "sha256": {
+    "controller.py": "6a5922b0cf5f591f477e37881246d58fd11de5fb94df43c278b3bed07ef24d9e",
+    "export_prediction.py": "7fe8fecb0c4dcde1cdf16bd2bc97eed3f2bcf9d0c7e3674d3ebdda87045378da",
+    "baseline/swt_test.yaml": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+    "profiles/unit_test.yaml": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+    "data/django__django-13513/report.txt": "db52b2ac85d9ffdc2d35533770ede3c4c61472b7e111b351053abd0d678468d5",
+    "data/django__django-13513/source.json": "0735a761ad1900448268c1f75ded3dacb64d50027971acbc0867975c60604fd3"
+  },
+  "generation_started": false,
+  "evaluation_outputs_read": false,
+  "reference_fixes_read": false,
+  "workflows_modified": false,
+  "github_push": false
+}

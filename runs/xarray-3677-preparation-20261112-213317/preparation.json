@@ -1,0 +1,22 @@
+{
+  "instance_id": "pydata__xarray-3677",
+  "selection": "First unrun instance in assignment manifest order",
+  "pair_id": "20261112-213317",
+  "source": {
+    "instance_id": "pydata__xarray-3677",
+    "repo": "pydata/xarray",
+    "base_commit": "ef6e6a7b86f8479b9a1fecf15ad5b88a2326b31e",
+    "dataset": "princeton-nlp/SWE-bench_Verified",
+    "revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+    "split": "test"
+  },
+  "sha256": {
+    "controller.py": "6a5922b0cf5f591f477e37881246d58fd11de5fb94df43c278b3bed07ef24d9e",
+    "export_prediction.py": "7fe8fecb0c4dcde1cdf16bd2bc97eed3f2bcf9d0c7e3674d3ebdda87045378da",
+    "baseline/swt_test.yaml": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+    "profiles/unit_test.yaml": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b",
+    "data/pydata__xarray-3677/report.txt": "4d1a08fa41ecef39ce23af292d1139cdc7d030bef74172654e29d4876338b716",
+    "data/pydata__xarray-3677/source.json": "f80dabc25311751cfae38657371b4aa04411bc40d21e1ac22de4d66199a17233"
+  },
+  "generation_started": false
+}

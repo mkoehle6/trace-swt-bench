@@ -1,0 +1,59 @@
+2026-11-13 08:05:45,572 - WARNING - Starting evaluation at 1794575145.572145
+2026-11-13 08:05:45,781 - INFO - Creating container for django__django-15098...
+2026-11-13 08:05:45,850 - INFO - Container for django__django-15098 created: 378e9c7bbba1f9b8304ea0bf7d2d1f7b4c1e0af4f01329fee905d430e9aa8416
+2026-11-13 08:05:46,018 - INFO - Container for django__django-15098 started: 378e9c7bbba1f9b8304ea0bf7d2d1f7b4c1e0af4f01329fee905d430e9aa8416
+2026-11-13 08:05:47,976 - INFO - Git diff before:
+
+2026-11-13 08:05:47,980 - INFO - Eval script for django__django-15098 written to eval.sh, now applying to container...
+2026-11-13 08:05:54,737 - INFO - Test output for django__django-15098 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-15098/test_output.txt
+2026-11-13 08:05:54,807 - INFO - Git diff after:
+diff --git a/tests/i18n/patterns/tests.py b/tests/i18n/patterns/tests.py
+index ebd2430428..cf2d48e1cc 100644
+--- a/tests/i18n/patterns/tests.py
++++ b/tests/i18n/patterns/tests.py
+@@ -323,6 +323,20 @@ class URLResponseTests(URLTestCaseBase):
+         self.assertEqual(response.headers['content-language'], 'nl')
+         self.assertEqual(response.context['LANGUAGE_CODE'], 'nl')
+ 
++    @override_settings(
++        LANGUAGES=[
++            ('nl', 'Dutch'),
++            ('en', 'English'),
++            ('en-latn-us', 'Latin English'),
++            ('pt-br', 'Brazilian Portuguese'),
++        ],
++    )
++    def test_en_latn_us_url(self):
++        response = self.client.get('/en-latn-us/account/register/')
++        self.assertEqual(response.status_code, 200)
++        self.assertEqual(response.headers['content-language'], 'en-latn-us')
++        self.assertEqual(response.context['LANGUAGE_CODE'], 'en-latn-us')
++
+     def test_wrong_en_prefix(self):
+         response = self.client.get('/en/profiel/registreren/')
+         self.assertEqual(response.status_code, 404)
+diff --git a/tests/i18n/tests.py b/tests/i18n/tests.py
+index bb6ea15f85..336561d424 100644
+--- a/tests/i18n/tests.py
++++ b/tests/i18n/tests.py
+@@ -1593,6 +1593,7 @@ class MiscTests(SimpleTestCase):
+     @override_settings(
+         LANGUAGES=[
+             ('en', 'English'),
++            ('en-latn-us', 'Latin English'),
+             ('de', 'German'),
+             ('de-at', 'Austrian German'),
+             ('pl', 'Polish'),
+@@ -1605,6 +1606,7 @@ class MiscTests(SimpleTestCase):
+         self.assertIsNone(g('/xyz/'))
+         self.assertEqual(g('/en/'), 'en')
+         self.assertEqual(g('/en-gb/'), 'en')
++        self.assertEqual(g('/en-latn-us/'), 'en-latn-us')
+         self.assertEqual(g('/de/'), 'de')
+         self.assertEqual(g('/de-at/'), 'de-at')
+         self.assertEqual(g('/de-ch/'), 'de')
+2026-11-13 08:05:54,809 - INFO - Git diff changed after running eval script
+2026-11-13 08:05:54,810 - INFO - Attempting to stop container exec.eval.x86_64.6b24dca158642bd6288384.24aa6bc5fafd3bdbfc9d5d.132386095352432...
+2026-11-13 08:06:10,009 - INFO - Attempting to remove container exec.eval.x86_64.6b24dca158642bd6288384.24aa6bc5fafd3bdbfc9d5d.132386095352432...
+2026-11-13 08:06:10,046 - INFO - Container exec.eval.x86_64.6b24dca158642bd6288384.24aa6bc5fafd3bdbfc9d5d.132386095352432 removed.
+2026-11-13 08:06:10,047 - WARNING - End of eval at 1794575170.0474932

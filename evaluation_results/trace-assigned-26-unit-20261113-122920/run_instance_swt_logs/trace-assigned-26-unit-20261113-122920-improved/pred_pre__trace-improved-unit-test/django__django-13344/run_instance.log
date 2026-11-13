@@ -1,0 +1,71 @@
+2026-11-13 08:41:57,534 - WARNING - Starting evaluation at 1794577317.53433
+2026-11-13 08:41:58,076 - INFO - Creating container for django__django-13344...
+2026-11-13 08:41:58,227 - INFO - Container for django__django-13344 created: 68e48e6c46b715827754d47e62fea4e2d86fd61703b49b342c08321bfa063b67
+2026-11-13 08:41:58,526 - INFO - Container for django__django-13344 started: 68e48e6c46b715827754d47e62fea4e2d86fd61703b49b342c08321bfa063b67
+2026-11-13 08:42:00,122 - INFO - Git diff before:
+
+2026-11-13 08:42:00,129 - INFO - Eval script for django__django-13344 written to eval.sh, now applying to container...
+2026-11-13 08:42:08,883 - INFO - Test output for django__django-13344 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-13344/test_output.txt
+2026-11-13 08:42:08,989 - INFO - Git diff after:
+diff --git a/tests/middleware_exceptions/middleware.py b/tests/middleware_exceptions/middleware.py
+index 9fb9726b50..bbc32fd664 100644
+--- a/tests/middleware_exceptions/middleware.py
++++ b/tests/middleware_exceptions/middleware.py
+@@ -4,6 +4,7 @@ from django.template.response import TemplateResponse
+ from django.utils.decorators import (
+     async_only_middleware, sync_and_async_middleware, sync_only_middleware,
+ )
++from django.utils.deprecation import MiddlewareMixin
+ 
+ log = []
+ 
+@@ -80,6 +81,20 @@ class LogMiddleware(BaseMiddleware):
+         return response
+ 
+ 
++@async_only_middleware
++class AsyncMiddleware(BaseMiddleware):
++    async def __call__(self, request):
++        return await self.get_response(request)
++
++
++class ProcessResponseMiddleware(MiddlewareMixin):
++    response = None
++
++    def process_response(self, request, response):
++        type(self).response = response
++        return response
++
++
+ class NoTemplateResponseMiddleware(BaseMiddleware):
+     def process_template_response(self, request, response):
+         return None
+diff --git a/tests/middleware_exceptions/tests.py b/tests/middleware_exceptions/tests.py
+index 8b019ba524..f2eb421c70 100644
+--- a/tests/middleware_exceptions/tests.py
++++ b/tests/middleware_exceptions/tests.py
+@@ -285,6 +285,19 @@ class MiddlewareSyncAsyncTests(SimpleTestCase):
+ 
+ @override_settings(ROOT_URLCONF='middleware_exceptions.urls')
+ class AsyncMiddlewareTests(SimpleTestCase):
++    @override_settings(MIDDLEWARE=[
++        'middleware_exceptions.middleware.ProcessResponseMiddleware',
++        'middleware_exceptions.middleware.AsyncMiddleware',
++    ])
++    async def test_process_response_receives_response(self):
++        mw.ProcessResponseMiddleware.response = None
++        response = await self.async_client.get('/middleware_exceptions/view/')
++        self.assertEqual(response.content, b'OK')
++        self.assertIsInstance(
++            mw.ProcessResponseMiddleware.response,
++            HttpResponse,
++        )
++
+     @override_settings(MIDDLEWARE=[
+         'middleware_exceptions.middleware.AsyncTemplateResponseMiddleware',
+     ])
+2026-11-13 08:42:08,991 - INFO - Git diff changed after running eval script
+2026-11-13 08:42:08,993 - INFO - Attempting to stop container exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038.125911372155600...
+2026-11-13 08:42:24,239 - INFO - Attempting to remove container exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038.125911372155600...
+2026-11-13 08:42:24,282 - INFO - Container exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038.125911372155600 removed.
+2026-11-13 08:42:24,283 - WARNING - End of eval at 1794577344.2835636

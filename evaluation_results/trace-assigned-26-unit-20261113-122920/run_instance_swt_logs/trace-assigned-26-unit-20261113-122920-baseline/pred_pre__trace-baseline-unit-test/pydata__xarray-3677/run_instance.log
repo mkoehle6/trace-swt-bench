@@ -1,0 +1,32 @@
+2026-11-13 07:31:53,860 - WARNING - Starting evaluation at 1794573113.8608494
+2026-11-13 07:31:54,257 - INFO - Creating container for pydata__xarray-3677...
+2026-11-13 07:31:54,395 - INFO - Container for pydata__xarray-3677 created: 935262d52262cdf92d8219fb1e4c279667469af0cac8899b468eb62b998920e9
+2026-11-13 07:31:54,687 - INFO - Container for pydata__xarray-3677 started: 935262d52262cdf92d8219fb1e4c279667469af0cac8899b468eb62b998920e9
+2026-11-13 07:31:55,104 - INFO - Git diff before:
+
+2026-11-13 07:31:55,112 - INFO - Eval script for pydata__xarray-3677 written to eval.sh, now applying to container...
+2026-11-13 07:32:42,769 - INFO - Test output for pydata__xarray-3677 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/pydata__xarray-3677/test_output.txt
+2026-11-13 07:32:42,838 - INFO - Git diff after:
+diff --git a/xarray/tests/test_dataset.py b/xarray/tests/test_dataset.py
+index 2220abbe..34eafdc3 100644
+--- a/xarray/tests/test_dataset.py
++++ b/xarray/tests/test_dataset.py
+@@ -3317,6 +3317,13 @@ class TestDataset:
+         with pytest.raises(ValueError):
+             data.merge(other)
+ 
++    def test_merge_dataarray(self):
++        ds = Dataset({"a": 0})
++        da = DataArray(1, name="b")
++        expected = xr.merge([ds, da])
++        actual = ds.merge(da)
++        assert_identical(actual, expected)
++
+     def test_setitem_original_non_unique_index(self):
+         # regression test for GH943
+         original = Dataset({"data": ("x", np.arange(5))}, coords={"x": [0, 1, 2, 0, 1]})
+2026-11-13 07:32:42,839 - INFO - Git diff changed after running eval script
+2026-11-13 07:32:42,840 - INFO - Attempting to stop container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064...
+2026-11-13 07:32:58,057 - INFO - Attempting to remove container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064...
+2026-11-13 07:32:58,083 - INFO - Container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064 removed.
+2026-11-13 07:32:58,084 - WARNING - End of eval at 1794573178.0847018

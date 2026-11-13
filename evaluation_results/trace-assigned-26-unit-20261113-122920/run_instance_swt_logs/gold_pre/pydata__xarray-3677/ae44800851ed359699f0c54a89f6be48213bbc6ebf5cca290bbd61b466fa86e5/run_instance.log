@@ -1,0 +1,52 @@
+2026-11-13 07:33:55,045 - WARNING - Starting evaluation at 1794573235.0457067
+2026-11-13 07:33:55,231 - INFO - Creating container for pydata__xarray-3677...
+2026-11-13 07:33:55,285 - INFO - Container for pydata__xarray-3677 created: 8684042d147bc583a28a53de3b0e8686e1d419d2ea3a8b376c0d7670eeaa4b7f
+2026-11-13 07:33:55,403 - INFO - Container for pydata__xarray-3677 started: 8684042d147bc583a28a53de3b0e8686e1d419d2ea3a8b376c0d7670eeaa4b7f
+2026-11-13 07:33:55,496 - INFO - Git diff before:
+
+2026-11-13 07:33:55,501 - INFO - Eval script for pydata__xarray-3677 written to eval.sh, now applying to container...
+2026-11-13 07:34:04,996 - INFO - Test output for pydata__xarray-3677 written to run_instance_swt_logs/gold_pre/pydata__xarray-3677/ae44800851ed359699f0c54a89f6be48213bbc6ebf5cca290bbd61b466fa86e5/test_output.txt
+2026-11-13 07:34:05,051 - INFO - Git diff after:
+diff --git a/xarray/tests/test_merge.py b/xarray/tests/test_merge.py
+index c1e6c7a5..6c8f3f65 100644
+--- a/xarray/tests/test_merge.py
++++ b/xarray/tests/test_merge.py
+@@ -3,6 +3,7 @@ import pytest
+ 
+ import xarray as xr
+ from xarray.core import dtypes, merge
++from xarray.testing import assert_identical
+ 
+ from . import raises_regex
+ from .test_dataset import create_test_data
+@@ -253,3 +254,9 @@ class TestMergeMethod:
+         with pytest.raises(xr.MergeError):
+             ds3 = xr.Dataset({"a": ("y", [2, 3]), "y": [1, 2]})
+             ds1.merge(ds3, compat="no_conflicts")
++
++    def test_merge_dataarray(self):
++        ds = xr.Dataset({"a": 0})
++        da = xr.DataArray(data=1, name="b")
++
++        assert_identical(ds.merge(da), xr.merge([ds, da]))
+2026-11-13 07:34:05,052 - INFO - Git diff changed after running eval script
+2026-11-13 07:34:05,052 - INFO - Attempting to stop container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064...
+2026-11-13 07:34:20,278 - INFO - Attempting to remove container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064...
+2026-11-13 07:34:20,306 - INFO - Container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064 removed.
+2026-11-13 07:34:20,307 - WARNING - End of eval at 1794573260.3073099
+2026-11-13 08:30:07,999 - WARNING - Starting evaluation at 1794576607.9989839
+2026-11-13 08:30:08,036 - WARNING - Starting evaluation at 1794576608.036618
+2026-11-13 08:30:08,078 - WARNING - Starting evaluation at 1794576608.0778768
+2026-11-13 08:30:08,418 - INFO - Creating container for pydata__xarray-3677...
+2026-11-13 08:30:08,533 - INFO - Container for pydata__xarray-3677 created: 1ddce63905a1b7d1fb032b3387708d822ee513ec324eb1ea93d09d3e94c31f2d
+2026-11-13 08:30:08,780 - INFO - Container for pydata__xarray-3677 started: 1ddce63905a1b7d1fb032b3387708d822ee513ec324eb1ea93d09d3e94c31f2d
+2026-11-13 08:30:08,963 - INFO - Git diff before:
+
+2026-11-13 08:30:08,972 - INFO - Eval script for pydata__xarray-3677 written to eval.sh, now applying to container...
+2026-11-13 08:30:21,235 - INFO - Test output for pydata__xarray-3677 written to run_instance_swt_logs/base_pre/pydata__xarray-3677/ae44800851ed359699f0c54a89f6be48213bbc6ebf5cca290bbd61b466fa86e5/test_output.txt
+2026-11-13 08:30:21,305 - INFO - Git diff after:
+
+2026-11-13 08:30:21,309 - INFO - Attempting to stop container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.125911495759136...
+2026-11-13 08:30:36,678 - INFO - Attempting to remove container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.125911495759136...
+2026-11-13 08:30:36,760 - INFO - Container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.125911495759136 removed.
+2026-11-13 08:30:36,770 - WARNING - End of eval at 1794576636.7700846

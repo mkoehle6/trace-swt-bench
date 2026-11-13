@@ -1,0 +1,14 @@
+2026-11-13 08:39:05,388 - WARNING - Starting evaluation at 1794577145.3883414
+2026-11-13 08:39:05,928 - INFO - Creating container for mwaskom__seaborn-3187...
+2026-11-13 08:39:06,066 - INFO - Container for mwaskom__seaborn-3187 created: ad787e7743089767769e444256a226126ba72418d77cae4ff70fa94e76870804
+2026-11-13 08:39:06,326 - INFO - Container for mwaskom__seaborn-3187 started: ad787e7743089767769e444256a226126ba72418d77cae4ff70fa94e76870804
+2026-11-13 08:39:06,586 - INFO - Git diff before:
+
+2026-11-13 08:39:06,600 - INFO - Eval script for mwaskom__seaborn-3187 written to eval.sh, now applying to container...
+2026-11-13 08:40:02,364 - INFO - Test output for mwaskom__seaborn-3187 written to run_instance_swt_logs/base_pre/mwaskom__seaborn-3187/113c20b00cae27498b706a57d7357b4023a6ec47831ea98d91c1a2f4c3d10d30/test_output.txt
+2026-11-13 08:40:02,464 - INFO - Git diff after:
+
+2026-11-13 08:40:02,468 - INFO - Attempting to stop container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.125911372153632...
+2026-11-13 08:40:17,697 - INFO - Attempting to remove container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.125911372153632...
+2026-11-13 08:40:17,744 - INFO - Container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.125911372153632 removed.
+2026-11-13 08:40:17,749 - WARNING - End of eval at 1794577217.7498717

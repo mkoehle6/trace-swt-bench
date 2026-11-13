@@ -1,0 +1,31 @@
+diff --git a/tests/auth_tests/test_basic.py b/tests/auth_tests/test_basic.py
+index 4b491e521e..87a173e29d 100644
+--- a/tests/auth_tests/test_basic.py
++++ b/tests/auth_tests/test_basic.py
+@@ -1,4 +1,4 @@
+-from django.contrib.auth import get_user, get_user_model
++from django.contrib.auth import SESSION_KEY, get_user, get_user_model
+ from django.contrib.auth.models import AnonymousUser, User
+ from django.core.exceptions import ImproperlyConfigured
+ from django.db import IntegrityError
+@@ -138,3 +138,20 @@ class TestGetUser(TestCase):
+         user = get_user(request)
+         self.assertIsInstance(user, User)
+         self.assertEqual(user.username, created_user.username)
++
++    @override_settings(SECRET_KEY="old-secret")
++    def test_get_user_with_secret_key_fallbacks(self):
++        created_user = User.objects.create_user(
++            "testuser", "test@example.com", "testpw"
++        )
++        self.client.login(username="testuser", password="testpw")
++        with self.settings(
++            SECRET_KEY="new-secret",
++            SECRET_KEY_FALLBACKS=["old-secret"],
++        ):
++            request = HttpRequest()
++            request.session = self.client.session
++            self.assertIn(SESSION_KEY, request.session)
++            user = get_user(request)
++        self.assertIsInstance(user, User)
++        self.assertEqual(user.username, created_user.username)

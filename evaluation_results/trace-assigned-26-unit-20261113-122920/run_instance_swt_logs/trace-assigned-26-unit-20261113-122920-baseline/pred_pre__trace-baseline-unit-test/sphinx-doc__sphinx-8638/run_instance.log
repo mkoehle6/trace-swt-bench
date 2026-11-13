@@ -1,0 +1,140 @@
+2026-11-13 08:08:03,225 - WARNING - Starting evaluation at 1794575283.2250402
+2026-11-13 08:08:03,542 - INFO - Creating container for sphinx-doc__sphinx-8638...
+2026-11-13 08:08:03,636 - INFO - Container for sphinx-doc__sphinx-8638 created: f178adfb473120dda386225794ecf67046ac262745774550fd08ae163cf4d673
+2026-11-13 08:08:03,822 - INFO - Container for sphinx-doc__sphinx-8638 started: f178adfb473120dda386225794ecf67046ac262745774550fd08ae163cf4d673
+2026-11-13 08:08:04,608 - INFO - Git diff before:
+diff --git a/setup.py b/setup.py
+index a0c8ac102..2ef89ef1a 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,22 +15,22 @@ if sys.version_info < (3, 6):
+     sys.exit(1)
+ 
+ install_requires = [
+-    'sphinxcontrib-applehelp',
+-    'sphinxcontrib-devhelp',
++    'sphinxcontrib-applehelp<=1.0.7',
++    'sphinxcontrib-devhelp<=1.0.5',
+     'sphinxcontrib-jsmath',
+-    'sphinxcontrib-htmlhelp',
+-    'sphinxcontrib-serializinghtml',
+-    'sphinxcontrib-qthelp',
+-    'Jinja2>=2.3',
++    'sphinxcontrib-htmlhelp<=2.0.4',
++    'sphinxcontrib-serializinghtml<=1.1.9',
++    'sphinxcontrib-qthelp<=1.0.6',
++    'Jinja2<3.0',
+     'Pygments>=2.0',
+     'docutils>=0.14',
+     'snowballstemmer>=1.1',
+     'babel>=1.3',
+-    'alabaster>=0.7,<0.8',
++    'alabaster>=0.7,<0.7.12',
+     'imagesize',
+     'requests>=2.5.0',
+     'setuptools',
+-    'packaging',
++    'packaging', 'markupsafe<=2.0.1',
+ ]
+ 
+ extras_require = {
+diff --git a/tox.ini b/tox.ini
+index bdf4c2ad3..b12166264 100644
+--- a/tox.ini
++++ b/tox.ini
+@@ -26,7 +26,7 @@ setenv =
+     PYTHONWARNINGS = all,ignore::ImportWarning:importlib._bootstrap_external,ignore::DeprecationWarning:site,ignore::DeprecationWarning:distutils,ignore::DeprecationWarning:pip._vendor.packaging.version
+     PYTEST_ADDOPTS = {env:PYTEST_ADDOPTS:} --color yes
+ commands=
+-    python -X dev -m pytest --durations 25 {posargs}
++    python -X dev -m pytest -rA --durations 25 {posargs}
+ 
+ [testenv:flake8]
+ basepython = python3
+2026-11-13 08:08:04,614 - INFO - Eval script for sphinx-doc__sphinx-8638 written to eval.sh, now applying to container...
+2026-11-13 08:08:34,360 - INFO - Test output for sphinx-doc__sphinx-8638 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/sphinx-doc__sphinx-8638/test_output.txt
+2026-11-13 08:08:34,433 - INFO - Git diff after:
+diff --git a/setup.py b/setup.py
+index a0c8ac102..2ef89ef1a 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,22 +15,22 @@ if sys.version_info < (3, 6):
+     sys.exit(1)
+ 
+ install_requires = [
+-    'sphinxcontrib-applehelp',
+-    'sphinxcontrib-devhelp',
++    'sphinxcontrib-applehelp<=1.0.7',
++    'sphinxcontrib-devhelp<=1.0.5',
+     'sphinxcontrib-jsmath',
+-    'sphinxcontrib-htmlhelp',
+-    'sphinxcontrib-serializinghtml',
+-    'sphinxcontrib-qthelp',
+-    'Jinja2>=2.3',
++    'sphinxcontrib-htmlhelp<=2.0.4',
++    'sphinxcontrib-serializinghtml<=1.1.9',
++    'sphinxcontrib-qthelp<=1.0.6',
++    'Jinja2<3.0',
+     'Pygments>=2.0',
+     'docutils>=0.14',
+     'snowballstemmer>=1.1',
+     'babel>=1.3',
+-    'alabaster>=0.7,<0.8',
++    'alabaster>=0.7,<0.7.12',
+     'imagesize',
+     'requests>=2.5.0',
+     'setuptools',
+-    'packaging',
++    'packaging', 'markupsafe<=2.0.1',
+ ]
+ 
+ extras_require = {
+diff --git a/tests/roots/test-domain-py/index.rst b/tests/roots/test-domain-py/index.rst
+index 35a0c1927..ed0f1b795 100644
+--- a/tests/roots/test-domain-py/index.rst
++++ b/tests/roots/test-domain-py/index.rst
+@@ -5,3 +5,5 @@ test-domain-py
+ 
+     roles
+     module
++
++    instance_variable
+diff --git a/tests/test_domain_py.py b/tests/test_domain_py.py
+index e0c690518..64c82edb5 100644
+--- a/tests/test_domain_py.py
++++ b/tests/test_domain_py.py
+@@ -164,6 +164,16 @@ def test_domain_py_objects(app, status, warning):
+     assert objects['NestedParentB.child_1'][2] == 'method'
+ 
+ 
++@pytest.mark.sphinx('html', testroot='domain-py')
++def test_domain_py_instance_variable_xrefs(app, status, warning):
++    """Instance variables must not link to unrelated objects with the same name."""
++    app.builder.build_all()
++
++    content = (app.outdir / 'instance_variable.html').read_text()
++    assert '<p><strong>limit</strong> – An instance variable named limit.</p>' in content
++    assert '<p><strong>other</strong> – An instance variable named other.</p>' in content
++
++
+ @pytest.mark.sphinx('html', testroot='domain-py')
+ def test_resolve_xref_for_properties(app, status, warning):
+     app.builder.build_all()
+diff --git a/tox.ini b/tox.ini
+index bdf4c2ad3..b12166264 100644
+--- a/tox.ini
++++ b/tox.ini
+@@ -26,7 +26,7 @@ setenv =
+     PYTHONWARNINGS = all,ignore::ImportWarning:importlib._bootstrap_external,ignore::DeprecationWarning:site,ignore::DeprecationWarning:distutils,ignore::DeprecationWarning:pip._vendor.packaging.version
+     PYTEST_ADDOPTS = {env:PYTEST_ADDOPTS:} --color yes
+ commands=
+-    python -X dev -m pytest --durations 25 {posargs}
++    python -X dev -m pytest -rA --durations 25 {posargs}
+ 
+ [testenv:flake8]
+ basepython = python3
+2026-11-13 08:08:34,435 - INFO - Git diff changed after running eval script
+2026-11-13 08:08:34,436 - INFO - Attempting to stop container exec.eval.x86_64.77d82541416cab86d0d86a.1622f4ab259b2666752891.132386095354688...
+2026-11-13 08:08:49,659 - INFO - Attempting to remove container exec.eval.x86_64.77d82541416cab86d0d86a.1622f4ab259b2666752891.132386095354688...
+2026-11-13 08:08:49,713 - INFO - Container exec.eval.x86_64.77d82541416cab86d0d86a.1622f4ab259b2666752891.132386095354688 removed.
+2026-11-13 08:08:49,715 - WARNING - End of eval at 1794575329.7151601

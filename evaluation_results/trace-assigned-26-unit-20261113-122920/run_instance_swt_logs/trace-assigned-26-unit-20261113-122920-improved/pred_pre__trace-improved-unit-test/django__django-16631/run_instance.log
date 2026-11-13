@@ -1,0 +1,45 @@
+2026-11-13 08:46:33,827 - WARNING - Starting evaluation at 1794577593.8271372
+2026-11-13 08:46:34,141 - INFO - Creating container for django__django-16631...
+2026-11-13 08:46:34,227 - INFO - Container for django__django-16631 created: a3ca828d76f0046670a5e5d4c6542620fcd727d232dbe8db80587f91e0282918
+2026-11-13 08:46:34,450 - INFO - Container for django__django-16631 started: a3ca828d76f0046670a5e5d4c6542620fcd727d232dbe8db80587f91e0282918
+2026-11-13 08:46:35,564 - INFO - Git diff before:
+
+2026-11-13 08:46:35,573 - INFO - Eval script for django__django-16631 written to eval.sh, now applying to container...
+2026-11-13 08:46:42,207 - INFO - Test output for django__django-16631 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-16631/test_output.txt
+2026-11-13 08:46:42,295 - INFO - Git diff after:
+diff --git a/tests/auth_tests/test_basic.py b/tests/auth_tests/test_basic.py
+index 4b491e521e..87a173e29d 100644
+--- a/tests/auth_tests/test_basic.py
++++ b/tests/auth_tests/test_basic.py
+@@ -1,4 +1,4 @@
+-from django.contrib.auth import get_user, get_user_model
++from django.contrib.auth import SESSION_KEY, get_user, get_user_model
+ from django.contrib.auth.models import AnonymousUser, User
+ from django.core.exceptions import ImproperlyConfigured
+ from django.db import IntegrityError
+@@ -138,3 +138,20 @@ class TestGetUser(TestCase):
+         user = get_user(request)
+         self.assertIsInstance(user, User)
+         self.assertEqual(user.username, created_user.username)
++
++    @override_settings(SECRET_KEY="old-secret")
++    def test_get_user_with_secret_key_fallbacks(self):
++        created_user = User.objects.create_user(
++            "testuser", "test@example.com", "testpw"
++        )
++        self.client.login(username="testuser", password="testpw")
++        with self.settings(
++            SECRET_KEY="new-secret",
++            SECRET_KEY_FALLBACKS=["old-secret"],
++        ):
++            request = HttpRequest()
++            request.session = self.client.session
++            self.assertIn(SESSION_KEY, request.session)
++            user = get_user(request)
++        self.assertIsInstance(user, User)
++        self.assertEqual(user.username, created_user.username)
+2026-11-13 08:46:42,296 - INFO - Git diff changed after running eval script
+2026-11-13 08:46:42,298 - INFO - Attempting to stop container exec.eval.x86_64.9097b18874f4d0ac315ef2.9fe46469c62633c45bbc90.125911372154304...
+2026-11-13 08:46:57,575 - INFO - Attempting to remove container exec.eval.x86_64.9097b18874f4d0ac315ef2.9fe46469c62633c45bbc90.125911372154304...
+2026-11-13 08:46:57,625 - INFO - Container exec.eval.x86_64.9097b18874f4d0ac315ef2.9fe46469c62633c45bbc90.125911372154304 removed.
+2026-11-13 08:46:57,628 - WARNING - End of eval at 1794577617.6282198

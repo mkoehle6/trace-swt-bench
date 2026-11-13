@@ -1,0 +1,18 @@
+diff --git a/xarray/tests/test_dataset.py b/xarray/tests/test_dataset.py
+index 2220abbe..34eafdc3 100644
+--- a/xarray/tests/test_dataset.py
++++ b/xarray/tests/test_dataset.py
+@@ -3317,6 +3317,13 @@ class TestDataset:
+         with pytest.raises(ValueError):
+             data.merge(other)
+ 
++    def test_merge_dataarray(self):
++        ds = Dataset({"a": 0})
++        da = DataArray(1, name="b")
++        expected = xr.merge([ds, da])
++        actual = ds.merge(da)
++        assert_identical(actual, expected)
++
+     def test_setitem_original_non_unique_index(self):
+         # regression test for GH943
+         original = Dataset({"data": ("x", np.arange(5))}, coords={"x": [0, 1, 2, 0, 1]})

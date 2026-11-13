@@ -1,0 +1,57 @@
+diff --git a/tests/middleware_exceptions/middleware.py b/tests/middleware_exceptions/middleware.py
+index 9fb9726b50..bbc32fd664 100644
+--- a/tests/middleware_exceptions/middleware.py
++++ b/tests/middleware_exceptions/middleware.py
+@@ -4,6 +4,7 @@ from django.template.response import TemplateResponse
+ from django.utils.decorators import (
+     async_only_middleware, sync_and_async_middleware, sync_only_middleware,
+ )
++from django.utils.deprecation import MiddlewareMixin
+ 
+ log = []
+ 
+@@ -80,6 +81,20 @@ class LogMiddleware(BaseMiddleware):
+         return response
+ 
+ 
++@async_only_middleware
++class AsyncMiddleware(BaseMiddleware):
++    async def __call__(self, request):
++        return await self.get_response(request)
++
++
++class ProcessResponseMiddleware(MiddlewareMixin):
++    response = None
++
++    def process_response(self, request, response):
++        type(self).response = response
++        return response
++
++
+ class NoTemplateResponseMiddleware(BaseMiddleware):
+     def process_template_response(self, request, response):
+         return None
+diff --git a/tests/middleware_exceptions/tests.py b/tests/middleware_exceptions/tests.py
+index 8b019ba524..f2eb421c70 100644
+--- a/tests/middleware_exceptions/tests.py
++++ b/tests/middleware_exceptions/tests.py
+@@ -285,6 +285,19 @@ class MiddlewareSyncAsyncTests(SimpleTestCase):
+ 
+ @override_settings(ROOT_URLCONF='middleware_exceptions.urls')
+ class AsyncMiddlewareTests(SimpleTestCase):
++    @override_settings(MIDDLEWARE=[
++        'middleware_exceptions.middleware.ProcessResponseMiddleware',
++        'middleware_exceptions.middleware.AsyncMiddleware',
++    ])
++    async def test_process_response_receives_response(self):
++        mw.ProcessResponseMiddleware.response = None
++        response = await self.async_client.get('/middleware_exceptions/view/')
++        self.assertEqual(response.content, b'OK')
++        self.assertIsInstance(
++            mw.ProcessResponseMiddleware.response,
++            HttpResponse,
++        )
++
+     @override_settings(MIDDLEWARE=[
+         'middleware_exceptions.middleware.AsyncTemplateResponseMiddleware',
+     ])

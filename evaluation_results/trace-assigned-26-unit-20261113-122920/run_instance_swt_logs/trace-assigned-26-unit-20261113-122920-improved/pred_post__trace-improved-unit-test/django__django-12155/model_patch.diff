@@ -1,0 +1,35 @@
+diff --git a/tests/admin_docs/test_utils.py b/tests/admin_docs/test_utils.py
+index 17ea912015..40b9956661 100644
+--- a/tests/admin_docs/test_utils.py
++++ b/tests/admin_docs/test_utils.py
+@@ -44,6 +44,30 @@ class TestUtils(AdminDocsSimpleTestCase):
+         )
+         self.assertEqual(trim_docstring_output, trimmed_docstring)
+ 
++    def test_trim_docstring_first_line_not_empty(self):
++        docstring = (
++            'This is a docstring.\n'
++            '\n'
++            '    This is the body.\n'
++        )
++        self.assertEqual(
++            trim_docstring(docstring),
++            'This is a docstring.\n\nThis is the body.',
++        )
++
++    def test_parse_docstring_first_line_not_empty(self):
++        docstring = (
++            'This is a view docstring.\n'
++            '\n'
++            '    This is the body.\n'
++        )
++        title, description, metadata = parse_docstring(docstring)
++        self.assertEqual(title, 'This is a view docstring.')
++        self.assertEqual(metadata, {})
++        description_output = parse_rst(description, 'view', 'view:admindocs')
++        self.assertNotIn('System Message', description_output)
++        self.assertHTMLEqual(description_output, '<p>This is the body.</p>\n')
++
+     def test_parse_docstring(self):
+         title, description, metadata = parse_docstring(self.docstring)
+         docstring_title = (

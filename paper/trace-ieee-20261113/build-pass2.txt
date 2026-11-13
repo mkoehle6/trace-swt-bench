@@ -1,0 +1,162 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21> (./IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./trace_experiment.aux)
+-- Lines per column: 56 (exact).
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty))
+(./trace_experiment.out) (./trace_experiment.out) (./body.tex
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+Underfull \hbox (badness 2680) in paragraph at lines 12--13
+[]\T1/ptm/m/n/10 The class calls its re-quired base-line Deep-Flash [[]4[]];
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+\T1/ptm/m/n/10 the project owner clar-i-fied that this means
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+\T1/ptm/m/n/10 DeepSeek. Saved gen-er-a-tion con-fig-u-ra-tion names
+
+Underfull \hbox (badness 1831) in paragraph at lines 12--13
+\T1/pcr/m/n/10 deepseek/deepseek-v4-flash\T1/ptm/m/n/10 ; di-rect pre-pro-cess-
+ing
+
+Underfull \hbox (badness 2495) in paragraph at lines 12--13
+\T1/ptm/m/n/10 uses \T1/pcr/m/n/10 deepseek-flash\T1/ptm/m/n/10 . These recorde
+d iden-ti-fiers do
+
+Underfull \hbox (badness 2503) in paragraph at lines 15--16
+[]\T1/ptm/m/n/10 The fixed as-sign-ment com-prises 26 is-sues, 13 Easy
+
+Underfull \hbox (badness 7451) in paragraph at lines 15--16
+\T1/ptm/m/n/10 and 13 Hard, across 12 Python repos-i-to-ries. These
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+\T1/ptm/m/n/10 are his-tor-i-cal as-sign-ment la-bels, not our mea-sured
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+\T1/pcr/m/n/10 c104f840cc67f8b6eec6f759ebc8b2693d585d4a\T1/ptm/m/n/10 .
+
+Underfull \hbox (badness 1460) in paragraph at lines 15--16
+\T1/ptm/m/n/10 ex-e-cute base-line then TRACE. Con-fig-u-ra-tion and re-port
+
+Underfull \hbox (badness 2245) in paragraph at lines 15--16
+\T1/ptm/m/n/10 gen-er-a-tion seed was set; stochas-tic vari-abil-ity was not
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+[]\T1/ptm/m/n/10 The of-fi-cial SWT-Bench har-ness at com-mit
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+\T1/pcr/m/n/10 eee38624e36a1b39976fffa2bddbc4c3c754d293
+
+Underfull \hbox (badness 2343) in paragraph at lines 17--18
+\T1/ptm/m/n/10 out-puts re-main in an evaluation-only di-rec-tory. All 26
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd) [2])
+(./references.tex
+Underfull \hbox (badness 2293) in paragraph at lines 2--3
+\T1/ptm/m/it/8 Ad-vances in Neu-ral In-for-ma-tion Pro-cess-ing Sys-tems\T1/ptm
+/m/n/8 , 2024, doi:
+) (./appendix.tex
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty) [3]
+Underfull \hbox (badness 2269) in paragraph at lines 37--40
+\T1/ptm/m/n/10 such as \T1/pcr/m/n/10 en-latn-us\T1/ptm/m/n/10 , are not rec-og
+-nized. \T1/ptm/b/n/10 Gen-er-ated
+(./outcomes-table.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+[]\T1/ptm/m/n/10 The eval-u-a-tion di-rec-tory is
+
+Overfull \hbox (98.77989pt too wide) in paragraph at lines 45--46
+\T1/pcr/m/n/10 evaluation_results/trace-assigned-26-unit-20261113-122920/\T1/pt
+m/m/n/10 ;
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+\T1/ptm/m/n/10 fi-nal se-lected gen-er-a-tion records are in
+
+Overfull \hbox (80.5pt too wide) in paragraph at lines 45--46
+\T1/pcr/m/n/10 runs/assigned-pairs-20261113-002517/completion-pass-v6/\T1/ptm/m
+/n/10 .
+
+Underfull \hbox (badness 3291) in paragraph at lines 45--46
+\T1/ptm/m/n/10 ref-er-ences, work-flow hashes, and of-fi-cial pre/-post logs
+[4])
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+[5] (./trace_experiment.aux) )
+(see the transcript file for additional information){/usr/share/texlive/texmf-d
+ist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmri8a.pfb>
+Output written on trace_experiment.pdf (5 pages, 130586 bytes).
+Transcript written on trace_experiment.log.

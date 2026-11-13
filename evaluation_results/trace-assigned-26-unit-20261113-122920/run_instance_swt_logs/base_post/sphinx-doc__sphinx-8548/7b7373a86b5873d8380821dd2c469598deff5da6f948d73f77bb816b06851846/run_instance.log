@@ -1,0 +1,199 @@
+2026-11-13 08:04:53,575 - WARNING - Starting evaluation at 1794575093.5750728
+2026-11-13 08:04:53,758 - INFO - Creating container for sphinx-doc__sphinx-8548...
+2026-11-13 08:04:53,810 - INFO - Container for sphinx-doc__sphinx-8548 created: 6305cd33c35eb5b3c1f60781334809d17d3033fb9fe8e27426a6d3d5ddfb66f4
+2026-11-13 08:04:53,938 - INFO - Container for sphinx-doc__sphinx-8548 started: 6305cd33c35eb5b3c1f60781334809d17d3033fb9fe8e27426a6d3d5ddfb66f4
+2026-11-13 08:04:54,107 - INFO - Git diff before:
+diff --git a/setup.py b/setup.py
+index 8d40de1a8..03f325278 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,22 +15,22 @@ if sys.version_info < (3, 5):
+     sys.exit(1)
+ 
+ install_requires = [
+-    'sphinxcontrib-applehelp',
+-    'sphinxcontrib-devhelp',
++    'sphinxcontrib-applehelp<=1.0.7',
++    'sphinxcontrib-devhelp<=1.0.5',
+     'sphinxcontrib-jsmath',
+-    'sphinxcontrib-htmlhelp',
+-    'sphinxcontrib-serializinghtml',
+-    'sphinxcontrib-qthelp',
+-    'Jinja2>=2.3',
++    'sphinxcontrib-htmlhelp<=2.0.4',
++    'sphinxcontrib-serializinghtml<=1.1.9',
++    'sphinxcontrib-qthelp<=1.0.6',
++    'Jinja2<3.0',
+     'Pygments>=2.0',
+     'docutils>=0.12',
+     'snowballstemmer>=1.1',
+     'babel>=1.3',
+-    'alabaster>=0.7,<0.8',
++    'alabaster>=0.7,<0.7.12',
+     'imagesize',
+     'requests>=2.5.0',
+     'setuptools',
+-    'packaging',
++    'packaging', 'markupsafe<=2.0.1',
+ ]
+ 
+ extras_require = {
+diff --git a/tox.ini b/tox.ini
+index dbb705a3a..9f4fc3a32 100644
+--- a/tox.ini
++++ b/tox.ini
+@@ -28,7 +28,7 @@ setenv =
+     PYTHONWARNINGS = all,ignore::ImportWarning:importlib._bootstrap_external,ignore::DeprecationWarning:site,ignore::DeprecationWarning:distutils
+     PYTEST_ADDOPTS = {env:PYTEST_ADDOPTS:} --color yes
+ commands=
+-    python -X dev -m pytest --durations 25 {posargs}
++    python -X dev -m pytest -rA --durations 25 {posargs}
+ 
+ [testenv:flake8]
+ basepython = python3
+2026-11-13 08:04:54,112 - INFO - Eval script for sphinx-doc__sphinx-8548 written to eval.sh, now applying to container...
+2026-11-13 08:05:30,187 - INFO - Test output for sphinx-doc__sphinx-8548 written to run_instance_swt_logs/base_post/sphinx-doc__sphinx-8548/7b7373a86b5873d8380821dd2c469598deff5da6f948d73f77bb816b06851846/test_output.txt
+2026-11-13 08:05:30,275 - INFO - Git diff after:
+diff --git a/setup.py b/setup.py
+index 8d40de1a8..03f325278 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,22 +15,22 @@ if sys.version_info < (3, 5):
+     sys.exit(1)
+ 
+ install_requires = [
+-    'sphinxcontrib-applehelp',
+-    'sphinxcontrib-devhelp',
++    'sphinxcontrib-applehelp<=1.0.7',
++    'sphinxcontrib-devhelp<=1.0.5',
+     'sphinxcontrib-jsmath',
+-    'sphinxcontrib-htmlhelp',
+-    'sphinxcontrib-serializinghtml',
+-    'sphinxcontrib-qthelp',
+-    'Jinja2>=2.3',
++    'sphinxcontrib-htmlhelp<=2.0.4',
++    'sphinxcontrib-serializinghtml<=1.1.9',
++    'sphinxcontrib-qthelp<=1.0.6',
++    'Jinja2<3.0',
+     'Pygments>=2.0',
+     'docutils>=0.12',
+     'snowballstemmer>=1.1',
+     'babel>=1.3',
+-    'alabaster>=0.7,<0.8',
++    'alabaster>=0.7,<0.7.12',
+     'imagesize',
+     'requests>=2.5.0',
+     'setuptools',
+-    'packaging',
++    'packaging', 'markupsafe<=2.0.1',
+ ]
+ 
+ extras_require = {
+diff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py
+index ddfd2b365..a23547a61 100644
+--- a/sphinx/ext/autodoc/__init__.py
++++ b/sphinx/ext/autodoc/__init__.py
+@@ -1584,7 +1584,7 @@ class ClassDocumenter(DocstringSignatureMixin, ModuleLevelDocumenter):  # type:
+                 self.add_line('   ' + _('Bases: %s') % ', '.join(bases), sourcename)
+ 
+     def get_object_members(self, want_all: bool) -> Tuple[bool, ObjectMembers]:
+-        members = get_class_members(self.object, self.objpath, self.get_attr, self.analyzer)
++        members = get_class_members(self.object, self.objpath, self.get_attr)
+         if not want_all:
+             if not self.options.members:
+                 return False, []  # type: ignore
+diff --git a/sphinx/ext/autodoc/importer.py b/sphinx/ext/autodoc/importer.py
+index d6e73d36a..1c5ea979e 100644
+--- a/sphinx/ext/autodoc/importer.py
++++ b/sphinx/ext/autodoc/importer.py
+@@ -14,7 +14,7 @@ import warnings
+ from typing import Any, Callable, Dict, List, Mapping, NamedTuple, Optional, Tuple
+ 
+ from sphinx.deprecation import RemovedInSphinx40Warning, deprecated_alias
+-from sphinx.pycode import ModuleAnalyzer
++from sphinx.pycode import ModuleAnalyzer, PycodeError
+ from sphinx.util import logging
+ from sphinx.util.inspect import (getannotations, getmro, getslots, isclass, isenumclass,
+                                  safe_getattr)
+@@ -251,8 +251,8 @@ class ClassAttribute:
+         self.docstring = docstring
+ 
+ 
+-def get_class_members(subject: Any, objpath: List[str], attrgetter: Callable,
+-                      analyzer: ModuleAnalyzer = None) -> Dict[str, ClassAttribute]:
++def get_class_members(subject: Any, objpath: List[str], attrgetter: Callable
++                      ) -> Dict[str, ClassAttribute]:
+     """Get members and attributes of target class."""
+     from sphinx.ext.autodoc import INSTANCEATTR
+ 
+@@ -297,23 +297,31 @@ def get_class_members(subject: Any, objpath: List[str], attrgetter: Callable,
+         except AttributeError:
+             continue
+ 
+-    # annotation only member (ex. attr: int)
+-    for cls in getmro(subject):
+-        try:
+-            for name in getannotations(cls):
+-                name = unmangle(cls, name)
+-                if name and name not in members:
+-                    members[name] = ClassAttribute(cls, name, INSTANCEATTR)
+-        except AttributeError:
+-            pass
+-
+-    if analyzer:
+-        # append instance attributes (cf. self.attr1) if analyzer knows
+-        namespace = '.'.join(objpath)
+-        for (ns, name), docstring in analyzer.attr_docs.items():
+-            if namespace == ns and name not in members:
+-                members[name] = ClassAttribute(subject, name, INSTANCEATTR,
+-                                               '\n'.join(docstring))
++    try:
++        for cls in getmro(subject):
++            # annotation only member (ex. attr: int)
++            try:
++                for name in getannotations(cls):
++                    name = unmangle(cls, name)
++                    if name and name not in members:
++                        members[name] = ClassAttribute(cls, name, INSTANCEATTR)
++            except AttributeError:
++                pass
++
++            # append instance attributes (cf. self.attr1) if analyzer knows
++            try:
++                modname = safe_getattr(cls, '__module__')
++                qualname = safe_getattr(cls, '__qualname__')
++                analyzer = ModuleAnalyzer.for_module(modname)
++                analyzer.analyze()
++                for (ns, name), docstring in analyzer.attr_docs.items():
++                    if ns == qualname and name not in members:
++                        members[name] = ClassAttribute(cls, name, INSTANCEATTR,
++                                                       '\n'.join(docstring))
++            except (AttributeError, PycodeError):
++                pass
++    except AttributeError:
++        pass
+ 
+     return members
+ 
+diff --git a/tox.ini b/tox.ini
+index dbb705a3a..9f4fc3a32 100644
+--- a/tox.ini
++++ b/tox.ini
+@@ -28,7 +28,7 @@ setenv =
+     PYTHONWARNINGS = all,ignore::ImportWarning:importlib._bootstrap_external,ignore::DeprecationWarning:site,ignore::DeprecationWarning:distutils
+     PYTEST_ADDOPTS = {env:PYTEST_ADDOPTS:} --color yes
+ commands=
+-    python -X dev -m pytest --durations 25 {posargs}
++    python -X dev -m pytest -rA --durations 25 {posargs}
+ 
+ [testenv:flake8]
+ basepython = python3
+2026-11-13 08:05:30,277 - INFO - Git diff changed after running eval script
+2026-11-13 08:05:30,278 - INFO - Attempting to stop container exec.eval.x86_64.77d82541416cab86d0d86a.8697b35c69cb90ab63e1a5.132386095352528...
+2026-11-13 08:05:45,492 - INFO - Attempting to remove container exec.eval.x86_64.77d82541416cab86d0d86a.8697b35c69cb90ab63e1a5.132386095352528...
+2026-11-13 08:05:45,541 - INFO - Container exec.eval.x86_64.77d82541416cab86d0d86a.8697b35c69cb90ab63e1a5.132386095352528 removed.
+2026-11-13 08:05:45,542 - WARNING - End of eval at 1794575145.5426328
+2026-11-13 08:43:46,972 - WARNING - Starting evaluation at 1794577426.9726925
+2026-11-13 08:54:00,383 - INFO - Grading answer for sphinx-doc__sphinx-8548...
+2026-11-13 08:54:01,146 - INFO - report: {'sphinx-doc__sphinx-8548': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'coverage_pred': 0.13636363636363635, 'coverage_gold': 0.13636363636363635, 'coverage_base': 0.13636363636363635, 'coverage_delta_pred': 0.0, 'coverage_delta_gold': 0.0, 'added_f2p': 0, 'tests_base': {'FAIL_TO_PASS': [], 'PASS_TO_PASS': [], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': ['tests/test_ext_autodoc.py::test_abstractmethods', 'tests/test_ext_autodoc.py::test_coroutine', 'tests/test_ext_autodoc.py::test_py_module', 'tests/test_ext_autodoc.py::test_autodoc_member_order', 'tests/test_ext_autodoc.py::test_slots', 'tests/test_ext_autodoc.py::test_autodoc_imported_members', 'tests/test_ext_autodoc.py::test_autoclass_instance_attributes', 'tests/test_ext_autodoc.py::test_autoattribute_instance_attributes', 'tests/test_ext_autodoc.py::test_partialfunction', 'tests/test_ext_autodoc.py::test_autodoc_attributes', 'tests/test_ext_autodoc.py::test_autodoc_Annotated', 'tests/test_ext_autodoc.py::test_autodoc_warnings', 'tests/test_ext_autodoc.py::test_descriptor_class', 'tests/test_ext_autodoc.py::test_overload2', 'tests/test_ext_autodoc.py::test_autodoc_decorator', 'tests/test_ext_autodoc.py::test_class_attributes', 'tests/test_ext_autodoc.py::test_overload', 'tests/test_ext_autodoc.py::test_autodoc', 'tests/test_ext_autodoc.py::test_autodoc_class_scope', 'tests/test_ext_autodoc.py::test_final', 'tests/test_ext_autodoc.py::test_autodoc_exclude_members', 'tests/test_ext_autodoc.py::test_autodoc_inherited_members_Base', 'tests/test_ext_autodoc.py::test_format_signature', 'tests/test_ext_autodoc.py::test_autodoc_inner_class', 'tests/test_ext_autodoc.py::test_autodoc_module_scope', 'tests/test_ext_autodoc.py::test_autodoc_typed_instance_variables', 'tests/test_ext_autodoc.py::test_name_conflict', 'tests/test_ext_autodoc.py::test_autodoc_undoc_members', 'tests/test_ext_autodoc.py::test_cython', 'tests/test_ext_autodoc.py::test_autodoc_descriptor', 'tests/test_ext_autodoc.py::test_autodoc_process_signature_typing_generic', 'tests/test_ext_autodoc.py::test_singledispatchmethod', 'tests/test_ext_autodoc.py::test_autodoc_exception', 'tests/test_ext_autodoc.py::test_autodoc_members', 'tests/test_ext_autodoc.py::test_autodoc_subclass_of_builtin_class', 'tests/test_ext_autodoc.py::test_autodoc_inherited_members', 'tests/test_ext_autodoc.py::test_attrgetter_using', 'tests/test_ext_autodoc.py::test_autodoc_GenericAlias', 'tests/test_ext_autodoc.py::test_autodoc_staticmethod', 'tests/test_ext_autodoc.py::test_pymodule_for_ClassLevelDocumenter', 'tests/test_ext_autodoc.py::test_pymodule_for_ModuleLevelDocumenter', 'tests/test_ext_autodoc.py::test_autodoc_ignore_module_all', 'tests/test_ext_autodoc.py::test_autodoc_noindex', 'tests/test_ext_autodoc.py::test_autodoc_inherited_members_None', 'tests/test_ext_autodoc.py::test_autodoc_special_members', 'tests/test_ext_autodoc.py::test_autodoc_TYPE_CHECKING', 'tests/test_ext_autodoc.py::test_autodoc_TypeVar', 'tests/test_ext_autodoc.py::test_new_documenter', 'tests/test_ext_autodoc.py::test_autodoc_typed_inherited_instance_variables', 'tests/test_ext_autodoc.py::test_bound_method', 'tests/test_ext_autodoc.py::test_singledispatch', 'tests/test_ext_autodoc.py::test_imported_partialfunction_should_not_shown_without_imported_members', 'tests/test_ext_autodoc.py::test_parse_name', 'tests/test_ext_autodoc.py::test_autodoc_module_member_order', 'tests/test_ext_autodoc.py::test_automethod_for_builtin', 'tests/test_ext_autodoc.py::test_automethod_for_decorated', 'tests/test_ext_autodoc.py::test_autodoc_cached_property', 'tests/test_ext_autodoc.py::test_singledispatchmethod_automethod', 'tests/test_ext_autodoc.py::test_pyclass_for_ClassLevelDocumenter', 'tests/test_ext_autodoc.py::test_name_mangling', 'tests/test_ext_autodoc.py::test_autodoc_classmethod', 'tests/test_ext_autodoc.py::test_autodoc_for_egged_code', 'tests/test_ext_autodoc.py::test_autodoc_process_signature_typehints', 'tests/test_ext_autodoc.py::test_get_doc', 'tests/test_ext_autodoc.py::test_partialmethod', 'tests/test_ext_autodoc.py::test_partialmethod_undoc_members', 'tests/test_ext_autodoc.py::test_enum_class']}, 'tests_pred': {'FAIL_TO_PASS': [], 'PASS_TO_PASS': [], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': ['tests/test_ext_autodoc.py::test_abstractmethods', 'tests/test_ext_autodoc.py::test_coroutine', 'tests/test_ext_autodoc.py::test_py_module', 'tests/test_ext_autodoc.py::test_autodoc_member_order', 'tests/test_ext_autodoc.py::test_slots', 'tests/test_ext_autodoc.py::test_autodoc_imported_members', 'tests/test_ext_autodoc.py::test_autoclass_instance_attributes', 'tests/test_ext_autodoc.py::test_autoattribute_instance_attributes', 'tests/test_ext_autodoc.py::test_partialfunction', 'tests/test_ext_autodoc.py::test_autodoc_attributes', 'tests/test_ext_autodoc.py::test_autodoc_Annotated', 'tests/test_ext_autodoc.py::test_autodoc_warnings', 'tests/test_ext_autodoc.py::test_descriptor_class', 'tests/test_ext_autodoc.py::test_overload2', 'tests/test_ext_autodoc.py::test_autodoc_decorator', 'tests/test_ext_autodoc.py::test_class_attributes', 'tests/test_ext_autodoc.py::test_overload', 'tests/test_ext_autodoc.py::test_autodoc', 'tests/test_ext_autodoc.py::test_autodoc_class_scope', 'tests/test_ext_autodoc.py::test_final', 'tests/test_ext_autodoc.py::test_autodoc_exclude_members', 'tests/test_ext_autodoc.py::test_autodoc_inherited_members_Base', 'tests/test_ext_autodoc.py::test_format_signature', 'tests/test_ext_autodoc.py::test_autodoc_inner_class', 'tests/test_ext_autodoc.py::test_autodoc_module_scope', 'tests/test_ext_autodoc.py::test_autodoc_typed_instance_variables', 'tests/test_ext_autodoc.py::test_name_conflict', 'tests/test_ext_autodoc.py::test_autodoc_undoc_members', 'tests/test_ext_autodoc.py::test_cython', 'tests/test_ext_autodoc.py::test_autodoc_descriptor', 'tests/test_ext_autodoc.py::test_autodoc_process_signature_typing_generic', 'tests/test_ext_autodoc.py::test_singledispatchmethod', 'tests/test_ext_autodoc.py::test_autodoc_exception', 'tests/test_ext_autodoc.py::test_autodoc_members', 'tests/test_ext_autodoc.py::test_autodoc_subclass_of_builtin_class', 'tests/test_ext_autodoc.py::test_autodoc_inherited_members', 'tests/test_ext_autodoc.py::test_attrgetter_using', 'tests/test_ext_autodoc.py::test_autodoc_GenericAlias', 'tests/test_ext_autodoc.py::test_autodoc_staticmethod', 'tests/test_ext_autodoc.py::test_pymodule_for_ClassLevelDocumenter', 'tests/test_ext_autodoc.py::test_pymodule_for_ModuleLevelDocumenter', 'tests/test_ext_autodoc.py::test_autodoc_ignore_module_all', 'tests/test_ext_autodoc.py::test_autodoc_noindex', 'tests/test_ext_autodoc.py::test_autodoc_inherited_members_None', 'tests/test_ext_autodoc.py::test_autodoc_special_members', 'tests/test_ext_autodoc.py::test_autodoc_TYPE_CHECKING', 'tests/test_ext_autodoc.py::test_autodoc_TypeVar', 'tests/test_ext_autodoc.py::test_new_documenter', 'tests/test_ext_autodoc.py::test_autodoc_typed_inherited_instance_variables', 'tests/test_ext_autodoc.py::test_bound_method', 'tests/test_ext_autodoc.py::test_singledispatch', 'tests/test_ext_autodoc.py::test_autodoc_inherited_members_for_attributes', 'tests/test_ext_autodoc.py::test_imported_partialfunction_should_not_shown_without_imported_members', 'tests/test_ext_autodoc.py::test_parse_name', 'tests/test_ext_autodoc.py::test_autodoc_module_member_order', 'tests/test_ext_autodoc.py::test_automethod_for_builtin', 'tests/test_ext_autodoc.py::test_automethod_for_decorated', 'tests/test_ext_autodoc.py::test_autodoc_cached_property', 'tests/test_ext_autodoc.py::test_singledispatchmethod_automethod', 'tests/test_ext_autodoc.py::test_pyclass_for_ClassLevelDocumenter', 'tests/test_ext_autodoc.py::test_name_mangling', 'tests/test_ext_autodoc.py::test_autodoc_classmethod', 'tests/test_ext_autodoc.py::test_autodoc_for_egged_code', 'tests/test_ext_autodoc.py::test_autodoc_process_signature_typehints', 'tests/test_ext_autodoc.py::test_get_doc', 'tests/test_ext_autodoc.py::test_partialmethod', 'tests/test_ext_autodoc.py::test_partialmethod_undoc_members', 'tests/test_ext_autodoc.py::test_enum_class']}, 'tests_gold': {'FAIL_TO_PASS': [], 'PASS_TO_PASS': [], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': ['tests/test_ext_autodoc_autoclass.py::test_decorators', 'tests/test_ext_autodoc_autoclass.py::test_classes', 'tests/test_ext_autodoc_autoclass.py::test_slots_attribute', 'tests/test_ext_autodoc_autoclass.py::test_show_inheritance_for_subclass_of_generic_type', 'tests/test_ext_autodoc_autoclass.py::test_inherited_instance_variable', 'tests/test_ext_autodoc_autoclass.py::test_instance_variable']}}}
+Result for sphinx-doc__sphinx-8548: resolved: False

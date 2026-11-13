@@ -1,0 +1,30 @@
+{
+  "ieee_conference_class": true,
+  "main_sections": [
+    "Research Question and Motivation",
+    "Method and Experimental Design",
+    "Results",
+    "Test Quality Analysis",
+    "Threats to Validity",
+    "Conclusion"
+  ],
+  "approx_main_prose_words": 1631,
+  "pdf_pages": 5,
+  "six_distinct_systematically_selected_cases": true,
+  "all_26_outcomes_included": true,
+  "official_evidence_hashes_verified": true,
+  "all_citations_resolved": true,
+  "no_overfull_boxes": true,
+  "author_details_omitted_by_request": true,
+  "remaining_placeholders": [
+    "Supply contemporaneous provider pricing, cache accounting, billing reconciliation, and historical-attempt totals.",
+    "Confirm available budget for repeated generation, if any, without retrospectively altering this experiment.",
+    "Record host hardware, resource allocation, course/team identifier, submission date, and artifact archive release/commit containing this paper and evaluation.",
+    "For each team member, specify implementation, evaluation, analysis, and writing contributions. Names and email addresses are intentionally omitted in this draft.",
+    "Confirm the complete AI-tool/model list and identify exactly which code, patches, analyses, and prose the team reviewed or modified.",
+    "reconcile provider rates, cache pricing, preprocessing charges, and historical attempts",
+    "record CPU, memory, and Docker resource limits",
+    "Add immutable artifact release/commit containing the full evaluated record."
+  ],
+  "source_class_sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
+}

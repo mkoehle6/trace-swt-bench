@@ -1,0 +1,60 @@
+{
+  "dataset": "princeton-nlp/SWE-bench_Verified",
+  "revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+  "split": "test",
+  "instance_ids": [
+    "pydata__xarray-3677",
+    "django__django-14089",
+    "django__django-11163",
+    "sympy__sympy-24539",
+    "scikit-learn__scikit-learn-14894",
+    "sphinx-doc__sphinx-9711",
+    "astropy__astropy-14508",
+    "pytest-dev__pytest-7432",
+    "pallets__flask-5014",
+    "matplotlib__matplotlib-13989",
+    "psf__requests-2931",
+    "pylint-dev__pylint-6903",
+    "mwaskom__seaborn-3187",
+    "django__django-13513",
+    "sphinx-doc__sphinx-8548",
+    "django__django-13344",
+    "django__django-15098",
+    "django__django-12155",
+    "sphinx-doc__sphinx-8638",
+    "django__django-15252",
+    "django__django-16631",
+    "sphinx-doc__sphinx-8551",
+    "django__django-13810",
+    "sphinx-doc__sphinx-8721",
+    "sphinx-doc__sphinx-8621",
+    "matplotlib__matplotlib-25311"
+  ],
+  "harness_root": "/mnt/c/Users/mlkoe/projects/swt-bench",
+  "harness_commit": "eee38624e36a1b39976fffa2bddbc4c3c754d293",
+  "prediction_source": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6",
+  "prediction_sha256": {
+    "baseline": "dd7cb6e8da821c81d044c15b9ae7d26a8454ed73016b22f95907b93ac77d3f9a",
+    "improved": "e81258a398ccafb8dd4e2c89e1394923e5e98e4a7e08489b88845824b79937d8"
+  },
+  "workflow_hashes": {
+    "controller.py": "6a5922b0cf5f591f477e37881246d58fd11de5fb94df43c278b3bed07ef24d9e",
+    "export_prediction.py": "7fe8fecb0c4dcde1cdf16bd2bc97eed3f2bcf9d0c7e3674d3ebdda87045378da",
+    "baseline/swt_test.yaml": "32278591d35efc77ae351d61461fe7b67658c8b464e40c3ac1e334c07ddf79e0",
+    "profiles/unit_test.yaml": "fd47d514833ceebac4ec30af5906f85c19a0f1674e886cfa83082f852790c99b"
+  },
+  "evaluation_only": true,
+  "predictions_modified": false,
+  "settings": {
+    "exec_mode": "unit_test",
+    "compute_coverage": true,
+    "max_workers": 2,
+    "timeout": 1800,
+    "patch_types": [
+      "vanilla"
+    ],
+    "cache_level": "instance",
+    "clean": false,
+    "force_rebuild": false
+  }
+}

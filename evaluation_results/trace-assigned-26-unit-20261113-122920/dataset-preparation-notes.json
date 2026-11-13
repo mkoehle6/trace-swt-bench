@@ -1,0 +1,1 @@
+{"initial_attempts": ["sandbox cache-lock failure", "strict text comparison rejected CRLF/LF conversion"], "resolution": "Preserve raw inputs and dataset rows; verify saved report SHA256, base commits, and newline-normalized issue equality. No content differences observed."}

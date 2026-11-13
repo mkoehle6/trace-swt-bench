@@ -1,0 +1,40 @@
+2026-11-13 08:13:51,558 - WARNING - Starting evaluation at 1794575631.5584211
+2026-11-13 08:13:51,890 - INFO - Creating container for django__django-13810...
+2026-11-13 08:13:51,978 - INFO - Container for django__django-13810 created: f0358d78f6b72c474d5b74ce5c2b3f85d71dc96ec52065fa01805ed5e133290c
+2026-11-13 08:13:52,186 - INFO - Container for django__django-13810 started: f0358d78f6b72c474d5b74ce5c2b3f85d71dc96ec52065fa01805ed5e133290c
+2026-11-13 08:13:54,661 - INFO - Git diff before:
+
+2026-11-13 08:13:54,668 - INFO - Eval script for django__django-13810 written to eval.sh, now applying to container...
+2026-11-13 08:14:02,102 - INFO - Test output for django__django-13810 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-13810/test_output.txt
+2026-11-13 08:14:02,207 - INFO - Git diff after:
+diff --git a/tests/middleware_exceptions/tests.py b/tests/middleware_exceptions/tests.py
+index 8b019ba524..590a74c65f 100644
+--- a/tests/middleware_exceptions/tests.py
++++ b/tests/middleware_exceptions/tests.py
+@@ -282,6 +282,21 @@ class MiddlewareSyncAsyncTests(SimpleTestCase):
+         self.assertEqual(response.content, b'OK')
+         self.assertEqual(response.status_code, 200)
+ 
++    @override_settings(MIDDLEWARE=[
++        'middleware_exceptions.middleware.PaymentMiddleware',
++        'middleware_exceptions.tests.MyMiddleware',
++    ])
++    async def test_skipped_middleware_does_not_break_async_middleware(self):
++        response = await self.async_client.get('/middleware_exceptions/view/')
++        self.assertEqual(response.status_code, 402)
++
++    @override_settings(MIDDLEWARE=[
++        'middleware_exceptions.tests.MyMiddleware',
++    ])
++    async def test_only_skipped_middleware_async(self):
++        response = await self.async_client.get('/middleware_exceptions/view/')
++        self.assertEqual(response.status_code, 200)
++
+ 
+ @override_settings(ROOT_URLCONF='middleware_exceptions.urls')
+ class AsyncMiddlewareTests(SimpleTestCase):
+2026-11-13 08:14:02,208 - INFO - Git diff changed after running eval script
+2026-11-13 08:14:02,210 - INFO - Attempting to stop container exec.eval.x86_64.f904a9d2e0f61fc0d70077.70805dd72ec6ff2bc3de1b.132386095354256...
+2026-11-13 08:14:17,398 - INFO - Attempting to remove container exec.eval.x86_64.f904a9d2e0f61fc0d70077.70805dd72ec6ff2bc3de1b.132386095354256...
+2026-11-13 08:14:17,427 - INFO - Container exec.eval.x86_64.f904a9d2e0f61fc0d70077.70805dd72ec6ff2bc3de1b.132386095354256 removed.
+2026-11-13 08:14:17,428 - WARNING - End of eval at 1794575657.428164

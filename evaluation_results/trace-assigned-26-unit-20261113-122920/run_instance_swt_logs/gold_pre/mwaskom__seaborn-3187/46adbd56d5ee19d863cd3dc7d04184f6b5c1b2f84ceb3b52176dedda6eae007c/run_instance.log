@@ -1,0 +1,66 @@
+2026-11-13 07:54:22,245 - WARNING - Starting evaluation at 1794574462.245956
+2026-11-13 07:54:22,507 - INFO - Creating container for mwaskom__seaborn-3187...
+2026-11-13 07:54:22,569 - INFO - Container for mwaskom__seaborn-3187 created: e911a2380df02b63bafea6190df2075a18cefbe020a06b0ddbd94ad3383bc8d2
+2026-11-13 07:54:22,741 - INFO - Container for mwaskom__seaborn-3187 started: e911a2380df02b63bafea6190df2075a18cefbe020a06b0ddbd94ad3383bc8d2
+2026-11-13 07:54:22,879 - INFO - Git diff before:
+
+2026-11-13 07:54:22,884 - INFO - Eval script for mwaskom__seaborn-3187 written to eval.sh, now applying to container...
+2026-11-13 07:56:34,520 - INFO - Test output for mwaskom__seaborn-3187 written to run_instance_swt_logs/gold_pre/mwaskom__seaborn-3187/46adbd56d5ee19d863cd3dc7d04184f6b5c1b2f84ceb3b52176dedda6eae007c/test_output.txt
+2026-11-13 07:56:34,606 - INFO - Git diff after:
+diff --git a/tests/_core/test_plot.py b/tests/_core/test_plot.py
+index e4ba99e1..2bff6bed 100644
+--- a/tests/_core/test_plot.py
++++ b/tests/_core/test_plot.py
+@@ -2051,6 +2051,15 @@ class TestLegend:
+         p = Plot(**xy, color=["a", "b", "c", "d"]).add(NoLegendMark()).plot()
+         assert not p._figure.legends
+ 
++    def test_legend_has_no_offset(self, xy):
++
++        color = np.add(xy["x"], 1e8)
++        p = Plot(**xy, color=color).add(MockMark()).plot()
++        legend = p._figure.legends[0]
++        assert legend.texts
++        for text in legend.texts:
++            assert float(text.get_text()) > 1e7
++
+ 
+ class TestDefaultObject:
+ 
+diff --git a/tests/test_relational.py b/tests/test_relational.py
+index b100f4ec..467b04a5 100644
+--- a/tests/test_relational.py
++++ b/tests/test_relational.py
+@@ -675,6 +675,12 @@ class TestRelationalPlotter(Helpers):
+         assert len(ax.collections) == 0
+         assert len(g.ax.collections) > 0
+ 
++    def test_legend_has_no_offset(self, long_df):
++
++        g = relplot(data=long_df, x="x", y="y", hue=long_df["z"] + 1e8)
++        for text in g.legend.texts:
++            assert float(text.get_text()) > 1e7
++
+ 
+ class TestLinePlotter(SharedAxesLevelTests, Helpers):
+2026-11-13 07:56:34,607 - INFO - Git diff changed after running eval script
+2026-11-13 07:56:34,608 - INFO - Attempting to stop container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.132386095352720...
+2026-11-13 07:56:49,821 - INFO - Attempting to remove container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.132386095352720...
+2026-11-13 07:56:49,850 - INFO - Container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.132386095352720 removed.
+2026-11-13 07:56:49,851 - WARNING - End of eval at 1794574609.8518946
+2026-11-13 08:39:05,255 - WARNING - Starting evaluation at 1794577145.2553399
+2026-11-13 08:39:05,315 - WARNING - Starting evaluation at 1794577145.3156333
+2026-11-13 08:39:05,388 - WARNING - Starting evaluation at 1794577145.3883414
+2026-11-13 08:39:05,928 - INFO - Creating container for mwaskom__seaborn-3187...
+2026-11-13 08:39:06,066 - INFO - Container for mwaskom__seaborn-3187 created: ad787e7743089767769e444256a226126ba72418d77cae4ff70fa94e76870804
+2026-11-13 08:39:06,326 - INFO - Container for mwaskom__seaborn-3187 started: ad787e7743089767769e444256a226126ba72418d77cae4ff70fa94e76870804
+2026-11-13 08:39:06,586 - INFO - Git diff before:
+
+2026-11-13 08:39:06,600 - INFO - Eval script for mwaskom__seaborn-3187 written to eval.sh, now applying to container...
+2026-11-13 08:40:02,364 - INFO - Test output for mwaskom__seaborn-3187 written to run_instance_swt_logs/base_pre/mwaskom__seaborn-3187/113c20b00cae27498b706a57d7357b4023a6ec47831ea98d91c1a2f4c3d10d30/test_output.txt
+2026-11-13 08:40:02,464 - INFO - Git diff after:
+
+2026-11-13 08:40:02,468 - INFO - Attempting to stop container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.125911372153632...
+2026-11-13 08:40:17,697 - INFO - Attempting to remove container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.125911372153632...
+2026-11-13 08:40:17,744 - INFO - Container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.125911372153632 removed.
+2026-11-13 08:40:17,749 - WARNING - End of eval at 1794577217.7498717

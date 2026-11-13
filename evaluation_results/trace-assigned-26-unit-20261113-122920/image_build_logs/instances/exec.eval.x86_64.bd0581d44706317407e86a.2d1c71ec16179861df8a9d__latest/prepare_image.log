@@ -1,0 +1,3 @@
+2026-11-13 08:30:37,526 - INFO - Environment image exec.env.x86_64.bd0581d44706317407e86a:latest found for pydata__xarray-3677
+Building instance image exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d:latest for pydata__xarray-3677
+2026-11-13 08:30:37,668 - INFO - Image exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d:latest already exists, skipping build.

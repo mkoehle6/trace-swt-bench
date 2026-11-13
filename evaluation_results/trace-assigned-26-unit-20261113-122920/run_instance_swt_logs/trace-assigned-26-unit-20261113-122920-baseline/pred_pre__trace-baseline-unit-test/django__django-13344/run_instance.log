@@ -1,0 +1,64 @@
+2026-11-13 08:01:50,437 - WARNING - Starting evaluation at 1794574910.437735
+2026-11-13 08:01:50,821 - INFO - Creating container for django__django-13344...
+2026-11-13 08:01:50,909 - INFO - Container for django__django-13344 created: f5f6abcb7bb13a013883910294b08c3bd7a24997127fb155a1053f694f43bf94
+2026-11-13 08:01:51,118 - INFO - Container for django__django-13344 started: f5f6abcb7bb13a013883910294b08c3bd7a24997127fb155a1053f694f43bf94
+2026-11-13 08:01:53,865 - INFO - Git diff before:
+
+2026-11-13 08:01:53,872 - INFO - Eval script for django__django-13344 written to eval.sh, now applying to container...
+2026-11-13 08:02:03,209 - INFO - Test output for django__django-13344 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-13344/test_output.txt
+2026-11-13 08:02:03,294 - INFO - Git diff after:
+diff --git a/tests/asgi/tests.py b/tests/asgi/tests.py
+index 2ec493085e..c225a85a1c 100644
+--- a/tests/asgi/tests.py
++++ b/tests/asgi/tests.py
+@@ -11,9 +11,11 @@ from django.contrib.staticfiles.handlers import ASGIStaticFilesHandler
+ from django.core.asgi import get_asgi_application
+ from django.core.signals import request_finished, request_started
+ from django.db import close_old_connections
++from django.http import HttpResponse
+ from django.test import (
+     AsyncRequestFactory, SimpleTestCase, modify_settings, override_settings,
+ )
++from django.utils.deprecation import MiddlewareMixin
+ from django.utils.http import http_date
+ 
+ from .urls import test_filename
+@@ -21,6 +23,12 @@ from .urls import test_filename
+ TEST_STATIC_ROOT = Path(__file__).parent / 'project' / 'static'
+ 
+ 
++class ProcessResponseMiddleware(MiddlewareMixin):
++    def process_response(self, request, response):
++        request.process_response = response
++        return response
++
++
+ @skipIf(sys.platform == 'win32' and (3, 8, 0) < sys.version_info < (3, 8, 1), 'https://bugs.python.org/issue38563')
+ @override_settings(ROOT_URLCONF='asgi.urls')
+ class ASGITest(SimpleTestCase):
+@@ -32,6 +40,20 @@ class ASGITest(SimpleTestCase):
+     def tearDown(self):
+         request_started.connect(close_old_connections)
+ 
++    @override_settings(MIDDLEWARE=[
++        'asgi.tests.ProcessResponseMiddleware',
++        'django.middleware.security.SecurityMiddleware',
++    ])
++    async def test_first_middleware_process_response(self):
++        """
++        The first middleware receives an HttpResponse in process_response().
++        """
++        response = await self.async_client.get('/')
++        self.assertIsInstance(
++            response.asgi_request.process_response,
++            HttpResponse,
++        )
++
+     async def test_get_asgi_application(self):
+         """
+         get_asgi_application() returns a functioning ASGI callable.
+2026-11-13 08:02:03,296 - INFO - Git diff changed after running eval script
+2026-11-13 08:02:03,298 - INFO - Attempting to stop container exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038.132386095351664...
+2026-11-13 08:02:18,584 - INFO - Attempting to remove container exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038.132386095351664...
+2026-11-13 08:02:18,637 - INFO - Container exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038.132386095351664 removed.
+2026-11-13 08:02:18,639 - WARNING - End of eval at 1794574938.6390052

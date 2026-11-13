@@ -1,0 +1,14 @@
+2026-11-13 08:42:48,771 - WARNING - Starting evaluation at 1794577368.7718904
+2026-11-13 08:42:49,251 - INFO - Creating container for django__django-13344...
+2026-11-13 08:42:49,374 - INFO - Container for django__django-13344 created: f4d42ca0200383efc31f66d899e2450c8a8579b60f0a822089c9295229788dc3
+2026-11-13 08:42:49,715 - INFO - Container for django__django-13344 started: f4d42ca0200383efc31f66d899e2450c8a8579b60f0a822089c9295229788dc3
+2026-11-13 08:42:51,105 - INFO - Git diff before:
+
+2026-11-13 08:42:51,117 - INFO - Eval script for django__django-13344 written to eval.sh, now applying to container...
+2026-11-13 08:42:59,964 - INFO - Test output for django__django-13344 written to run_instance_swt_logs/base_pre/django__django-13344/a292c3991fd4733811972a218ddb23bdf46af2361fefd98139292ced478c62ef/test_output.txt
+2026-11-13 08:43:00,064 - INFO - Git diff after:
+
+2026-11-13 08:43:00,068 - INFO - Attempting to stop container exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038.125911372155600...
+2026-11-13 08:43:15,318 - INFO - Attempting to remove container exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038.125911372155600...
+2026-11-13 08:43:15,376 - INFO - Container exec.eval.x86_64.f904a9d2e0f61fc0d70077.700997aa701c707339e038.125911372155600 removed.
+2026-11-13 08:43:15,381 - WARNING - End of eval at 1794577395.38163

@@ -1,0 +1,19 @@
+diff --git a/tests/middleware_exceptions/tests.py b/tests/middleware_exceptions/tests.py
+index 8b019ba524..c152b63c5e 100644
+--- a/tests/middleware_exceptions/tests.py
++++ b/tests/middleware_exceptions/tests.py
+@@ -252,6 +252,14 @@ class MiddlewareSyncAsyncTests(SimpleTestCase):
+             'Payment Required: /middleware_exceptions/view/',
+         )
+ 
++    @override_settings(MIDDLEWARE=[
++        'middleware_exceptions.middleware.async_payment_middleware',
++        'middleware_exceptions.tests.MyMiddleware',
++    ])
++    async def test_middleware_not_used_does_not_break_async_chain(self):
++        response = await self.async_client.get('/middleware_exceptions/view/')
++        self.assertEqual(response.status_code, 402)
++
+     @override_settings(
+         DEBUG=False,
+         MIDDLEWARE=[

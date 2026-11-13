@@ -1,0 +1,26 @@
+2026-11-13 07:35:42,124 - WARNING - Starting evaluation at 1794573342.1241581
+2026-11-13 07:35:42,331 - INFO - Creating container for pydata__xarray-3677...
+2026-11-13 07:35:42,391 - INFO - Container for pydata__xarray-3677 created: dab92690b304708040aba87d7963faa627d48fc62dcfa8fda0ac252e7c6d3f6e
+2026-11-13 07:35:42,516 - INFO - Container for pydata__xarray-3677 started: dab92690b304708040aba87d7963faa627d48fc62dcfa8fda0ac252e7c6d3f6e
+2026-11-13 07:35:42,609 - INFO - Git diff before:
+
+2026-11-13 07:35:42,614 - INFO - Eval script for pydata__xarray-3677 written to eval.sh, now applying to container...
+2026-11-13 07:36:23,356 - INFO - Test output for pydata__xarray-3677 written to run_instance_swt_logs/base_post/pydata__xarray-3677/2db7f6624707083db4aaab1b62eb11352200ec9d3ac1055de84877912226d7b5/test_output.txt
+2026-11-13 07:36:23,418 - INFO - Git diff after:
+diff --git a/xarray/core/dataset.py b/xarray/core/dataset.py
+index ac0a923d..d597ec8c 100644
+--- a/xarray/core/dataset.py
++++ b/xarray/core/dataset.py
+@@ -3604,6 +3604,7 @@ class Dataset(Mapping, ImplementsDatasetReduce, DataWithCoords):
+             If any variables conflict (see ``compat``).
+         """
+         _check_inplace(inplace)
++        other = other.to_dataset() if isinstance(other, xr.DataArray) else other
+         merge_result = dataset_merge_method(
+             self,
+             other,
+2026-11-13 07:36:23,420 - INFO - Git diff changed after running eval script
+2026-11-13 07:36:23,420 - INFO - Attempting to stop container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064...
+2026-11-13 07:36:38,651 - INFO - Attempting to remove container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064...
+2026-11-13 07:36:38,676 - INFO - Container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064 removed.
+2026-11-13 07:36:38,677 - WARNING - End of eval at 1794573398.6770318

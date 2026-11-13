@@ -1,0 +1,24 @@
+diff --git a/tests/test_ext_viewcode.py b/tests/test_ext_viewcode.py
+index 79864095b..33e8e1992 100644
+--- a/tests/test_ext_viewcode.py
++++ b/tests/test_ext_viewcode.py
+@@ -102,3 +102,19 @@ def test_local_source_files(app, status, warning):
+ 
+     assert result.count('href="_modules/not_a_package/submodule.html#not_a_package.submodule.Class3.class_attr"') == 1
+     assert result.count('This is the class attribute class_attr') == 1
++
++
++@pytest.mark.sphinx('epub', testroot='ext-viewcode')
++def test_viewcode_epub(make_app, app_params):
++    args, kwargs = app_params
++
++    # Build HTML first so that the shared build environment contains
++    # the modules collected by the viewcode extension.
++    html_app = make_app('html', **kwargs)
++    html_app.build()
++    assert (html_app.outdir / '_modules/spam/mod1.html').exists()
++
++    # The EPUB builder must not generate viewcode pages by default.
++    epub_app = make_app(*args, **kwargs)
++    epub_app.build()
++    assert not (epub_app.outdir / '_modules').exists()

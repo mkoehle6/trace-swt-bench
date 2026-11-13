@@ -1,0 +1,44 @@
+2026-11-13 07:32:58,110 - WARNING - Starting evaluation at 1794573178.110188
+2026-11-13 07:32:58,293 - INFO - Creating container for pydata__xarray-3677...
+2026-11-13 07:32:58,347 - INFO - Container for pydata__xarray-3677 created: c51fe800d1c1563ed8f61587147fd962487d459793f57e05f2b420ba32db9a37
+2026-11-13 07:32:58,466 - INFO - Container for pydata__xarray-3677 started: c51fe800d1c1563ed8f61587147fd962487d459793f57e05f2b420ba32db9a37
+2026-11-13 07:32:58,548 - INFO - Git diff before:
+
+2026-11-13 07:32:58,553 - INFO - Eval script for pydata__xarray-3677 written to eval.sh, now applying to container...
+2026-11-13 07:33:39,725 - INFO - Test output for pydata__xarray-3677 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/pydata__xarray-3677/test_output.txt
+2026-11-13 07:33:39,787 - INFO - Git diff after:
+diff --git a/xarray/core/dataset.py b/xarray/core/dataset.py
+index ac0a923d..d597ec8c 100644
+--- a/xarray/core/dataset.py
++++ b/xarray/core/dataset.py
+@@ -3604,6 +3604,7 @@ class Dataset(Mapping, ImplementsDatasetReduce, DataWithCoords):
+             If any variables conflict (see ``compat``).
+         """
+         _check_inplace(inplace)
++        other = other.to_dataset() if isinstance(other, xr.DataArray) else other
+         merge_result = dataset_merge_method(
+             self,
+             other,
+diff --git a/xarray/tests/test_dataset.py b/xarray/tests/test_dataset.py
+index 2220abbe..34eafdc3 100644
+--- a/xarray/tests/test_dataset.py
++++ b/xarray/tests/test_dataset.py
+@@ -3317,6 +3317,13 @@ class TestDataset:
+         with pytest.raises(ValueError):
+             data.merge(other)
+ 
++    def test_merge_dataarray(self):
++        ds = Dataset({"a": 0})
++        da = DataArray(1, name="b")
++        expected = xr.merge([ds, da])
++        actual = ds.merge(da)
++        assert_identical(actual, expected)
++
+     def test_setitem_original_non_unique_index(self):
+         # regression test for GH943
+         original = Dataset({"data": ("x", np.arange(5))}, coords={"x": [0, 1, 2, 0, 1]})
+2026-11-13 07:33:39,788 - INFO - Git diff changed after running eval script
+2026-11-13 07:33:39,789 - INFO - Attempting to stop container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064...
+2026-11-13 07:33:54,993 - INFO - Attempting to remove container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064...
+2026-11-13 07:33:55,018 - INFO - Container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064 removed.
+2026-11-13 07:33:55,019 - WARNING - End of eval at 1794573235.0190914

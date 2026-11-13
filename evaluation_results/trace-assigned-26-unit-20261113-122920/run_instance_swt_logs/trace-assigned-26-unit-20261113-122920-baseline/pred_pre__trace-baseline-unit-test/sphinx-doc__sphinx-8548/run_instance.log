@@ -1,0 +1,147 @@
+2026-11-13 08:00:43,256 - WARNING - Starting evaluation at 1794574843.2566204
+2026-11-13 08:00:43,604 - INFO - Creating container for sphinx-doc__sphinx-8548...
+2026-11-13 08:00:43,704 - INFO - Container for sphinx-doc__sphinx-8548 created: 8d38ad7b2d7fc1e05686be6cf6ec1ab65c773cae29b1b0f134b7e4daec07ae10
+2026-11-13 08:00:43,918 - INFO - Container for sphinx-doc__sphinx-8548 started: 8d38ad7b2d7fc1e05686be6cf6ec1ab65c773cae29b1b0f134b7e4daec07ae10
+2026-11-13 08:00:44,744 - INFO - Git diff before:
+diff --git a/setup.py b/setup.py
+index 8d40de1a8..03f325278 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,22 +15,22 @@ if sys.version_info < (3, 5):
+     sys.exit(1)
+ 
+ install_requires = [
+-    'sphinxcontrib-applehelp',
+-    'sphinxcontrib-devhelp',
++    'sphinxcontrib-applehelp<=1.0.7',
++    'sphinxcontrib-devhelp<=1.0.5',
+     'sphinxcontrib-jsmath',
+-    'sphinxcontrib-htmlhelp',
+-    'sphinxcontrib-serializinghtml',
+-    'sphinxcontrib-qthelp',
+-    'Jinja2>=2.3',
++    'sphinxcontrib-htmlhelp<=2.0.4',
++    'sphinxcontrib-serializinghtml<=1.1.9',
++    'sphinxcontrib-qthelp<=1.0.6',
++    'Jinja2<3.0',
+     'Pygments>=2.0',
+     'docutils>=0.12',
+     'snowballstemmer>=1.1',
+     'babel>=1.3',
+-    'alabaster>=0.7,<0.8',
++    'alabaster>=0.7,<0.7.12',
+     'imagesize',
+     'requests>=2.5.0',
+     'setuptools',
+-    'packaging',
++    'packaging', 'markupsafe<=2.0.1',
+ ]
+ 
+ extras_require = {
+diff --git a/tox.ini b/tox.ini
+index dbb705a3a..9f4fc3a32 100644
+--- a/tox.ini
++++ b/tox.ini
+@@ -28,7 +28,7 @@ setenv =
+     PYTHONWARNINGS = all,ignore::ImportWarning:importlib._bootstrap_external,ignore::DeprecationWarning:site,ignore::DeprecationWarning:distutils
+     PYTEST_ADDOPTS = {env:PYTEST_ADDOPTS:} --color yes
+ commands=
+-    python -X dev -m pytest --durations 25 {posargs}
++    python -X dev -m pytest -rA --durations 25 {posargs}
+ 
+ [testenv:flake8]
+ basepython = python3
+2026-11-13 08:00:44,753 - INFO - Eval script for sphinx-doc__sphinx-8548 written to eval.sh, now applying to container...
+2026-11-13 08:01:33,281 - INFO - Test output for sphinx-doc__sphinx-8548 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/sphinx-doc__sphinx-8548/test_output.txt
+2026-11-13 08:01:33,391 - INFO - Git diff after:
+diff --git a/setup.py b/setup.py
+index 8d40de1a8..03f325278 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,22 +15,22 @@ if sys.version_info < (3, 5):
+     sys.exit(1)
+ 
+ install_requires = [
+-    'sphinxcontrib-applehelp',
+-    'sphinxcontrib-devhelp',
++    'sphinxcontrib-applehelp<=1.0.7',
++    'sphinxcontrib-devhelp<=1.0.5',
+     'sphinxcontrib-jsmath',
+-    'sphinxcontrib-htmlhelp',
+-    'sphinxcontrib-serializinghtml',
+-    'sphinxcontrib-qthelp',
+-    'Jinja2>=2.3',
++    'sphinxcontrib-htmlhelp<=2.0.4',
++    'sphinxcontrib-serializinghtml<=1.1.9',
++    'sphinxcontrib-qthelp<=1.0.6',
++    'Jinja2<3.0',
+     'Pygments>=2.0',
+     'docutils>=0.12',
+     'snowballstemmer>=1.1',
+     'babel>=1.3',
+-    'alabaster>=0.7,<0.8',
++    'alabaster>=0.7,<0.7.12',
+     'imagesize',
+     'requests>=2.5.0',
+     'setuptools',
+-    'packaging',
++    'packaging', 'markupsafe<=2.0.1',
+ ]
+ 
+ extras_require = {
+diff --git a/tests/roots/test-ext-autodoc/target/inheritance.py b/tests/roots/test-ext-autodoc/target/inheritance.py
+index ffac84bb6..a5dc21131 100644
+--- a/tests/roots/test-ext-autodoc/target/inheritance.py
++++ b/tests/roots/test-ext-autodoc/target/inheritance.py
+@@ -15,3 +15,12 @@ class Derived(Base):
+     def inheritedmeth(self):
+         # no docstring here
+         pass
++
++
++class InheritedAttributeBase(object):
++    #: docstring of inherited attribute
++    inheritedattr = None
++
++
++class InheritedAttributeDerived(InheritedAttributeBase):
++    pass
+diff --git a/tests/test_ext_autodoc.py b/tests/test_ext_autodoc.py
+index 392ad1a68..d4c26a04c 100644
+--- a/tests/test_ext_autodoc.py
++++ b/tests/test_ext_autodoc.py
+@@ -625,6 +625,16 @@ def test_autodoc_inherited_members(app):
+     ]
+ 
+ 
++@pytest.mark.sphinx('html', testroot='ext-autodoc')
++def test_autodoc_inherited_members_for_attributes(app):
++    options = {"members": None,
++               "inherited-members": None}
++    actual = do_autodoc(app, 'class', 'target.inheritance.InheritedAttributeDerived',
++                         options)
++    assert '   .. py:attribute:: InheritedAttributeDerived.inheritedattr' in actual
++    assert '      docstring of inherited attribute' in actual
++
++
+ @pytest.mark.sphinx('html', testroot='ext-autodoc')
+ def test_autodoc_inherited_members_Base(app):
+     options = {"members": None,
+diff --git a/tox.ini b/tox.ini
+index dbb705a3a..9f4fc3a32 100644
+--- a/tox.ini
++++ b/tox.ini
+@@ -28,7 +28,7 @@ setenv =
+     PYTHONWARNINGS = all,ignore::ImportWarning:importlib._bootstrap_external,ignore::DeprecationWarning:site,ignore::DeprecationWarning:distutils
+     PYTEST_ADDOPTS = {env:PYTEST_ADDOPTS:} --color yes
+ commands=
+-    python -X dev -m pytest --durations 25 {posargs}
++    python -X dev -m pytest -rA --durations 25 {posargs}
+ 
+ [testenv:flake8]
+ basepython = python3
+2026-11-13 08:01:33,395 - INFO - Git diff changed after running eval script
+2026-11-13 08:01:33,396 - INFO - Attempting to stop container exec.eval.x86_64.77d82541416cab86d0d86a.8697b35c69cb90ab63e1a5.132386095352528...
+2026-11-13 08:01:48,587 - INFO - Attempting to remove container exec.eval.x86_64.77d82541416cab86d0d86a.8697b35c69cb90ab63e1a5.132386095352528...
+2026-11-13 08:01:48,636 - INFO - Container exec.eval.x86_64.77d82541416cab86d0d86a.8697b35c69cb90ab63e1a5.132386095352528 removed.
+2026-11-13 08:01:48,638 - WARNING - End of eval at 1794574908.638026

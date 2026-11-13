@@ -1,0 +1,554 @@
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
++++++ dirname /opt/miniconda3/bin/conda
+++++ dirname /opt/miniconda3/bin
++++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ cd /testbed
++ git diff HEAD fdbaa58acbead5a254f2e6d597dc1ab3b947f4c6
++ git config --global --add safe.directory /testbed
++ cd /testbed
++ git status
+On branch main
+nothing to commit, working tree clean
++ git show
+commit fdbaa58acbead5a254f2e6d597dc1ab3b947f4c6
+Author: Roman Yurchak <rth.yurchak@pm.me>
+Date:   Mon Oct 7 17:35:01 2019 +0200
+
+    TST Skip some doctests if pillow not installed (#15131)
+
+diff --git a/build_tools/azure/install.sh b/build_tools/azure/install.sh
+index 4c0622396a..b3a680d0a5 100755
+--- a/build_tools/azure/install.sh
++++ b/build_tools/azure/install.sh
+@@ -93,7 +93,7 @@ elif [[ "$DISTRIB" == "conda-pip-latest" ]]; then
+     make_conda "python=$PYTHON_VERSION"
+     python -m pip install numpy scipy joblib cython
+     python -m pip install pytest==$PYTEST_VERSION pytest-cov pytest-xdist
+-    python -m pip install pandas matplotlib pyamg pillow
++    python -m pip install pandas matplotlib pyamg
+ fi
+ 
+ if [[ "$COVERAGE" == "true" ]]; then
+diff --git a/conftest.py b/conftest.py
+index 73326d6d2e..0c0e21b69b 100644
+--- a/conftest.py
++++ b/conftest.py
+@@ -13,6 +13,7 @@ from _pytest.doctest import DoctestItem
+ 
+ from sklearn import set_config
+ from sklearn.utils import _IS_32BIT
++from sklearn.externals import _pilutil
+ 
+ PYTEST_MIN_VERSION = '3.3.0'
+ 
+@@ -68,6 +69,13 @@ def pytest_collection_modifyitems(config, items):
+         for item in items:
+             if isinstance(item, DoctestItem):
+                 item.add_marker(skip_marker)
++    elif not _pilutil.pillow_installed:
++        skip_marker = pytest.mark.skip(reason="pillow (or PIL) not installed!")
++        for item in items:
++            if item.name in [
++                    "sklearn.feature_extraction.image.PatchExtractor",
++                    "sklearn.feature_extraction.image.extract_patches_2d"]:
++                item.add_marker(skip_marker)
+ 
+ 
+ def pytest_configure(config):
++ git diff fdbaa58acbead5a254f2e6d597dc1ab3b947f4c6
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z x ']'
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1='(testbed) '
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=3
++++ CONDA_SHLVL=3
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=4
+++ CONDA_SHLVL=4
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_3=/opt/miniconda3
+++ CONDA_PREFIX_3=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ python -m pip install -v --no-use-pep517 --no-build-isolation -e .
+Using pip 21.2.2 from /opt/miniconda3/envs/testbed/lib/python3.6/site-packages/pip (python 3.6)
+Obtaining file:///testbed
+    Running command python setup.py egg_info
+    running egg_info
+    creating /tmp/pip-pip-egg-info-dmrsg5r_/scikit_learn.egg-info
+    writing /tmp/pip-pip-egg-info-dmrsg5r_/scikit_learn.egg-info/PKG-INFO
+    writing dependency_links to /tmp/pip-pip-egg-info-dmrsg5r_/scikit_learn.egg-info/dependency_links.txt
+    writing requirements to /tmp/pip-pip-egg-info-dmrsg5r_/scikit_learn.egg-info/requires.txt
+    writing top-level names to /tmp/pip-pip-egg-info-dmrsg5r_/scikit_learn.egg-info/top_level.txt
+    writing manifest file '/tmp/pip-pip-egg-info-dmrsg5r_/scikit_learn.egg-info/SOURCES.txt'
+    reading manifest file '/tmp/pip-pip-egg-info-dmrsg5r_/scikit_learn.egg-info/SOURCES.txt'
+    reading manifest template 'MANIFEST.in'
+    adding license file 'COPYING'
+    writing manifest file '/tmp/pip-pip-egg-info-dmrsg5r_/scikit_learn.egg-info/SOURCES.txt'
+    Partial import of sklearn during the build process.
+Requirement already satisfied: numpy>=1.11.0 in /opt/miniconda3/envs/testbed/lib/python3.6/site-packages (from scikit-learn==0.22.dev0) (1.19.2)
+Requirement already satisfied: scipy>=0.17.0 in /opt/miniconda3/envs/testbed/lib/python3.6/site-packages (from scikit-learn==0.22.dev0) (1.5.2)
+Requirement already satisfied: joblib>=0.11 in /opt/miniconda3/envs/testbed/lib/python3.6/site-packages (from scikit-learn==0.22.dev0) (1.1.1)
+Installing collected packages: scikit-learn
+  Attempting uninstall: scikit-learn
+    Found existing installation: scikit-learn 0.22.dev0
+    Uninstalling scikit-learn-0.22.dev0:
+      Removing file or directory /opt/miniconda3/envs/testbed/lib/python3.6/site-packages/scikit-learn.egg-link
+      Removing pth entries from /opt/miniconda3/envs/testbed/lib/python3.6/site-packages/easy-install.pth:
+      Removing entry: /testbed
+      Successfully uninstalled scikit-learn-0.22.dev0
+  Running setup.py develop for scikit-learn
+    Running command /opt/miniconda3/envs/testbed/bin/python -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/testbed/setup.py'"'"'; __file__='"'"'/testbed/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' develop --no-deps
+    C compiler: gcc -pthread -B /opt/miniconda3/envs/testbed/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+
+    compile options: '-c'
+    extra options: '-fopenmp'
+    gcc: test_openmp.c
+    gcc -pthread -B /opt/miniconda3/envs/testbed/compiler_compat -Wl,--sysroot=/ objects/test_openmp.o -o test_openmp -fopenmp
+    running develop
+    running build_scripts
+    running egg_info
+    running build_src
+    build_src
+    building library "libsvm-skl" sources
+    building extension "sklearn.__check_build._check_build" sources
+    building extension "sklearn.preprocessing._csr_polynomial_expansion" sources
+    building extension "sklearn.cluster._dbscan_inner" sources
+    building extension "sklearn.cluster._hierarchical" sources
+    building extension "sklearn.cluster._k_means_elkan" sources
+    building extension "sklearn.cluster._k_means" sources
+    building extension "sklearn.datasets._svmlight_format" sources
+    building extension "sklearn.decomposition._online_lda" sources
+    building extension "sklearn.decomposition.cdnmf_fast" sources
+    building extension "sklearn.ensemble._gradient_boosting" sources
+    building extension "sklearn.ensemble._hist_gradient_boosting._gradient_boosting" sources
+    building extension "sklearn.ensemble._hist_gradient_boosting.histogram" sources
+    building extension "sklearn.ensemble._hist_gradient_boosting.splitting" sources
+    building extension "sklearn.ensemble._hist_gradient_boosting._binning" sources
+    building extension "sklearn.ensemble._hist_gradient_boosting._predictor" sources
+    building extension "sklearn.ensemble._hist_gradient_boosting._loss" sources
+    building extension "sklearn.ensemble._hist_gradient_boosting.common" sources
+    building extension "sklearn.ensemble._hist_gradient_boosting.utils" sources
+    building extension "sklearn.feature_extraction._hashing" sources
+    building extension "sklearn.manifold._utils" sources
+    building extension "sklearn.manifold._barnes_hut_tsne" sources
+    building extension "sklearn.metrics.cluster.expected_mutual_info_fast" sources
+    building extension "sklearn.metrics.pairwise_fast" sources
+    building extension "sklearn.neighbors.ball_tree" sources
+    building extension "sklearn.neighbors.kd_tree" sources
+    building extension "sklearn.neighbors.dist_metrics" sources
+    building extension "sklearn.neighbors.typedefs" sources
+    building extension "sklearn.neighbors.quad_tree" sources
+    building extension "sklearn.tree._tree" sources
+    building extension "sklearn.tree._splitter" sources
+    building extension "sklearn.tree._criterion" sources
+    building extension "sklearn.tree._utils" sources
+    building extension "sklearn.utils.sparsefuncs_fast" sources
+    building extension "sklearn.utils._cython_blas" sources
+    building extension "sklearn.utils.arrayfuncs" sources
+    building extension "sklearn.utils.murmurhash" sources
+    building extension "sklearn.utils.graph_shortest_path" sources
+    building extension "sklearn.utils.fast_dict" sources
+    building extension "sklearn.utils.seq_dataset" sources
+    building extension "sklearn.utils.weight_vector" sources
+    building extension "sklearn.utils._random" sources
+    building extension "sklearn.utils._logistic_sigmoid" sources
+    building extension "sklearn.svm.libsvm" sources
+    building extension "sklearn.svm.liblinear" sources
+    building extension "sklearn.svm.libsvm_sparse" sources
+    building extension "sklearn.linear_model.cd_fast" sources
+    building extension "sklearn.linear_model.sgd_fast" sources
+    building extension "sklearn.linear_model.sag_fast" sources
+    building extension "sklearn._isotonic" sources
+    building data_files sources
+    build_src: building npy-pkg config files
+    writing scikit_learn.egg-info/PKG-INFO
+    writing dependency_links to scikit_learn.egg-info/dependency_links.txt
+    writing requirements to scikit_learn.egg-info/requires.txt
+    writing top-level names to scikit_learn.egg-info/top_level.txt
+    reading manifest file 'scikit_learn.egg-info/SOURCES.txt'
+    reading manifest template 'MANIFEST.in'
+    adding license file 'COPYING'
+    writing manifest file 'scikit_learn.egg-info/SOURCES.txt'
+    running build_ext
+    customize UnixCCompiler
+    customize UnixCCompiler using build_clib
+    customize UnixCCompiler
+    customize UnixCCompiler using build_ext_subclass
+    customize UnixCCompiler
+    customize UnixCCompiler using build_ext_subclass
+    Creating /opt/miniconda3/envs/testbed/lib/python3.6/site-packages/scikit-learn.egg-link (link to .)
+    Adding scikit-learn 0.22.dev0 to easy-install.pth file
+
+    Installed /testbed
+    Partial import of sklearn during the build process.
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Successfully installed scikit-learn-0.22.dev0
++ git apply -v -
+Checking patch sklearn/svm/tests/test_sparse.py...
+Applied patch sklearn/svm/tests/test_sparse.py cleanly.
++ python3 /root/trace.py --count -C coverage.cover --include-pattern '/testbed/(sklearn/svm/base\.py)' -m pytest --no-header -rA -p no:cacheprovider sklearn/svm/tests/test_sparse.py
+['--count', '-C', 'coverage.cover', '--include-pattern', '/testbed/(sklearn/svm/base\\.py)']
+============================= test session starts ==============================
+collected 32 items
+
+sklearn/svm/tests/test_sparse.py ...............................F        [100%]
+
+=================================== FAILURES ===================================
+____________________ test_sparse_svr_empty_support_vectors _____________________
+
+    def test_sparse_svr_empty_support_vectors():
+        # Non-regression test for SVR with an empty set of support vectors.
+        X = np.array([[0, 1, 0, 0],
+                      [0, 0, 0, 1],
+                      [0, 0, 1, 0],
+                      [0, 0, 0, 1]])
+        y = np.array([0.04, 0.04, 0.10, 0.16])
+        model = svm.SVR(C=316.227766017, cache_size=200, coef0=0.0, degree=3,
+                        epsilon=0.1, gamma=1.0, kernel='linear', max_iter=15000,
+                        shrinking=True, tol=0.001, verbose=False)
+    
+>       model.fit(sparse.csr_matrix(X), y)
+
+sklearn/svm/tests/test_sparse.py:376: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+sklearn/svm/base.py:198: in fit
+    fit(X, y, sample_weight, solver_type, kernel, random_seed=seed)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SVR(C=316.227766017, cache_size=200, coef0=0.0, degree=3, epsilon=0.1,
+    gamma=1.0, kernel='linear', max_iter=15000, shrinking=True, tol=0.001,
+    verbose=False)
+X = <4x4 sparse matrix of type '<class 'numpy.float64'>'
+	with 4 stored elements in Compressed Sparse Row format>
+y = array([0.04, 0.04, 0.1 , 0.16]), sample_weight = array([], dtype=float64)
+solver_type = 3, kernel = 'linear', random_seed = 1158515536
+
+    def _sparse_fit(self, X, y, sample_weight, solver_type, kernel,
+                    random_seed):
+        X.data = np.asarray(X.data, dtype=np.float64, order='C')
+        X.sort_indices()
+    
+        kernel_type = self._sparse_kernels.index(kernel)
+    
+        libsvm_sparse.set_verbosity_wrap(self.verbose)
+    
+        self.support_, self.support_vectors_, dual_coef_data, \
+            self.intercept_, self._n_support, \
+            self.probA_, self.probB_, self.fit_status_ = \
+            libsvm_sparse.libsvm_sparse_train(
+                X.shape[1], X.data, X.indices, X.indptr, y, solver_type,
+                kernel_type, self.degree, self._gamma, self.coef0, self.tol,
+                self.C, self.class_weight_,
+                sample_weight, self.nu, self.cache_size, self.epsilon,
+                int(self.shrinking), int(self.probability), self.max_iter,
+                random_seed)
+    
+        self._warn_from_fit_status()
+    
+        if hasattr(self, "classes_"):
+            n_class = len(self.classes_) - 1
+        else:  # regression
+            n_class = 1
+        n_SV = self.support_vectors_.shape[0]
+    
+        dual_coef_indices = np.tile(np.arange(n_SV), n_class)
+        dual_coef_indptr = np.arange(0, dual_coef_indices.size + 1,
+>                                    dual_coef_indices.size / n_class)
+E       ZeroDivisionError: float division by zero
+
+sklearn/svm/base.py:291: ZeroDivisionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED sklearn/svm/tests/test_sparse.py::test_svc
+PASSED sklearn/svm/tests/test_sparse.py::test_unsorted_indices
+PASSED sklearn/svm/tests/test_sparse.py::test_svc_with_custom_kernel
+PASSED sklearn/svm/tests/test_sparse.py::test_svc_iris
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_decision_function
+PASSED sklearn/svm/tests/test_sparse.py::test_error
+PASSED sklearn/svm/tests/test_sparse.py::test_linearsvc
+PASSED sklearn/svm/tests/test_sparse.py::test_linearsvc_iris
+PASSED sklearn/svm/tests/test_sparse.py::test_weight
+PASSED sklearn/svm/tests/test_sparse.py::test_sample_weights
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_liblinear_intercept_handling
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[linear-0]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[linear-1]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[linear-2]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[linear-3]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[poly-0]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[poly-1]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[poly-2]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[poly-3]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[rbf-0]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[rbf-1]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[rbf-2]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[rbf-3]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[sigmoid-0]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[sigmoid-1]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[sigmoid-2]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_oneclasssvm[sigmoid-3]
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_realdata
+PASSED sklearn/svm/tests/test_sparse.py::test_sparse_svc_clone_with_callable_kernel
+PASSED sklearn/svm/tests/test_sparse.py::test_timeout
+PASSED sklearn/svm/tests/test_sparse.py::test_consistent_proba
+FAILED sklearn/svm/tests/test_sparse.py::test_sparse_svr_empty_support_vectors
+=================== 1 failed, 31 passed, 3 warnings in 2.43s ===================
++ cat coverage.cover
+{"/testbed/sklearn/svm/base.py": {"1": 1, "2": 1, "3": 1, "4": 1, "6": 1, "7": 1, "8": 1, "9": 1, "10": 1, "11": 1, "12": 1, "13": 1, "14": 1, "15": 1, "16": 1, "17": 1, "18": 1, "19": 1, "22": 1, "25": 1, "58": 2, "503": 2, "732": 1, "796": 1, "34": 15, "38": 15, "39": 15, "40": 102, "42": 87, "43": 384, "45": 297, "48": 297, "50": 297, "53": 297, "54": 297, "55": 15, "69": 1, "71": 1, "101": 1, "106": 1, "214": 1, "224": 1, "232": 1, "261": 1, "296": 1, "315": 1, "337": 1, "360": 1, "371": 1, "401": 1, "417": 1, "439": 1, "466": 1, "484": 1, "487": 1, "76": 94, "77": 0, "78": 0, "80": 94, "81": 0, "83": 0, "85": 94, "86": 94, "87": 94, "88": 94, "89": 94, "90": 94, "91": 94, "92": 94, "93": 94, "94": 94, "95": 94, "96": 94, "97": 94, "98": 94, "99": 94, "104": 0, "138": 92, "140": 92, "141": 92, "142": 0, "143": 92, "145": 92, "146": 92, "147": 92, "148": 91, "150": 91, "151": 91, "152": 1, "153": 91, "156": 91, "157": 0, "158": 0, "159": 0, "161": 91, "162": 0, "164": 0, "166": 91, "167": 0, "171": 0, "173": 91, "174": 26, "177": 26, "178": 26, "179": 0, "180": 0, "182": 0, "183": 0, "184": 0, "187": 65, "189": 91, "190": 91, "191": 4, "193": 91, "194": 91, "195": 0, "197": 91, "198": 91, "201": 88, "206": 88, "207": 88, "208": 88, "209": 20, "210": 20, "212": 88, "221": 33, "222": 33, "225": 89, "226": 89, "227": 3, "230": 3, "234": 45, "237": 4, "238": 4, "240": 4, "241": 0, "243": 45, "249": 45, "250": 45, "251": 45, "252": 45, "253": 45, "254": 45, "255": 45, "256": 45, "257": 45, "259": 44, "263": 46, "264": 46, "266": 46, "268": 46, "273": 46, "274": 46, "275": 46, "276": 46, "277": 46, "278": 46, "279": 46, "281": 45, "283": 45, "284": 28, "286": 17, "287": 45, "289": 45, "290": 45, "291": 45, "292": 44, "293": 44, "294": 44, "311": 95, "312": 79, "313": 79, "316": 39, "317": 39, "318": 0, "320": 39, "321": 39, "322": 3, "323": 3, "324": 0, "326": 0, "328": 39, "330": 39, "331": 39, "332": 39, "333": 39, "334": 39, "335": 39, "339": 40, "340": 40, "341": 0, "343": 40, "345": 40, "347": 40, "348": 40, "349": 40, "350": 40, "351": 40, "352": 40, "353": 40, "354": 40, "355": 40, "356": 40, "357": 40, "358": 40, "362": 194, "365": 8, "366": 8, "367": 6, "368": 8, "369": 194, "386": 132, "387": 132, "389": 132, "390": 65, "392": 67, "396": 132, "397": 19, "399": 113, "402": 67, "403": 67, "405": 67, "406": 67, "407": 0, "409": 67, "410": 67, "411": 67, "412": 67, "413": 67, "414": 67, "415": 67, "418": 65, "420": 65, "421": 65, "422": 0, "424": 65, "426": 65, "427": 65, "428": 65, "429": 65, "430": 65, "431": 65, "432": 65, "433": 65, "434": 65, "435": 65, "436": 65, "437": 65, "440": 264, "442": 264, "443": 264, "444": 264, "445": 75, "446": 264, "447": 123, "449": 264, "450": 16, "451": 16, "452": 16, "453": 248, "455": 248, "456": 0, "457": 0, "459": 0, "460": 248, "461": 0, "463": 0, "464": 248, "468": 31, "469": 0, "472": 31, "476": 31, "478": 20, "481": 11, "482": 31, "485": 12, "489": 0, "490": 0, "491": 0, "492": 0, "494": 0, "495": 0, "496": 0, "500": 0, "505": 1, "519": 1, "533": 1, "564": 1, "597": 1, "605": 1, "635": 1, "644": 1, "674": 1, "677": 1, "694": 1, "716": 1, "510": 59, "511": 59, "512": 59, "513": 59, "514": 59, "515": 59, "516": 59, "517": 59, "520": 58, "521": 58, "522": 58, "523": 58, "524": 58, "525": 0, "526": 0, "527": 0, "529": 58, "531": 58, "559": 68, "560": 68, "561": 0, "562": 68, "580": 55, "581": 55, "582": 0, "585": 55, "586": 0, "587": 0, "588": 0, "590": 55, "591": 47, "598": 37, "599": 0, "601": 37, "602": 0, "632": 37, "633": 37, "636": 37, "637": 37, "638": 0, "641": 37, "642": 37, "671": 0, "672": 0, "675": 0, "678": 19, "680": 19, "681": 19, "682": 1, "684": 19, "685": 19, "686": 19, "687": 19, "688": 19, "689": 19, "690": 19, "692": 19, "695": 18, "697": 18, "698": 18, "699": 0, "701": 18, "703": 18, "704": 18, "705": 18, "706": 18, "707": 18, "708": 18, "709": 18, "710": 18, "711": 18, "712": 18, "713": 18, "714": 18, "717": 19, "719": 4, "722": 15, "723": 15, "724": 15, "725": 10, "727": 5, "729": 19, "750": 10, "751": 10, "753": 10, "755": 10, "756": 10, "758": 10, "760": 10, "761": 10, "764": 10, "765": 0, "766": 10, "767": 0, "768": 0, "770": 10, "771": 10, "772": 0, "774": 10, "775": 10, "776": 0, "778": 0, "780": 10, "781": 10, "782": 0, "784": 0, "786": 10, "787": 0, "789": 0, "888": 10, "889": 10, "890": 10, "891": 10, "892": 10, "893": 0, "895": 0, "897": 10, "899": 0, "900": 0, "901": 10, "902": 10, "903": 10, "904": 0, "907": 10, "908": 10, "909": 10, "910": 0, "912": 0, "914": 10, "916": 10, "917": 10, "918": 10, "921": 10, "922": 4, "925": 10, "926": 10, "928": 10, "929": 10, "931": 10, "932": 10, "933": 10, "934": 10, "935": 10, "940": 10, "941": 10, "942": 2, "943": 2, "945": 10, "946": 10, "947": 10, "949": 0, "950": 0, "952": 10}}
++ git checkout fdbaa58acbead5a254f2e6d597dc1ab3b947f4c6
+Note: switching to 'fdbaa58acbead5a254f2e6d597dc1ab3b947f4c6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at fdbaa58acb TST Skip some doctests if pillow not installed (#15131)
+M	sklearn/svm/tests/test_sparse.py
++ git apply /root/pre_state.patch
+error: unrecognized input

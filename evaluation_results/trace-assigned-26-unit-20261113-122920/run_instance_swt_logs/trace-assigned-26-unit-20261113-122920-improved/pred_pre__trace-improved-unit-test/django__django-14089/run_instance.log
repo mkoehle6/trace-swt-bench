@@ -1,0 +1,28 @@
+2026-11-13 08:29:07,728 - WARNING - Starting evaluation at 1794576547.7281885
+2026-11-13 08:29:08,197 - INFO - Creating container for django__django-14089...
+2026-11-13 08:29:08,301 - INFO - Container for django__django-14089 created: eed5f4669396163e59d99c7cf7a6310706c858888b3fd9c8de315d77c052d22d
+2026-11-13 08:29:08,550 - INFO - Container for django__django-14089 started: eed5f4669396163e59d99c7cf7a6310706c858888b3fd9c8de315d77c052d22d
+2026-11-13 08:29:10,123 - INFO - Git diff before:
+
+2026-11-13 08:29:10,129 - INFO - Eval script for django__django-14089 written to eval.sh, now applying to container...
+2026-11-13 08:29:17,287 - INFO - Test output for django__django-14089 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-14089/test_output.txt
+2026-11-13 08:29:17,379 - INFO - Git diff after:
+diff --git a/tests/utils_tests/test_datastructures.py b/tests/utils_tests/test_datastructures.py
+index 45d172f984..a22e015027 100644
+--- a/tests/utils_tests/test_datastructures.py
++++ b/tests/utils_tests/test_datastructures.py
+@@ -55,6 +55,10 @@ class OrderedSetTests(SimpleTestCase):
+         s.add(2)
+         self.assertEqual(len(s), 2)
+ 
++    def test_reversed(self):
++        s = OrderedSet([1, 2, 3])
++        self.assertEqual(list(reversed(s)), [3, 2, 1])
++
+ 
+ class MultiValueDictTests(SimpleTestCase):
+2026-11-13 08:29:17,380 - INFO - Git diff changed after running eval script
+2026-11-13 08:29:17,382 - INFO - Attempting to stop container exec.eval.x86_64.ebed327f02c059ebd6024a.e15d0d9867ce4a0466e383.125911373748592...
+2026-11-13 08:29:32,635 - INFO - Attempting to remove container exec.eval.x86_64.ebed327f02c059ebd6024a.e15d0d9867ce4a0466e383.125911373748592...
+2026-11-13 08:29:32,670 - INFO - Container exec.eval.x86_64.ebed327f02c059ebd6024a.e15d0d9867ce4a0466e383.125911373748592 removed.
+2026-11-13 08:29:32,672 - WARNING - End of eval at 1794576572.6721156

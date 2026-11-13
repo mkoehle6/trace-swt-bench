@@ -1,0 +1,49 @@
+2026-11-13 08:43:47,031 - WARNING - Starting evaluation at 1794577427.0315878
+2026-11-13 08:43:47,492 - INFO - Creating container for django__django-12155...
+2026-11-13 08:43:47,617 - INFO - Container for django__django-12155 created: 94a96c2241de8d800ea6a5b81f5b0d4df3769e4133fa2eae6119f69a2e5e35b4
+2026-11-13 08:43:47,885 - INFO - Container for django__django-12155 started: 94a96c2241de8d800ea6a5b81f5b0d4df3769e4133fa2eae6119f69a2e5e35b4
+2026-11-13 08:43:49,216 - INFO - Git diff before:
+
+2026-11-13 08:43:49,226 - INFO - Eval script for django__django-12155 written to eval.sh, now applying to container...
+2026-11-13 08:43:56,864 - INFO - Test output for django__django-12155 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-12155/test_output.txt
+2026-11-13 08:43:56,958 - INFO - Git diff after:
+diff --git a/tests/admin_docs/test_utils.py b/tests/admin_docs/test_utils.py
+index 17ea912015..40b9956661 100644
+--- a/tests/admin_docs/test_utils.py
++++ b/tests/admin_docs/test_utils.py
+@@ -44,6 +44,30 @@ class TestUtils(AdminDocsSimpleTestCase):
+         )
+         self.assertEqual(trim_docstring_output, trimmed_docstring)
+ 
++    def test_trim_docstring_first_line_not_empty(self):
++        docstring = (
++            'This is a docstring.\n'
++            '\n'
++            '    This is the body.\n'
++        )
++        self.assertEqual(
++            trim_docstring(docstring),
++            'This is a docstring.\n\nThis is the body.',
++        )
++
++    def test_parse_docstring_first_line_not_empty(self):
++        docstring = (
++            'This is a view docstring.\n'
++            '\n'
++            '    This is the body.\n'
++        )
++        title, description, metadata = parse_docstring(docstring)
++        self.assertEqual(title, 'This is a view docstring.')
++        self.assertEqual(metadata, {})
++        description_output = parse_rst(description, 'view', 'view:admindocs')
++        self.assertNotIn('System Message', description_output)
++        self.assertHTMLEqual(description_output, '<p>This is the body.</p>\n')
++
+     def test_parse_docstring(self):
+         title, description, metadata = parse_docstring(self.docstring)
+         docstring_title = (
+2026-11-13 08:43:56,960 - INFO - Git diff changed after running eval script
+2026-11-13 08:43:56,962 - INFO - Attempting to stop container exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9.125911372155408...
+2026-11-13 08:44:12,228 - INFO - Attempting to remove container exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9.125911372155408...
+2026-11-13 08:44:12,271 - INFO - Container exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9.125911372155408 removed.
+2026-11-13 08:44:12,273 - WARNING - End of eval at 1794577452.2738068

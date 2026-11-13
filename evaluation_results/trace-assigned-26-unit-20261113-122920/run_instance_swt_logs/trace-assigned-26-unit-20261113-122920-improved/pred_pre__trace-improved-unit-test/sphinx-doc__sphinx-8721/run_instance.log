@@ -1,0 +1,133 @@
+2026-11-13 08:48:14,854 - WARNING - Starting evaluation at 1794577694.854848
+2026-11-13 08:48:15,274 - INFO - Creating container for sphinx-doc__sphinx-8721...
+2026-11-13 08:48:15,393 - INFO - Container for sphinx-doc__sphinx-8721 created: b200359094ac5738e550ce4d3aae254bac166614cfcecb923303c695aea7f6d6
+2026-11-13 08:48:15,624 - INFO - Container for sphinx-doc__sphinx-8721 started: b200359094ac5738e550ce4d3aae254bac166614cfcecb923303c695aea7f6d6
+2026-11-13 08:48:16,090 - INFO - Git diff before:
+diff --git a/setup.py b/setup.py
+index 8d40de1a8..03f325278 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,22 +15,22 @@ if sys.version_info < (3, 5):
+     sys.exit(1)
+ 
+ install_requires = [
+-    'sphinxcontrib-applehelp',
+-    'sphinxcontrib-devhelp',
++    'sphinxcontrib-applehelp<=1.0.7',
++    'sphinxcontrib-devhelp<=1.0.5',
+     'sphinxcontrib-jsmath',
+-    'sphinxcontrib-htmlhelp',
+-    'sphinxcontrib-serializinghtml',
+-    'sphinxcontrib-qthelp',
+-    'Jinja2>=2.3',
++    'sphinxcontrib-htmlhelp<=2.0.4',
++    'sphinxcontrib-serializinghtml<=1.1.9',
++    'sphinxcontrib-qthelp<=1.0.6',
++    'Jinja2<3.0',
+     'Pygments>=2.0',
+     'docutils>=0.12',
+     'snowballstemmer>=1.1',
+     'babel>=1.3',
+-    'alabaster>=0.7,<0.8',
++    'alabaster>=0.7,<0.7.12',
+     'imagesize',
+     'requests>=2.5.0',
+     'setuptools',
+-    'packaging',
++    'packaging', 'markupsafe<=2.0.1',
+ ]
+ 
+ extras_require = {
+diff --git a/tox.ini b/tox.ini
+index 21a0faec3..be1a9127e 100644
+--- a/tox.ini
++++ b/tox.ini
+@@ -28,7 +28,7 @@ setenv =
+     PYTHONWARNINGS = all,ignore::ImportWarning:importlib._bootstrap_external,ignore::DeprecationWarning:site,ignore::DeprecationWarning:distutils,ignore::DeprecationWarning:pip._vendor.packaging.version
+     PYTEST_ADDOPTS = {env:PYTEST_ADDOPTS:} --color yes
+ commands=
+-    python -X dev -m pytest --durations 25 {posargs}
++    python -X dev -m pytest -rA --durations 25 {posargs}
+ 
+ [testenv:flake8]
+ basepython = python3
+2026-11-13 08:48:16,102 - INFO - Eval script for sphinx-doc__sphinx-8721 written to eval.sh, now applying to container...
+2026-11-13 08:48:38,847 - INFO - Test output for sphinx-doc__sphinx-8721 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/sphinx-doc__sphinx-8721/test_output.txt
+2026-11-13 08:48:38,961 - INFO - Git diff after:
+diff --git a/setup.py b/setup.py
+index 8d40de1a8..03f325278 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,22 +15,22 @@ if sys.version_info < (3, 5):
+     sys.exit(1)
+ 
+ install_requires = [
+-    'sphinxcontrib-applehelp',
+-    'sphinxcontrib-devhelp',
++    'sphinxcontrib-applehelp<=1.0.7',
++    'sphinxcontrib-devhelp<=1.0.5',
+     'sphinxcontrib-jsmath',
+-    'sphinxcontrib-htmlhelp',
+-    'sphinxcontrib-serializinghtml',
+-    'sphinxcontrib-qthelp',
+-    'Jinja2>=2.3',
++    'sphinxcontrib-htmlhelp<=2.0.4',
++    'sphinxcontrib-serializinghtml<=1.1.9',
++    'sphinxcontrib-qthelp<=1.0.6',
++    'Jinja2<3.0',
+     'Pygments>=2.0',
+     'docutils>=0.12',
+     'snowballstemmer>=1.1',
+     'babel>=1.3',
+-    'alabaster>=0.7,<0.8',
++    'alabaster>=0.7,<0.7.12',
+     'imagesize',
+     'requests>=2.5.0',
+     'setuptools',
+-    'packaging',
++    'packaging', 'markupsafe<=2.0.1',
+ ]
+ 
+ extras_require = {
+diff --git a/tests/test_ext_viewcode.py b/tests/test_ext_viewcode.py
+index 79864095b..33e8e1992 100644
+--- a/tests/test_ext_viewcode.py
++++ b/tests/test_ext_viewcode.py
+@@ -102,3 +102,19 @@ def test_local_source_files(app, status, warning):
+ 
+     assert result.count('href="_modules/not_a_package/submodule.html#not_a_package.submodule.Class3.class_attr"') == 1
+     assert result.count('This is the class attribute class_attr') == 1
++
++
++@pytest.mark.sphinx('epub', testroot='ext-viewcode')
++def test_viewcode_epub(make_app, app_params):
++    args, kwargs = app_params
++
++    # Build HTML first so that the shared build environment contains
++    # the modules collected by the viewcode extension.
++    html_app = make_app('html', **kwargs)
++    html_app.build()
++    assert (html_app.outdir / '_modules/spam/mod1.html').exists()
++
++    # The EPUB builder must not generate viewcode pages by default.
++    epub_app = make_app(*args, **kwargs)
++    epub_app.build()
++    assert not (epub_app.outdir / '_modules').exists()
+diff --git a/tox.ini b/tox.ini
+index 21a0faec3..be1a9127e 100644
+--- a/tox.ini
++++ b/tox.ini
+@@ -28,7 +28,7 @@ setenv =
+     PYTHONWARNINGS = all,ignore::ImportWarning:importlib._bootstrap_external,ignore::DeprecationWarning:site,ignore::DeprecationWarning:distutils,ignore::DeprecationWarning:pip._vendor.packaging.version
+     PYTEST_ADDOPTS = {env:PYTEST_ADDOPTS:} --color yes
+ commands=
+-    python -X dev -m pytest --durations 25 {posargs}
++    python -X dev -m pytest -rA --durations 25 {posargs}
+ 
+ [testenv:flake8]
+ basepython = python3
+2026-11-13 08:48:38,963 - INFO - Git diff changed after running eval script
+2026-11-13 08:48:38,964 - INFO - Attempting to stop container exec.eval.x86_64.77d82541416cab86d0d86a.43753761ebd4b62b4a9d61.125911372157280...
+2026-11-13 08:48:54,228 - INFO - Attempting to remove container exec.eval.x86_64.77d82541416cab86d0d86a.43753761ebd4b62b4a9d61.125911372157280...
+2026-11-13 08:48:54,295 - INFO - Container exec.eval.x86_64.77d82541416cab86d0d86a.43753761ebd4b62b4a9d61.125911372157280 removed.
+2026-11-13 08:48:54,296 - WARNING - End of eval at 1794577734.2966635

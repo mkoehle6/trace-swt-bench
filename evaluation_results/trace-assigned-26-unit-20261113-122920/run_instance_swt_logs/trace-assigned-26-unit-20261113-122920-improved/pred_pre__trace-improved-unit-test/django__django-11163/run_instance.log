@@ -1,0 +1,29 @@
+2026-11-13 08:29:57,125 - WARNING - Starting evaluation at 1794576597.1251261
+2026-11-13 08:29:57,374 - INFO - Creating container for django__django-11163...
+2026-11-13 08:29:57,437 - INFO - Container for django__django-11163 created: 1c6f0921351ea0eb50d3d8229e60120875ea1a9e5110abf52027a9e4e21874f3
+2026-11-13 08:29:57,604 - INFO - Container for django__django-11163 started: 1c6f0921351ea0eb50d3d8229e60120875ea1a9e5110abf52027a9e4e21874f3
+2026-11-13 08:29:58,986 - INFO - Git diff before:
+
+2026-11-13 08:29:58,992 - INFO - Eval script for django__django-11163 written to eval.sh, now applying to container...
+2026-11-13 08:30:07,104 - INFO - Test output for django__django-11163 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-11163/test_output.txt
+2026-11-13 08:30:07,174 - INFO - Git diff after:
+diff --git a/tests/model_forms/tests.py b/tests/model_forms/tests.py
+index f4f3169bc1..d2c28ac1c7 100644
+--- a/tests/model_forms/tests.py
++++ b/tests/model_forms/tests.py
+@@ -2900,6 +2900,10 @@ class StrictAssignmentTests(SimpleTestCase):
+ 
+ 
+ class ModelToDictTests(TestCase):
++    def test_empty_fields(self):
++        item = ColourfulItem.objects.create()
++        self.assertEqual(model_to_dict(item, fields=[]), {})
++
+     def test_many_to_many(self):
+         """Data for a ManyToManyField is a list rather than a lazy QuerySet."""
+         blue = Colour.objects.create(name='blue')
+2026-11-13 08:30:07,176 - INFO - Git diff changed after running eval script
+2026-11-13 08:30:07,177 - INFO - Attempting to stop container exec.eval.x86_64.ee2ad6945f237e9160354f.9abfb63cef178bd684a2ce.125911373752336...
+2026-11-13 08:30:22,411 - INFO - Attempting to remove container exec.eval.x86_64.ee2ad6945f237e9160354f.9abfb63cef178bd684a2ce.125911373752336...
+2026-11-13 08:30:22,453 - INFO - Container exec.eval.x86_64.ee2ad6945f237e9160354f.9abfb63cef178bd684a2ce.125911373752336 removed.
+2026-11-13 08:30:22,455 - WARNING - End of eval at 1794576622.4552765

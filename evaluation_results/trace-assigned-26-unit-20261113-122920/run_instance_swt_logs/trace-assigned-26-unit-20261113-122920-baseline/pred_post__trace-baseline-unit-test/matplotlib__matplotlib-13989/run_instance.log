@@ -1,0 +1,52 @@
+2026-11-13 07:47:40,507 - WARNING - Starting evaluation at 1794574060.507822
+2026-11-13 07:47:40,705 - INFO - Creating container for matplotlib__matplotlib-13989...
+2026-11-13 07:47:40,757 - INFO - Container for matplotlib__matplotlib-13989 created: 9c5f213fa3b786996641522844f3cd9fb1145e8d5d352acabaad62e7a99c8147
+2026-11-13 07:47:40,871 - INFO - Container for matplotlib__matplotlib-13989 started: 9c5f213fa3b786996641522844f3cd9fb1145e8d5d352acabaad62e7a99c8147
+2026-11-13 07:47:41,686 - INFO - Git diff before:
+
+2026-11-13 07:47:41,690 - INFO - Eval script for matplotlib__matplotlib-13989 written to eval.sh, now applying to container...
+2026-11-13 07:49:13,349 - INFO - Test output for matplotlib__matplotlib-13989 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/matplotlib__matplotlib-13989/test_output.txt
+2026-11-13 07:49:13,428 - INFO - Git diff after:
+diff --git a/lib/matplotlib/axes/_axes.py b/lib/matplotlib/axes/_axes.py
+index 4b73d52293..bc5461ad9f 100644
+--- a/lib/matplotlib/axes/_axes.py
++++ b/lib/matplotlib/axes/_axes.py
+@@ -6686,7 +6686,7 @@ optional.
+ 
+         density = bool(density) or bool(normed)
+         if density and not stacked:
+-            hist_kwargs = dict(density=density)
++            hist_kwargs['density'] = density
+ 
+         # List to store all the top coordinates of the histograms
+         tops = []
+diff --git a/lib/matplotlib/tests/test_axes.py b/lib/matplotlib/tests/test_axes.py
+index cff4325f19..7fc6c1147c 100644
+--- a/lib/matplotlib/tests/test_axes.py
++++ b/lib/matplotlib/tests/test_axes.py
+@@ -1699,6 +1699,20 @@ def test_hist_unequal_bins_density():
+     assert_allclose(mpl_heights, np_heights)
+ 
+ 
++def test_hist_density_with_range():
++    # Regression test for a specified range being ignored when density=True.
++    rng = np.random.RandomState(19680801)
++    data = rng.rand(10)
++    expected_counts, expected_bins = np.histogram(
++        data, bins='auto', range=(0, 1), density=True)
++    counts, bins, _ = plt.hist(
++        data, bins='auto', range=(0, 1), density=True)
++    assert_allclose(counts, expected_counts)
++    assert_allclose(bins, expected_bins)
++    assert bins[0] == 0
++    assert bins[-1] == 1
++
++
+ def test_hist_datetime_datasets():
+     data = [[datetime.datetime(2017, 1, 1), datetime.datetime(2017, 1, 1)],
+             [datetime.datetime(2017, 1, 1), datetime.datetime(2017, 1, 2)]]
+2026-11-13 07:49:13,430 - INFO - Git diff changed after running eval script
+2026-11-13 07:49:13,431 - INFO - Attempting to stop container exec.eval.x86_64.4e6c6a611c1e7eeede5a3f.3f4d6e0225aeb345230f37.132386095350704...
+2026-11-13 07:49:28,630 - INFO - Attempting to remove container exec.eval.x86_64.4e6c6a611c1e7eeede5a3f.3f4d6e0225aeb345230f37.132386095350704...
+2026-11-13 07:49:28,663 - INFO - Container exec.eval.x86_64.4e6c6a611c1e7eeede5a3f.3f4d6e0225aeb345230f37.132386095350704 removed.
+2026-11-13 07:49:28,664 - WARNING - End of eval at 1794574168.664718

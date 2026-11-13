@@ -1,0 +1,27 @@
+diff --git a/astropy/io/fits/tests/test_header.py b/astropy/io/fits/tests/test_header.py
+index a8f4e1160f..bec7fe883d 100644
+--- a/astropy/io/fits/tests/test_header.py
++++ b/astropy/io/fits/tests/test_header.py
+@@ -632,6 +632,22 @@ class TestHeaderFunctions(FitsTestCase):
+             "'ENC=OFFSET+RESOL*acos((WID-(MAX+MIN))/(MAX-MIN)'"
+         )
+ 
++    def test_hierarch_card_float_comment_not_truncated(self):
++        """Regression test for a float value being formatted too long.
++
++        A shorter string representation of the float should be used so that
++        the full comment fits in the card.
++        """
++        c = fits.Card(
++            "HIERARCH ESO IFM CL RADIUS",
++            0.009125,
++            "[m] radius arround actuator to avoid",
++        )
++        assert str(c) == _pad(
++            "HIERARCH ESO IFM CL RADIUS = 0.009125 / "
++            "[m] radius arround actuator to avoid"
++        )
++
+     def test_hierarch_with_abbrev_value_indicator(self):
+         """Regression test for
+         https://github.com/spacetelescope/PyFITS/issues/5

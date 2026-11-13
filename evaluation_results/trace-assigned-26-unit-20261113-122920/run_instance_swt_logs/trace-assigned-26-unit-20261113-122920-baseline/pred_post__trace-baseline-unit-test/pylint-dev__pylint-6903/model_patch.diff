@@ -1,0 +1,38 @@
+diff --git a/tests/lint/test_run.py b/tests/lint/test_run.py
+new file mode 100644
+index 000000000..df1f39492
+--- /dev/null
++++ b/tests/lint/test_run.py
+@@ -0,0 +1,32 @@
++# Licensed under the GPL: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
++# For details: https://github.com/PyCQA/pylint/blob/main/LICENSE
++# Copyright (c) https://github.com/PyCQA/pylint/blob/main/CONTRIBUTORS.txt
++
++from __future__ import annotations
++
++from pathlib import Path
++from unittest.mock import mock_open, patch
++
++import pytest
++
++from pylint.lint.run import _cpu_count
++
++
++def test_cpu_count_is_never_zero(monkeypatch: pytest.MonkeyPatch) -> None:
++    """A small cgroup CPU share should not result in zero jobs.
++
++    In a Kubernetes pod ``cpu.shares`` can be very small (for example, 2).
++    Dividing that value by 1024 and casting to an integer produces 0, which
++    must not be passed to multiprocessing as the number of workers.
++    """
++
++    def is_file(path: Path) -> bool:
++        return str(path) == "/sys/fs/cgroup/cpu/cpu.shares"
++
++    monkeypatch.setattr(Path, "is_file", is_file)
++    fake_open = mock_open(read_data="2")
++    with patch("builtins.open", fake_open):
++        assert _cpu_count() >= 1
++    fake_open.assert_called_once_with(
++        "/sys/fs/cgroup/cpu/cpu.shares", encoding="utf-8"
++    )

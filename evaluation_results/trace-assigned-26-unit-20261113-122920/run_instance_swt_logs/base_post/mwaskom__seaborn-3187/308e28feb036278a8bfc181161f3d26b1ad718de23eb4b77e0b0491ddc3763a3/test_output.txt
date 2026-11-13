@@ -1,0 +1,614 @@
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
++++++ dirname /opt/miniconda3/bin/conda
+++++ dirname /opt/miniconda3/bin
++++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ cd /testbed
++ git diff HEAD 22cdfb0c93f8ec78492d87edb810f10cb7f57a31
++ git config --global --add safe.directory /testbed
++ cd /testbed
++ git status
+On branch master
+nothing to commit, working tree clean
++ git show
+commit 22cdfb0c93f8ec78492d87edb810f10cb7f57a31
+Author: Michael Waskom <mwaskom@users.noreply.github.com>
+Date:   Sat Dec 10 11:06:39 2022 -0500
+
+    Fix inner axis visibility in relplot with unshared axes (#3180)
+    
+    * Fix inner axis visibility in relplot with unshared axes
+    
+    * Don't reveal internal names when setting axis labels
+    
+    * Better test name
+
+diff --git a/doc/whatsnew/v0.12.2.rst b/doc/whatsnew/v0.12.2.rst
+index da1d8b81..8eeb8f19 100644
+--- a/doc/whatsnew/v0.12.2.rst
++++ b/doc/whatsnew/v0.12.2.rst
+@@ -9,3 +9,5 @@ v0.12.2 (Unreleased)
+ - |Fix| Fixed a regression in v0.12.0 where manually-added labels could have duplicate legend entries (:pr:`3116`).
+ 
+ - |Fix| Fixed a bug in :func:`histplot` with `kde=True` and `log_scale=True` where the curve was not scaled properly (:pr:`3173`).
++
++- |Fix| Fixed a bug in :func:`relplot` where inner axis labels would be shown when axis sharing was disabled (:pr:`3180`).
+diff --git a/seaborn/relational.py b/seaborn/relational.py
+index 4fa854a6..18e18bb6 100644
+--- a/seaborn/relational.py
++++ b/seaborn/relational.py
+@@ -955,7 +955,8 @@ def relplot(
+     g.map_dataframe(func, **plot_kws)
+ 
+     # Label the axes, using the original variables
+-    g.set(xlabel=variables.get("x"), ylabel=variables.get("y"))
++    # Pass "" when the variable name is None to overwrite internal variables
++    g.set_axis_labels(variables.get("x") or "", variables.get("y") or "")
+ 
+     # Show the legend
+     if legend:
+diff --git a/tests/test_relational.py b/tests/test_relational.py
+index eee12e25..b100f4ec 100644
+--- a/tests/test_relational.py
++++ b/tests/test_relational.py
+@@ -624,6 +624,23 @@ class TestRelationalPlotter(Helpers):
+         for line, color in zip(lines, palette):
+             assert line.get_color() == color
+ 
++    def test_relplot_unshared_axis_labels(self, long_df):
++
++        col, row = "a", "b"
++        g = relplot(
++            data=long_df, x="x", y="y", col=col, row=row,
++            facet_kws=dict(sharex=False, sharey=False),
++        )
++
++        for ax in g.axes[-1, :].flat:
++            assert ax.get_xlabel() == "x"
++        for ax in g.axes[:-1, :].flat:
++            assert ax.get_xlabel() == ""
++        for ax in g.axes[:, 0].flat:
++            assert ax.get_ylabel() == "y"
++        for ax in g.axes[:, 1:].flat:
++            assert ax.get_ylabel() == ""
++
+     def test_relplot_data(self, long_df):
+ 
+         g = relplot(
++ git diff 22cdfb0c93f8ec78492d87edb810f10cb7f57a31
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z x ']'
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1='(testbed) '
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=3
++++ CONDA_SHLVL=3
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=4
+++ CONDA_SHLVL=4
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_3=/opt/miniconda3
+++ CONDA_PREFIX_3=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ python -m pip install -e '.[dev]'
+Obtaining file:///testbed
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: numpy>=1.17 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from seaborn==0.12.2.dev0) (1.25.2)
+Requirement already satisfied: pandas>=0.25 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from seaborn==0.12.2.dev0) (2.0.0)
+Requirement already satisfied: matplotlib!=3.6.1,>=3.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from seaborn==0.12.2.dev0) (3.7.2)
+Requirement already satisfied: pytest in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from seaborn==0.12.2.dev0) (8.4.2)
+Requirement already satisfied: pytest-cov in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from seaborn==0.12.2.dev0) (7.1.0)
+Requirement already satisfied: pytest-xdist in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from seaborn==0.12.2.dev0) (3.8.0)
+Requirement already satisfied: flake8 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from seaborn==0.12.2.dev0) (7.3.0)
+Requirement already satisfied: mypy in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from seaborn==0.12.2.dev0) (1.19.1)
+Requirement already satisfied: pandas-stubs in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from seaborn==0.12.2.dev0) (2.2.2.240807)
+Requirement already satisfied: pre-commit in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from seaborn==0.12.2.dev0) (4.3.0)
+Requirement already satisfied: flit in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from seaborn==0.12.2.dev0) (4.2.0)
+Requirement already satisfied: contourpy>=1.0.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn==0.12.2.dev0) (1.1.0)
+Requirement already satisfied: cycler>=0.10 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn==0.12.2.dev0) (0.11.0)
+Requirement already satisfied: fonttools>=4.22.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn==0.12.2.dev0) (4.42.1)
+Requirement already satisfied: kiwisolver>=1.0.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn==0.12.2.dev0) (1.4.5)
+Requirement already satisfied: packaging>=20.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn==0.12.2.dev0) (26.3)
+Requirement already satisfied: pillow>=6.2.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn==0.12.2.dev0) (10.0.0)
+Requirement already satisfied: pyparsing<3.1,>=2.3.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn==0.12.2.dev0) (3.0.9)
+Requirement already satisfied: python-dateutil>=2.7 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn==0.12.2.dev0) (2.8.2)
+Requirement already satisfied: importlib-resources>=3.2.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from matplotlib!=3.6.1,>=3.1->seaborn==0.12.2.dev0) (6.0.1)
+Requirement already satisfied: zipp>=3.1.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from importlib-resources>=3.2.0->matplotlib!=3.6.1,>=3.1->seaborn==0.12.2.dev0) (3.16.2)
+Requirement already satisfied: pytz>=2020.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pandas>=0.25->seaborn==0.12.2.dev0) (2023.3.post1)
+Requirement already satisfied: tzdata>=2022.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pandas>=0.25->seaborn==0.12.2.dev0) (2023.1)
+Requirement already satisfied: six>=1.5 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from python-dateutil>=2.7->matplotlib!=3.6.1,>=3.1->seaborn==0.12.2.dev0) (1.16.0)
+Requirement already satisfied: mccabe<0.8.0,>=0.7.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from flake8->seaborn==0.12.2.dev0) (0.7.0)
+Requirement already satisfied: pycodestyle<2.15.0,>=2.14.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from flake8->seaborn==0.12.2.dev0) (2.14.0)
+Requirement already satisfied: pyflakes<3.5.0,>=3.4.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from flake8->seaborn==0.12.2.dev0) (3.4.0)
+Requirement already satisfied: flit_core>=4.2.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from flit->seaborn==0.12.2.dev0) (4.2.0)
+Requirement already satisfied: requests in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from flit->seaborn==0.12.2.dev0) (2.32.5)
+Requirement already satisfied: docutils in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from flit->seaborn==0.12.2.dev0) (0.23)
+Requirement already satisfied: tomli-w in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from flit->seaborn==0.12.2.dev0) (1.2.0)
+Requirement already satisfied: pip in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from flit->seaborn==0.12.2.dev0) (26.0.1)
+Requirement already satisfied: typing_extensions>=4.6.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from mypy->seaborn==0.12.2.dev0) (4.16.0)
+Requirement already satisfied: mypy_extensions>=1.0.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from mypy->seaborn==0.12.2.dev0) (1.1.0)
+Requirement already satisfied: pathspec>=0.9.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from mypy->seaborn==0.12.2.dev0) (1.1.1)
+Requirement already satisfied: tomli>=1.1.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from mypy->seaborn==0.12.2.dev0) (2.5.0)
+Requirement already satisfied: librt>=0.6.2 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from mypy->seaborn==0.12.2.dev0) (0.16.0)
+Requirement already satisfied: types-pytz>=2022.1.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pandas-stubs->seaborn==0.12.2.dev0) (2025.2.0.20251108)
+Requirement already satisfied: cfgv>=2.0.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pre-commit->seaborn==0.12.2.dev0) (3.4.0)
+Requirement already satisfied: identify>=1.0.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pre-commit->seaborn==0.12.2.dev0) (2.6.15)
+Requirement already satisfied: nodeenv>=0.11.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pre-commit->seaborn==0.12.2.dev0) (1.11.1)
+Requirement already satisfied: pyyaml>=5.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pre-commit->seaborn==0.12.2.dev0) (6.0.3)
+Requirement already satisfied: virtualenv>=20.10.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pre-commit->seaborn==0.12.2.dev0) (21.15.6)
+Requirement already satisfied: distlib<1,>=0.4.3 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from virtualenv>=20.10.0->pre-commit->seaborn==0.12.2.dev0) (0.4.4)
+Requirement already satisfied: filelock<=3.19.1,>=3.19.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from virtualenv>=20.10.0->pre-commit->seaborn==0.12.2.dev0) (3.19.1)
+Requirement already satisfied: platformdirs<5,>=4.4 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from virtualenv>=20.10.0->pre-commit->seaborn==0.12.2.dev0) (4.4.0)
+Requirement already satisfied: python-discovery>=1.6.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from virtualenv>=20.10.0->pre-commit->seaborn==0.12.2.dev0) (1.9.5)
+Requirement already satisfied: exceptiongroup>=1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pytest->seaborn==0.12.2.dev0) (1.3.1)
+Requirement already satisfied: iniconfig>=1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pytest->seaborn==0.12.2.dev0) (2.1.0)
+Requirement already satisfied: pluggy<2,>=1.5 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pytest->seaborn==0.12.2.dev0) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pytest->seaborn==0.12.2.dev0) (2.21.0)
+Requirement already satisfied: coverage>=7.10.6 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from coverage[toml]>=7.10.6->pytest-cov->seaborn==0.12.2.dev0) (7.10.7)
+Requirement already satisfied: execnet>=2.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pytest-xdist->seaborn==0.12.2.dev0) (2.1.2)
+Requirement already satisfied: charset_normalizer<4,>=2 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from requests->flit->seaborn==0.12.2.dev0) (3.5.2)
+Requirement already satisfied: idna<4,>=2.5 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from requests->flit->seaborn==0.12.2.dev0) (3.20)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from requests->flit->seaborn==0.12.2.dev0) (2.6.3)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from requests->flit->seaborn==0.12.2.dev0) (2026.10.23)
+Building wheels for collected packages: seaborn
+  Building editable for seaborn (pyproject.toml): started
+  Building editable for seaborn (pyproject.toml): finished with status 'done'
+  Created wheel for seaborn: filename=seaborn-0.12.2.dev0-py3-none-any.whl size=3956 sha256=9ed1e0e7cb4f31084e26dce9f629d3328ecd1eb7b660088ef3966af9274d84b5
+  Stored in directory: /tmp/pip-ephem-wheel-cache-rs_lmu6z/wheels/7d/66/67/70d1ee2124ccf21d601c352e25cdca10f611f7c8b3f9ffb9e4
+Successfully built seaborn
+Installing collected packages: seaborn
+  Attempting uninstall: seaborn
+    Found existing installation: seaborn 0.12.2.dev0
+    Uninstalling seaborn-0.12.2.dev0:
+      Successfully uninstalled seaborn-0.12.2.dev0
+Successfully installed seaborn-0.12.2.dev0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ git apply -v -
+Checking patch seaborn/_core/scales.py...
+Checking patch seaborn/utils.py...
+Applied patch seaborn/_core/scales.py cleanly.
+Applied patch seaborn/utils.py cleanly.
++ git apply -v -
+error: unrecognized input
++ python3 /root/trace.py --count -C coverage.cover --include-pattern '/testbed/(seaborn/utils\.py|seaborn/_core/scales\.py)' -m pytest --no-header -rA tests/_core/test_scales.py tests/test_utils.py
+['--count', '-C', 'coverage.cover', '--include-pattern', '/testbed/(seaborn/utils\\.py|seaborn/_core/scales\\.py)']
+============================= test session starts ==============================
+collected 129 items
+
+tests/_core/test_scales.py ............................................. [ 34%]
+.........x.............................                                  [ 65%]
+tests/test_utils.py .............................................        [100%]
+
+=============================== warnings summary ===============================
+tests/_core/test_scales.py::TestNominal::test_color_numeric_with_order_subset
+  /testbed/seaborn/_core/properties.py:643: RuntimeWarning: invalid value encountered in cast
+    ixs = np.asarray(x, np.intp)
+
+tests/_core/test_scales.py::TestNominal::test_object_order_subset
+  /testbed/seaborn/_core/properties.py:366: RuntimeWarning: invalid value encountered in cast
+    ixs = np.asarray(x, np.intp)
+
+tests/test_utils.py::test_move_legend_matplotlib_objects
+tests/test_utils.py::test_move_legend_matplotlib_objects
+tests/test_utils.py::test_move_legend_matplotlib_objects
+tests/test_utils.py::test_move_legend_grid_object
+  /testbed/seaborn/utils.py:456: MatplotlibDeprecationWarning: The legendHandles attribute was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use legend_handles instead.
+    handles = old_legend.legendHandles
+
+tests/test_utils.py: 243 warnings
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pandas/core/dtypes/cast.py:1429: DeprecationWarning: np.find_common_type is deprecated.  Please use `np.result_type` or `np.promote_types`.
+  See https://numpy.org/devdocs/release/1.25.0-notes.html and the docs for more information.  (Deprecated NumPy 1.25)
+    return np.find_common_type(types, [])
+
+tests/test_utils.py::test_move_legend_grid_object
+  /testbed/seaborn/axisgrid.py:118: UserWarning: The figure layout has changed to tight
+    self._figure.tight_layout(*args, **kwargs)
+
+tests/test_utils.py::test_move_legend_grid_object
+  /testbed/tests/test_utils.py:410: MatplotlibDeprecationWarning: The legendHandles attribute was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use legend_handles instead.
+    assert g.legend.legendHandles
+
+tests/test_utils.py::test_move_legend_grid_object
+  /testbed/tests/test_utils.py:411: MatplotlibDeprecationWarning: The legendHandles attribute was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use legend_handles instead.
+    for i, h in enumerate(g.legend.legendHandles):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/_core/test_scales.py::TestContinuous::test_coordinate_defaults
+PASSED tests/_core/test_scales.py::TestContinuous::test_coordinate_transform
+PASSED tests/_core/test_scales.py::TestContinuous::test_coordinate_transform_with_parameter
+PASSED tests/_core/test_scales.py::TestContinuous::test_coordinate_transform_error
+PASSED tests/_core/test_scales.py::TestContinuous::test_interval_defaults
+PASSED tests/_core/test_scales.py::TestContinuous::test_interval_with_range
+PASSED tests/_core/test_scales.py::TestContinuous::test_interval_with_norm
+PASSED tests/_core/test_scales.py::TestContinuous::test_interval_with_range_norm_and_transform
+PASSED tests/_core/test_scales.py::TestContinuous::test_color_defaults
+PASSED tests/_core/test_scales.py::TestContinuous::test_color_named_values
+PASSED tests/_core/test_scales.py::TestContinuous::test_color_tuple_values
+PASSED tests/_core/test_scales.py::TestContinuous::test_color_callable_values
+PASSED tests/_core/test_scales.py::TestContinuous::test_color_with_norm
+PASSED tests/_core/test_scales.py::TestContinuous::test_color_with_transform
+PASSED tests/_core/test_scales.py::TestContinuous::test_tick_locator
+PASSED tests/_core/test_scales.py::TestContinuous::test_tick_locator_input_check
+PASSED tests/_core/test_scales.py::TestContinuous::test_tick_upto
+PASSED tests/_core/test_scales.py::TestContinuous::test_tick_every
+PASSED tests/_core/test_scales.py::TestContinuous::test_tick_every_between
+PASSED tests/_core/test_scales.py::TestContinuous::test_tick_at
+PASSED tests/_core/test_scales.py::TestContinuous::test_tick_count
+PASSED tests/_core/test_scales.py::TestContinuous::test_tick_count_between
+PASSED tests/_core/test_scales.py::TestContinuous::test_tick_minor
+PASSED tests/_core/test_scales.py::TestContinuous::test_log_tick_default
+PASSED tests/_core/test_scales.py::TestContinuous::test_log_tick_upto
+PASSED tests/_core/test_scales.py::TestContinuous::test_log_tick_count
+PASSED tests/_core/test_scales.py::TestContinuous::test_log_tick_format_disabled
+PASSED tests/_core/test_scales.py::TestContinuous::test_log_tick_every
+PASSED tests/_core/test_scales.py::TestContinuous::test_symlog_tick_default
+PASSED tests/_core/test_scales.py::TestContinuous::test_label_formatter
+PASSED tests/_core/test_scales.py::TestContinuous::test_label_like_pattern
+PASSED tests/_core/test_scales.py::TestContinuous::test_label_like_string
+PASSED tests/_core/test_scales.py::TestContinuous::test_label_like_function
+PASSED tests/_core/test_scales.py::TestContinuous::test_label_base
+PASSED tests/_core/test_scales.py::TestContinuous::test_label_unit
+PASSED tests/_core/test_scales.py::TestContinuous::test_label_unit_with_sep
+PASSED tests/_core/test_scales.py::TestContinuous::test_label_empty_unit
+PASSED tests/_core/test_scales.py::TestContinuous::test_label_base_from_transform
+PASSED tests/_core/test_scales.py::TestContinuous::test_label_type_checks
+PASSED tests/_core/test_scales.py::TestNominal::test_coordinate_defaults
+PASSED tests/_core/test_scales.py::TestNominal::test_coordinate_with_order
+PASSED tests/_core/test_scales.py::TestNominal::test_coordinate_with_subset_order
+PASSED tests/_core/test_scales.py::TestNominal::test_coordinate_axis
+PASSED tests/_core/test_scales.py::TestNominal::test_coordinate_axis_with_order
+PASSED tests/_core/test_scales.py::TestNominal::test_coordinate_axis_with_subset_order
+PASSED tests/_core/test_scales.py::TestNominal::test_coordinate_axis_with_category_dtype
+PASSED tests/_core/test_scales.py::TestNominal::test_coordinate_numeric_data
+PASSED tests/_core/test_scales.py::TestNominal::test_coordinate_numeric_data_with_order
+PASSED tests/_core/test_scales.py::TestNominal::test_color_defaults
+PASSED tests/_core/test_scales.py::TestNominal::test_color_named_palette
+PASSED tests/_core/test_scales.py::TestNominal::test_color_list_palette
+PASSED tests/_core/test_scales.py::TestNominal::test_color_dict_palette
+PASSED tests/_core/test_scales.py::TestNominal::test_color_numeric_data
+PASSED tests/_core/test_scales.py::TestNominal::test_color_numeric_with_order_subset
+PASSED tests/_core/test_scales.py::TestNominal::test_color_alpha_in_palette
+PASSED tests/_core/test_scales.py::TestNominal::test_color_unknown_palette
+PASSED tests/_core/test_scales.py::TestNominal::test_object_defaults
+PASSED tests/_core/test_scales.py::TestNominal::test_object_list
+PASSED tests/_core/test_scales.py::TestNominal::test_object_dict
+PASSED tests/_core/test_scales.py::TestNominal::test_object_order
+PASSED tests/_core/test_scales.py::TestNominal::test_object_order_subset
+PASSED tests/_core/test_scales.py::TestNominal::test_objects_that_are_weird
+PASSED tests/_core/test_scales.py::TestNominal::test_alpha_default
+PASSED tests/_core/test_scales.py::TestNominal::test_fill
+PASSED tests/_core/test_scales.py::TestNominal::test_fill_dict
+PASSED tests/_core/test_scales.py::TestNominal::test_fill_nunique_warning
+PASSED tests/_core/test_scales.py::TestNominal::test_interval_defaults
+PASSED tests/_core/test_scales.py::TestNominal::test_interval_tuple
+PASSED tests/_core/test_scales.py::TestNominal::test_interval_tuple_numeric
+PASSED tests/_core/test_scales.py::TestNominal::test_interval_list
+PASSED tests/_core/test_scales.py::TestNominal::test_interval_dict
+PASSED tests/_core/test_scales.py::TestNominal::test_interval_with_transform
+PASSED tests/_core/test_scales.py::TestTemporal::test_coordinate_defaults
+PASSED tests/_core/test_scales.py::TestTemporal::test_interval_defaults
+PASSED tests/_core/test_scales.py::TestTemporal::test_interval_with_range
+PASSED tests/_core/test_scales.py::TestTemporal::test_interval_with_norm
+PASSED tests/_core/test_scales.py::TestTemporal::test_color_defaults
+PASSED tests/_core/test_scales.py::TestTemporal::test_color_named_values
+PASSED tests/_core/test_scales.py::TestTemporal::test_coordinate_axis
+PASSED tests/_core/test_scales.py::TestTemporal::test_tick_locator
+PASSED tests/_core/test_scales.py::TestTemporal::test_tick_upto
+PASSED tests/_core/test_scales.py::TestTemporal::test_label_formatter
+PASSED tests/_core/test_scales.py::TestTemporal::test_label_concise
+PASSED tests/test_utils.py::test_ci_to_errsize
+PASSED tests/test_utils.py::test_desaturate
+PASSED tests/test_utils.py::test_desaturation_prop
+PASSED tests/test_utils.py::test_saturate
+PASSED tests/test_utils.py::test_to_utf8[a-a0]
+PASSED tests/test_utils.py::test_to_utf8[abc-abc0]
+PASSED tests/test_utils.py::test_to_utf8[a-a1]
+PASSED tests/test_utils.py::test_to_utf8[abc-abc1]
+PASSED tests/test_utils.py::test_to_utf8[s4-abc]
+PASSED tests/test_utils.py::test_to_utf8[s5-]
+PASSED tests/test_utils.py::test_to_utf8[1-1]
+PASSED tests/test_utils.py::test_to_utf8[0-0]
+PASSED tests/test_utils.py::test_to_utf8[s8-[]]
+PASSED tests/test_utils.py::TestSpineUtils::test_despine
+PASSED tests/test_utils.py::TestSpineUtils::test_despine_specific_axes
+PASSED tests/test_utils.py::TestSpineUtils::test_despine_with_offset
+PASSED tests/test_utils.py::TestSpineUtils::test_despine_side_specific_offset
+PASSED tests/test_utils.py::TestSpineUtils::test_despine_with_offset_specific_axes
+PASSED tests/test_utils.py::TestSpineUtils::test_despine_trim_spines
+PASSED tests/test_utils.py::TestSpineUtils::test_despine_trim_inverted
+PASSED tests/test_utils.py::TestSpineUtils::test_despine_trim_noticks
+PASSED tests/test_utils.py::TestSpineUtils::test_despine_trim_categorical
+PASSED tests/test_utils.py::TestSpineUtils::test_despine_moved_ticks
+PASSED tests/test_utils.py::test_ticklabels_overlap
+PASSED tests/test_utils.py::test_locator_to_legend_entries
+PASSED tests/test_utils.py::test_move_legend_matplotlib_objects
+PASSED tests/test_utils.py::test_move_legend_grid_object
+PASSED tests/test_utils.py::test_move_legend_input_checks
+PASSED tests/test_utils.py::test_get_dataset_names
+PASSED tests/test_utils.py::test_load_datasets
+PASSED tests/test_utils.py::test_load_dataset_string_error
+PASSED tests/test_utils.py::test_load_dataset_passed_data_error
+PASSED tests/test_utils.py::test_load_cached_datasets
+PASSED tests/test_utils.py::test_relative_luminance
+PASSED tests/test_utils.py::test_get_color_cycle[cycler0-result0]
+PASSED tests/test_utils.py::test_get_color_cycle[cycler1-result1]
+PASSED tests/test_utils.py::test_get_color_cycle[cycler2-result2]
+PASSED tests/test_utils.py::test_get_color_cycle[cycler3-result3]
+PASSED tests/test_utils.py::test_get_color_cycle[cycler4-result4]
+PASSED tests/test_utils.py::test_get_color_cycle[cycler5-result5]
+PASSED tests/test_utils.py::test_get_color_cycle[cycler6-result6]
+PASSED tests/test_utils.py::test_remove_na
+PASSED tests/test_utils.py::test_assign_default_kwargs
+PASSED tests/test_utils.py::test_draw_figure
+PASSED tests/test_utils.py::test_deprecate_ci
+XFAIL tests/_core/test_scales.py::TestNominal::test_color_numeric_int_float_mix - Need to sort out float/int order
+=========== 128 passed, 1 xfailed, 252 warnings in 73.34s (0:01:13) ============
++ cat coverage.cover
+{"/testbed/seaborn/utils.py": {"2": 1, "3": 1, "4": 1, "5": 1, "6": 1, "7": 1, "8": 1, "10": 1, "11": 1, "12": 1, "13": 1, "14": 1, "15": 1, "17": 1, "18": 1, "20": 1, "24": 1, "54": 1, "77": 1, "88": 1, "172": 1, "207": 1, "224": 1, "251": 1, "264": 1, "281": 1, "298": 1, "400": 1, "490": 1, "499": 1, "505": 1, "520": 1, "538": 1, "646": 1, "670": 1, "687": 1, "717": 1, "739": 1, "768": 1, "788": 1, "796": 1, "815": 1, "835": 1, "860": 1, "861": 1, "41": 1, "42": 1, "43": 1, "44": 3, "45": 2, "46": 2, "47": 2, "48": 2, "50": 1, "51": 1, "62": 0, "63": 0, "64": 0, "65": 0, "66": 0, "67": 0, "68": 0, "69": 0, "71": 0, "70": 0, "73": 0, "74": 0, "80": 10, "81": 10, "82": 0, "83": 0, "84": 0, "85": 0, "91": 0, "97": 0, "99": 0, "100": 0, "102": 0, "103": 0, "105": 0, "107": 0, "108": 0, "109": 0, "110": 0, "112": 0, "116": 0, "118": 0, "120": 0, "122": 0, "123": 0, "125": 0, "131": 0, "133": 0, "136": 0, "137": 0, "139": 0, "141": 0, "144": 0, "145": 0, "146": 0, "148": 0, "154": 0, "155": 0, "156": 0, "157": 0, "159": 0, "160": 0, "162": 0, "164": 0, "165": 0, "166": 0, "167": 0, "169": 0, "117": 0, "189": 5, "190": 1, "193": 4, "196": 4, "199": 4, "202": 4, "204": 4, "221": 1, "241": 1, "242": 1, "243": 4, "244": 3, "245": 1, "247": 1, "248": 1, "257": 0, "258": 0, "259": 0, "260": 0, "261": 0, "278": 2, "294": 21, "295": 21, "323": 15, "324": 6, "325": 9, "326": 1, "327": 8, "328": 8, "330": 30, "331": 75, "333": 60, "334": 60, "335": 60, "336": 6, "337": 6, "338": 4, "339": 4, "340": 6, "343": 15, "344": 8, "346": 5, "348": 6, "350": 4, "352": 2, "353": 6, "354": 4, "355": 4, "356": 2, "358": 15, "359": 8, "361": 5, "363": 6, "365": 4, "367": 2, "368": 6, "369": 4, "370": 4, "371": 2, "373": 15, "375": 4, "376": 4, "377": 12, "378": 8, "379": 12, "380": 8, "381": 4, "382": 4, "383": 4, "384": 4, "385": 4, "387": 4, "388": 4, "389": 9, "390": 6, "391": 9, "392": 6, "393": 3, "394": 3, "395": 3, "396": 3, "397": 3, "345": 3, "349": 2, "360": 3, "364": 2, "432": 7, "435": 7, "436": 1, "437": 1, "438": 6, "439": 3, "440": 3, "441": 3, "442": 2, "443": 1, "445": 1, "446": 2, "448": 1, "449": 1, "451": 6, "452": 2, "453": 2, "456": 4, "457": 17, "461": 4, "462": 148, "465": 4, "468": 4, "469": 4, "470": 2, "471": 10, "472": 6, "473": 2, "474": 2, "477": 4, "480": 4, "481": 4, "482": 4, "483": 4, "486": 4, "487": 1, "492": 0, "493": 0, "494": 0, "496": 0, "501": 0, "502": 0, "511": 92, "512": 92, "513": 92, "515": 92, "516": 92, "517": 92, "530": 177, "531": 1, "532": 177, "533": 177, "534": 1, "535": 177, "573": 266, "575": 1, "574": 1, "579": 1, "581": 265, "583": 265, "584": 177, "585": 177, "586": 89, "587": 1, "588": 88, "589": 176, "591": 88, "593": 264, "595": 264, "596": 0, "600": 264, "601": 12, "602": 12, "603": 12, "604": 12, "606": 252, "607": 12, "608": 12, "610": 240, "611": 12, "612": 12, "613": 12, "615": 228, "616": 12, "617": 12, "619": 216, "620": 12, "622": 204, "623": 24, "624": 12, "626": 24, "627": 12, "629": 24, "630": 12, "633": 192, "634": 12, "635": 12, "637": 180, "638": 12, "640": 168, "641": 12, "643": 264, "659": 4, "660": 0, "661": 4, "662": 20, "663": 20, "664": 4, "665": 0, "667": 0, "683": 2, "684": 1, "689": 5, "692": 36, "694": 10, "698": 5, "699": 2, "701": 3, "704": 3, "705": 3, "706": 5, "711": 5, "712": 24, "714": 5, "695": 5, "696": 8, "730": 14, "731": 14, "732": 14, "733": 14, "734": 14, "735": 1, "736": 1, "760": 18, "761": 11, "762": 7, "763": 7, "764": 3, "765": 3, "771": 0, "772": 0, "773": 0, "774": 0, "775": 0, "776": 0, "777": 0, "778": 0, "779": 0, "770": 0, "781": 0, "782": 0, "783": 0, "784": 0, "785": 0, "790": 0, "791": 0, "792": 0, "805": 1, "806": 1, "808": 5, "809": 4, "810": 1, "812": 1, "823": 0, "824": 0, "825": 0, "826": 0, "827": 0, "828": 0, "829": 0, "830": 0, "831": 0, "832": 0, "844": 3, "845": 3, "846": 1, "847": 2, "848": 1, "850": 1, "852": 6, "853": 3, "851": 3, "855": 3, "857": 3, "871": 1, "872": 1, "873": 1, "874": 1, "876": 1}}
+{"/testbed/seaborn/_core/scales.py": {"1": 1, "2": 1, "3": 1, "4": 1, "5": 1, "6": 1, "7": 1, "9": 1, "10": 1, "11": 1, "28": 1, "33": 1, "34": 1, "35": 1, "37": 1, "38": 1, "40": 1, "41": 1, "42": 0, "43": 0, "45": 0, "46": 0, "51": 0, "54": 2, "143": 2, "144": 1, "304": 2, "305": 1, "310": 2, "311": 1, "316": 2, "317": 1, "428": 2, "429": 1, "663": 2, "664": 1, "791": 2, "901": 1, "909": 1, "924": 1, "949": 1, "969": 1, "980": 1, "57": 1, "59": 1, "60": 1, "61": 1, "62": 1, "63": 1, "65": 1, "71": 1, "74": 1, "77": 1, "80": 1, "83": 1, "97": 1, "105": 1, "110": 1, "131": 1, "132": 1, "67": 91, "68": 91, "69": 91, "72": 0, "75": 0, "78": 0, "81": 0, "85": 52, "86": 52, "88": 104, "95": 52, "89": 52, "90": 131, "91": 131, "92": 24, "93": 131, "98": 0, "99": 0, "102": 0, "103": 0, "108": 0, "116": 53, "117": 53, "118": 0, "120": 53, "122": 198, "123": 146, "124": 141, "126": 52, "127": 0, "129": 52, "134": 0, "140": 0, "135": 0, "136": 0, "137": 0, "138": 0, "150": 1, "151": 1, "153": 1, "155": 1, "236": 1, "260": 1, "285": 1, "294": 1, "159": 34, "160": 34, "161": 34, "162": 34, "163": 34, "166": 34, "168": 34, "182": 68, "192": 34, "193": 34, "194": 28, "199": 28, "201": 34, "206": 34, "209": 34, "221": 34, "222": 34, "220": 33, "226": 33, "229": 33, "231": 33, "232": 24, "234": 33, "183": 34, "185": 34, "186": 28, "215": 197, "216": 33, "217": 33, "218": 33, "227": 0, "254": 34, "256": 34, "255": 34, "258": 34, "279": 34, "281": 34, "280": 34, "283": 34, "287": 0, "288": 0, "290": 0, "292": 0, "296": 0, "297": 0, "299": 0, "301": 0, "307": 1, "313": 1, "319": 1, "320": 1, "322": 1, "394": 1, "326": 53, "327": 53, "328": 35, "329": 53, "330": 42, "332": 53, "334": 52, "336": 52, "337": 49, "338": 49, "340": 52, "341": 52, "344": 52, "345": 15, "346": 11, "348": 4, "349": 15, "350": 15, "351": 15, "353": 15, "357": 37, "360": 52, "361": 52, "362": 52, "363": 52, "359": 52, "366": 52, "371": 52, "377": 52, "378": 15, "379": 15, "380": 15, "385": 15, "386": 8, "387": 15, "388": 8, "389": 15, "390": 15, "392": 52, "354": 15, "367": 0, "368": 0, "369": 0, "370": 0, "396": 54, "398": 54, "403": 54, "404": 42, "405": 12, "406": 0, "407": 12, "408": 12, "409": 0, "410": 12, "411": 0, "412": 0, "413": 12, "414": 9, "415": 9, "416": 3, "417": 1, "418": 1, "419": 2, "420": 1, "421": 1, "422": 1, "423": 0, "425": 1, "399": 11, "400": 10, "401": 1, "433": 1, "434": 1, "439": 1, "441": 2, "444": 1, "445": 1, "446": 1, "447": 1, "448": 1, "449": 1, "502": 2, "505": 1, "506": 1, "507": 1, "553": 1, "567": 1, "623": 1, "478": 45, "479": 2, "480": 2, "481": 1, "483": 44, "484": 44, "485": 11, "486": 1, "487": 10, "488": 1, "490": 42, "492": 42, "493": 42, "494": 42, "495": 42, "496": 42, "497": 42, "498": 42, "491": 42, "500": 42, "535": 44, "536": 2, "537": 2, "538": 1, "540": 43, "541": 1, "542": 1, "544": 42, "546": 42, "547": 42, "548": 42, "549": 42, "545": 42, "551": 42, "557": 126, "558": 126, "559": 33, "560": 33, "561": 26, "562": 33, "563": 33, "564": 3, "565": 126, "569": 41, "571": 41, "572": 1, "574": 40, "575": 4, "576": 1, "578": 3, "580": 36, "581": 4, "583": 2, "585": 2, "586": 1, "587": 1, "588": 1, "590": 1, "591": 2, "593": 32, "594": 6, "595": 3, "597": 3, "598": 3, "599": 3, "601": 26, "602": 1, "605": 25, "606": 6, "607": 19, "608": 1, "610": 18, "612": 41, "613": 40, "615": 1, "616": 0, "617": 0, "619": 1, "621": 41, "625": 41, "626": 41, "627": 39, "628": 1, "629": 39, "631": 41, "632": 1, "634": 40, "635": 3, "636": 2, "637": 1, "639": 1, "640": 2, "642": 1, "644": 37, "646": 9, "648": 28, "649": 3, "650": 1, "651": 2, "652": 1, "654": 1, "655": 3, "658": 25, "660": 40, "678": 1, "680": 1, "682": 2, "684": 1, "716": 2, "719": 1, "745": 1, "758": 1, "705": 11, "707": 0, "708": 0, "706": 0, "710": 0, "712": 11, "713": 11, "714": 11, "741": 11, "742": 11, "743": 11, "747": 11, "748": 1, "749": 10, "750": 1, "753": 9, "754": 11, "756": 11, "760": 11, "761": 1, "763": 10, "766": 1, "768": 9, "770": 10, "801": 1, "803": 1, "818": 1, "821": 1, "829": 1, "832": 1, "835": 1, "840": 1, "844": 1, "848": 1, "852": 1, "856": 1, "859": 1, "877": 1, "885": 1, "893": 1, "805": 107, "806": 107, "807": 107, "808": 107, "809": 107, "813": 107, "815": 107, "819": 72, "822": 47, "830": 0, "833": 0, "838": 20, "841": 164, "842": 164, "845": 164, "846": 164, "849": 24, "850": 24, "853": 0, "854": 0, "857": 28, "861": 77, "862": 77, "863": 36, "865": 36, "867": 36, "868": 0, "869": 36, "870": 36, "871": 36, "872": 36, "879": 61, "880": 23, "881": 38, "882": 0, "883": 38, "891": 1, "894": 1, "903": 42, "906": 42, "904": 55, "911": 0, "913": 0, "917": 0, "921": 0, "914": 0, "915": 0, "918": 0, "919": 0, "927": 10, "928": 0, "929": 10, "930": 0, "931": 10, "932": 10, "934": 0, "936": 0, "938": 10, "942": 10, "946": 10, "935": 0, "939": 10, "940": 10, "943": 1, "944": 1, "956": 1, "958": 1, "962": 1, "966": 1, "959": 0, "960": 0, "963": 0, "964": 0, "971": 0, "974": 0, "977": 0, "972": 0, "975": 0, "982": 1, "985": 1, "988": 1, "983": 1, "986": 0}}
++ git checkout 22cdfb0c93f8ec78492d87edb810f10cb7f57a31
+Note: switching to '22cdfb0c93f8ec78492d87edb810f10cb7f57a31'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 22cdfb0c Fix inner axis visibility in relplot with unshared axes (#3180)
+M	seaborn/_core/scales.py
+M	seaborn/utils.py
++ git apply /root/pre_state.patch
+error: unrecognized input

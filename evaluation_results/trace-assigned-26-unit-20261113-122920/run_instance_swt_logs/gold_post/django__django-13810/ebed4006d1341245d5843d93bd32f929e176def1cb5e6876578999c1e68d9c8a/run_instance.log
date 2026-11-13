@@ -1,0 +1,77 @@
+2026-11-13 08:15:03,824 - WARNING - Starting evaluation at 1794575703.8248606
+2026-11-13 08:15:04,364 - INFO - Creating container for django__django-13810...
+2026-11-13 08:15:04,482 - INFO - Container for django__django-13810 created: 156334fd244e6cbcd2d880a7700c749716893ecb8f4d7765923f7801552dc5ee
+2026-11-13 08:15:04,738 - INFO - Container for django__django-13810 started: 156334fd244e6cbcd2d880a7700c749716893ecb8f4d7765923f7801552dc5ee
+2026-11-13 08:15:05,919 - INFO - Git diff before:
+
+2026-11-13 08:15:05,929 - INFO - Eval script for django__django-13810 written to eval.sh, now applying to container...
+2026-11-13 08:15:13,935 - INFO - Test output for django__django-13810 written to run_instance_swt_logs/gold_post/django__django-13810/ebed4006d1341245d5843d93bd32f929e176def1cb5e6876578999c1e68d9c8a/test_output.txt
+2026-11-13 08:15:14,024 - INFO - Git diff after:
+diff --git a/django/core/handlers/base.py b/django/core/handlers/base.py
+index 8e8c3da06a..728e449703 100644
+--- a/django/core/handlers/base.py
++++ b/django/core/handlers/base.py
+@@ -51,11 +51,11 @@ class BaseHandler:
+                 middleware_is_async = middleware_can_async
+             try:
+                 # Adapt handler, if needed.
+-                handler = self.adapt_method_mode(
++                adapted_handler = self.adapt_method_mode(
+                     middleware_is_async, handler, handler_is_async,
+                     debug=settings.DEBUG, name='middleware %s' % middleware_path,
+                 )
+-                mw_instance = middleware(handler)
++                mw_instance = middleware(adapted_handler)
+             except MiddlewareNotUsed as exc:
+                 if settings.DEBUG:
+                     if str(exc):
+@@ -63,6 +63,8 @@ class BaseHandler:
+                     else:
+                         logger.debug('MiddlewareNotUsed: %r', middleware_path)
+                 continue
++            else:
++                handler = adapted_handler
+ 
+             if mw_instance is None:
+                 raise ImproperlyConfigured(
+diff --git a/tests/middleware_exceptions/tests.py b/tests/middleware_exceptions/tests.py
+index 8b019ba524..2a389ce125 100644
+--- a/tests/middleware_exceptions/tests.py
++++ b/tests/middleware_exceptions/tests.py
+@@ -181,6 +181,25 @@ class MiddlewareNotUsedTests(SimpleTestCase):
+             with self.assertLogs('django.request', 'DEBUG'):
+                 self.client.get('/middleware_exceptions/view/')
+ 
++    @override_settings(MIDDLEWARE=[
++        'middleware_exceptions.middleware.SyncAndAsyncMiddleware',
++        'middleware_exceptions.tests.MyMiddleware',
++    ])
++    async def test_async_and_sync_middleware_chain_async_call(self):
++        with self.assertLogs('django.request', 'DEBUG') as cm:
++            response = await self.async_client.get('/middleware_exceptions/view/')
++        self.assertEqual(response.content, b'OK')
++        self.assertEqual(response.status_code, 200)
++        self.assertEqual(
++            cm.records[0].getMessage(),
++            'Asynchronous middleware middleware_exceptions.tests.MyMiddleware '
++            'adapted.',
++        )
++        self.assertEqual(
++            cm.records[1].getMessage(),
++            "MiddlewareNotUsed: 'middleware_exceptions.tests.MyMiddleware'",
++        )
++
+ 
+ @override_settings(
+     DEBUG=True,
+2026-11-13 08:15:14,025 - INFO - Git diff changed after running eval script
+2026-11-13 08:15:14,026 - INFO - Attempting to stop container exec.eval.x86_64.f904a9d2e0f61fc0d70077.70805dd72ec6ff2bc3de1b.132386095354256...
+2026-11-13 08:15:29,270 - INFO - Attempting to remove container exec.eval.x86_64.f904a9d2e0f61fc0d70077.70805dd72ec6ff2bc3de1b.132386095354256...
+2026-11-13 08:15:29,318 - INFO - Container exec.eval.x86_64.f904a9d2e0f61fc0d70077.70805dd72ec6ff2bc3de1b.132386095354256 removed.
+2026-11-13 08:15:29,319 - WARNING - End of eval at 1794575729.3199317
+2026-11-13 08:48:14,702 - WARNING - Starting evaluation at 1794577694.7027204
+2026-11-13 08:48:14,749 - WARNING - Starting evaluation at 1794577694.7495956
+2026-11-13 08:48:14,799 - WARNING - Starting evaluation at 1794577694.7995622
+2026-11-13 08:54:02,986 - INFO - Grading answer for django__django-13810...
+2026-11-13 08:54:03,073 - INFO - report: {'django__django-13810': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'coverage_pred': 1.0, 'coverage_gold': 1.0, 'coverage_base': 1.0, 'coverage_delta_pred': 1.0, 'coverage_delta_gold': 1.0, 'added_f2p': 1, 'tests_base': {'FAIL_TO_PASS': [], 'PASS_TO_PASS': ['test_async_middleware_async (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_sync_middleware_async (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_do_not_log_when_debug_is_false (middleware_exceptions.tests.MiddlewareNotUsedTests)', 'test_response_from_process_exception_when_return_response (middleware_exceptions.tests.MiddlewareTests)', 'test_async_process_template_response_returns_none_with_sync_client (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_raise_exception (middleware_exceptions.tests.MiddlewareNotUsedTests)', 'test_process_template_response_returns_none (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_view_exception_handled_by_process_exception (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_sync_decorated_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_process_template_response (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_exception_in_render_passed_to_process_exception (middleware_exceptions.tests.MiddlewareTests)', 'test_missing_root_urlconf (middleware_exceptions.tests.RootUrlconfTests)', 'test_async_and_sync_middleware_async_call (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_templateresponse_from_process_view_rendered (middleware_exceptions.tests.MiddlewareTests)', 'test_process_template_response (middleware_exceptions.tests.MiddlewareTests)', 'test_async_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_templateresponse_from_process_view_passed_to_process_template_response (middleware_exceptions.tests.MiddlewareTests)', 'test_process_view_return_none (middleware_exceptions.tests.MiddlewareTests)', 'test_exception_in_middleware_converted_before_prior_middleware (middleware_exceptions.tests.MiddlewareTests)', 'test_view_exception_converted_before_middleware (middleware_exceptions.tests.MiddlewareTests)', 'test_async_and_sync_middleware_sync_call (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_sync_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_not_sync_or_async_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_response_from_process_exception_short_circuits_remainder (middleware_exceptions.tests.MiddlewareTests)', 'test_log_custom_message (middleware_exceptions.tests.MiddlewareNotUsedTests)', 'test_process_view_return_response (middleware_exceptions.tests.MiddlewareTests)', 'test_view_exception_handled_by_process_exception (middleware_exceptions.tests.MiddlewareTests)', 'test_log (middleware_exceptions.tests.MiddlewareNotUsedTests)', 'test_process_view_return_response (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_exception_in_async_render_passed_to_process_exception (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_process_template_response_returns_none (middleware_exceptions.tests.MiddlewareTests)', 'test_exception_in_render_passed_to_process_exception (middleware_exceptions.tests.AsyncMiddlewareTests)'], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': []}, 'tests_pred': {'FAIL_TO_PASS': ['test_middleware_not_used_does_not_break_async_chain (middleware_exceptions.tests.MiddlewareSyncAsyncTests)'], 'PASS_TO_PASS': ['test_async_middleware_async (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_sync_middleware_async (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_do_not_log_when_debug_is_false (middleware_exceptions.tests.MiddlewareNotUsedTests)', 'test_response_from_process_exception_when_return_response (middleware_exceptions.tests.MiddlewareTests)', 'test_async_process_template_response_returns_none_with_sync_client (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_raise_exception (middleware_exceptions.tests.MiddlewareNotUsedTests)', 'test_process_template_response_returns_none (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_view_exception_handled_by_process_exception (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_sync_decorated_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_process_template_response (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_exception_in_render_passed_to_process_exception (middleware_exceptions.tests.MiddlewareTests)', 'test_missing_root_urlconf (middleware_exceptions.tests.RootUrlconfTests)', 'test_async_and_sync_middleware_async_call (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_templateresponse_from_process_view_rendered (middleware_exceptions.tests.MiddlewareTests)', 'test_process_template_response (middleware_exceptions.tests.MiddlewareTests)', 'test_async_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_templateresponse_from_process_view_passed_to_process_template_response (middleware_exceptions.tests.MiddlewareTests)', 'test_process_view_return_none (middleware_exceptions.tests.MiddlewareTests)', 'test_exception_in_middleware_converted_before_prior_middleware (middleware_exceptions.tests.MiddlewareTests)', 'test_view_exception_converted_before_middleware (middleware_exceptions.tests.MiddlewareTests)', 'test_async_and_sync_middleware_sync_call (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_sync_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_not_sync_or_async_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_response_from_process_exception_short_circuits_remainder (middleware_exceptions.tests.MiddlewareTests)', 'test_log_custom_message (middleware_exceptions.tests.MiddlewareNotUsedTests)', 'test_process_view_return_response (middleware_exceptions.tests.MiddlewareTests)', 'test_view_exception_handled_by_process_exception (middleware_exceptions.tests.MiddlewareTests)', 'test_log (middleware_exceptions.tests.MiddlewareNotUsedTests)', 'test_process_view_return_response (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_exception_in_async_render_passed_to_process_exception (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_process_template_response_returns_none (middleware_exceptions.tests.MiddlewareTests)', 'test_exception_in_render_passed_to_process_exception (middleware_exceptions.tests.AsyncMiddlewareTests)'], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': []}, 'tests_gold': {'FAIL_TO_PASS': ['test_async_and_sync_middleware_chain_async_call (middleware_exceptions.tests.MiddlewareNotUsedTests)'], 'PASS_TO_PASS': ['test_async_middleware_async (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_sync_middleware_async (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_do_not_log_when_debug_is_false (middleware_exceptions.tests.MiddlewareNotUsedTests)', 'test_response_from_process_exception_when_return_response (middleware_exceptions.tests.MiddlewareTests)', 'test_async_process_template_response_returns_none_with_sync_client (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_raise_exception (middleware_exceptions.tests.MiddlewareNotUsedTests)', 'test_process_template_response_returns_none (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_view_exception_handled_by_process_exception (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_sync_decorated_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_process_template_response (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_exception_in_render_passed_to_process_exception (middleware_exceptions.tests.MiddlewareTests)', 'test_missing_root_urlconf (middleware_exceptions.tests.RootUrlconfTests)', 'test_async_and_sync_middleware_async_call (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_templateresponse_from_process_view_rendered (middleware_exceptions.tests.MiddlewareTests)', 'test_process_template_response (middleware_exceptions.tests.MiddlewareTests)', 'test_async_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_templateresponse_from_process_view_passed_to_process_template_response (middleware_exceptions.tests.MiddlewareTests)', 'test_process_view_return_none (middleware_exceptions.tests.MiddlewareTests)', 'test_exception_in_middleware_converted_before_prior_middleware (middleware_exceptions.tests.MiddlewareTests)', 'test_view_exception_converted_before_middleware (middleware_exceptions.tests.MiddlewareTests)', 'test_async_and_sync_middleware_sync_call (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_sync_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_not_sync_or_async_middleware (middleware_exceptions.tests.MiddlewareSyncAsyncTests)', 'test_response_from_process_exception_short_circuits_remainder (middleware_exceptions.tests.MiddlewareTests)', 'test_log_custom_message (middleware_exceptions.tests.MiddlewareNotUsedTests)', 'test_process_view_return_response (middleware_exceptions.tests.MiddlewareTests)', 'test_view_exception_handled_by_process_exception (middleware_exceptions.tests.MiddlewareTests)', 'test_log (middleware_exceptions.tests.MiddlewareNotUsedTests)', 'test_process_view_return_response (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_exception_in_async_render_passed_to_process_exception (middleware_exceptions.tests.AsyncMiddlewareTests)', 'test_process_template_response_returns_none (middleware_exceptions.tests.MiddlewareTests)', 'test_exception_in_render_passed_to_process_exception (middleware_exceptions.tests.AsyncMiddlewareTests)'], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': []}}}
+Result for django__django-13810: resolved: True

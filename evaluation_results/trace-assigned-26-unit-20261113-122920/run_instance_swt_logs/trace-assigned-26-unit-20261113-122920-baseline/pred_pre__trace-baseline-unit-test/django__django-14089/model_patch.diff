@@ -1,0 +1,16 @@
+diff --git a/tests/utils_tests/test_datastructures.py b/tests/utils_tests/test_datastructures.py
+index 45d172f984..47ea49edfa 100644
+--- a/tests/utils_tests/test_datastructures.py
++++ b/tests/utils_tests/test_datastructures.py
+@@ -55,6 +55,11 @@ class OrderedSetTests(SimpleTestCase):
+         s.add(2)
+         self.assertEqual(len(s), 2)
+ 
++    def test_reversed(self):
++        s = OrderedSet([1, 2, 3])
++        self.assertEqual(list(reversed(s)), [3, 2, 1])
++        self.assertEqual(list(reversed(OrderedSet())), [])
++
+ 
+ class MultiValueDictTests(SimpleTestCase):
+ 

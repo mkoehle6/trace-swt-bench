@@ -1,0 +1,51 @@
+2026-11-13 07:36:46,654 - WARNING - Starting evaluation at 1794573406.6549337
+2026-11-13 07:36:46,890 - INFO - Creating container for sympy__sympy-24539...
+2026-11-13 07:36:46,960 - INFO - Container for sympy__sympy-24539 created: b1eedea65a65305bed995e9f8864f29d8f3cc8507f16c5497fe25b9b2c893bc0
+2026-11-13 07:36:47,132 - INFO - Container for sympy__sympy-24539 started: b1eedea65a65305bed995e9f8864f29d8f3cc8507f16c5497fe25b9b2c893bc0
+2026-11-13 07:36:47,525 - INFO - Git diff before:
+
+2026-11-13 07:36:47,532 - INFO - Eval script for sympy__sympy-24539 written to eval.sh, now applying to container...
+2026-11-13 07:36:53,425 - INFO - Test output for sympy__sympy-24539 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/sympy__sympy-24539/test_output.txt
+2026-11-13 07:36:53,492 - INFO - Git diff after:
+diff --git a/sympy/polys/rings.py b/sympy/polys/rings.py
+index 12bd2fc920..e99f6676ec 100644
+--- a/sympy/polys/rings.py
++++ b/sympy/polys/rings.py
+@@ -616,10 +616,13 @@ def set_ring(self, new_ring):
+             return new_ring.from_dict(self, self.ring.domain)
+ 
+     def as_expr(self, *symbols):
+-        if symbols and len(symbols) != self.ring.ngens:
+-            raise ValueError("not enough symbols, expected %s got %s" % (self.ring.ngens, len(symbols)))
+-        else:
++        if not symbols:
+             symbols = self.ring.symbols
++        elif len(symbols) != self.ring.ngens:
++            raise ValueError(
++                "Wrong number of symbols, expected %s got %s" %
++                (self.ring.ngens, len(symbols))
++            )
+ 
+         return expr_from_dict(self.as_expr_dict(), *symbols)
+ 
+diff --git a/sympy/polys/tests/test_rings.py b/sympy/polys/tests/test_rings.py
+index b3962136a3..4d9a5528cc 100644
+--- a/sympy/polys/tests/test_rings.py
++++ b/sympy/polys/tests/test_rings.py
+@@ -265,6 +265,11 @@ def test_PolyElement_as_expr():
+     assert f != g
+     assert f.as_expr(X, Y, Z) == g
+ 
++    U, V, W = symbols("u,v,w")
++    g = 3*U**2*V - U*V*W + 7*W**3 + 1
++
++    assert f.as_expr(U, V, W) == g
++
+     raises(ValueError, lambda: f.as_expr(X))
+ 
+     R, = ring("", ZZ)
+2026-11-13 07:36:53,493 - INFO - Git diff changed after running eval script
+2026-11-13 07:36:53,494 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.4875ffbbf816883aa80c99.132386106654016...
+2026-11-13 07:37:08,684 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.4875ffbbf816883aa80c99.132386106654016...
+2026-11-13 07:37:08,709 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.4875ffbbf816883aa80c99.132386106654016 removed.
+2026-11-13 07:37:08,710 - WARNING - End of eval at 1794573428.710715

@@ -1,0 +1,3 @@
+2026-11-13 08:33:01,788 - INFO - Environment image exec.env.x86_64.13bad202ba417fcce45d9d:latest found for astropy__astropy-14508
+Building instance image exec.eval.x86_64.13bad202ba417fcce45d9d.621f7d89e2f7ad4fa104be:latest for astropy__astropy-14508
+2026-11-13 08:33:01,851 - INFO - Image exec.eval.x86_64.13bad202ba417fcce45d9d.621f7d89e2f7ad4fa104be:latest already exists, skipping build.

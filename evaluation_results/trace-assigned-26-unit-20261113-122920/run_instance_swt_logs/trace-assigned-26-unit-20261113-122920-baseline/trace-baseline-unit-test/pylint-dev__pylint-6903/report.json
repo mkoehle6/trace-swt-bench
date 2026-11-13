@@ -1,0 +1,50 @@
+{
+    "pylint-dev__pylint-6903": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "coverage_pred": 1.0,
+        "coverage_gold": 0.5,
+        "coverage_base": 0.0,
+        "coverage_delta_pred": 1.0,
+        "coverage_delta_gold": 0.5,
+        "added_f2p": 1,
+        "tests_base": {
+            "FAIL_TO_PASS": [],
+            "PASS_TO_PASS": [],
+            "FAIL_TO_FAIL": [],
+            "PASS_TO_FAIL": [],
+            "UNMATCHED": [
+                "file"
+            ]
+        },
+        "tests_pred": {
+            "FAIL_TO_PASS": [
+                "tests/lint/test_run.py::test_cpu_count_is_never_zero"
+            ],
+            "PASS_TO_PASS": [],
+            "FAIL_TO_FAIL": [],
+            "PASS_TO_FAIL": [],
+            "UNMATCHED": []
+        },
+        "tests_gold": {
+            "FAIL_TO_PASS": [],
+            "PASS_TO_PASS": [
+                "tests/test_pylint_runners.py::test_runner_with_arguments[run_pyreverse]",
+                "tests/test_pylint_runners.py::test_runner_with_arguments[run_symilar]",
+                "tests/test_pylint_runners.py::test_runner[run_symilar]",
+                "tests/test_pylint_runners.py::test_runner[run_pyreverse]"
+            ],
+            "FAIL_TO_FAIL": [
+                "tests/test_pylint_runners.py::test_runner_with_arguments[run_epylint]",
+                "tests/test_pylint_runners.py::test_runner_with_arguments[run_pylint]",
+                "tests/test_pylint_runners.py::test_runner[run_epylint]",
+                "tests/test_pylint_runners.py::test_runner[run_pylint]",
+                "tests/test_pylint_runners.py::test_pylint_run_jobs_equal_zero_dont_crash_with_cpu_fraction"
+            ],
+            "PASS_TO_FAIL": [],
+            "UNMATCHED": []
+        }
+    }
+}

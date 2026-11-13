@@ -1,0 +1,36 @@
+2026-11-13 08:30:46,971 - WARNING - Starting evaluation at 1794576646.9711933
+2026-11-13 08:30:47,357 - INFO - Creating container for sympy__sympy-24539...
+2026-11-13 08:30:47,463 - INFO - Container for sympy__sympy-24539 created: 4aed9e73c68fcdd53a0d2c50d08a81225c1cd02f96011890242c413f25184a83
+2026-11-13 08:30:47,699 - INFO - Container for sympy__sympy-24539 started: 4aed9e73c68fcdd53a0d2c50d08a81225c1cd02f96011890242c413f25184a83
+2026-11-13 08:30:48,773 - INFO - Git diff before:
+
+2026-11-13 08:30:48,783 - INFO - Eval script for sympy__sympy-24539 written to eval.sh, now applying to container...
+2026-11-13 08:30:57,076 - INFO - Test output for sympy__sympy-24539 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/sympy__sympy-24539/test_output.txt
+2026-11-13 08:30:57,152 - INFO - Git diff after:
+diff --git a/sympy/polys/tests/test_rings.py b/sympy/polys/tests/test_rings.py
+index b3962136a3..3f875e68a5 100644
+--- a/sympy/polys/tests/test_rings.py
++++ b/sympy/polys/tests/test_rings.py
+@@ -259,13 +259,13 @@ def test_PolyElement_as_expr():
+     assert f != g
+     assert f.as_expr() == g
+ 
+-    X, Y, Z = symbols("x,y,z")
+-    g = 3*X**2*Y - X*Y*Z + 7*Z**3 + 1
++    U, V, W = symbols("u,v,w")
++    g = 3*U**2*V - U*V*W + 7*W**3 + 1
+ 
+     assert f != g
+-    assert f.as_expr(X, Y, Z) == g
++    assert f.as_expr(U, V, W) == g
+ 
+-    raises(ValueError, lambda: f.as_expr(X))
++    raises(ValueError, lambda: f.as_expr(U))
+ 
+     R, = ring("", ZZ)
+     assert R(3).as_expr() == 3
+2026-11-13 08:30:57,153 - INFO - Git diff changed after running eval script
+2026-11-13 08:30:57,154 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.4875ffbbf816883aa80c99.125911375952256...
+2026-11-13 08:31:12,355 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.4875ffbbf816883aa80c99.125911375952256...
+2026-11-13 08:31:12,402 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.4875ffbbf816883aa80c99.125911375952256 removed.
+2026-11-13 08:31:12,403 - WARNING - End of eval at 1794576672.4035172

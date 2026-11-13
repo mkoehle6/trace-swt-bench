@@ -1,0 +1,19 @@
+{
+  "baseline": {
+    "official_aggregate_matches_instance_reports": true,
+    "all_26_predictions_and_reports_accounted_for": true,
+    "original_generation_export_unchanged": true,
+    "raw_completed_instances_counter": 0,
+    "reports_verified": 26
+  },
+  "improved": {
+    "official_aggregate_matches_instance_reports": true,
+    "all_26_predictions_and_reports_accounted_for": true,
+    "original_generation_export_unchanged": true,
+    "raw_completed_instances_counter": 0,
+    "reports_verified": 26
+  },
+  "saved_reports_unchanged": true,
+  "harness_tracked_code_unchanged": true,
+  "harness_counter_note": "Raw completed_instances is 0 on first-pass grading because the counter adds only preexisting report files. All 26 instance reports per method were subsequently verified; resolved/unresolved sets cover all assignments."
+}

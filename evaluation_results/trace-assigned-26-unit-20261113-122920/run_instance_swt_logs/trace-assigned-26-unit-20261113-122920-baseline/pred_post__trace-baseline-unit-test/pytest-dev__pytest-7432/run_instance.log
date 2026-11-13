@@ -1,0 +1,76 @@
+2026-11-13 07:42:46,534 - WARNING - Starting evaluation at 1794573766.534887
+2026-11-13 07:42:46,897 - INFO - Creating container for pytest-dev__pytest-7432...
+2026-11-13 07:42:46,985 - INFO - Container for pytest-dev__pytest-7432 created: 6c6ed1ad5781696fa4823b18c6fe2103433e70a2bf117772d46a250c5ef77433
+2026-11-13 07:42:47,183 - INFO - Container for pytest-dev__pytest-7432 started: 6c6ed1ad5781696fa4823b18c6fe2103433e70a2bf117772d46a250c5ef77433
+2026-11-13 07:42:47,355 - INFO - Git diff before:
+
+2026-11-13 07:42:47,362 - INFO - Eval script for pytest-dev__pytest-7432 written to eval.sh, now applying to container...
+2026-11-13 07:42:57,866 - INFO - Test output for pytest-dev__pytest-7432 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/pytest-dev__pytest-7432/test_output.txt
+2026-11-13 07:42:57,934 - INFO - Git diff after:
+diff --git a/src/_pytest/skipping.py b/src/_pytest/skipping.py
+index 7bd975e5a..591a65df9 100644
+--- a/src/_pytest/skipping.py
++++ b/src/_pytest/skipping.py
+@@ -291,7 +291,8 @@ def pytest_runtest_makereport(item: Item, call: CallInfo[None]):
+             else:
+                 rep.outcome = "passed"
+                 rep.wasxfail = xfailed.reason
+-    elif (
++
++    if (
+         item._store.get(skipped_by_mark_key, True)
+         and rep.skipped
+         and type(rep.longrepr) is tuple
+diff --git a/testing/test_skipping.py b/testing/test_skipping.py
+index 0b1c0b49b..cad8e90cd 100644
+--- a/testing/test_skipping.py
++++ b/testing/test_skipping.py
+@@ -648,6 +648,21 @@ class TestSkip:
+         result = testdir.runpytest("-rs")
+         result.stdout.fnmatch_lines(["*unconditional skip*", "*1 skipped*"])
+ 
++    def test_skip_location_with_runxfail(self, testdir):
++        testdir.makepyfile(
++            test_skip_location="""
++            import pytest
++            @pytest.mark.skip
++            def test_that():
++                assert 0
++        """
++        )
++        result = testdir.runpytest("--runxfail", "-rs")
++        result.stdout.fnmatch_lines(
++            ["SKIPPED [[]1[]] test_skip_location.py:3: unconditional skip"]
++        )
++        assert result.ret == 0
++
+ 
+ class TestSkipif:
+     def test_skipif_conditional(self, testdir):
+@@ -690,6 +705,21 @@ class TestSkipif:
+         )
+         pytest.raises(pytest.skip.Exception, lambda: pytest_runtest_setup(item))
+ 
++    def test_skipif_location_with_runxfail(self, testdir):
++        testdir.makepyfile(
++            test_skipif_location="""
++            import pytest
++            @pytest.mark.skipif(True, reason="skipif reason")
++            def test_that():
++                assert 0
++        """
++        )
++        result = testdir.runpytest("--runxfail", "-rs")
++        result.stdout.fnmatch_lines(
++            ["SKIPPED [[]1[]] test_skipif_location.py:3: skipif reason"]
++        )
++        assert result.ret == 0
++
+     @pytest.mark.parametrize(
+         "marker, msg1, msg2",
+         [("skipif", "SKIP", "skipped"), ("xfail", "XPASS", "xpassed")],
+2026-11-13 07:42:57,935 - INFO - Git diff changed after running eval script
+2026-11-13 07:42:57,936 - INFO - Attempting to stop container exec.eval.x86_64.bfa0b4daea744b5aaefba0.64d7f7c86507f17e222a4c.132386095350896...
+2026-11-13 07:43:13,140 - INFO - Attempting to remove container exec.eval.x86_64.bfa0b4daea744b5aaefba0.64d7f7c86507f17e222a4c.132386095350896...
+2026-11-13 07:43:13,184 - INFO - Container exec.eval.x86_64.bfa0b4daea744b5aaefba0.64d7f7c86507f17e222a4c.132386095350896 removed.
+2026-11-13 07:43:13,186 - WARNING - End of eval at 1794573793.186077

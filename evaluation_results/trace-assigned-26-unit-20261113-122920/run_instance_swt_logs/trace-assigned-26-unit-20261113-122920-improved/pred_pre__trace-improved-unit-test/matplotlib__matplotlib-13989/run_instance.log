@@ -1,0 +1,34 @@
+2026-11-13 08:34:54,586 - WARNING - Starting evaluation at 1794576894.5864599
+2026-11-13 08:34:54,970 - INFO - Creating container for matplotlib__matplotlib-13989...
+2026-11-13 08:34:55,072 - INFO - Container for matplotlib__matplotlib-13989 created: 4afb29e9beb36d71dc0950f910f477273a26739d867ffdec54a756bb199d8197
+2026-11-13 08:34:55,319 - INFO - Container for matplotlib__matplotlib-13989 started: 4afb29e9beb36d71dc0950f910f477273a26739d867ffdec54a756bb199d8197
+2026-11-13 08:34:57,609 - INFO - Git diff before:
+
+2026-11-13 08:34:57,617 - INFO - Eval script for matplotlib__matplotlib-13989 written to eval.sh, now applying to container...
+2026-11-13 08:37:27,167 - INFO - Test output for matplotlib__matplotlib-13989 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/matplotlib__matplotlib-13989/test_output.txt
+2026-11-13 08:37:27,284 - INFO - Git diff after:
+diff --git a/lib/matplotlib/tests/test_axes.py b/lib/matplotlib/tests/test_axes.py
+index cff4325f19..03e1a15809 100644
+--- a/lib/matplotlib/tests/test_axes.py
++++ b/lib/matplotlib/tests/test_axes.py
+@@ -1699,6 +1699,15 @@ def test_hist_unequal_bins_density():
+     assert_allclose(mpl_heights, np_heights)
+ 
+ 
++@pytest.mark.parametrize('bins', ['auto', 5])
++def test_hist_density_with_range(bins):
++    # The range should be honored when density normalization is requested.
++    data = np.linspace(0.2, 0.8, 10)
++    _, bin_edges, _ = plt.hist(data, bins=bins, range=(0, 1), density=True)
++    assert_allclose(bin_edges[0], 0)
++    assert_allclose(bin_edges[-1], 1)
++
++
+ def test_hist_datetime_datasets():
+     data = [[datetime.datetime(2017, 1, 1), datetime.datetime(2017, 1, 1)],
+             [datetime.datetime(2017, 1, 1), datetime.datetime(2017, 1, 2)]]
+2026-11-13 08:37:27,286 - INFO - Git diff changed after running eval script
+2026-11-13 08:37:27,288 - INFO - Attempting to stop container exec.eval.x86_64.4e6c6a611c1e7eeede5a3f.3f4d6e0225aeb345230f37.125911466312048...
+2026-11-13 08:37:42,506 - INFO - Attempting to remove container exec.eval.x86_64.4e6c6a611c1e7eeede5a3f.3f4d6e0225aeb345230f37.125911466312048...
+2026-11-13 08:37:42,554 - INFO - Container exec.eval.x86_64.4e6c6a611c1e7eeede5a3f.3f4d6e0225aeb345230f37.125911466312048 removed.
+2026-11-13 08:37:42,555 - WARNING - End of eval at 1794577062.5553498

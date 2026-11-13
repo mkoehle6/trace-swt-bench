@@ -1,0 +1,34 @@
+diff --git a/testing/test_skipping.py b/testing/test_skipping.py
+index 0b1c0b49b..c0a48a800 100644
+--- a/testing/test_skipping.py
++++ b/testing/test_skipping.py
+@@ -649,6 +649,29 @@ class TestSkip:
+         result.stdout.fnmatch_lines(["*unconditional skip*", "*1 skipped*"])
+ 
+ 
++def test_skip_report_location_with_runxfail(testdir):
++    testdir.makepyfile(
++        test_foo="""
++        import pytest
++        @pytest.mark.skip
++        def test_skip():
++            assert 0
++        @pytest.mark.skipif(True, reason="condition is true")
++        def test_skipif():
++            assert 0
++        """
++    )
++    result = testdir.runpytest("-rs", "--runxfail")
++    result.stdout.fnmatch_lines(
++        [
++            "SKIPPED [[]1[]] test_foo.py:2: unconditional skip",
++            "SKIPPED [[]1[]] test_foo.py:5: condition is true",
++            "*2 skipped*",
++        ]
++    )
++    assert result.ret == 0
++
++
+ class TestSkipif:
+     def test_skipif_conditional(self, testdir):
+         item = testdir.getitem(

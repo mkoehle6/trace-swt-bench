@@ -1,0 +1,618 @@
+{
+  "prepared_utc": "2026-11-13T13:54:22.898619+00:00",
+  "assigned_instances": 26,
+  "methods": {
+    "baseline": {
+      "assigned": 26,
+      "reported": 26,
+      "missing_reports": 0,
+      "applicable": 26,
+      "resolved": 16,
+      "unresolved_reported": 10,
+      "coverage_delta_pred_available": 25,
+      "coverage_delta_pred_mean_available": 0.5673640867286606,
+      "coverage_delta_pred_mean_resolved": 0.6918985423762773,
+      "resolved_coverage_available": 16,
+      "timing": {
+        "seconds": 3425.922071995,
+        "exit_code": 0
+      }
+    },
+    "improved": {
+      "assigned": 26,
+      "reported": 26,
+      "missing_reports": 0,
+      "applicable": 26,
+      "resolved": 17,
+      "unresolved_reported": 9,
+      "coverage_delta_pred_available": 25,
+      "coverage_delta_pred_mean_available": 0.6027312142248203,
+      "coverage_delta_pred_mean_resolved": 0.7267385214955547,
+      "resolved_coverage_available": 17,
+      "timing": {
+        "seconds": 1549.8593760880003,
+        "exit_code": 0
+      }
+    }
+  },
+  "instances": {
+    "pydata__xarray-3677": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pydata__xarray-3677/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pydata__xarray-3677/report.json"
+      }
+    },
+    "django__django-14089": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 0.5,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-14089/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 0.5,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-14089/report.json"
+      }
+    },
+    "django__django-11163": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 2,
+        "coverage_pred": 0.5,
+        "coverage_delta_pred": 0.5,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-11163/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 2,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-11163/report.json"
+      }
+    },
+    "sympy__sympy-24539": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 0.8571428571428571,
+        "coverage_delta_pred": 0.2857142857142857,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sympy__sympy-24539/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 0.8571428571428571,
+        "coverage_delta_pred": 0.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sympy__sympy-24539/report.json"
+      }
+    },
+    "scikit-learn__scikit-learn-14894": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 0.4166666666666667,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/scikit-learn__scikit-learn-14894/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 0.4166666666666667,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/scikit-learn__scikit-learn-14894/report.json"
+      }
+    },
+    "sphinx-doc__sphinx-9711": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 0.6666666666666666,
+        "coverage_delta_pred": 0.5833333333333334,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-9711/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 0.6666666666666666,
+        "coverage_delta_pred": 0.5833333333333334,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-9711/report.json"
+      }
+    },
+    "astropy__astropy-14508": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 0.9285714285714286,
+        "coverage_delta_pred": 0.7857142857142857,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/astropy__astropy-14508/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 0.9285714285714286,
+        "coverage_delta_pred": 0.7857142857142857,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/astropy__astropy-14508/report.json"
+      }
+    },
+    "pytest-dev__pytest-7432": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pytest-dev__pytest-7432/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pytest-dev__pytest-7432/report.json"
+      }
+    },
+    "pallets__flask-5014": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pallets__flask-5014/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pallets__flask-5014/report.json"
+      }
+    },
+    "matplotlib__matplotlib-13989": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 0.5,
+        "coverage_delta_pred": 0.5,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/matplotlib__matplotlib-13989/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 2,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/matplotlib__matplotlib-13989/report.json"
+      }
+    },
+    "psf__requests-2931": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 0.75,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/psf__requests-2931/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 0.75,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/psf__requests-2931/report.json"
+      }
+    },
+    "pylint-dev__pylint-6903": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pylint-dev__pylint-6903/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 2,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pylint-dev__pylint-6903/report.json"
+      }
+    },
+    "mwaskom__seaborn-3187": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 2,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/mwaskom__seaborn-3187/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 0.6666666666666666,
+        "coverage_delta_pred": 0.6666666666666666,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/mwaskom__seaborn-3187/report.json"
+      }
+    },
+    "django__django-13513": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 0.6470588235294118,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-13513/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 0.6470588235294118,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-13513/report.json"
+      }
+    },
+    "sphinx-doc__sphinx-8548": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 0.13636363636363635,
+        "coverage_delta_pred": 0.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8548/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 0.13636363636363635,
+        "coverage_delta_pred": 0.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8548/report.json"
+      }
+    },
+    "django__django-13344": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 0.22580645161290322,
+        "coverage_delta_pred": 0.0967741935483871,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-13344/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 0.12903225806451613,
+        "coverage_delta_pred": 0.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-13344/report.json"
+      }
+    },
+    "django__django-15098": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 2,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 0.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-15098/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 3,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 0.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-15098/report.json"
+      }
+    },
+    "django__django-12155": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 0.5333333333333333,
+        "coverage_delta_pred": 0.4666666666666667,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-12155/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 0.5333333333333333,
+        "coverage_delta_pred": 0.4666666666666667,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-12155/report.json"
+      }
+    },
+    "sphinx-doc__sphinx-8638": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8638/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8638/report.json"
+      }
+    },
+    "django__django-15252": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 0.6,
+        "coverage_delta_pred": 0.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-15252/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 0.8,
+        "coverage_delta_pred": 0.6,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-15252/report.json"
+      }
+    },
+    "django__django-16631": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 2,
+        "coverage_pred": 0.8695652173913043,
+        "coverage_delta_pred": 0.6521739130434783,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-16631/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 0.8695652173913043,
+        "coverage_delta_pred": 0.6521739130434783,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-16631/report.json"
+      }
+    },
+    "sphinx-doc__sphinx-8551": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 0.0,
+        "coverage_delta_pred": 0.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8551/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 0.0,
+        "coverage_delta_pred": 0.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8551/report.json"
+      }
+    },
+    "django__django-13810": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 2,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-13810/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 1,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-13810/report.json"
+      }
+    },
+    "sphinx-doc__sphinx-8721": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": null,
+        "coverage_delta_pred": null,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8721/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": null,
+        "coverage_delta_pred": null,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8721/report.json"
+      }
+    },
+    "sphinx-doc__sphinx-8621": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 0.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8621/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "added_f2p": 0,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 0.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8621/report.json"
+      }
+    },
+    "matplotlib__matplotlib-25311": {
+      "baseline": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 2,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/matplotlib__matplotlib-25311/report.json"
+      },
+      "improved": {
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "added_f2p": 2,
+        "coverage_pred": 1.0,
+        "coverage_delta_pred": 1.0,
+        "status": "reported",
+        "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/matplotlib__matplotlib-25311/report.json"
+      }
+    }
+  },
+  "evaluation_only": true,
+  "disagreements": [
+    "pytest-dev__pytest-7432",
+    "django__django-13344",
+    "django__django-15098"
+  ]
+}

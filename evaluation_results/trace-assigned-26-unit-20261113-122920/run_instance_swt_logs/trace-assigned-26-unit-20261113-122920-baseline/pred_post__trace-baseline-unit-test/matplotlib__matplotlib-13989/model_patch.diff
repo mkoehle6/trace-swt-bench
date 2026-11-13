@@ -1,0 +1,25 @@
+diff --git a/lib/matplotlib/tests/test_axes.py b/lib/matplotlib/tests/test_axes.py
+index cff4325f19..7fc6c1147c 100644
+--- a/lib/matplotlib/tests/test_axes.py
++++ b/lib/matplotlib/tests/test_axes.py
+@@ -1699,6 +1699,20 @@ def test_hist_unequal_bins_density():
+     assert_allclose(mpl_heights, np_heights)
+ 
+ 
++def test_hist_density_with_range():
++    # Regression test for a specified range being ignored when density=True.
++    rng = np.random.RandomState(19680801)
++    data = rng.rand(10)
++    expected_counts, expected_bins = np.histogram(
++        data, bins='auto', range=(0, 1), density=True)
++    counts, bins, _ = plt.hist(
++        data, bins='auto', range=(0, 1), density=True)
++    assert_allclose(counts, expected_counts)
++    assert_allclose(bins, expected_bins)
++    assert bins[0] == 0
++    assert bins[-1] == 1
++
++
+ def test_hist_datetime_datasets():
+     data = [[datetime.datetime(2017, 1, 1), datetime.datetime(2017, 1, 1)],
+             [datetime.datetime(2017, 1, 1), datetime.datetime(2017, 1, 2)]]

@@ -1,0 +1,19 @@
+2026-11-13 08:08:13,550 - WARNING - Starting evaluation at 1794575293.5501153
+2026-11-13 08:08:13,959 - INFO - Creating container for django__django-12155...
+2026-11-13 08:08:14,093 - INFO - Container for django__django-12155 created: 68080375f2c8fe6215b2c3c8cab0bcee5b5cc2b966e813a997d7b097dea697ea
+2026-11-13 08:08:14,354 - INFO - Container for django__django-12155 started: 68080375f2c8fe6215b2c3c8cab0bcee5b5cc2b966e813a997d7b097dea697ea
+2026-11-13 08:08:15,397 - INFO - Git diff before:
+
+2026-11-13 08:08:15,405 - INFO - Eval script for django__django-12155 written to eval.sh, now applying to container...
+2026-11-13 08:08:22,674 - INFO - Test output for django__django-12155 written to run_instance_swt_logs/base_pre/django__django-12155/aa913642d8ece1b5b7a2b88e831a6ab38e675d5d192e05e44d95e0126bd03814/test_output.txt
+2026-11-13 08:08:22,767 - INFO - Git diff after:
+
+2026-11-13 08:08:22,768 - INFO - Attempting to stop container exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9.132386095351328...
+2026-11-13 08:08:37,964 - INFO - Attempting to remove container exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9.132386095351328...
+2026-11-13 08:08:37,997 - INFO - Container exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9.132386095351328 removed.
+2026-11-13 08:08:37,998 - WARNING - End of eval at 1794575317.998778
+2026-11-13 08:44:37,115 - WARNING - Starting evaluation at 1794577477.1151006
+2026-11-13 08:44:37,170 - WARNING - Starting evaluation at 1794577477.1707566
+2026-11-13 08:54:01,579 - INFO - Grading answer for django__django-12155...
+2026-11-13 08:54:01,662 - INFO - report: {'django__django-12155': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'coverage_pred': 0.5333333333333333, 'coverage_gold': 0.7333333333333333, 'coverage_base': 0.06666666666666667, 'coverage_delta_pred': 0.4666666666666667, 'coverage_delta_gold': 0.6666666666666666, 'added_f2p': 0, 'tests_base': {'FAIL_TO_PASS': [], 'PASS_TO_PASS': [], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': ['test_description_output (admin_docs.test_utils.TestUtils)', 'test_title_output (admin_docs.test_utils.TestUtils)', 'test_publish_parts (admin_docs.test_utils.TestUtils)', 'test_parse_docstring (admin_docs.test_utils.TestUtils)', 'test_trim_docstring (admin_docs.test_utils.TestUtils)', 'test_initial_header_level (admin_docs.test_utils.TestUtils)', 'test_parse_rst (admin_docs.test_utils.TestUtils)'], 'UNMATCHED': ['test_utils (unittest.loader._FailedTest)']}, 'tests_pred': {'FAIL_TO_PASS': [], 'PASS_TO_PASS': [], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': ['test_description_output (admin_docs.test_utils.TestUtils)', 'test_title_output (admin_docs.test_utils.TestUtils)', 'test_parse_docstring (admin_docs.test_utils.TestUtils)', 'test_trim_docstring (admin_docs.test_utils.TestUtils)', 'test_publish_parts (admin_docs.test_utils.TestUtils)', 'test_initial_header_level (admin_docs.test_utils.TestUtils)', 'test_parse_rst (admin_docs.test_utils.TestUtils)'], 'UNMATCHED': ['test_parse_docstring_first_line_not_empty (admin_docs.test_utils.TestUtils)', 'test_trim_docstring_first_line_not_empty (admin_docs.test_utils.TestUtils)', 'test_utils (unittest.loader._FailedTest)']}, 'tests_gold': {'FAIL_TO_PASS': ['test_publish_parts (admin_docs.test_utils.TestUtils)', 'test_parse_rst_with_docstring_no_leading_line_feed (admin_docs.test_utils.TestUtils)'], 'PASS_TO_PASS': ['test_description_output (admin_docs.test_utils.TestUtils)', 'test_title_output (admin_docs.test_utils.TestUtils)', 'test_parse_docstring (admin_docs.test_utils.TestUtils)', 'test_initial_header_level (admin_docs.test_utils.TestUtils)', 'test_parse_rst (admin_docs.test_utils.TestUtils)'], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': []}}}
+Result for django__django-12155: resolved: False

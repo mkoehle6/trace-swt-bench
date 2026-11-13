@@ -1,0 +1,62 @@
+2026-11-13 08:31:59,258 - WARNING - Starting evaluation at 1794576719.2584977
+2026-11-13 08:31:59,734 - INFO - Creating container for astropy__astropy-14508...
+2026-11-13 08:31:59,873 - INFO - Container for astropy__astropy-14508 created: f2d08f9766af13b8fc41751d90ac36ded755eb26437627786641dde6170513b4
+2026-11-13 08:32:00,183 - INFO - Container for astropy__astropy-14508 started: f2d08f9766af13b8fc41751d90ac36ded755eb26437627786641dde6170513b4
+2026-11-13 08:32:01,076 - INFO - Git diff before:
+diff --git a/pyproject.toml b/pyproject.toml
+index 65df5b1b77..d02c4f9eda 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["setuptools",
++requires = ["setuptools==68.0.0",
+             "setuptools_scm>=6.2",
+             "wheel",
+             "cython==0.29.30",
+2026-11-13 08:32:01,086 - INFO - Eval script for astropy__astropy-14508 written to eval.sh, now applying to container...
+2026-11-13 08:32:46,102 - INFO - Test output for astropy__astropy-14508 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/astropy__astropy-14508/test_output.txt
+2026-11-13 08:32:46,168 - INFO - Git diff after:
+diff --git a/astropy/io/fits/tests/test_header.py b/astropy/io/fits/tests/test_header.py
+index a8f4e1160f..bec7fe883d 100644
+--- a/astropy/io/fits/tests/test_header.py
++++ b/astropy/io/fits/tests/test_header.py
+@@ -632,6 +632,22 @@ class TestHeaderFunctions(FitsTestCase):
+             "'ENC=OFFSET+RESOL*acos((WID-(MAX+MIN))/(MAX-MIN)'"
+         )
+ 
++    def test_hierarch_card_float_comment_not_truncated(self):
++        """Regression test for a float value being formatted too long.
++
++        A shorter string representation of the float should be used so that
++        the full comment fits in the card.
++        """
++        c = fits.Card(
++            "HIERARCH ESO IFM CL RADIUS",
++            0.009125,
++            "[m] radius arround actuator to avoid",
++        )
++        assert str(c) == _pad(
++            "HIERARCH ESO IFM CL RADIUS = 0.009125 / "
++            "[m] radius arround actuator to avoid"
++        )
++
+     def test_hierarch_with_abbrev_value_indicator(self):
+         """Regression test for
+         https://github.com/spacetelescope/PyFITS/issues/5
+diff --git a/pyproject.toml b/pyproject.toml
+index 65df5b1b77..d02c4f9eda 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["setuptools",
++requires = ["setuptools==68.0.0",
+             "setuptools_scm>=6.2",
+             "wheel",
+             "cython==0.29.30",
+2026-11-13 08:32:46,169 - INFO - Git diff changed after running eval script
+2026-11-13 08:32:46,169 - INFO - Attempting to stop container exec.eval.x86_64.13bad202ba417fcce45d9d.621f7d89e2f7ad4fa104be.125911373134928...
+2026-11-13 08:33:01,404 - INFO - Attempting to remove container exec.eval.x86_64.13bad202ba417fcce45d9d.621f7d89e2f7ad4fa104be.125911373134928...
+2026-11-13 08:33:01,445 - INFO - Container exec.eval.x86_64.13bad202ba417fcce45d9d.621f7d89e2f7ad4fa104be.125911373134928 removed.
+2026-11-13 08:33:01,448 - WARNING - End of eval at 1794576781.4481275

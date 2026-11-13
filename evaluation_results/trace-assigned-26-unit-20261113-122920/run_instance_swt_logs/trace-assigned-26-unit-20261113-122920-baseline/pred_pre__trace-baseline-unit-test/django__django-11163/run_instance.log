@@ -1,0 +1,29 @@
+2026-11-13 07:34:08,053 - WARNING - Starting evaluation at 1794573248.053251
+2026-11-13 07:34:08,235 - INFO - Creating container for django__django-11163...
+2026-11-13 07:34:08,286 - INFO - Container for django__django-11163 created: 7615df54a361b4595c42352de1dce2cafbbf16355cf44ec9824331780b8f2b57
+2026-11-13 07:34:08,403 - INFO - Container for django__django-11163 started: 7615df54a361b4595c42352de1dce2cafbbf16355cf44ec9824331780b8f2b57
+2026-11-13 07:34:09,784 - INFO - Git diff before:
+
+2026-11-13 07:34:09,789 - INFO - Eval script for django__django-11163 written to eval.sh, now applying to container...
+2026-11-13 07:34:17,057 - INFO - Test output for django__django-11163 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-11163/test_output.txt
+2026-11-13 07:34:17,126 - INFO - Git diff after:
+diff --git a/tests/model_forms/tests.py b/tests/model_forms/tests.py
+index f4f3169bc1..d2c28ac1c7 100644
+--- a/tests/model_forms/tests.py
++++ b/tests/model_forms/tests.py
+@@ -2900,6 +2900,10 @@ class StrictAssignmentTests(SimpleTestCase):
+ 
+ 
+ class ModelToDictTests(TestCase):
++    def test_empty_fields(self):
++        item = ColourfulItem.objects.create()
++        self.assertEqual(model_to_dict(item, fields=[]), {})
++
+     def test_many_to_many(self):
+         """Data for a ManyToManyField is a list rather than a lazy QuerySet."""
+         blue = Colour.objects.create(name='blue')
+2026-11-13 07:34:17,127 - INFO - Git diff changed after running eval script
+2026-11-13 07:34:17,128 - INFO - Attempting to stop container exec.eval.x86_64.ee2ad6945f237e9160354f.9abfb63cef178bd684a2ce.132386101780480...
+2026-11-13 07:34:32,357 - INFO - Attempting to remove container exec.eval.x86_64.ee2ad6945f237e9160354f.9abfb63cef178bd684a2ce.132386101780480...
+2026-11-13 07:34:32,386 - INFO - Container exec.eval.x86_64.ee2ad6945f237e9160354f.9abfb63cef178bd684a2ce.132386101780480 removed.
+2026-11-13 07:34:32,386 - WARNING - End of eval at 1794573272.3869631

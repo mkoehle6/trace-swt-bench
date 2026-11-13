@@ -1,0 +1,43 @@
+2026-11-13 08:34:37,041 - WARNING - Starting evaluation at 1794576877.0412338
+2026-11-13 08:34:37,454 - INFO - Creating container for pallets__flask-5014...
+2026-11-13 08:34:37,566 - INFO - Container for pallets__flask-5014 created: bf3931e1100f361b43948cc78bace5b0d293d24da320dfad0956abc7cb2d86eb
+2026-11-13 08:34:37,791 - INFO - Container for pallets__flask-5014 started: bf3931e1100f361b43948cc78bace5b0d293d24da320dfad0956abc7cb2d86eb
+2026-11-13 08:34:37,948 - INFO - Git diff before:
+
+2026-11-13 08:34:37,957 - INFO - Eval script for pallets__flask-5014 written to eval.sh, now applying to container...
+2026-11-13 08:34:44,191 - INFO - Test output for pallets__flask-5014 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/pallets__flask-5014/test_output.txt
+2026-11-13 08:34:44,287 - INFO - Git diff after:
+diff --git a/src/flask/blueprints.py b/src/flask/blueprints.py
+index eb50585d..1aa82562 100644
+--- a/src/flask/blueprints.py
++++ b/src/flask/blueprints.py
+@@ -190,6 +190,9 @@ class Blueprint(Scaffold):
+             root_path=root_path,
+         )
+ 
++        if not name:
++            raise ValueError("'name' may not be empty.")
++
+         if "." in name:
+             raise ValueError("'name' may not contain a dot '.' character.")
+ 
+diff --git a/tests/test_blueprints.py b/tests/test_blueprints.py
+index d46b769b..76cee660 100644
+--- a/tests/test_blueprints.py
++++ b/tests/test_blueprints.py
+@@ -256,6 +256,11 @@ def test_dotted_name_not_allowed(app, client):
+         flask.Blueprint("app.ui", __name__)
+ 
+ 
++def test_empty_name_not_allowed(app, client):
++    with pytest.raises(ValueError):
++        flask.Blueprint("", __name__)
++
++
+ def test_dotted_names_from_app(app, client):
+     test = flask.Blueprint("test", __name__)
+2026-11-13 08:34:44,289 - INFO - Git diff changed after running eval script
+2026-11-13 08:34:44,290 - INFO - Attempting to stop container exec.eval.x86_64.3a033ae49dc50aea84d1f4.529fff02d25daed9053837.125911465819360...
+2026-11-13 08:34:59,525 - INFO - Attempting to remove container exec.eval.x86_64.3a033ae49dc50aea84d1f4.529fff02d25daed9053837.125911465819360...
+2026-11-13 08:34:59,566 - INFO - Container exec.eval.x86_64.3a033ae49dc50aea84d1f4.529fff02d25daed9053837.125911465819360 removed.
+2026-11-13 08:34:59,568 - WARNING - End of eval at 1794576899.5681155

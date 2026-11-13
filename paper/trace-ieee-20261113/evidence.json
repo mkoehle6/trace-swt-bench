@@ -1,0 +1,2627 @@
+{
+  "selection": {
+    "shared_successes": [
+      "astropy__astropy-14508",
+      "django__django-11163"
+    ],
+    "shared_failures": [
+      "django__django-12155",
+      "django__django-13513"
+    ],
+    "disagreements": [
+      "django__django-13344",
+      "django__django-15098"
+    ]
+  },
+  "selection_rule": "Lexicographic full ID: first two shared successes, first two shared failures, first two disagreements; six distinct cases.",
+  "paired": {
+    "both_succeed": 15,
+    "baseline_only": 1,
+    "trace_only": 2,
+    "neither_succeeds": 8
+  },
+  "exact_discordance_p": 1,
+  "preprocessing": {
+    "requests": 69,
+    "prompt_tokens": 49789,
+    "completion_tokens": 173755,
+    "cache_hit_tokens": 11135,
+    "cache_miss_tokens": 38654
+  },
+  "official_summary": {
+    "prepared_utc": "2026-11-13T13:54:22.898619+00:00",
+    "assigned_instances": 26,
+    "methods": {
+      "baseline": {
+        "assigned": 26,
+        "reported": 26,
+        "missing_reports": 0,
+        "applicable": 26,
+        "resolved": 16,
+        "unresolved_reported": 10,
+        "coverage_delta_pred_available": 25,
+        "coverage_delta_pred_mean_available": 0.5673640867286606,
+        "coverage_delta_pred_mean_resolved": 0.6918985423762773,
+        "resolved_coverage_available": 16,
+        "timing": {
+          "seconds": 3425.922071995,
+          "exit_code": 0
+        }
+      },
+      "improved": {
+        "assigned": 26,
+        "reported": 26,
+        "missing_reports": 0,
+        "applicable": 26,
+        "resolved": 17,
+        "unresolved_reported": 9,
+        "coverage_delta_pred_available": 25,
+        "coverage_delta_pred_mean_available": 0.6027312142248203,
+        "coverage_delta_pred_mean_resolved": 0.7267385214955547,
+        "resolved_coverage_available": 17,
+        "timing": {
+          "seconds": 1549.8593760880003,
+          "exit_code": 0
+        }
+      }
+    },
+    "instances": {
+      "pydata__xarray-3677": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pydata__xarray-3677/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pydata__xarray-3677/report.json"
+        }
+      },
+      "django__django-14089": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.5,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-14089/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.5,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-14089/report.json"
+        }
+      },
+      "django__django-11163": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 0.5,
+          "coverage_delta_pred": 0.5,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-11163/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-11163/report.json"
+        }
+      },
+      "sympy__sympy-24539": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.8571428571428571,
+          "coverage_delta_pred": 0.2857142857142857,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sympy__sympy-24539/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.8571428571428571,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sympy__sympy-24539/report.json"
+        }
+      },
+      "scikit-learn__scikit-learn-14894": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.4166666666666667,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/scikit-learn__scikit-learn-14894/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.4166666666666667,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/scikit-learn__scikit-learn-14894/report.json"
+        }
+      },
+      "sphinx-doc__sphinx-9711": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.6666666666666666,
+          "coverage_delta_pred": 0.5833333333333334,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-9711/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.6666666666666666,
+          "coverage_delta_pred": 0.5833333333333334,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-9711/report.json"
+        }
+      },
+      "astropy__astropy-14508": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.9285714285714286,
+          "coverage_delta_pred": 0.7857142857142857,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/astropy__astropy-14508/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.9285714285714286,
+          "coverage_delta_pred": 0.7857142857142857,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/astropy__astropy-14508/report.json"
+        }
+      },
+      "pytest-dev__pytest-7432": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pytest-dev__pytest-7432/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pytest-dev__pytest-7432/report.json"
+        }
+      },
+      "pallets__flask-5014": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pallets__flask-5014/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pallets__flask-5014/report.json"
+        }
+      },
+      "matplotlib__matplotlib-13989": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.5,
+          "coverage_delta_pred": 0.5,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/matplotlib__matplotlib-13989/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/matplotlib__matplotlib-13989/report.json"
+        }
+      },
+      "psf__requests-2931": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.75,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/psf__requests-2931/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.75,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/psf__requests-2931/report.json"
+        }
+      },
+      "pylint-dev__pylint-6903": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pylint-dev__pylint-6903/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pylint-dev__pylint-6903/report.json"
+        }
+      },
+      "mwaskom__seaborn-3187": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/mwaskom__seaborn-3187/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.6666666666666666,
+          "coverage_delta_pred": 0.6666666666666666,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/mwaskom__seaborn-3187/report.json"
+        }
+      },
+      "django__django-13513": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.6470588235294118,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-13513/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.6470588235294118,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-13513/report.json"
+        }
+      },
+      "sphinx-doc__sphinx-8548": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.13636363636363635,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8548/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.13636363636363635,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8548/report.json"
+        }
+      },
+      "django__django-13344": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.22580645161290322,
+          "coverage_delta_pred": 0.0967741935483871,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-13344/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.12903225806451613,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-13344/report.json"
+        }
+      },
+      "django__django-15098": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-15098/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 3,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-15098/report.json"
+        }
+      },
+      "django__django-12155": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.5333333333333333,
+          "coverage_delta_pred": 0.4666666666666667,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-12155/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.5333333333333333,
+          "coverage_delta_pred": 0.4666666666666667,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-12155/report.json"
+        }
+      },
+      "sphinx-doc__sphinx-8638": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8638/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8638/report.json"
+        }
+      },
+      "django__django-15252": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.6,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-15252/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.8,
+          "coverage_delta_pred": 0.6,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-15252/report.json"
+        }
+      },
+      "django__django-16631": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 0.8695652173913043,
+          "coverage_delta_pred": 0.6521739130434783,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-16631/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.8695652173913043,
+          "coverage_delta_pred": 0.6521739130434783,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-16631/report.json"
+        }
+      },
+      "sphinx-doc__sphinx-8551": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.0,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8551/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.0,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8551/report.json"
+        }
+      },
+      "django__django-13810": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-13810/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-13810/report.json"
+        }
+      },
+      "sphinx-doc__sphinx-8721": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": null,
+          "coverage_delta_pred": null,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8721/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": null,
+          "coverage_delta_pred": null,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8721/report.json"
+        }
+      },
+      "sphinx-doc__sphinx-8621": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8621/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8621/report.json"
+        }
+      },
+      "matplotlib__matplotlib-25311": {
+        "baseline": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/matplotlib__matplotlib-25311/report.json"
+        },
+        "improved": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/matplotlib__matplotlib-25311/report.json"
+        }
+      }
+    },
+    "evaluation_only": true,
+    "disagreements": [
+      "pytest-dev__pytest-7432",
+      "django__django-13344",
+      "django__django-15098"
+    ]
+  },
+  "instances": {
+    "astropy__astropy-14508": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.9285714285714286,
+          "coverage_delta_pred": 0.7857142857142857,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/astropy__astropy-14508/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/astropy__astropy-14508/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-baseline/manifest.json",
+          "issue": "data/astropy__astropy-14508/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/astropy__astropy-14508/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/astropy__astropy-14508/test_output.txt"
+        },
+        "sha256": {
+          "report": "98322b648f2c6e5f5a1279e9c75118ef460fd9733d4bea7fb26739e78bfa41b4",
+          "patch": "f4ee9507ce59752d53348f42e71292bb18a05bfa40d1fc28e9cae21ec3869556",
+          "trajectory": "f8bedc012fb820183cf395e29c566f3096420a9aea675498c2ebf7a6e3519ed2",
+          "manifest": "9a764b44368f313d73dbad39d6c202dbbd366fb0d9e6f52d90254286e84efead",
+          "issue": "d08eb8c70acd4f003f7f477092385046092d36ff4e4155594b286795e7f9cd9f",
+          "official_pre": "f8a01382d3b52b04bc457077607edbb8a220da3c3003750b5329b23221394b53",
+          "official_post": "72f12fe3e2adc7b694f3d7dee9c9d5e179211bb16a74dc2263aeeb56c97f68bd"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 174,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.9285714285714286,
+          "coverage_delta_pred": 0.7857142857142857,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/astropy__astropy-14508/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/astropy__astropy-14508/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-improved/manifest.json",
+          "issue": "data/astropy__astropy-14508/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/astropy__astropy-14508/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/astropy__astropy-14508/test_output.txt"
+        },
+        "sha256": {
+          "report": "b1933b81ecda5284959364820f6429c9b6f73f219de58f5982e810248a69c619",
+          "patch": "2085bba37c9287c637267a62424fab4dcf4a6c1ed00d6b04654e9583d4c88f19",
+          "trajectory": "6978e314d8c5fabbebba5e2fc87bcf964e262c7783dadba6c237b899835d55de",
+          "manifest": "27c5026812a861838fd71f413d2bddc07c4496ca63d99e2181860016d7039602",
+          "issue": "d08eb8c70acd4f003f7f477092385046092d36ff4e4155594b286795e7f9cd9f",
+          "official_pre": "51d19786bf96a66218ed81965ed1de864d41a82c57ad3f0c58557d1fb71cd809",
+          "official_post": "f5397c044b3ab5917dd54fa2550ce633804e88a6a9f2102a7d4854c464e654b3"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 174,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "django__django-11163": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 0.5,
+          "coverage_delta_pred": 0.5,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-11163/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-11163/report.json",
+          "patch": "runs/django-unit-baseline-20261111-212132/submission.patch",
+          "trajectory": "runs/django-unit-baseline-20261111-212132/agent.traj.json",
+          "manifest": "runs/django-unit-baseline-20261111-212132/manifest.json",
+          "issue": "data/django__django-11163/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-11163/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/django__django-11163/test_output.txt"
+        },
+        "sha256": {
+          "report": "1d6c0b8167f6b481177c915f67a0d6af55cc246785e0fcf365e33bdba598dc09",
+          "patch": "ae6f65c20f5490dcbf9eca5c50d54a095497ed178f88f60f211e45c8ee10d583",
+          "trajectory": "43e58f7617dd7516e8e29d744cc2b69e56fca33fc083adfcb305ea1a8a76fd57",
+          "manifest": "eb33461cf536e8702f132146ddf97d41f0777696fe56e1e9ef1738c588e182de",
+          "issue": "8dbd8cae38c3a82b681a79bdfe8ffaa78aa6f1fad9744a1ca197f90265e5c80b",
+          "official_pre": "638eaa23636738373d3fef7e39aa2f61328533976cd6ea6f7b496315baa27cff",
+          "official_post": "1e37fdccf4fe6e34f745a20420a7d8ef23e171508da186346f9a7868d86788b2"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 2,
+          "PASS_TO_PASS": 142,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-11163/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-11163/report.json",
+          "patch": "runs/django-unit-improved-20261111-211606/submission.patch",
+          "trajectory": "runs/django-unit-improved-20261111-211606/agent.traj.json",
+          "manifest": "runs/django-unit-improved-20261111-211606/manifest.json",
+          "issue": "data/django__django-11163/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-11163/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/django__django-11163/test_output.txt"
+        },
+        "sha256": {
+          "report": "da52dc332fc4bfded04264e3e902d589ad95dfaf9e18eb81b8208be63fb4478d",
+          "patch": "ae6f65c20f5490dcbf9eca5c50d54a095497ed178f88f60f211e45c8ee10d583",
+          "trajectory": "e39bbcb87b00336f8e31f685cdfadb2e6c1adea2835b0c6ec65edb9ef9901e8d",
+          "manifest": "05a0c76935d21eef1052d34642b7e1623075b41b792255aa7fe09b3387662d54",
+          "issue": "8dbd8cae38c3a82b681a79bdfe8ffaa78aa6f1fad9744a1ca197f90265e5c80b",
+          "official_pre": "236ef3848d2f82d33e75ecd2705a8fb11b821f73d758cb36f790ea75acc56be6",
+          "official_post": "88855f3f4f0631960a661157bee2a4ba8d9fc2d3aa23dff283b78bd9e7d56d3a"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 2,
+          "PASS_TO_PASS": 142,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "django__django-12155": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.5333333333333333,
+          "coverage_delta_pred": 0.4666666666666667,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-12155/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-12155/report.json",
+          "patch": "runs/django-12155-unit-baseline-20261112-143526/submission.patch",
+          "trajectory": "runs/django-12155-unit-baseline-20261112-143526/agent.traj.json",
+          "manifest": "runs/django-12155-unit-baseline-20261112-143526/manifest.json",
+          "issue": "data/django__django-12155/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-12155/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/django__django-12155/test_output.txt"
+        },
+        "sha256": {
+          "report": "7e83ca1b70e1c6ba1ec344ba58ed5a28092444f35a3a6f08f784c9a7cdf6da13",
+          "patch": "f4aabec7d7f81ec2c8a7ad8394bb881810e46e594648b79649d7f895f129b9e8",
+          "trajectory": "f022f4000aa15ae264d61f62b77b7d4077e38121c5f3960224e791316c601395",
+          "manifest": "49f12ad70ba5479dfedb3a8bc51dad0e045fdfe0fced0b56d56a1f8bb1e8e663",
+          "issue": "9f32a4a285f49a0f7005c54b76bcfa9d413dcf203ccc4e6f03bdb5bd89f537a4",
+          "official_pre": "f444376f0262fc08ff3883f830308d2de56b4f56e320d9c3ae590b7966ad7c15",
+          "official_post": "1f74c602c811ff9008d4907727a389c48b7e6868530aa499fbde1cb68d5f2b92"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 0,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 6,
+          "UNMATCHED": 3
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.5333333333333333,
+          "coverage_delta_pred": 0.4666666666666667,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-12155/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-12155/report.json",
+          "patch": "runs/django-12155-unit-improved-20261112-144127/submission.patch",
+          "trajectory": "runs/django-12155-unit-improved-20261112-144127/agent.traj.json",
+          "manifest": "runs/django-12155-unit-improved-20261112-144127/manifest.json",
+          "issue": "data/django__django-12155/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-12155/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/django__django-12155/test_output.txt"
+        },
+        "sha256": {
+          "report": "eca726f1649014a5c6119405761fb762e47a73c26cea717afb874d7d674cb8c0",
+          "patch": "f3dcb12f36967519bdb8893991e690bf48fc4352c9636adb369b61f3d80aa588",
+          "trajectory": "a18e79787f51a8fe3a60f8926806ec6f4ab54f48251a24f5fa1dc109d87f2bdb",
+          "manifest": "496f304698067615932312f913cc9c8b5cf4a5a9cab379ddf6c342603959d4ad",
+          "issue": "9f32a4a285f49a0f7005c54b76bcfa9d413dcf203ccc4e6f03bdb5bd89f537a4",
+          "official_pre": "857c3d1d8baf9204f3324767d373d76cb581350724e8f779026d6db91c01c12f",
+          "official_post": "b231e49bbe4e03ea8d934c4cb7440eb79f417e9f17fa6677355748e30559ae1b"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 0,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 7,
+          "UNMATCHED": 3
+        }
+      }
+    },
+    "django__django-13344": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.22580645161290322,
+          "coverage_delta_pred": 0.0967741935483871,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-13344/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-13344/report.json",
+          "patch": "runs/django-13344-unit-baseline-20261112-151544/submission.patch",
+          "trajectory": "runs/django-13344-unit-baseline-20261112-151544/agent.traj.json",
+          "manifest": "runs/django-13344-unit-baseline-20261112-151544/manifest.json",
+          "issue": "data/django__django-13344/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-13344/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/django__django-13344/test_output.txt"
+        },
+        "sha256": {
+          "report": "59ef0b009845530220586310c9894f4f77ebda4a67335ed5cfe573e9be8f86bd",
+          "patch": "957b27fa7a40dc61d1345e8ad666bac75c55f4c897fda60075d3e055127f2edd",
+          "trajectory": "8ad31908d7d7bf9275ea35d619d8b4945b98daf230a8f4d3004f9c600a2781ee",
+          "manifest": "a307b8453b3da1c9d1278c0b827b6f737838b641e030876eef86a7f00427a7a1",
+          "issue": "fa0d64caaae3c17b9e52c447593c2c8ac3354046b1df2ceb293645b293b06090",
+          "official_pre": "4011a17f4fbd544bfc4c100102ff3267a66682fe8ef8f24bebfb16358ba350f9",
+          "official_post": "401e4db6c67e85c796ea18f5ebbca2ed7165410bbc7756dfd85ccdfc09255177"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 7,
+          "FAIL_TO_FAIL": 1,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 1
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.12903225806451613,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-13344/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-13344/report.json",
+          "patch": "runs/django-13344-unit-improved-20261112-151925/submission.patch",
+          "trajectory": "runs/django-13344-unit-improved-20261112-151925/agent.traj.json",
+          "manifest": "runs/django-13344-unit-improved-20261112-151925/manifest.json",
+          "issue": "data/django__django-13344/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-13344/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/django__django-13344/test_output.txt"
+        },
+        "sha256": {
+          "report": "6548034328460b242a10c24d6aa2be94c0351efe6647dc2650627390b781925f",
+          "patch": "d18e4ac0f4bb2010252ad89f92379fc511e809daf11f52b6ade1a80d84f3b09d",
+          "trajectory": "ab64538edc4ffc9967653473c70502fd77a131e73c97b66087b6fd41d00b341c",
+          "manifest": "52de01e54b2f74ee6852414e7c5fc9a5d335cf4f2e10c797ba9d34c15b7b44b6",
+          "issue": "fa0d64caaae3c17b9e52c447593c2c8ac3354046b1df2ceb293645b293b06090",
+          "official_pre": "e51ece1b6232e29adec75f5dd4bf895f21c6f8ca36d26360b489d9631c829a84",
+          "official_post": "59eb66d4f425cce551f0df9fcedde851c967c4912035b435dbe344b8ff2237a5"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 31,
+          "FAIL_TO_FAIL": 1,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "django__django-13513": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.6470588235294118,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-13513/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-13513/report.json",
+          "patch": "runs/django-13513-unit-baseline-20261112-205739/submission.patch",
+          "trajectory": "runs/django-13513-unit-baseline-20261112-205739/agent.traj.json",
+          "manifest": "runs/django-13513-unit-baseline-20261112-205739/manifest.json",
+          "issue": "data/django__django-13513/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-13513/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/django__django-13513/test_output.txt"
+        },
+        "sha256": {
+          "report": "d28599b5b45016aff1dbd92e9cded2ac3544779166197f2b1f78d1de1d123bcc",
+          "patch": "a5233b91f9090c66d2767e983773164065d2550d9c94a9dc9d1b3b146a72a579",
+          "trajectory": "8cd376d2f5408d7fd68a4aad496ad0bf6b76b86e34631a97a83e9c1df2317378",
+          "manifest": "c59ccd5e08bfa3319bf4918a02b01e4d8566fecba49a353e0760ab36843a6b55",
+          "issue": "db52b2ac85d9ffdc2d35533770ede3c4c61472b7e111b351053abd0d678468d5",
+          "official_pre": "df563d35b1ae0492314954ba4997b15e528a03ceb418e32a8934ebc7855caf9e",
+          "official_post": "b3cf7ad38ab0c1aef6428119cd62c82f63a4eae211b35533c4308c512fc65759"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 88,
+          "FAIL_TO_FAIL": 1,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.6470588235294118,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-13513/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-13513/report.json",
+          "patch": "runs/django-13513-unit-improved-20261112-205739-retry1/submission.patch",
+          "trajectory": "runs/django-13513-unit-improved-20261112-205739-retry1/agent.traj.json",
+          "manifest": "runs/django-13513-unit-improved-20261112-205739-retry1/manifest.json",
+          "issue": "data/django__django-13513/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-13513/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/django__django-13513/test_output.txt"
+        },
+        "sha256": {
+          "report": "f581d7b670f4b0d5afe09709dbc766e7a2527293fbc9e5f0e8a296342f88b992",
+          "patch": "fe123894520414abe0ae3f4b8541b1bb7d35f6fd31f004991eea6ce3a3a1815e",
+          "trajectory": "59160260b166c2653d6fd381c6e79d6d130f404a90ff60b42969fad6a1225f04",
+          "manifest": "0efa836d1809d76fd17dd648fbf341dc2ff8b9e78b16c25e7dfd302feb7f29d3",
+          "issue": "db52b2ac85d9ffdc2d35533770ede3c4c61472b7e111b351053abd0d678468d5",
+          "official_pre": "7f9741f50c96216e6cd06a072e5a73cdfdc83db33b5a721e564b45439b9ce934",
+          "official_post": "1a62ed170617a87109d106a429e4c61c3547045e5dc9fe85a68912f9e88a46cd"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 88,
+          "FAIL_TO_FAIL": 1,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "django__django-13810": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-13810/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-13810/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-baseline/manifest.json",
+          "issue": "data/django__django-13810/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-13810/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/django__django-13810/test_output.txt"
+        },
+        "sha256": {
+          "report": "2ca54bf44fcd3ef690cd410b8f30bb5878e9883145b92e03cd52a1d664cc1fa8",
+          "patch": "cbbb0f6a7a150eee3b5f54f4602b38bf2cfd206f605c81e43a24255fc7bb9005",
+          "trajectory": "82c9a005be9513f672d22d27ccd03649d75b9372df53d3adb68a8aa9d47d7804",
+          "manifest": "e99fe3110b70e36a6e074a90aea91acbaa2e5cf13ba211143ac19b51063ee25b",
+          "issue": "56e9927b1d405bb6be5bd7a327cea4ed7a83858f705590310391df2fd2066379",
+          "official_pre": "7357374453adcabe95afe320fa37e85e2a0dfcf70f8235b914986ef389479928",
+          "official_post": "df9afc378e2cdc6a17bb4278bc852c411e207a91c8bae258e8d80dab3462f5b8"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 2,
+          "PASS_TO_PASS": 32,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-13810/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-13810/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-improved/manifest.json",
+          "issue": "data/django__django-13810/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-13810/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/django__django-13810/test_output.txt"
+        },
+        "sha256": {
+          "report": "24dd5f7344e6aacc56556159a107c70385ee31c1569268f534597cf997a98337",
+          "patch": "5006b52a46f63975dfc6d174c65f9193579918c4d6ee379bc51da1a469e7c474",
+          "trajectory": "d3e7adfa2771d7876ff99925ce8d0dc60b7f50fc1d707910d49664f654087015",
+          "manifest": "0b01b7ff949f4b60f9e40ac4f38c3c963f568a9b7aa8f1f707091e2e52182de6",
+          "issue": "56e9927b1d405bb6be5bd7a327cea4ed7a83858f705590310391df2fd2066379",
+          "official_pre": "ab15346486c1af41bd29e6a1354a8a79c95fee12d9b0a6c3ba26608cb1664d2c",
+          "official_post": "c113c1048e54cda476cc3f390aad119219dd45ac2becd820859f4418d8a7ba9c"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 32,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "django__django-14089": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.5,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-14089/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-14089/report.json",
+          "patch": "runs/django-14089-unit-baseline-20261112-214542/submission.patch",
+          "trajectory": "runs/django-14089-unit-baseline-20261112-214542/agent.traj.json",
+          "manifest": "runs/django-14089-unit-baseline-20261112-214542/manifest.json",
+          "issue": "data/django__django-14089/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-14089/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/django__django-14089/test_output.txt"
+        },
+        "sha256": {
+          "report": "b7a0166cf44fdf6e2748f16de857487a2cf1aec5827fc62c5e8444ccaf18e5e0",
+          "patch": "6e3f23fdf01daa66cdd7baf3e8be38c9aae003c9fa8c1ad9112a1d85c980cfe5",
+          "trajectory": "731b5f1a4be94feceafb95770a585e06e04d6986de889cd26dcc549d88f77c90",
+          "manifest": "3802f6560ca6302942c3b2ff2a4ff661c11c6773b228789086f580ae9b41e5d5",
+          "issue": "cbfb85cb9ea9b08049b15ffaff23b96640926088e725b8b70f7ef2a31b767118",
+          "official_pre": "a6da5b30c4de7c66b0d64a4d60b94db2f66646e7d3e4539287dd020e9477119a",
+          "official_post": "00dd6c64ca5efc3d6eeb37088acc2aa8299fce545ad6118e01318a0f35f9e48f"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 43,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.5,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-14089/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-14089/report.json",
+          "patch": "runs/django-14089-unit-improved-20261112-214542/submission.patch",
+          "trajectory": "runs/django-14089-unit-improved-20261112-214542/agent.traj.json",
+          "manifest": "runs/django-14089-unit-improved-20261112-214542/manifest.json",
+          "issue": "data/django__django-14089/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-14089/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/django__django-14089/test_output.txt"
+        },
+        "sha256": {
+          "report": "2c313b4238b5ad79af68ce34f1ff95196ed9aab7c13f108cb96029bba09f473b",
+          "patch": "6ba53cbf694ce83f012cb7ce76b26fa88e1ac375bd4e0cd7669c409ac7b3d458",
+          "trajectory": "1d4c33e7ad8142d2ddad5ca3cca91a075eaaed66b9f5e3dc65e0e24ce954e888",
+          "manifest": "430e9498f4d6ba08292d3df25baca37929d2289adf9c50b3dddd4ef11371c528",
+          "issue": "cbfb85cb9ea9b08049b15ffaff23b96640926088e725b8b70f7ef2a31b767118",
+          "official_pre": "4736ae44009c7b8dfdd4e8d5313f72cf6ee10d195e37daa0a8f492a892e971af",
+          "official_post": "8a9cb9912bdcf6bbe1a49dc653161ec8d6303be5799786139fc9e12f86687d17"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 43,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "django__django-15098": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-15098/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-15098/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-baseline/manifest.json",
+          "issue": "data/django__django-15098/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-15098/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/django__django-15098/test_output.txt"
+        },
+        "sha256": {
+          "report": "8197ac0665108fc9ffa23c5c4699237919909b91b2cb804653e93a968b3d23a6",
+          "patch": "fdfea03257eab421848e349402d2e1a9d6d742ee153bd4ec87ac4e3018143083",
+          "trajectory": "98695cdd885f35e2047a4afd4682949e72eb0d321dcd1e728ca511924293c930",
+          "manifest": "1cdbcdbd422842ee21ba31a8d31b4788d852c2798e31d9118995ff53b02e2684",
+          "issue": "d851e9e482d434693a8ffd0b6f1452774897d663326ba7f51d28aa70893506b5",
+          "official_pre": "bcae7aaa81de2f213da697abacb38e0a834e63db4d49383088affb775d0d686b",
+          "official_post": "034f9bee3dd810a031cc6d0e02586ab1ab5b8b6eec13463867662dd6008c51a8"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 2,
+          "PASS_TO_PASS": 121,
+          "FAIL_TO_FAIL": 1,
+          "PASS_TO_FAIL": 2,
+          "UNMATCHED": 1
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 3,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-15098/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-15098/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-improved/manifest.json",
+          "issue": "data/django__django-15098/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-15098/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/django__django-15098/test_output.txt"
+        },
+        "sha256": {
+          "report": "cba54644a763ffc101f64e8d05b8893f645094f28eb8240aceea55d493c46cff",
+          "patch": "b1de65bfd460713cc08e9bf2e3a9cf9a2c4c7ff8c74c855851c92198ad4d5c6c",
+          "trajectory": "87a232b77c77cd0d5566a8b5f434a3ad3cbcbc9b452c25af9dbdfe7a799d881f",
+          "manifest": "661b93f68ce54b315c52aaf83b78b453921bf3c06d7cc91ea0e720e6df8ee4db",
+          "issue": "d851e9e482d434693a8ffd0b6f1452774897d663326ba7f51d28aa70893506b5",
+          "official_pre": "785c4a479b450aca59aeaffe5abf4e86245252985a439bb9771b5bf45469ce91",
+          "official_post": "908d8d0937fa8ca70ad2375c435c70e996151f33348a8936a1ed308864125b0c"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 3,
+          "PASS_TO_PASS": 121,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 3,
+          "UNMATCHED": 2
+        }
+      }
+    },
+    "django__django-15252": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.6,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-15252/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-15252/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline/manifest.json",
+          "issue": "data/django__django-15252/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-15252/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/django__django-15252/test_output.txt"
+        },
+        "sha256": {
+          "report": "2ec99449d6702d70168825cb813d26a1b0b133cbc6c5fddfc83840e38a6115d7",
+          "patch": "9a40a18fd1d89cf863e8aa2e6e5c31a343c116eac27c34bb594d416761c596e2",
+          "trajectory": "46f65d5e21c23c263ad136f06a6712b20b234dc10afad7c04899aaeb1a0070f0",
+          "manifest": "3343edd3ded84881ef0759c18d53bf7dffac4ca197d841066746b027f6650fee",
+          "issue": "ac94dfb5dfb9903b30502daafec445b4d52b5549b1ab13215baf510048fc3e7d",
+          "official_pre": "0dc0282e6e0c079e5ce69d53c7395e24c2d3e060f7c17a5ae3a04f1fe5ef1c4f",
+          "official_post": "dec874a7acb8ae580eccdad0a4ca903e09f7974f28a621a9945486f26a4b4845"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 26,
+          "FAIL_TO_FAIL": 3,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.8,
+          "coverage_delta_pred": 0.6,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-15252/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-15252/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-improved/manifest.json",
+          "issue": "data/django__django-15252/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-15252/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/django__django-15252/test_output.txt"
+        },
+        "sha256": {
+          "report": "ced199fadfc542bd5ae2ced333ded622319100f89261da4b79f91792163bcf02",
+          "patch": "ab07bcc7c4b61452ecc1767be74fa047333bb84ecc0db42ebabb2aec0d219619",
+          "trajectory": "be44f4b2e230c2e9e964c3abad5440b8789513582a34b2bd1075c7ccb02158da",
+          "manifest": "9c652b346e95a299e1f25036053b69d31c5cbdb64bb682ed5422bdbe4044c9ed",
+          "issue": "ac94dfb5dfb9903b30502daafec445b4d52b5549b1ab13215baf510048fc3e7d",
+          "official_pre": "ef825be5c7abeff0188b8439d272c7c067d60eba263653442bac2a7e9463aa3a",
+          "official_post": "4c402f5542da3d0004b2d6d87e1b3207f7ddde47dd67401893c70a996cefde80"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 112,
+          "FAIL_TO_FAIL": 1,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "django__django-16631": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 0.8695652173913043,
+          "coverage_delta_pred": 0.6521739130434783,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-16631/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/django__django-16631/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-baseline/manifest.json",
+          "issue": "data/django__django-16631/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-16631/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/django__django-16631/test_output.txt"
+        },
+        "sha256": {
+          "report": "4202e35c9366e74c8bb0e83aea74ab0636651be7addd9b3facc025bd9746eecf",
+          "patch": "f9f10b022ed18ec1d3d6e11ce10c54522464de338c24d9c8857a1f8bee48a1dc",
+          "trajectory": "31ddc3b14b082188a905b711180b19f05f94cc81ab34f42a5739a11fec162331",
+          "manifest": "41573005c2b155111449ca5417fbfb8c9b517c4ef119cdb0f8bdc14503a0c06d",
+          "issue": "32af93df5e62a2e558611028be5030691d5720d2a172c9a0e83213c68d779a8a",
+          "official_pre": "584d7af8b44dc55ba537cdfd5cb33428d8c2269275219fbd29a7c83cabe4d5f1",
+          "official_post": "a15f29becbb99f21f825619510ac35b236c3190728c965dd7654d8874d98f05f"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 2,
+          "PASS_TO_PASS": 12,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.8695652173913043,
+          "coverage_delta_pred": 0.6521739130434783,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-16631/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/django__django-16631/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-improved/manifest.json",
+          "issue": "data/django__django-16631/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-16631/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/django__django-16631/test_output.txt"
+        },
+        "sha256": {
+          "report": "e02daef58c14da96e1b393a899614c4dc884e799026c73bf4fbc25319d0ef8a5",
+          "patch": "2590061ffcd9d075f4fb3ab42b40a1c2cdbd51100566164efae4e74d3ee5392a",
+          "trajectory": "61f776ab688e7d04d6ed3e1a370179b923922230ac09e665db36256658d4a86c",
+          "manifest": "58a9b5ab99eec5b5c2d884f9818d0291a0369cbfc61978573e4aa2d3912da79c",
+          "issue": "32af93df5e62a2e558611028be5030691d5720d2a172c9a0e83213c68d779a8a",
+          "official_pre": "9979f53cc1df1504dbcf185debc7bd81d57a13e97aefd0c9d7e7f7f8d194885d",
+          "official_post": "b8bfb9245b7229ab2ddc44eabdee3aaa5e6d62403ba36462c97d381644c13898"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 12,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "matplotlib__matplotlib-13989": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.5,
+          "coverage_delta_pred": 0.5,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/matplotlib__matplotlib-13989/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/matplotlib__matplotlib-13989/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-baseline/manifest.json",
+          "issue": "data/matplotlib__matplotlib-13989/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/matplotlib__matplotlib-13989/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/matplotlib__matplotlib-13989/test_output.txt"
+        },
+        "sha256": {
+          "report": "9361006313ce2b206b737d939034c3e8234b494fde5ae3986e6ee4f30e599c48",
+          "patch": "9078b0035e2723e9280cfeecd943de8d4e02565c6ac6b9bc312ce5a2ee407baa",
+          "trajectory": "afc759b7d91b9e4130ad550cdaa053810fb728b53a27f50e494ae70655bcbbd9",
+          "manifest": "08f3ed3a486c0f203eeab7b9d789cd6b4a4c528ea0288a936777bbe4353000a2",
+          "issue": "13d52a70d283b3677d5258aadda203f99ac501d0073989215713092077f6e3ff",
+          "official_pre": "5cce42834e79ee44d4688e797c781984906a4d2805332a09d557cad450b81f95",
+          "official_post": "23bb1bb74af714405292e764dd3aec588b79531d16185d3431f21486d242bbf1"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 411,
+          "FAIL_TO_FAIL": 167,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 1
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/matplotlib__matplotlib-13989/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/matplotlib__matplotlib-13989/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-improved/manifest.json",
+          "issue": "data/matplotlib__matplotlib-13989/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/matplotlib__matplotlib-13989/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/matplotlib__matplotlib-13989/test_output.txt"
+        },
+        "sha256": {
+          "report": "a0b6993b564d76c0509e9e98a875c502602562603423a1c385ad365ab8d55632",
+          "patch": "a65a33b7da819317bfb504cf42c96c3d91571c2ca81694827bcd12ca0b6f3e4a",
+          "trajectory": "f1e668430b06904b802683e8cd9e2771e2e1124b64fc7d671276b75c0570c71a",
+          "manifest": "999f855f14fda3eee901267482a45e398652621491f238fbde79147877798de4",
+          "issue": "13d52a70d283b3677d5258aadda203f99ac501d0073989215713092077f6e3ff",
+          "official_pre": "c620d1d3ed132ba92beca22a00fe7bf1883fb54bef319c078ff56a34df5c22b5",
+          "official_post": "fadcf356456994feb8b56d3eee3c2b9a3abc43b5602387c1ece965fa70c43426"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 2,
+          "PASS_TO_PASS": 411,
+          "FAIL_TO_FAIL": 167,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 1
+        }
+      }
+    },
+    "matplotlib__matplotlib-25311": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/matplotlib__matplotlib-25311/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/matplotlib__matplotlib-25311/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-baseline/manifest.json",
+          "issue": "data/matplotlib__matplotlib-25311/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/matplotlib__matplotlib-25311/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/matplotlib__matplotlib-25311/test_output.txt"
+        },
+        "sha256": {
+          "report": "8cdca657e61299fa671da588601a6d38662a065662fb5fa750f9af5dfe227273",
+          "patch": "e26568a7804f356f7aae4a019dc7e77a3842dd838f21d6a332123b47d6a76d2e",
+          "trajectory": "91a80122bef8ef327b9fe91fe1d7ae4330f84e6b4c90b8674ed89a3cea70cfca",
+          "manifest": "1b0a6c6be06ef67907b4a8e42f0a704cd5b2b8b562d1330bec009361bfb32361",
+          "issue": "a2583ca80e1609006e02901af35754c41bc9bb0c325da37d2f6fef434d7f2ff7",
+          "official_pre": "2eff6138a94787bcd0cefc9e75985678ff8b439cc38df29fc067be2917d99a9d",
+          "official_post": "4c90e6b513abc1e7ee7875c9322fbd320f41bcf23d63713c69bea98625b5a5cc"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 2,
+          "PASS_TO_PASS": 182,
+          "FAIL_TO_FAIL": 1,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/matplotlib__matplotlib-25311/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/matplotlib__matplotlib-25311/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-improved/manifest.json",
+          "issue": "data/matplotlib__matplotlib-25311/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/matplotlib__matplotlib-25311/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/matplotlib__matplotlib-25311/test_output.txt"
+        },
+        "sha256": {
+          "report": "c67185bf2f5f23d791a6d88e824b773ca2a043653810d0b060a072b46af898da",
+          "patch": "76fa7ee386b29005a9c8b395b8f867ce838821d1b8b50c17dfca1d619298e5cc",
+          "trajectory": "24e8a1c964c140d2988de1154a258e0b1c5adb69dc1381715ccc1ab519008ea1",
+          "manifest": "6d311867dbfdd45f6ff374363f051243650829929bbfcdf878923d635b5a50cb",
+          "issue": "a2583ca80e1609006e02901af35754c41bc9bb0c325da37d2f6fef434d7f2ff7",
+          "official_pre": "1c1ed0f9e9a5cce30206d077835a8dde4de8c97bca3450aeb52681044c683cc6",
+          "official_post": "8ff5977c5961e14f6d06c4f83b750db78957bd38928e637799af160557760091"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 2,
+          "PASS_TO_PASS": 182,
+          "FAIL_TO_FAIL": 1,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "mwaskom__seaborn-3187": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/mwaskom__seaborn-3187/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/mwaskom__seaborn-3187/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-baseline/manifest.json",
+          "issue": "data/mwaskom__seaborn-3187/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/mwaskom__seaborn-3187/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/mwaskom__seaborn-3187/test_output.txt"
+        },
+        "sha256": {
+          "report": "35b9410961adf43cf928d5180a0eb764b7b4d34840698c2ff563b4e1bb329e47",
+          "patch": "b55376b8a04320515de15c934974f2741bbc46529bd14c1cfb61f4dfa9ccf31c",
+          "trajectory": "76d5e0a992f196a457eeed211ce33b2005d734e2ef824d0462252ea3621a2bf7",
+          "manifest": "e2d176d1dd5d025e8400237f5f8505027748b5564ee2dc66223c8f312ed8ecb8",
+          "issue": "72157e71b5c0ed5d58d66a7eeb30ed7b2fb237374183b9ebee200f5d58abd77b",
+          "official_pre": "0650e10677c6e9c17984f9acf964826fa597fbbae90fe200b4c4474d874b35e7",
+          "official_post": "9eb058fc7c7b7973e2d85bb892b53d5c3e390410994ec416165a241b074f926a"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 2,
+          "PASS_TO_PASS": 128,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.6666666666666666,
+          "coverage_delta_pred": 0.6666666666666666,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/mwaskom__seaborn-3187/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/mwaskom__seaborn-3187/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-improved/manifest.json",
+          "issue": "data/mwaskom__seaborn-3187/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/mwaskom__seaborn-3187/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/mwaskom__seaborn-3187/test_output.txt"
+        },
+        "sha256": {
+          "report": "6326ffe34bea64e7ffd0abe16e0c67d34e582aab0817e91d69ec7cb3d71ce21e",
+          "patch": "6874c86d1e93bb0c51f0871cfaf534e8dbec8d2e7abbed7df087838ed8e94bd3",
+          "trajectory": "aa79c7999109d5ac52d525d40c6f1120e3d87e59213d4b67caf243395b7b4bf0",
+          "manifest": "48501edb4214d51dc291f4fefa97020840569136f408d4508eb6606465847895",
+          "issue": "72157e71b5c0ed5d58d66a7eeb30ed7b2fb237374183b9ebee200f5d58abd77b",
+          "official_pre": "1e2d27dcf9ce13dbefdc42dc1963a9519e0dc98209ab8cbd7aea90d1d2339b9a",
+          "official_post": "8d9af8b5884898d93e65c7a9a06f6d775a1bc34041dc5a4be5d442896feeeafd"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 173,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "pallets__flask-5014": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pallets__flask-5014/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pallets__flask-5014/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-baseline/manifest.json",
+          "issue": "data/pallets__flask-5014/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/pallets__flask-5014/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/pallets__flask-5014/test_output.txt"
+        },
+        "sha256": {
+          "report": "5554bb0b5eeff21fc63a14ae4e040f03e2f2d4389f63ea231b102e60d739de93",
+          "patch": "b089149892bc4274d6c9f637182c347b8c56f3f8170b4664c53e695c30f62d1f",
+          "trajectory": "dbb4a9e201e0c4d4c68d6500464226823ba5ebf6f36974cb8f4c707170303d6d",
+          "manifest": "43595d55ea98c8b0128fad130147251e8e9b30266c474870c9080760b49bd31c",
+          "issue": "f77d8eab7dd608172aa78b3b50dfa7e0e9b3a6a1c52d14a1cb02417eb5a0ab00",
+          "official_pre": "7db52568a209c38866cbc23cfb540c116b510b9f5f39a18d01ad512f6841474f",
+          "official_post": "5113195594b165241a1d6af4122eba7a2f55fe356e042d6437e0f65962c8bff8"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 59,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pallets__flask-5014/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pallets__flask-5014/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-improved/manifest.json",
+          "issue": "data/pallets__flask-5014/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/pallets__flask-5014/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/pallets__flask-5014/test_output.txt"
+        },
+        "sha256": {
+          "report": "2ad0330182fe6620b01e07e000c7dc19f846dbd4b0c7e756011279a58358409d",
+          "patch": "b089149892bc4274d6c9f637182c347b8c56f3f8170b4664c53e695c30f62d1f",
+          "trajectory": "8ef99c6e534e053595c1389048a70e91c947f0f9a6c7478c3ee7446a5f22b662",
+          "manifest": "f08043795685e6a28ef47f45639dc393827fd06c8c0e081207d4ddde55364d67",
+          "issue": "f77d8eab7dd608172aa78b3b50dfa7e0e9b3a6a1c52d14a1cb02417eb5a0ab00",
+          "official_pre": "7ad76d54b03ac0901b4f2aaef639bb41b195973bae91d77b7aaf2bedb8ec964d",
+          "official_post": "63a0c5033a3ae9f0f9658fcbefce0b8f64b148b2abcbbe9de14e5e1f7f7c3d91"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 59,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "psf__requests-2931": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.75,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/psf__requests-2931/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/psf__requests-2931/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-baseline/manifest.json",
+          "issue": "data/psf__requests-2931/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/psf__requests-2931/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/psf__requests-2931/test_output.txt"
+        },
+        "sha256": {
+          "report": "59f37228b40e8d6b5003c788935a2405ca28d2425d96aea007408bb228e685d1",
+          "patch": "d8da2dd46002fdd9fc50201be685f18c9b340954fc67cfd0cd5c0315165bfe0f",
+          "trajectory": "3d1ba00444f1edf09378d9e0736703dd89905de960aaf4da649aebb6997a6058",
+          "manifest": "c295dfcb92fa2a049c01fa0fc188c3e4ff356127bbc7369bbde30c8f92d2dd8c",
+          "issue": "c36c337f6c5d918e8d193684510213e2eaed8633e575b819757674cca0d980fd",
+          "official_pre": "7afe2c74c2208e2e11829289718a710d2fc8741fbb2095a16e0de8a4772451bc",
+          "official_post": "8e9b493a736e8aeb6daf226fdddb98df4940666d092db3828b29eafd4652c242"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 85,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 81
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.75,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/psf__requests-2931/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/psf__requests-2931/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved/manifest.json",
+          "issue": "data/psf__requests-2931/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/psf__requests-2931/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/psf__requests-2931/test_output.txt"
+        },
+        "sha256": {
+          "report": "386cd25cdbf84bb65af752c77f9f6bb2d7d2fe149d758f24bdfa49e8df96cb6e",
+          "patch": "b9209025e1e0ad7f951d84b81dd41529a6f7308e0c1e0d0d46dcb613442b7051",
+          "trajectory": "6ca8e3dba7958ba06d7df1d510f308c5e3215318c540de66074c3c61a5fdc7a7",
+          "manifest": "9c915ef47d87f86ee61dae67b4f3154d620ea454d9a7158310f1baf33db7c41c",
+          "issue": "c36c337f6c5d918e8d193684510213e2eaed8633e575b819757674cca0d980fd",
+          "official_pre": "ebca9a3dbd7c283f3092b128447a43c5311a6b2cdb18f27c454b40b316d70215",
+          "official_post": "00d81024fa1a7eb28542178ca62d54444a2853a009dbb54e0989ebbea14ee558"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 85,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 81
+        }
+      }
+    },
+    "pydata__xarray-3677": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pydata__xarray-3677/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pydata__xarray-3677/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-baseline/manifest.json",
+          "issue": "data/pydata__xarray-3677/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/pydata__xarray-3677/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/pydata__xarray-3677/test_output.txt"
+        },
+        "sha256": {
+          "report": "26e4f6d4a546c5c4d3f1a09a103afb5c40e454bc15b7ae84af9fed381f4f9b94",
+          "patch": "2e165b152342e21878a922847dd5cfa09a422cdfcf1bcb1b31f9f8e914e0e215",
+          "trajectory": "73c93cffd7fea05646757091aebff1068ed4d966085138b5f3a1af22afb67ac9",
+          "manifest": "4794887418a2c0a81309eba6d044134523f01bddbd63c00cb490c2ec64518130",
+          "issue": "4d1a08fa41ecef39ce23af292d1139cdc7d030bef74172654e29d4876338b716",
+          "official_pre": "f5487a3f5370edeb2665adf754f02c7ee54af89447324658e1dbeddca2109b06",
+          "official_post": "f9fd667e2153dfa8acb2288ccb320402ca80048c82650d76cde43b851be4678c"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 849,
+          "FAIL_TO_FAIL": 6,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 1
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pydata__xarray-3677/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pydata__xarray-3677/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-improved/manifest.json",
+          "issue": "data/pydata__xarray-3677/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/pydata__xarray-3677/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/pydata__xarray-3677/test_output.txt"
+        },
+        "sha256": {
+          "report": "982c46fd082752553dac185d8a3af5aded143e3a96b9c55bb0b79ff991330dc6",
+          "patch": "ff97da52607c08d467a605e028d8d51c03a321231fbce4d77378f97311196872",
+          "trajectory": "703734b31dd6598cfa387005ad705a4ad56438916887533355502ac3ccc92a07",
+          "manifest": "37f23fb62ba97e399d7027dc0be350736e19c9db7531e550eb1053ae2acbdcce",
+          "issue": "4d1a08fa41ecef39ce23af292d1139cdc7d030bef74172654e29d4876338b716",
+          "official_pre": "e36fd9dc734a836058d852bea4042e5ebd7b3eda748be0b9f7736d706fda1740",
+          "official_post": "5f502b3d7ff46cfc9524e72742ea2dedac09ec8c08acdec7d4e4425986f9d6ad"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 21,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "pylint-dev__pylint-6903": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pylint-dev__pylint-6903/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pylint-dev__pylint-6903/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-baseline/manifest.json",
+          "issue": "data/pylint-dev__pylint-6903/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/pylint-dev__pylint-6903/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/pylint-dev__pylint-6903/test_output.txt"
+        },
+        "sha256": {
+          "report": "f84dbe3b9e885867623b520dddd3040407c2e0f27a600a66e539f520feb55760",
+          "patch": "2c4a0561f405d8c5066164ec432a7a5688da5aa9f31a72acf3e96edde9c39e6c",
+          "trajectory": "bd90eb78cdd40eca8efaf4f5f2f4a1011a1e37d3214650ff879472f17aaaa5d6",
+          "manifest": "228bb131f3c4b4f3b6c9531158e3dda2b9580f07fa9aedbd6a892ef936ad5a55",
+          "issue": "5b236da9e3dbb09d3bf45598d1cc24596fa01daf96d7280482e081345f4ed50f",
+          "official_pre": "3b77a5e5b80e2511f0970af1260c9389ceed4e789cfd8cfa7d8e2fcf855adb4a",
+          "official_post": "bc0c75462b3507aee0fb870c0459f110dd9b0c6384d30458d39e063c41febc98"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 0,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 2,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pylint-dev__pylint-6903/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pylint-dev__pylint-6903/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-improved/manifest.json",
+          "issue": "data/pylint-dev__pylint-6903/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/pylint-dev__pylint-6903/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/pylint-dev__pylint-6903/test_output.txt"
+        },
+        "sha256": {
+          "report": "353844bfcb409ece6f17f3dcbb76f4fadc7d16eba5a5130e1bf0594262733b95",
+          "patch": "80b9947a101bfc39a247a83694efe7b5d6f6ff554f0280ad0a51427971fcd35a",
+          "trajectory": "1329447309a025aa97412fb01fb34cb7d72e0b0fbccc124703b1eb5e15d3052f",
+          "manifest": "07347dce93db0d33a4537de55ceb79c1c00d390506031ae5b94ec4297c8c4250",
+          "issue": "5b236da9e3dbb09d3bf45598d1cc24596fa01daf96d7280482e081345f4ed50f",
+          "official_pre": "31112eea054ea98b72cafff4d49268eb4d2d772f3504df4540ab74d6e4a3ded9",
+          "official_post": "7c309c69162eb047518ec49a6802bf9af19550fbca1e0a2a5e8e313c7148a8fa"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 2,
+          "PASS_TO_PASS": 0,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "pytest-dev__pytest-7432": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pytest-dev__pytest-7432/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/pytest-dev__pytest-7432/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-baseline/manifest.json",
+          "issue": "data/pytest-dev__pytest-7432/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/pytest-dev__pytest-7432/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/pytest-dev__pytest-7432/test_output.txt"
+        },
+        "sha256": {
+          "report": "0c8bf9e02cac4ec6807f992e0dfc3123de30e41b710d36eee453a4843854f3fb",
+          "patch": "118c28361e5ec7868c9aa4a4d9cc171ea917f76316a60ef0f8544120d3a25398",
+          "trajectory": "119272c54313117a3f5e9b1537193e6f4c8d04813c64c8c760fd247e87358e93",
+          "manifest": "3b7655514a47c47f8462a11632298af9d40efff3710fa72dcf9f6a2af220c568",
+          "issue": "f8453cfb1e017be81d0fd5ac8fc5b6faeff6045f71763c81e7fd51537a81ef31",
+          "official_pre": "01eef7aec3808ff51119bb6ddb22248122a6084e49e5bda470da749fe71178fb",
+          "official_post": "381fd49148c7ecbdd1a1569073c8a39ebca6eb01aebf9588699b9e46ef740e63"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 76,
+          "FAIL_TO_FAIL": 8,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 8
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pytest-dev__pytest-7432/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/pytest-dev__pytest-7432/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-improved/manifest.json",
+          "issue": "data/pytest-dev__pytest-7432/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/pytest-dev__pytest-7432/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/pytest-dev__pytest-7432/test_output.txt"
+        },
+        "sha256": {
+          "report": "0a01a21a437b08204dfb2ec0ae33445f5d67b48f66cf46c7572a955fa0d8ab4a",
+          "patch": "f07263cfec0714b71d52e41f9e8629a4b6ef8fd2b690fb64773de65341825e6d",
+          "trajectory": "43170781c4013fe7cdb55e4eecd72cff35f20ab750ca5990158fa16d823dde29",
+          "manifest": "0a6f61d3fecaf153534b863faa881fef5874dbc4b60a3a640bc01ecdffed99f6",
+          "issue": "f8453cfb1e017be81d0fd5ac8fc5b6faeff6045f71763c81e7fd51537a81ef31",
+          "official_pre": "6aff0aa50bd70b23d1c6811d0791bbe4839c370ba3094b56b847c1809a6a3cd7",
+          "official_post": "6d8422bf4c9ad255d4b9c6f7fc8733df0971a430f84bf3844d26bb342d37ba88"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 76,
+          "FAIL_TO_FAIL": 6,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 8
+        }
+      }
+    },
+    "scikit-learn__scikit-learn-14894": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.4166666666666667,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/scikit-learn__scikit-learn-14894/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/scikit-learn__scikit-learn-14894/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-baseline/manifest.json",
+          "issue": "data/scikit-learn__scikit-learn-14894/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/scikit-learn__scikit-learn-14894/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/scikit-learn__scikit-learn-14894/test_output.txt"
+        },
+        "sha256": {
+          "report": "b5358383594806f31fbdfcb566e5d637a8846e154d94731b41e3365bd9c63441",
+          "patch": "1c2068c6f1cc1c38da0de9036f4e2f962736fa71d462d7b02ef14abf8db65124",
+          "trajectory": "32015b4c1768fa4616d840a4624c61de00616c86c0424d3635126c06a4cb6bfd",
+          "manifest": "39eee72fef4c1d0bd3130299987157b665e1801bb7c60aed750d636a41a57276",
+          "issue": "0cf2009aebab59ce0221a4ccda59465d8506a274a5d76a4f9e35338c5373ced5",
+          "official_pre": "f32f71be6862847f0c3316e852cea64c156daa5651a8084e05f95c43bf18bb5e",
+          "official_post": "f143b09d2fb1149bc2a235c8e2c31b41b11a4d925b019f52f489cfc7e9f48c2b"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 31,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.4166666666666667,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/scikit-learn__scikit-learn-14894/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/scikit-learn__scikit-learn-14894/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-improved/manifest.json",
+          "issue": "data/scikit-learn__scikit-learn-14894/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/scikit-learn__scikit-learn-14894/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/scikit-learn__scikit-learn-14894/test_output.txt"
+        },
+        "sha256": {
+          "report": "fac077a83bcc43ffc6ad2c6273f3f589918191fb774f72c458a2161914e6b7b9",
+          "patch": "cd5909cb2c680bd8c60c594a58c68ea273a4f90e236365809f571baeef18e4c8",
+          "trajectory": "976a00f681116b67220b44caa97d626508686811895d8402ac0e99101c09578e",
+          "manifest": "026c43ebc9023c26fa9fb513ce0dc1df94e143c9c1c1d19e52e7899f929052ce",
+          "issue": "0cf2009aebab59ce0221a4ccda59465d8506a274a5d76a4f9e35338c5373ced5",
+          "official_pre": "f3bc48cf06ac09666edd831e605b644b8a0ca313b4c45af8de027f7b03c0aa45",
+          "official_post": "e6e6366a5b791c7eaf2f6265dcea09afb2f7abeff0f123b898503473d0c41bc1"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 31,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8548": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.13636363636363635,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8548/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8548/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-baseline/manifest.json",
+          "issue": "data/sphinx-doc__sphinx-8548/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/sphinx-doc__sphinx-8548/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/sphinx-doc__sphinx-8548/test_output.txt"
+        },
+        "sha256": {
+          "report": "907b6946a8934d1d524fa2364a0b0d7332a80ee88b218bbadfafe26b4c1aaa29",
+          "patch": "0d8b1f8d9e05befad78dd37d1a95b419a70c2cd6939bcb1d743a899721bc2e04",
+          "trajectory": "458150817b00547b87337761e5ed13f9f0ff763d3fab35320f1b6a4f5ceaae67",
+          "manifest": "0d06cf09fdefc17e4f736fd4a8f9e3b9a4c297f69a4c3b08803062ae162939b9",
+          "issue": "f0c8a912cffb03b9d6346146e11cf044329280bfe2a193fd9e46980b193cffb0",
+          "official_pre": "1548b0fea61ba074aed7bdc3a6c1cd90753a7b91c062c27a0618d40fded87ed5",
+          "official_post": "ca7e2ffa6a0de43e35e1f9dcda26b96875f0565605846c897595d0762316cfbb"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 0,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 68
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.13636363636363635,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8548/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8548/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-improved/manifest.json",
+          "issue": "data/sphinx-doc__sphinx-8548/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/sphinx-doc__sphinx-8548/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/sphinx-doc__sphinx-8548/test_output.txt"
+        },
+        "sha256": {
+          "report": "1caa158eef7342ffdb364e9188e5937d362f93bc9d636305673f87beb09c288f",
+          "patch": "efe1b694bd674b6638d19b9a9d4f9263a6cda1b4037ee40df3cb7c3786fdec1a",
+          "trajectory": "6dc5f763232b56b712643dde6cc781893519d723468705dbcce51d4dcea71859",
+          "manifest": "7bba63db7f8f7ad0a0f5006fb204f87d0c53a507e88f5d206dacc4c968acd245",
+          "issue": "f0c8a912cffb03b9d6346146e11cf044329280bfe2a193fd9e46980b193cffb0",
+          "official_pre": "9238d242173b8969456d42e662b567508d74bbd7876d24068f2c5541f989d249",
+          "official_post": "30c6a3b09d42f194da50ce66c89cc7c2431565378d467cece471ff760b0d437c"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 0,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 68
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8551": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.0,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8551/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8551/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-baseline/manifest.json",
+          "issue": "data/sphinx-doc__sphinx-8551/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/sphinx-doc__sphinx-8551/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/sphinx-doc__sphinx-8551/test_output.txt"
+        },
+        "sha256": {
+          "report": "2e59a47bdd70a4476736aa3fbe6dec3b352f2772ff366b94690deecaf1239d7c",
+          "patch": "2053da1006bd208e91de7f84a80d8daf72239673d41b9c53bfb983236b166b24",
+          "trajectory": "27886ebcba3e21831140d5c7c789b92565e3fb0ae67432dfde1b36ec5ffcae35",
+          "manifest": "10ec4729e8ecf10526ec8fcce0b5a2b63e3289df54bf9acefc88fb5e6392bc9e",
+          "issue": "59b1b15138bca3802f81a94c49ced00a098c6dc015474f0a7c06967bc623d7b6",
+          "official_pre": "52395d159618df0c586beb9a0a97aa963824eca60f4207553f915df117bd6a87",
+          "official_post": "c946412a1e2e0e9ee73b385b87cf6c93574ec0762c2e28c12117438a688ad82b"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 2,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 31
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 0.0,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8551/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8551/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-improved/manifest.json",
+          "issue": "data/sphinx-doc__sphinx-8551/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/sphinx-doc__sphinx-8551/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/sphinx-doc__sphinx-8551/test_output.txt"
+        },
+        "sha256": {
+          "report": "892a78db6b262a564a9aad43f412160b0ee831b00ff636b28e9d5dca2393a349",
+          "patch": "dcf33b4fb316c1750e1243fd9938f076fee8e7f5ec6f75198f56b4ad433aa38c",
+          "trajectory": "44576d6a183828bb18406b9b221fdec87b2fb4bbe8e30f052fd0b76f9c2cde4d",
+          "manifest": "1c66e882afb3f74c8e4ad7ecd3dcf0f79f3264491ef8d8ae26b4291b28e30444",
+          "issue": "59b1b15138bca3802f81a94c49ced00a098c6dc015474f0a7c06967bc623d7b6",
+          "official_pre": "3dbabef04a085e5717a655153b91d7d603513d5fe5d20993485287b380ce2242",
+          "official_post": "dcb46bef849f579cb289b613360a07bccf2649a3c2c3555360a047d07b17e77a"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 2,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 31
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8621": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8621/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8621/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-baseline/manifest.json",
+          "issue": "data/sphinx-doc__sphinx-8621/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/sphinx-doc__sphinx-8621/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/sphinx-doc__sphinx-8621/test_output.txt"
+        },
+        "sha256": {
+          "report": "4debc40146a0f0d6b2651ff3550eb82b5f52a0de76f9564bc2f3e37b9c3b5a44",
+          "patch": "c5f6f808c6807635192d9d2045a03c0834ca0a3bef78587b41e088fec6abf7b4",
+          "trajectory": "20976faaf79fc5e849f09fd8e0d6b26c51350c05c9731cf920990f903343fd23",
+          "manifest": "72cc60bdf278824830012a13a3a629569bf972410256dfc3011eb9adee8368a9",
+          "issue": "3e046e4b32763535effb1e5d144ce265b213b55f236d73a32390a316abc44a7a",
+          "official_pre": "70fc71c488ae24224ab63c36d04229caa6fb71cd2e08b7f0904ff13dc576e646",
+          "official_post": "36dc805079302227d69b65572f14fad5aef41cd6614242f760711eb205e11dea"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 0,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 1
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8621/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8621/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-improved/manifest.json",
+          "issue": "data/sphinx-doc__sphinx-8621/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/sphinx-doc__sphinx-8621/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/sphinx-doc__sphinx-8621/test_output.txt"
+        },
+        "sha256": {
+          "report": "4debc40146a0f0d6b2651ff3550eb82b5f52a0de76f9564bc2f3e37b9c3b5a44",
+          "patch": "81fcac023aa9b5b3a8550e25e8124a9271fab3fe7fd9fef3a9b47df78cc812e6",
+          "trajectory": "9d072cf12c9e77a23a8009c025718b87bff4021470b3a0bf1af832883797a882",
+          "manifest": "fd014af108f7f84ed01def731f4ca73c255344fca3bbc44b297d2c6814d096f6",
+          "issue": "3e046e4b32763535effb1e5d144ce265b213b55f236d73a32390a316abc44a7a",
+          "official_pre": "15c0763ea06d20971bbcac6f3e01d7be66b31558f85ccfb5ba79908def4abadc",
+          "official_post": "c2c24839a436df33c9b7bfe819b80d42e780b32055314c4977b0adf374a6c3af"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 0,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 1
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8638": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8638/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8638/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-baseline/manifest.json",
+          "issue": "data/sphinx-doc__sphinx-8638/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/sphinx-doc__sphinx-8638/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/sphinx-doc__sphinx-8638/test_output.txt"
+        },
+        "sha256": {
+          "report": "5cd66126b355c3a414e8d06ca046645ae6cd8b14cac4626e81417b0d83618b57",
+          "patch": "d710cc5fb7f09d91f1d1b6b84e9dfe0533766ece8f7113ebe695cc0a60d7e484",
+          "trajectory": "6f49054f09280cbef9cbb330bf84b7fe089fb3ff4f3dce0b104e8206993fe8b2",
+          "manifest": "b79f6318225d015577748a6c2ff63e4aec45e197c61dfdd587022004c1c005d6",
+          "issue": "bcfbf8c2f2b843cf3892b3ec7af0762b44dbf3e9d2d0ed45b4024391108a3677",
+          "official_pre": "b2fd312fceeff6908514acfbf16efd14ec899713fea723480893fa00f50a1af5",
+          "official_post": "8792099bed8d3c1135e232829eaceaaaf7cad3c90b3143e2dd541c57f98d798d"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 2,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 33
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": 1.0,
+          "coverage_delta_pred": 1.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8638/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8638/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-improved/manifest.json",
+          "issue": "data/sphinx-doc__sphinx-8638/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/sphinx-doc__sphinx-8638/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/sphinx-doc__sphinx-8638/test_output.txt"
+        },
+        "sha256": {
+          "report": "47e21f4b18feb1e1865d0a010fb2e0309d73181c7537f001f7c643125ca7e938",
+          "patch": "5300b5a07f30dc5408e78c88c445e5c7e32ff0ccbfa34a4020dfb77484694e34",
+          "trajectory": "e924a4708bb2ee6c722bdffe1326ca1db2a8f38f6937033f260d76562c375342",
+          "manifest": "712713da13848543c7e173d331cc8703db3f91fb4574a0c57fff66d6d80f1da5",
+          "issue": "bcfbf8c2f2b843cf3892b3ec7af0762b44dbf3e9d2d0ed45b4024391108a3677",
+          "official_pre": "654bed9df2219d8910c9b5d04ff39c18876433e0b90888be87bbc7f403e48ea9",
+          "official_post": "f3d7daf4d657a47c25f903e9542fd45fcd59c821ce0715e4974d58481bcc8ae7"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 2,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 33
+        }
+      }
+    },
+    "sphinx-doc__sphinx-8721": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": null,
+          "coverage_delta_pred": null,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8721/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-8721/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-baseline/manifest.json",
+          "issue": "data/sphinx-doc__sphinx-8721/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/sphinx-doc__sphinx-8721/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/sphinx-doc__sphinx-8721/test_output.txt"
+        },
+        "sha256": {
+          "report": "e5e37ff222c589f56c6d1e3a1cc3ddcee15b1a66bbb0c736d93f6f5b7cc6ca29",
+          "patch": "6b56be985de088e8e1a3fe2745293f14977415c60b5da905f0a2236644b13e09",
+          "trajectory": "7e54620a7ec910e13e54b12febc72ea88d3b8b95e94ba89b1927cd95c33dc041",
+          "manifest": "a5f037c8e4b7d7ef69ca08edabb5612b8fdb5e17360fcbf20f537c44a7443404",
+          "issue": "684041d7ab737dd04914a0017b92d238cd8dae72182457e3f3a21f494e7acb3e",
+          "official_pre": "8fab4786560114c1b5116b94fcdc6e434c7138f5900f832a346a4bab0effca68",
+          "official_post": "eec717f57b8ed0a9637397403fda95cf44a2eb28ea1372d17440a7955fcd0cfc"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 0,
+          "FAIL_TO_FAIL": 1,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 3
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "added_f2p": 0,
+          "coverage_pred": null,
+          "coverage_delta_pred": null,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8721/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-8721/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-improved/manifest.json",
+          "issue": "data/sphinx-doc__sphinx-8721/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/sphinx-doc__sphinx-8721/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/sphinx-doc__sphinx-8721/test_output.txt"
+        },
+        "sha256": {
+          "report": "772610ff81670144450474908f920b52cfe141b380f6140c9175804e8734809e",
+          "patch": "fe5d2235a977ebed2e42f08f66315b0c16093da40ac493b68ecba5c7b2e10df5",
+          "trajectory": "d39a42b67672c73e74a270447fe8df3b2aaf4574f4a763ec5fb5cf5e21a614cb",
+          "manifest": "efb672180a2649ae1169db0be285a9b343bf05b01cce0b4653ea1d3ee9b5ca86",
+          "issue": "684041d7ab737dd04914a0017b92d238cd8dae72182457e3f3a21f494e7acb3e",
+          "official_pre": "7e55c874d2c72797d7a9ee6b3d1a6723656832c5aed71bceda4750a6226067f8",
+          "official_post": "d686fc5190227c55565a769649ddfdc79501b587d2830f2bb1cd3c67686f9f0c"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 0,
+          "PASS_TO_PASS": 0,
+          "FAIL_TO_FAIL": 1,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 3
+        }
+      }
+    },
+    "sphinx-doc__sphinx-9711": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.6666666666666666,
+          "coverage_delta_pred": 0.5833333333333334,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-9711/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sphinx-doc__sphinx-9711/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-baseline/manifest.json",
+          "issue": "data/sphinx-doc__sphinx-9711/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/sphinx-doc__sphinx-9711/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/sphinx-doc__sphinx-9711/test_output.txt"
+        },
+        "sha256": {
+          "report": "f2aa0dff3250de6c872107a615f5fb957f34e67b79e119eaa0ae5a49e2df8f35",
+          "patch": "8d94c1e36a371e0a28f3bb16f9cf604e6460dd736a526ef2b962def19c646377",
+          "trajectory": "8a83e435b3a150c43468d4d2f189590d28c4117b60b388cf27e7b5648e888853",
+          "manifest": "405bdc66050378073ea10e51dde739ae286d871248b184e51c08ce5b4b384a18",
+          "issue": "774dbded97246fc337cc3a9f01569a66641396f3952440385d51e6f7e095234a",
+          "official_pre": "f730069fc66efacc141b3314b77e3502a35d832c07342d7c17b36284916fd45e",
+          "official_post": "f02e26b8323ba9381b3d1eeaf47bd8e36106a70dc4d6aada5ce0083ed8808b02"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 34,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.6666666666666666,
+          "coverage_delta_pred": 0.5833333333333334,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-9711/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sphinx-doc__sphinx-9711/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-improved/manifest.json",
+          "issue": "data/sphinx-doc__sphinx-9711/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/sphinx-doc__sphinx-9711/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/sphinx-doc__sphinx-9711/test_output.txt"
+        },
+        "sha256": {
+          "report": "cd088f9c225db837341725cc9a1b6ab56df2d9d24eaea7caab792166f0f6b7bd",
+          "patch": "5d8bd0573551ff4bbc5586f22397190c1bd84f22cec142207943c9d3c45e1274",
+          "trajectory": "51a0fb6b2fd22400069369920a41f76d9087404e7d5f6222f716961774c23e7c",
+          "manifest": "1227747cff43f1ee2f55eff857c80d085a9ec9b3d4397efd41b84bd44e0a8b8e",
+          "issue": "774dbded97246fc337cc3a9f01569a66641396f3952440385d51e6f7e095234a",
+          "official_pre": "030ce8f20e94f994aabbade7c61bd31450e99e0e41952e6cc4e00fb07e626af0",
+          "official_post": "6aba28b477364c36d3550d5e4bbbd580d70b36010c98b4a598038351f087a526"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 1,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    },
+    "sympy__sympy-24539": {
+      "baseline": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.8571428571428571,
+          "coverage_delta_pred": 0.2857142857142857,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sympy__sympy-24539/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/trace-baseline-unit-test/sympy__sympy-24539/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-baseline/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-baseline/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-baseline/manifest.json",
+          "issue": "data/sympy__sympy-24539/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/sympy__sympy-24539/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/sympy__sympy-24539/test_output.txt"
+        },
+        "sha256": {
+          "report": "f9f0eaf14b90aa824764ddeef89b06ea9ae2bcdfa17a620445f3d99473095245",
+          "patch": "686233e2a5301ecfc00400f04c22549c69c8fb822a14fbe032d4f018e82762ba",
+          "trajectory": "9d44c8e9219a7b73a6bced9520145582ba2a047f703a13cec509dae442659da3",
+          "manifest": "57a6db97762f35cc3a029be52294fb539222c0b7bfa6b255d02e99ed8da6301a",
+          "issue": "c45c55bcffb2b526d21ed6b0c8d19976455280d6ce9343f7f2d62d96c3d3e037",
+          "official_pre": "37b0223f26ca29f34c864fedcee584b3cdcd5fdf802b909d6ad0d45fa4884eff",
+          "official_post": "1e07148dd5d03ad2907c1992674795d8cc2464328d12815d392f7b27971ab067"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 63,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      },
+      "improved": {
+        "outcome": {
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "added_f2p": 1,
+          "coverage_pred": 0.8571428571428571,
+          "coverage_delta_pred": 0.0,
+          "status": "reported",
+          "report": "run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sympy__sympy-24539/report.json"
+        },
+        "paths": {
+          "report": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/trace-improved-unit-test/sympy__sympy-24539/report.json",
+          "patch": "runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-improved/submission.patch",
+          "trajectory": "runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-improved/agent.traj.json",
+          "manifest": "runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-improved/manifest.json",
+          "issue": "data/sympy__sympy-24539/report.txt",
+          "official_pre": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/sympy__sympy-24539/test_output.txt",
+          "official_post": "evaluation_results/trace-assigned-26-unit-20261113-122920/run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/sympy__sympy-24539/test_output.txt"
+        },
+        "sha256": {
+          "report": "dc73cfd54b6599b91a7fcd024d9e22675351471158db7da14ab645d4823949b5",
+          "patch": "ff737632874783c41f96d3309ccbccc220b74d14a9423205a61bbcf71579ecb5",
+          "trajectory": "fb27bbabfedae6b76c16aed2e261fbbef81c174740340aa8d631640afb86fa25",
+          "manifest": "3e3e6e0ba466e353b6f2437b8d727dd52d6f5f1184c04a8bf0367edb7a1b2153",
+          "issue": "c45c55bcffb2b526d21ed6b0c8d19976455280d6ce9343f7f2d62d96c3d3e037",
+          "official_pre": "75c7722023941f18515088db572bdf876bee665f32adc0bc002fb592e47b15aa",
+          "official_post": "1229101287d5061c3ebb77f850b87a104e9674a3bc55d52c1200a991be46f21c"
+        },
+        "transition_counts": {
+          "FAIL_TO_PASS": 1,
+          "PASS_TO_PASS": 63,
+          "FAIL_TO_FAIL": 0,
+          "PASS_TO_FAIL": 0,
+          "UNMATCHED": 0
+        }
+      }
+    }
+  }
+}

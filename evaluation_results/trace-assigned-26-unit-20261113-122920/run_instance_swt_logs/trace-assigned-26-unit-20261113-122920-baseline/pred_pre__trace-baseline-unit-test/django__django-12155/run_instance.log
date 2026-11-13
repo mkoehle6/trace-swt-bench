@@ -1,0 +1,50 @@
+2026-11-13 08:06:44,067 - WARNING - Starting evaluation at 1794575204.0670877
+2026-11-13 08:06:44,281 - INFO - Creating container for django__django-12155...
+2026-11-13 08:06:44,348 - INFO - Container for django__django-12155 created: 03a4542ff68fcefabf1631674c38c3f1c26ae45fbb1470050ee72fcf67263aea
+2026-11-13 08:06:44,508 - INFO - Container for django__django-12155 started: 03a4542ff68fcefabf1631674c38c3f1c26ae45fbb1470050ee72fcf67263aea
+2026-11-13 08:06:46,604 - INFO - Git diff before:
+
+2026-11-13 08:06:46,610 - INFO - Eval script for django__django-12155 written to eval.sh, now applying to container...
+2026-11-13 08:06:52,940 - INFO - Test output for django__django-12155 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-12155/test_output.txt
+2026-11-13 08:06:53,028 - INFO - Git diff after:
+diff --git a/tests/admin_docs/test_utils.py b/tests/admin_docs/test_utils.py
+index 17ea912015..1b167fb4d8 100644
+--- a/tests/admin_docs/test_utils.py
++++ b/tests/admin_docs/test_utils.py
+@@ -44,6 +44,31 @@ class TestUtils(AdminDocsSimpleTestCase):
+         )
+         self.assertEqual(trim_docstring_output, trimmed_docstring)
+ 
++    def test_trim_docstring_with_first_line_content(self):
++        docstring = (
++            'This is the first line.\n'
++            '    This is the second line.\n'
++            '        This is the third line.'
++        )
++        self.assertEqual(
++            trim_docstring(docstring),
++            'This is the first line.\n'
++            'This is the second line.\n'
++            '    This is the third line.',
++        )
++
++    def test_parse_docstring_with_first_line_content(self):
++        docstring = (
++            'Title\n'
++            '\n'
++            '    Description.\n'
++            '    More description.'
++        )
++        self.assertEqual(
++            parse_docstring(docstring),
++            ('Title', 'Description.\nMore description.', {}),
++        )
++
+     def test_parse_docstring(self):
+         title, description, metadata = parse_docstring(self.docstring)
+         docstring_title = (
+2026-11-13 08:06:53,029 - INFO - Git diff changed after running eval script
+2026-11-13 08:06:53,030 - INFO - Attempting to stop container exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9.132386095351328...
+2026-11-13 08:07:08,235 - INFO - Attempting to remove container exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9.132386095351328...
+2026-11-13 08:07:08,265 - INFO - Container exec.eval.x86_64.8d48ddaf97462eaa0fa9d9.6189870ca2916b7fc6b3f9.132386095351328 removed.
+2026-11-13 08:07:08,267 - WARNING - End of eval at 1794575228.2673328

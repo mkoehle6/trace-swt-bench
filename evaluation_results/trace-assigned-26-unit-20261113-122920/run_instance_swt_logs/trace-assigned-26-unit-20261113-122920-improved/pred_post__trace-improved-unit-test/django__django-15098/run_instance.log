@@ -1,0 +1,76 @@
+2026-11-13 08:44:07,749 - WARNING - Starting evaluation at 1794577447.7499418
+2026-11-13 08:44:08,080 - INFO - Creating container for django__django-15098...
+2026-11-13 08:44:08,161 - INFO - Container for django__django-15098 created: 7876f09a3da8d059f1bd6f408a96e2aa1ce34cb7845235f5ecd89482cefd315a
+2026-11-13 08:44:08,336 - INFO - Container for django__django-15098 started: 7876f09a3da8d059f1bd6f408a96e2aa1ce34cb7845235f5ecd89482cefd315a
+2026-11-13 08:44:09,270 - INFO - Git diff before:
+
+2026-11-13 08:44:09,276 - INFO - Eval script for django__django-15098 written to eval.sh, now applying to container...
+2026-11-13 08:44:18,244 - INFO - Test output for django__django-15098 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/django__django-15098/test_output.txt
+2026-11-13 08:44:18,361 - INFO - Git diff after:
+diff --git a/django/utils/translation/trans_real.py b/django/utils/translation/trans_real.py
+index 7dcc77b46c..f4e35eabbc 100644
+--- a/django/utils/translation/trans_real.py
++++ b/django/utils/translation/trans_real.py
+@@ -43,7 +43,7 @@ language_code_re = _lazy_re_compile(
+     re.IGNORECASE
+ )
+ 
+-language_code_prefix_re = _lazy_re_compile(r'^/(\w+([@-]\w+)?)(/|$)')
++language_code_prefix_re = _lazy_re_compile(r'^/(\w+([@-]\w+){0,2})(/|$)')
+ 
+ 
+ @receiver(setting_changed)
+diff --git a/tests/i18n/patterns/tests.py b/tests/i18n/patterns/tests.py
+index ebd2430428..3efce20be1 100644
+--- a/tests/i18n/patterns/tests.py
++++ b/tests/i18n/patterns/tests.py
+@@ -317,6 +317,19 @@ class URLResponseTests(URLTestCaseBase):
+         self.assertEqual(response.headers['content-language'], 'en')
+         self.assertEqual(response.context['LANGUAGE_CODE'], 'en')
+ 
++    @override_settings(
++        LANGUAGES=[
++            ('en-us', 'English'),
++            ('en-latn-us', 'Latin English'),
++            ('en-Latn-US', 'BCP 47 case format'),
++        ],
++    )
++    def test_en_latn_us_url(self):
++        response = self.client.get('/en-latn-us/account/register/')
++        self.assertEqual(response.status_code, 200)
++        self.assertEqual(response.headers['content-language'], 'en-latn-us')
++        self.assertEqual(response.context['LANGUAGE_CODE'], 'en-latn-us')
++
+     def test_nl_url(self):
+         response = self.client.get('/nl/profiel/registreren/')
+         self.assertEqual(response.status_code, 200)
+diff --git a/tests/i18n/tests.py b/tests/i18n/tests.py
+index bb6ea15f85..49d131349f 100644
+--- a/tests/i18n/tests.py
++++ b/tests/i18n/tests.py
+@@ -1610,6 +1610,20 @@ class MiscTests(SimpleTestCase):
+         self.assertEqual(g('/de-ch/'), 'de')
+         self.assertIsNone(g('/de-simple-page/'))
+ 
++    @override_settings(
++        LANGUAGES=[
++            ('en-us', 'English'),
++            ('en-latn-us', 'Latin English'),
++            ('en-Latn-US', 'BCP 47 case format'),
++        ],
++    )
++    def test_get_language_from_path_with_script_and_region(self):
++        g = trans_real.get_language_from_path
++        self.assertEqual(g('/en-latn-us/'), 'en-latn-us')
++        self.assertEqual(g('/en-Latn-US/'), 'en-Latn-US')
++        self.assertEqual(g('/en-latn-us/account/register/'), 'en-latn-us')
++        self.assertEqual(g('/en-Latn-US/account/register/'), 'en-Latn-US')
++
+     def test_get_language_from_path_null(self):
+         g = trans_null.get_language_from_path
+         self.assertIsNone(g('/pl/'))
+2026-11-13 08:44:18,362 - INFO - Git diff changed after running eval script
+2026-11-13 08:44:18,364 - INFO - Attempting to stop container exec.eval.x86_64.6b24dca158642bd6288384.24aa6bc5fafd3bdbfc9d5d.125911372155504...
+2026-11-13 08:44:33,604 - INFO - Attempting to remove container exec.eval.x86_64.6b24dca158642bd6288384.24aa6bc5fafd3bdbfc9d5d.125911372155504...
+2026-11-13 08:44:33,649 - INFO - Container exec.eval.x86_64.6b24dca158642bd6288384.24aa6bc5fafd3bdbfc9d5d.125911372155504 removed.
+2026-11-13 08:44:33,650 - WARNING - End of eval at 1794577473.6507943

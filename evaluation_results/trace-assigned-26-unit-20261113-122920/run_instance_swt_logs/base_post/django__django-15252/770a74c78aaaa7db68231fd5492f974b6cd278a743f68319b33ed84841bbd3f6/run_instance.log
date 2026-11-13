@@ -1,0 +1,33 @@
+2026-11-13 08:11:03,953 - WARNING - Starting evaluation at 1794575463.953586
+2026-11-13 08:11:04,249 - INFO - Creating container for django__django-15252...
+2026-11-13 08:11:04,330 - INFO - Container for django__django-15252 created: d22dc308c657adb8993505cd87b50e66ad38413792c37cb2b508ea88685c7fce
+2026-11-13 08:11:04,521 - INFO - Container for django__django-15252 started: d22dc308c657adb8993505cd87b50e66ad38413792c37cb2b508ea88685c7fce
+2026-11-13 08:11:05,484 - INFO - Git diff before:
+
+2026-11-13 08:11:05,491 - INFO - Eval script for django__django-15252 written to eval.sh, now applying to container...
+2026-11-13 08:11:12,870 - INFO - Test output for django__django-15252 written to run_instance_swt_logs/base_post/django__django-15252/770a74c78aaaa7db68231fd5492f974b6cd278a743f68319b33ed84841bbd3f6/test_output.txt
+2026-11-13 08:11:12,984 - INFO - Git diff after:
+diff --git a/django/db/migrations/executor.py b/django/db/migrations/executor.py
+index aa2fe0883b..89e9344a68 100644
+--- a/django/db/migrations/executor.py
++++ b/django/db/migrations/executor.py
+@@ -96,8 +96,12 @@ class MigrationExecutor:
+         (un)applied and in a second step run all the database operations.
+         """
+         # The django_migrations table must be present to record applied
+-        # migrations.
+-        self.recorder.ensure_schema()
++        # migrations, but don't create it if there are no migrations to apply.
++        if plan == []:
++            if not self.recorder.has_table():
++                return self._create_project_state(with_applied_migrations=False)
++        else:
++            self.recorder.ensure_schema()
+ 
+         if plan is None:
+             plan = self.migration_plan(targets)
+2026-11-13 08:11:12,986 - INFO - Git diff changed after running eval script
+2026-11-13 08:11:12,988 - INFO - Attempting to stop container exec.eval.x86_64.6b24dca158642bd6288384.55e28827f67f781ff3be26.132386095354592...
+2026-11-13 08:11:28,252 - INFO - Attempting to remove container exec.eval.x86_64.6b24dca158642bd6288384.55e28827f67f781ff3be26.132386095354592...
+2026-11-13 08:11:28,315 - INFO - Container exec.eval.x86_64.6b24dca158642bd6288384.55e28827f67f781ff3be26.132386095354592 removed.
+2026-11-13 08:11:28,317 - WARNING - End of eval at 1794575488.3172605

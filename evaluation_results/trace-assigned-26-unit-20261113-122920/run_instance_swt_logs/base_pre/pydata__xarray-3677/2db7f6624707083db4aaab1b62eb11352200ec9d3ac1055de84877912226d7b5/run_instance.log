@@ -1,0 +1,14 @@
+2026-11-13 07:34:45,241 - WARNING - Starting evaluation at 1794573285.2413075
+2026-11-13 07:34:45,425 - INFO - Creating container for pydata__xarray-3677...
+2026-11-13 07:34:45,474 - INFO - Container for pydata__xarray-3677 created: da4987970e04964705c45b3588ef1f70e789b99f1f21e6078e3708ed426118db
+2026-11-13 07:34:45,600 - INFO - Container for pydata__xarray-3677 started: da4987970e04964705c45b3588ef1f70e789b99f1f21e6078e3708ed426118db
+2026-11-13 07:34:45,682 - INFO - Git diff before:
+
+2026-11-13 07:34:45,687 - INFO - Eval script for pydata__xarray-3677 written to eval.sh, now applying to container...
+2026-11-13 07:35:26,826 - INFO - Test output for pydata__xarray-3677 written to run_instance_swt_logs/base_pre/pydata__xarray-3677/2db7f6624707083db4aaab1b62eb11352200ec9d3ac1055de84877912226d7b5/test_output.txt
+2026-11-13 07:35:26,878 - INFO - Git diff after:
+
+2026-11-13 07:35:26,879 - INFO - Attempting to stop container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064...
+2026-11-13 07:35:42,067 - INFO - Attempting to remove container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064...
+2026-11-13 07:35:42,095 - INFO - Container exec.eval.x86_64.bd0581d44706317407e86a.2d1c71ec16179861df8a9d.132387236556064 removed.
+2026-11-13 07:35:42,096 - WARNING - End of eval at 1794573342.0962415

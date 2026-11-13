@@ -1,0 +1,30 @@
+2026-11-13 07:36:24,260 - WARNING - Starting evaluation at 1794573384.2607956
+2026-11-13 07:36:24,507 - INFO - Creating container for sympy__sympy-24539...
+2026-11-13 07:36:24,578 - INFO - Container for sympy__sympy-24539 created: 04b1c94e060cf409645cc545cdb78c957487ad21f56ace44fc8314779044139d
+2026-11-13 07:36:24,733 - INFO - Container for sympy__sympy-24539 started: 04b1c94e060cf409645cc545cdb78c957487ad21f56ace44fc8314779044139d
+2026-11-13 07:36:25,510 - INFO - Git diff before:
+
+2026-11-13 07:36:25,518 - INFO - Eval script for sympy__sympy-24539 written to eval.sh, now applying to container...
+2026-11-13 07:36:31,335 - INFO - Test output for sympy__sympy-24539 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/sympy__sympy-24539/test_output.txt
+2026-11-13 07:36:31,399 - INFO - Git diff after:
+diff --git a/sympy/polys/tests/test_rings.py b/sympy/polys/tests/test_rings.py
+index b3962136a3..4d9a5528cc 100644
+--- a/sympy/polys/tests/test_rings.py
++++ b/sympy/polys/tests/test_rings.py
+@@ -265,6 +265,11 @@ def test_PolyElement_as_expr():
+     assert f != g
+     assert f.as_expr(X, Y, Z) == g
+ 
++    U, V, W = symbols("u,v,w")
++    g = 3*U**2*V - U*V*W + 7*W**3 + 1
++
++    assert f.as_expr(U, V, W) == g
++
+     raises(ValueError, lambda: f.as_expr(X))
+ 
+     R, = ring("", ZZ)
+2026-11-13 07:36:31,401 - INFO - Git diff changed after running eval script
+2026-11-13 07:36:31,402 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.4875ffbbf816883aa80c99.132386106654016...
+2026-11-13 07:36:46,598 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.4875ffbbf816883aa80c99.132386106654016...
+2026-11-13 07:36:46,628 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.4875ffbbf816883aa80c99.132386106654016 removed.
+2026-11-13 07:36:46,629 - WARNING - End of eval at 1794573406.6293852

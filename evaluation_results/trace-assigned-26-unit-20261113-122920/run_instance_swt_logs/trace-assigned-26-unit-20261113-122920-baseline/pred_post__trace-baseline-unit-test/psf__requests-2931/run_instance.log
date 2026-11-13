@@ -1,0 +1,54 @@
+2026-11-13 07:47:37,536 - WARNING - Starting evaluation at 1794574057.5359824
+2026-11-13 07:47:37,736 - INFO - Creating container for psf__requests-2931...
+2026-11-13 07:47:37,785 - INFO - Container for psf__requests-2931 created: afac672af02e606d3847e72e2b8892727d88346e9ead92a853f277b0572530a6
+2026-11-13 07:47:37,903 - INFO - Container for psf__requests-2931 started: afac672af02e606d3847e72e2b8892727d88346e9ead92a853f277b0572530a6
+2026-11-13 07:47:37,965 - INFO - Git diff before:
+
+2026-11-13 07:47:37,969 - INFO - Eval script for psf__requests-2931 written to eval.sh, now applying to container...
+2026-11-13 07:47:40,922 - INFO - Test output for psf__requests-2931 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/psf__requests-2931/test_output.txt
+2026-11-13 07:47:40,976 - INFO - Git diff after:
+diff --git a/requests/models.py b/requests/models.py
+index 9c624d3c..4bcbc548 100644
+--- a/requests/models.py
++++ b/requests/models.py
+@@ -81,7 +81,7 @@ class RequestEncodingMixin(object):
+         """
+ 
+         if isinstance(data, (str, bytes)):
+-            return to_native_string(data)
++            return data
+         elif hasattr(data, 'read'):
+             return data
+         elif hasattr(data, '__iter__'):
+@@ -385,6 +385,9 @@ class PreparedRequest(RequestEncodingMixin, RequestHooksMixin):
+             if isinstance(fragment, str):
+                 fragment = fragment.encode('utf-8')
+ 
++        if isinstance(params, (str, bytes)):
++            params = to_native_string(params)
++
+         enc_params = self._encode_params(params)
+         if enc_params:
+             if query:
+diff --git a/test_requests.py b/test_requests.py
+index 137edc08..816d1ac1 100755
+--- a/test_requests.py
++++ b/test_requests.py
+@@ -118,6 +118,12 @@ class TestRequests(object):
+         assert pr.url == req.url
+         assert pr.body == 'life=42'
+ 
++    def test_binary_payload(self):
++        data = u('ööö').encode('utf-8')
++        request = requests.Request('PUT', 'http://httpbin.org/put',
++                                   data=data).prepare()
++        assert request.body == data
++
+     def test_no_content_length(self, httpbin):
+         get_req = requests.Request('GET', httpbin('get')).prepare()
+         assert 'Content-Length' not in get_req.headers
+2026-11-13 07:47:40,977 - INFO - Git diff changed after running eval script
+2026-11-13 07:47:40,977 - INFO - Attempting to stop container exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d.132386095350608...
+2026-11-13 07:47:56,154 - INFO - Attempting to remove container exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d.132386095350608...
+2026-11-13 07:47:56,191 - INFO - Container exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d.132386095350608 removed.
+2026-11-13 07:47:56,192 - WARNING - End of eval at 1794574076.192528

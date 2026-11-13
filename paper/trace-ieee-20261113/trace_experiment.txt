@@ -1,0 +1,657 @@
+TRACE: Evidence-Grounded Issue Specifications
+for Regression Test Generation
+[Author names omitted in draft]
+[Affiliation and contact information to be added]
+Abstract—Issue-driven regression testing requires translating
+informal reports into executable behavioral checks. TRACE adds
+bounded extraction and validation of evidence-grounded issue
+specifications before a DeepSeek coding agent generates native
+test patches. We compare this workflow with a shared native-
+test baseline on 26 assigned SWE-bench Verified instances using
+the official SWT-Bench unit-test evaluator. Baseline resolves 16
+instances and TRACE resolves 17; both apply all 26 patches.
+The paired outcomes are 15 shared successes, two TRACE-only
+successes, one baseline-only success, and eight shared failures.
+Mean generation time increases from 93.45 to 127.09 seconds.
+Six systematically selected case studies show that specification
+acceptance does not guarantee a valid regression oracle or com-
+patibility with the fixed repository. Parser attribution anomalies,
+historical image limitations, diagnostic deviations, incomplete cost
+accounting, and single-run variability constrain interpretation.
+The observed one-instance gain is preliminary evidence rather
+than a demonstrated general improvement.
+Index Terms—regression testing, test generation, coding agents,
+SWT-Bench, issue specifications
+I. RESEARCH QUESTION AND MOTIVATION
+A regression test must encode the reported behavior, execute
+in the project’s native suite, and distinguish buggy from
+corrected code. An agent can produce a plausible assertion that
+passes prematurely, fails for an unrelated reason, or becomes
+invalid after a legitimate API change. SWT-Bench evaluates
+repository-level generated tests against reference fixes and
+supplies complementary behavioral and coverage evidence [1],
+[2].
+We ask: Does evidence-grounded issue-specification ex-
+traction and validation improve DeepSeek’s issue reproduc-
+tion success compared with direct report-to-test generation?
+TRACE hypothesizes that explicitly identifying a target, trig-
+ger, observed behavior, expected behavior, and suggested
+assertion will reduce unsupported assumptions. Validation
+is intended to filter analysis before generation; it does not
+independently prove test correctness. Our contribution is a
+bounded preprocessing workflow, preserved paired artifacts,
+and an empirical examination of where formalized issue un-
+derstanding helps or fails.
+II. METHOD AND EXPERIMENTAL DESIGN
+A. Two Workflows
+The baseline sends the original issue to mini-SWE-agent
+2.4.6 [3]. TRACE first requests five fields, each containing a
+value and verbatim supporting evidence. Unknown fields use
+null values. Python checks schema, nonempty values, exact
+evidence occurrence, and that the specification is not entirely
+unknown. A separate DeepSeek request reviews unsupported
+claims, contradictions, and missing information. Rejection
+triggers another extraction with feedback. Acceptance stops
+preprocessing; after three extraction attempts, validation ex-
+haustion falls back to the original report. At most six pre-
+processing calls are possible. Accepted analysis supplements,
+rather than replaces, the report.
+The preserved run records support the following proce-
+dure [5]. Both agents then inspect source and existing tests,
+generate native-suite changes, run tests, and submit a patch.
+The shared limits are 100 agent steps and a nominal $0.50
+agent budget, excluding preprocessing. A final call can exceed
+the nominal cost limit. The final candidate is the agent’s
+submitted patch, exported unchanged; non-submissions would
+export empty predictions. No evaluator-guided generation or
+repair occurs. An automatic execution-failure classifier is
+proposed future work, not an implemented component.
+The class calls its required baseline DeepFlash [4]; the
+project owner clarified that this means DeepSeek. Saved gener-
+ation configuration names deepseek/deepseek-v4-flash; direct
+preprocessing uses deepseek-flash. These recorded identifiers
+do not establish immutable provider implementation identity.
+Baseline YAML bytes are preserved, but both arms share an
+adaptation to native unit-test output and Bash pipeline failure
+propagation. Consequently, this experiment compares a shared
+adapted baseline with TRACE, not an unchanged replay of the
+original standalone-script protocol.
+B. Assignment, Controls, and Evaluation
+The fixed assignment comprises 26 issues, 13 Easy
+and
+13
+Hard,
+across
+12
+Python
+repositories.
+These
+are historical assignment labels, not our measured dif-
+ficulty
+classes.
+We
+retain
+SWE-bench
+Verified
+revision
+c104f840cc67f8b6eec6f759ebc8b2693d585d4a. Both arms use
+the same saved reports and paired environment references. Ex-
+isting completed pairs are reused; new pairs execute baseline
+then TRACE. Configuration and report hashes are checked.
+Three historical pairs retain mutable-tag identity limitations.
+We have one selected generation per arm per instance, with
+earlier failures preserved. No explicit generation seed was set;
+stochastic variability was not measured. The assignment is the
+unit of analysis, not the number of test methods generated.
+Operational failures are separated from semantic rejection:
+missing credentials do not count as failed specifications, and
+setup recovery does not authorize changing the experimental
+prompt. Candidate selection uses the preserved outcome ledger
+
+
+TABLE I
+OFFICIAL EVALUATION AND SELECTED GENERATION RECORDS
+Measure
+Baseline
+TRACE
+Official successes / assigned
+16/26
+17/26
+Success rate
+61.54%
+65.38%
+Applicable / assigned
+26/26
+26/26
+Applicability rate
+100%
+100%
+Mean coverage delta, available
+0.567364
+0.602731
+Coverage availability
+25/26
+25/26
+Mean delta, successful cases
+0.691899
+0.726739
+Successful coverage count
+16
+17
+Mean generation time (seconds)
+93.45
+127.09
+Agent-only cost (USD)
+0.379072
+0.383181
+Evaluation time (seconds)
+3425.92
+1549.86
+rather than choosing whichever historical patch later scores
+best.
+The
+official
+SWT-Bench
+harness
+at
+commit
+eee38624e36a1b39976fffa2bddbc4c3c754d293
+evaluates
+copied predictions in unit-test mode, with vanilla patch
+handling, coverage enabled, two workers, and a 1,800-second
+timeout per execution. Both methods use identical evaluation
+settings. Dataset reference fields and evaluation outputs
+remain in an evaluation-only directory. All 26 assignment IDs
+remain in both denominators. Infrastructure recovery reuses
+unchanged recipes or predictions, preserves unsuccessful
+attempts,
+and
+does
+not
+select
+candidates
+by
+evaluator
+outcome.
+III. RESULTS
+A. Success, Applicability, and Paired Outcomes
+Table I reports official outcomes over all assignments.
+Baseline resolves 16/26 instances (61.54%); TRACE resolves
+17/26 (65.38%). Both apply 26/26 patches (100%). All 52
+instance reports exist, with zero harness error instances and
+no unresolved infrastructure exclusions. Initial image timeouts
+and admission failures were recovered before final evaluation.
+An exit code of zero indicates completed evaluation, not
+that every reproduction succeeded. The inspected harness
+requires additional fail-to-pass behavior relative to its base
+comparison, preservation of base fail-to-pass behavior, and no
+additional persistent or pass-to-fail failures. Therefore, a patch
+can introduce a useful transitioning test yet remain unresolved
+because another assertion introduces a lasting regression. This
+stricter instance-level criterion explains some disagreements
+better than counting isolated failing assertions.
+The paired counts are 15 both succeed, one baseline only,
+two TRACE only, and eight neither succeed (Table II). TRACE
+gains Pytest 7432 and Django 15098 but loses Django 13344:
+a net gain of one instance, or 3.85 percentage points. Only
+three pairs disagree. An exact two-sided binomial test on
+those discordant pairs, equivalent to exact McNemar testing,
+yields p = 1.0. This exploratory calculation does not establish
+equivalence; the experiment is too small to support a reliable
+improvement claim.
+TABLE II
+PAIRED OFFICIAL REPRODUCTION OUTCOMES
+TRACE succeeds
+TRACE fails
+Baseline succeeds
+15
+1
+Baseline fails
+2
+8
+TRACE accepts 22 specifications and falls back on four is-
+sues after three attempts each. These fallbacks remain TRACE
+outcomes. Django 15098 is a TRACE-only success despite
+fallback, so that gain cannot be credited directly to accepted
+specification content. Two pairs have byte-identical submitted
+patches. Overall counts therefore describe the complete work-
+flow, including fallback and sampling variation, rather than
+isolating the causal contribution of extraction.
+B. Coverage, Cost, and Runtime
+We report the official field coverage_delta_pred, a unitless
+fraction over executable lines changed by the reference fix
+whose execution counts increase relative to the harness base
+comparison. It is not whole-repository coverage. Arithmetic
+means exclude unavailable values and are not weighted by
+repository size or changed-line count. Overall means in-
+clude all cases with coverage, regardless of success; success-
+conditioned means use each method’s own successful subset
+and therefore compare different subsets.
+Sphinx 8721 has N/A coverage in both arms because the
+harness finds no executable changed lines in its coverage
+inputs. N/A is excluded, not replaced with zero. The exact
+implementation and counts accompany the artifacts. Identi-
+cal Django 11163 patches receive different coverage deltas,
+demonstrating that these measurements can vary even when
+submitted content matches.
+Selected-run agent costs sum to $0.379071900 baseline
+and $0.383181006 TRACE. TRACE additionally makes 69
+preprocessing calls, recording 49,789 prompt and 173,755
+completion tokens. Complete generation cost is [TODO: rec-
+oncile provider rates, cache pricing, preprocessing charges,
+and historical attempts]; these agent totals must not be labeled
+complete expenditure. Mean controller generation time rises
+by 33.64 seconds, approximately 36%, including TRACE pre-
+processing but excluding image preparation. Evaluation takes
+57.10 minutes baseline and 25.83 minutes TRACE. TRACE
+runs second and reuses comparison caches, so evaluation
+timing is not evidence of workflow efficiency. Host allocation
+is [TODO: record CPU, memory, and Docker resource limits].
+IV. TEST QUALITY ANALYSIS
+We choose six distinct cases systematically: sort full in-
+stance IDs within each category, take the first two shared
+successes, first two shared failures, then first two disagree-
+ments, without duplication. This yields Astropy 14508, Django
+11163, Django 12155, Django 13513, Django 13344, and
+Django 15098. No category shortfall occurs. Appendix A
+discusses the issue, generated check, both execution states,
+semantic relevance, and method implication for each.
+
+
+The successful cases show straightforward behavioral ora-
+cles: preserving FITS float formatting and returning an empty
+dictionary when no fields are requested. Both methods capture
+these behaviors; additional structure offers no demonstrated
+advantage there. The failures expose different weaknesses.
+Django 12155 assertions fail meaningfully before the fix, but
+post-fix collection cannot import the removed helper. Django
+13513 additions pass in both states, testing behavior already
+present rather than the reference regression. Accepted prepro-
+cessing does not guarantee compatibility or discrimination.
+The disagreements show why suite and parser evidence mat-
+ter. Django 13344’s baseline addition fails before and passes
+after, while TRACE’s alternative middleware construction fails
+in both states. For Django 15098, both URL checks transition
+correctly, but baseline adds a persistent failure in an existing
+lookup test. TRACE avoids an additional persistent failure
+relative to base and receives success, despite falling back
+during preprocessing. Several official transition labels do not
+align cleanly with raw test-name lines; we report the official
+score and raw observations separately rather than silently
+correcting either.
+V. THREATS TO VALIDITY
+Internal validity is limited by single selected runs, fixed
+arm order, reused historical pairs, unmeasured provider varia-
+tion, and same-model extraction/review errors. No randomized
+repeat-generation study establishes causality. Repository his-
+tory inspection is flagged in six runs; an agent-authored tem-
+porary fix plugin and dependency stubs complicate diagnostic
+evidence. Test-only exports and preserved controller hashes
+do not certify every action’s compliance with restrictions on
+production changes or historical fixes.
+Construct validity depends on harness parsing, collec-
+tion, and changed-line coverage. Unmatched test names and
+existing-test transitions can affect resolution counts, even when
+raw logs show a meaningful new assertion. We retain the
+official 26-instance score while documenting these limitations.
+Three historical image tags lack retrospective immutable iden-
+tity proof. External validity is limited to a small assigned
+Python set; historical Easy/Hard labels and the aggregate one-
+case gain do not establish performance on unseen projects.
+Cost remains incomplete until provider usage is reconciled. A
+follow-up study should preregister repeated-run budgets and
+protocol-violation handling before examining scores. Human
+reviewers could independently judge whether assertions ex-
+press the reported requirement and distinguish environment
+failures from meaningful behavioral failures. Reporting re-
+viewer agreement would provide evidence beyond the same
+model accepting its own extracted specification.
+VI. CONCLUSION
+TRACE achieves 17/26 official successes versus 16/26 for
+the baseline, with universal patch applicability and increased
+mean generation time. The paired evidence supports a modest
+observed difference, not a dependable superiority claim. Future
+work should repeat generation under recorded seeds where
+supported, isolate preprocessing through controlled ablations,
+audit raw-to-parsed transitions, and add a shared quality
+checker for issue relevance and setup failures. Such a checker
+should initially measure both methods without evaluator-
+guided repair. Any later sensitivity analysis must accompany
+the full assigned-set results rather than discard inconvenient
+cases.
+REFERENCES
+[1] N. Mündler, M. N. Müller, J. He, and M. Vechev, “SWT-Bench:
+Testing and validating real-world bug-fixes with code agents,” in
+Advances in Neural Information Processing Systems, 2024, doi:
+10.48550/arXiv.2406.12952.
+[2] SWT-Bench contributors, “SWT-Bench evaluation harness,” source re-
+vision eee38624e36a1b39976fffa2bddbc4c3c754d293. [Online]. Avail-
+able: https://github.com/logic-star-ai/SWT-Bench
+[3] mini-SWE-agent contributors, “mini-SWE-agent,” version 2.4.6. [On-
+line]. Available: https://github.com/SWE-agent/mini-swe-agent
+[4] DePaul SE Team, “Final project: Improving DeepFlash test generation
+with mini-SWE-agent and SWT-Bench,” secs. 6, 8, 11, and 12, accessed
+Nov. 13, 2026. [Online]. Available: https://github.com/DePaul-SE-Team/
+SE443-333-final-project-guideline
+[5] TRACE project, “Generation and official evaluation artifacts,” Nov.
+2026. [Online]. Available: https://github.com/mkoehle6/trace-swt-bench.
+[TODO: Add immutable artifact release/commit containing the full
+evaluated record.]
+APPENDIX A
+SIX DISTINCT CASE STUDIES
+The cases below use the selection rule in Section IV. “Suc-
+cess” denotes the official instance-level result. Raw pre/post
+observations are reported separately where parser attribution
+differs. Source paths and complete transition sets are indexed
+in evidence.json beside the paper.
+A. Shared Success: Astropy 14508
+Issue. A FITS HIERARCH card expands a float unneces-
+sarily, consuming comment space. Generated checks. Both
+methods construct the reported card using 0.009125 and com-
+pare its serialized representation with the compact expected
+string. Baseline additionally checks the stored value and
+comment. Before. Both new tests fail with a VerifyWarning
+about comment truncation. After. Each passes, and each
+official report records one added fail-to-pass test without added
+persistent or pass-to-fail failures. Relevance. The expected
+serialization directly checks the reported space/precision in-
+teraction, rather than merely requiring an exception. Implica-
+tion. Both methods find an effective native oracle; TRACE’s
+accepted specification does not produce an observable success
+advantage.
+Listing 1. Shared Astropy oracle, condensed from the submitted tests.
+c = fits.Card("HIERARCH ESO IFM CL RADIUS", 0.009125,
+"[m] radius arround actuator to avoid")
+assert str(c) == _pad(
+"HIERARCH ESO IFM CL RADIUS = 0.009125 / "
+"[m] radius arround actuator to avoid")
+
+
+B. Shared Success: Django 11163
+Issue. An explicitly empty fields list should produce an
+empty dictionary. Generated checks. Both submit the same
+addition to an existing database-backed test class.
+Listing 2. Identical submitted Django 11163 addition.
+def test_empty_fields(self):
+item = ColourfulItem.objects.create()
+self.assertEqual(model_to_dict(item, fields=[]), {})
+Before. The assertion receives a dictionary containing model
+fields. After. The new test passes. Both official instances
+resolve. The parser records two added fail-to-pass entries,
+including an existing many-to-many test, so that count is not
+a count of newly authored methods. Relevance. The assertion
+directly represents the report using existing models and suite
+setup. Implication. Extraction is unnecessary for this already
+explicit report in the observed pair. Baseline coverage delta
+is 0.5 while TRACE’s is 1.0 despite identical patches; content
+alone cannot explain the coverage difference. Historical image
+identity is also limited by mutable launch tags.
+C. Shared Failure: Django 12155
+Issue. A nonempty first docstring line leaves excess inden-
+tation, causing rendering problems. Generated checks. Both
+add trimming and parsing assertions; TRACE additionally
+rejects rendered docutils error text. Before. Each raw run
+shows two new assertion failures, with retained indentation
+and, for TRACE, a rendering diagnostic. After. Both suites
+fail collection because they cannot import trim_docstring. The
+newly added methods therefore have no post-fix test result.
+Official reports mark them unmatched and record zero added
+fail-to-pass tests; both instances are unresolved. Relevance.
+The intended whitespace checks match the issue but depend
+on a helper unavailable after the fix. Implication. Pre-fix rele-
+vance is insufficient: a valid regression must remain executable
+after an API change. Generation-time analysis cannot assume
+the reference fix’s implementation, and acceptance of an issue
+specification does not solve this compatibility problem.
+D. Shared Failure: Django 13513
+Issue. The report concerns exception-context suppression
+in debug reporting. Generated checks. Both construct nested
+exceptions with raise...fromNone and inspect reporter frames
+for an omitted cause. Before and after. Both additions pass in
+both states. Their official reports show zero added fail-to-pass
+tests and unresolved status. An existing template-reporting
+failure appears independently in the suites. Relevance. The as-
+sertions plausibly encode the report’s wording, but the supplied
+base already handles this suppression scenario. Evaluation-
+only investigation found that the reference regression concerns
+an exception without a traceback; this information was not
+returned to generation. Implication. Evidence grounding can
+faithfully formalize the wrong discriminating scenario. Cov-
+erage delta is approximately 0.647 in both methods despite
+reproduction failure, demonstrating why coverage and success
+must remain separate. Baseline history/commit inspection is
+an additional protocol concern.
+E. Disagreement: Django 13344
+Issue. Async middleware passes a coroutine to the first
+process_response rather than an HttpResponse. Generated
+checks. Baseline adds an ASGI test and supporting mid-
+dleware fixture. TRACE uses a different async middleware
+arrangement in another suite. Both assert the response type.
+Listing 3. Core response-type oracle used in the disagreement.
+self.assertIsInstance(response, HttpResponse)
+Before. Both new checks receive coroutine objects and fail.
+After. Baseline’s new check is logged as passing; TRACE’s
+continues failing with a coroutine. Baseline resolves and
+TRACE does not. Attribution caveat. The official baseline
+parser assigns the added fail-to-pass entry to an existing
+test_get_asgi_application and marks the new name unmatched,
+while raw logs show the new check’s fail/pass transition.
+We retain the official result while flagging its attribution.
+Relevance. Both target the symptom, but the generated mid-
+dleware configuration determines whether the reference repair
+addresses it. Implication. More structured issue understanding
+does not ensure a faithful executable fixture, and parser-level
+counts require source-log review. This pair also has historical
+mutable-image-tag limitations.
+F. Disagreement: Django 15098
+Issue. Language identifiers containing script and region,
+such as en-latn-us, are not recognized. Generated checks.
+Both test the prefixed URL and language metadata. Base-
+line adds a lookup assertion to an existing test. TRACE
+adds a separate lookup test, including mixed-case identifiers.
+TRACE’s preprocessing exhausts three attempts and falls back
+to the original report. Before. Both URL checks fail, and each
+method’s lookup assertion fails. After. Both URL checks pass.
+Baseline’s modified existing lookup test still fails; TRACE’s
+new lookup method is logged as passing. Both suites retain
+additional existing failures/errors. The official baseline report
+records two added fail-to-pass entries but also an additional
+persistent failure relative to base, yielding unresolved status.
+TRACE records three added fail-to-pass entries without an
+added persistent failure and resolves. Its new lookup name is
+unmatched in the parsed transition sets despite the raw passing
+post-fix line. Relevance. URL checks meaningfully represent
+the report; the additional lookup assertions differ in scope.
+Implication. The harness checks regression safety relative to
+base, not simply whether any new test improves. This TRACE-
+only success occurred without accepted analysis and therefore
+cannot demonstrate that specification content caused the gain.
+Baseline’s history inspection remains a separate limitation.
+APPENDIX B
+FULL PAIRED OUTCOMES
+APPENDIX C
+REPRODUCIBILITY AND OUTSTANDING INFORMATION
+The
+evaluation
+directory
+is
+evaluation_results/
+trace-assigned-26-unit-20261113-122920/; final selected gen-
+eration records are in runs/assigned-pairs-20261113-002517/
+
+
+TABLE III
+ALL ASSIGNED INSTANCES: OFFICIAL OUTCOMES AND COVERAGE DELTA
+Instance
+Baseline
+TRACE
+Delta baseline
+Delta TRACE
+pydata__xarray-3677
+Success
+Success
+1.000000
+1.000000
+django__django-14089
+Success
+Success
+0.500000
+0.500000
+django__django-11163
+Success
+Success
+0.500000
+1.000000
+sympy__sympy-24539
+Success
+Success
+0.285714
+0.000000
+scikit-learn__scikit-learn-14894
+Success
+Success
+0.416667
+0.416667
+sphinx-doc__sphinx-9711
+Success
+Success
+0.583333
+0.583333
+astropy__astropy-14508
+Success
+Success
+0.785714
+0.785714
+pytest-dev__pytest-7432
+Unresolved
+Success
+1.000000
+1.000000
+pallets__flask-5014
+Success
+Success
+1.000000
+1.000000
+matplotlib__matplotlib-13989
+Success
+Success
+0.500000
+1.000000
+psf__requests-2931
+Success
+Success
+0.750000
+0.750000
+pylint-dev__pylint-6903
+Success
+Success
+1.000000
+1.000000
+mwaskom__seaborn-3187
+Success
+Success
+1.000000
+0.666667
+django__django-13513
+Unresolved
+Unresolved
+0.647059
+0.647059
+sphinx-doc__sphinx-8548
+Unresolved
+Unresolved
+0.000000
+0.000000
+django__django-13344
+Success
+Unresolved
+0.096774
+0.000000
+django__django-15098
+Unresolved
+Success
+0.000000
+0.000000
+django__django-12155
+Unresolved
+Unresolved
+0.466667
+0.466667
+sphinx-doc__sphinx-8638
+Unresolved
+Unresolved
+1.000000
+1.000000
+django__django-15252
+Unresolved
+Unresolved
+0.000000
+0.600000
+django__django-16631
+Success
+Success
+0.652174
+0.652174
+sphinx-doc__sphinx-8551
+Unresolved
+Unresolved
+0.000000
+0.000000
+django__django-13810
+Success
+Success
+1.000000
+1.000000
+sphinx-doc__sphinx-8721
+Unresolved
+Unresolved
+N/A
+N/A
+sphinx-doc__sphinx-8621
+Unresolved
+Unresolved
+0.000000
+0.000000
+matplotlib__matplotlib-25311
+Success
+Success
+1.000000
+1.000000
+completion-pass-v6/.
+Predictions,
+prompts,
+patches,
+trajectories, manifests, image references, workflow hashes,
+and official pre/post logs are preserved. The dataset revision
+and harness commit appear in Section II; evidence.json
+indexes exact local evidence. Evaluation inputs contain
+reference fields and must remain outside generation context.
+No report preparation step modifies either workflow or
+prediction.
+A nominal agent-cost limit does not cap preprocessing
+or guarantee a total spend. Selected preprocessing metrics
+record 69 requests, 49,789 input tokens, and 173,755 output
+tokens, including provider-reported reasoning output. [TODO:
+Supply contemporaneous provider pricing, cache accounting,
+billing reconciliation, and historical-attempt totals.] No explicit
+generation seed was configured. [TODO: Confirm available
+budget for repeated generation, if any, without retrospectively
+altering this experiment.] [TODO: Record host hardware,
+resource allocation, course/team identifier, submission date,
+and artifact archive release/commit containing this paper and
+evaluation.]
+APPENDIX D
+CONTRIBUTIONS AND AI DISCLOSURE
+[TODO: For each team member, specify implementation,
+evaluation, analysis, and writing contributions. Names and
+email addresses are intentionally omitted in this draft.]
+DeepSeek generated candidate tests and supplied extraction
+and semantic-review responses. Codex assisted with imple-
+mentation/orchestration, artifact inspection, evaluation execu-
+tion, analysis, and this manuscript draft. [TODO: Confirm the
+complete AI-tool/model list and identify exactly which code,
+patches, analyses, and prose the team reviewed or modified.]
+This draft does not claim independent human validation of
+every generated assertion or protocol compliance. AI-assisted
+execution and writing are disclosed separately from the eval-
+uated test-generation methods.

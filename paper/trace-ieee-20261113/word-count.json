@@ -1,0 +1,4 @@
+{
+  "main_prose_words_approx": 1631,
+  "rule": "Body sections I-VI; excludes tables, abstract, references, appendices; removes citation/ref/label commands, counts alphanumeric word groups. Final submission count should be verified with texcount."
+}

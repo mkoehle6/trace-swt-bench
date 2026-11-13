@@ -1,0 +1,47 @@
+diff --git a/tests/roots/test-domain-py-field-types/conf.py b/tests/roots/test-domain-py-field-types/conf.py
+new file mode 100644
+index 000000000..a45d22e28
+--- /dev/null
++++ b/tests/roots/test-domain-py-field-types/conf.py
+@@ -0,0 +1 @@
++exclude_patterns = ['_build']
+diff --git a/tests/roots/test-domain-py-field-types/index.rst b/tests/roots/test-domain-py-field-types/index.rst
+new file mode 100644
+index 000000000..db1455e79
+--- /dev/null
++++ b/tests/roots/test-domain-py-field-types/index.rst
+@@ -0,0 +1,13 @@
++test-domain-py-field-types
++==========================
++
++.. py:class:: mod.A
++
++.. py:class:: mod.submod.A
++
++.. py:currentmodule:: mod.submod
++
++.. py:function:: f(A)
++
++   :param A a: parameter of type A
++   :rtype: A
+diff --git a/tests/test_domain_py.py b/tests/test_domain_py.py
+index 2dc97bed9..599a01398 100644
+--- a/tests/test_domain_py.py
++++ b/tests/test_domain_py.py
+@@ -865,3 +865,16 @@ def test_warn_missing_reference(app, status, warning):
+     assert 'index.rst:6: WARNING: undefined label: no-label' in warning.getvalue()
+     assert ('index.rst:6: WARNING: Failed to create a cross reference. A title or caption not found: existing-label'
+             in warning.getvalue())
++
++
++@pytest.mark.sphinx('html', testroot='domain-py-field-types')
++def test_domain_py_field_type_xrefs(app, status, warning):
++    app.builder.build_all()
++
++    assert 'more than one target found for cross-reference' not in warning.getvalue()
++
++    content = (app.outdir / 'index.html').read_text()
++    assert ('<a class="reference internal" href="#mod.submod.A" title="mod.submod.A">'
++            '<em>A</em></a>' in content)
++    assert ('<a class="reference internal" href="#mod.submod.A" title="mod.submod.A">'
++            'A</a>' in content)

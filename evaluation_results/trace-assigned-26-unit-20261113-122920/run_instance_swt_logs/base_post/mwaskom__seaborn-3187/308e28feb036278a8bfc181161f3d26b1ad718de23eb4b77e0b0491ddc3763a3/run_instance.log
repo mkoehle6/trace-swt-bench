@@ -1,0 +1,48 @@
+2026-11-13 08:00:16,618 - WARNING - Starting evaluation at 1794574816.6189153
+2026-11-13 08:00:16,962 - INFO - Creating container for mwaskom__seaborn-3187...
+2026-11-13 08:00:17,046 - INFO - Container for mwaskom__seaborn-3187 created: 01eeae684c9e6d6b6de25c9a09211dbf2c020766f5f48d90258a1af25f9d5ed5
+2026-11-13 08:00:17,238 - INFO - Container for mwaskom__seaborn-3187 started: 01eeae684c9e6d6b6de25c9a09211dbf2c020766f5f48d90258a1af25f9d5ed5
+2026-11-13 08:00:17,406 - INFO - Git diff before:
+
+2026-11-13 08:00:17,413 - INFO - Eval script for mwaskom__seaborn-3187 written to eval.sh, now applying to container...
+2026-11-13 08:01:35,054 - INFO - Test output for mwaskom__seaborn-3187 written to run_instance_swt_logs/base_post/mwaskom__seaborn-3187/308e28feb036278a8bfc181161f3d26b1ad718de23eb4b77e0b0491ddc3763a3/test_output.txt
+2026-11-13 08:01:35,126 - INFO - Git diff after:
+diff --git a/seaborn/_core/scales.py b/seaborn/_core/scales.py
+index 55874bf2..c91f6fdc 100644
+--- a/seaborn/_core/scales.py
++++ b/seaborn/_core/scales.py
+@@ -378,6 +378,14 @@ class ContinuousBase(Scale):
+             axis.set_view_interval(vmin, vmax)
+             locs = axis.major.locator()
+             locs = locs[(vmin <= locs) & (locs <= vmax)]
++            # Avoid having an offset / scientific notation in a legend
++            # as we don't represent that anywhere so it ends up incorrect.
++            # This could become an option (e.g. Continuous.label(offset=True))
++            # in which case we would need to figure out how to show it.
++            if hasattr(axis.major.formatter, "set_useOffset"):
++                axis.major.formatter.set_useOffset(False)
++            if hasattr(axis.major.formatter, "set_scientific"):
++                axis.major.formatter.set_scientific(False)
+             labels = axis.major.formatter.format_ticks(locs)
+             new._legend = list(locs), list(labels)
+ 
+diff --git a/seaborn/utils.py b/seaborn/utils.py
+index 2407853c..3cf01755 100644
+--- a/seaborn/utils.py
++++ b/seaborn/utils.py
+@@ -699,6 +699,10 @@ def locator_to_legend_entries(locator, limits, dtype):
+         formatter = mpl.ticker.LogFormatter()
+     else:
+         formatter = mpl.ticker.ScalarFormatter()
++        # Avoid having an offset/scientific notation which we don't currently
++        # have any way of representing in the legend
++        formatter.set_useOffset(False)
++        formatter.set_scientific(False)
+     formatter.axis = dummy_axis()
+ 
+     # TODO: The following two lines should be replaced
+2026-11-13 08:01:35,127 - INFO - Git diff changed after running eval script
+2026-11-13 08:01:35,128 - INFO - Attempting to stop container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.132386095352720...
+2026-11-13 08:01:50,351 - INFO - Attempting to remove container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.132386095352720...
+2026-11-13 08:01:50,391 - INFO - Container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.132386095352720 removed.
+2026-11-13 08:01:50,393 - WARNING - End of eval at 1794574910.3935888

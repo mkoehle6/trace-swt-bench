@@ -1,0 +1,75 @@
+2026-11-13 08:20:57,592 - WARNING - Starting evaluation at 1794576057.592838
+2026-11-13 08:20:57,785 - INFO - Creating container for matplotlib__matplotlib-25311...
+2026-11-13 08:20:57,835 - INFO - Container for matplotlib__matplotlib-25311 created: 0dbd430bba675ea615ab1aaa212b4e02fd5d094129bbd07a6c0fdf79677fdf2b
+2026-11-13 08:20:57,965 - INFO - Container for matplotlib__matplotlib-25311 started: 0dbd430bba675ea615ab1aaa212b4e02fd5d094129bbd07a6c0fdf79677fdf2b
+2026-11-13 08:20:58,970 - INFO - Git diff before:
+
+2026-11-13 08:20:58,976 - INFO - Eval script for matplotlib__matplotlib-25311 written to eval.sh, now applying to container...
+2026-11-13 08:22:04,264 - INFO - Test output for matplotlib__matplotlib-25311 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_post__trace-baseline-unit-test/matplotlib__matplotlib-25311/test_output.txt
+2026-11-13 08:22:04,337 - INFO - Git diff after:
+diff --git a/lib/matplotlib/offsetbox.py b/lib/matplotlib/offsetbox.py
+index 1dee8a23d9..a46b9cd431 100644
+--- a/lib/matplotlib/offsetbox.py
++++ b/lib/matplotlib/offsetbox.py
+@@ -1505,7 +1505,6 @@ class DraggableBase:
+         if not ref_artist.pickable():
+             ref_artist.set_picker(True)
+         self.got_artist = False
+-        self.canvas = self.ref_artist.figure.canvas
+         self._use_blit = use_blit and self.canvas.supports_blit
+         self.cids = [
+             self.canvas.callbacks._connect_picklable(
+@@ -1514,6 +1513,9 @@ class DraggableBase:
+                 'button_release_event', self.on_release),
+         ]
+ 
++    # A property, not an attribute, to maintain picklability.
++    canvas = property(lambda self: self.ref_artist.figure.canvas)
++
+     def on_motion(self, evt):
+         if self._check_still_parented() and self.got_artist:
+             dx = evt.x - self.mouse_x
+diff --git a/lib/matplotlib/tests/test_pickle.py b/lib/matplotlib/tests/test_pickle.py
+index ec6bdcc2fe..09a6a88650 100644
+--- a/lib/matplotlib/tests/test_pickle.py
++++ b/lib/matplotlib/tests/test_pickle.py
+@@ -282,3 +282,34 @@ def test_dynamic_norm():
+ def test_vertexselector():
+     line, = plt.plot([0, 1], picker=True)
+     pickle.loads(pickle.dumps(VertexSelector(line)))
++
++
++class _Unpicklable:
++    def __reduce__(self):
++        raise TypeError("cannot pickle this object")
++
++
++@pytest.mark.parametrize("kind", ["legend", "annotation"])
++def test_pickle_draggable_artist(kind):
++    fig, ax = plt.subplots()
++    if kind == "legend":
++        ax.plot([0, 1], label="label")
++        artist = ax.legend()
++        artist.set_draggable(True)
++    else:
++        artist = ax.annotate("annotation", (0.5, 0.5))
++        artist.draggable(True)
++
++    # GUI canvases are not picklable.  A figure normally excludes its canvas
++    # from its pickle state, so a draggable artist must not keep a separate
++    # reference that would be pickled with the figure.
++    fig.canvas._unpicklable = _Unpicklable()
++
++    fig2 = pickle.loads(pickle.dumps(fig))
++    if kind == "legend":
++        artist2 = fig2.axes[0].get_legend()
++        assert artist2.get_draggable()
++    else:
++        artist2 = fig2.axes[0].texts[0]
++        assert artist2._draggable is not None
++    assert artist2._draggable.canvas is fig2.canvas
+2026-11-13 08:22:04,338 - INFO - Git diff changed after running eval script
+2026-11-13 08:22:04,339 - INFO - Attempting to stop container exec.eval.x86_64.89beb6334e800c4362eea6.a0be8ca4c1490fd9d2a3a4.132386095349984...
+2026-11-13 08:22:19,547 - INFO - Attempting to remove container exec.eval.x86_64.89beb6334e800c4362eea6.a0be8ca4c1490fd9d2a3a4.132386095349984...
+2026-11-13 08:22:19,581 - INFO - Container exec.eval.x86_64.89beb6334e800c4362eea6.a0be8ca4c1490fd9d2a3a4.132386095349984 removed.
+2026-11-13 08:22:19,582 - WARNING - End of eval at 1794576139.582768

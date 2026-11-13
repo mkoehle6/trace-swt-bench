@@ -1,0 +1,87 @@
+2026-11-13 08:37:50,736 - WARNING - Starting evaluation at 1794577070.7368999
+2026-11-13 08:37:51,203 - INFO - Creating container for mwaskom__seaborn-3187...
+2026-11-13 08:37:51,318 - INFO - Container for mwaskom__seaborn-3187 created: 6e90dd308a0b13eb50ad16cd30bc3912929c6632d1f6a9e1046bac038eed6286
+2026-11-13 08:37:51,558 - INFO - Container for mwaskom__seaborn-3187 started: 6e90dd308a0b13eb50ad16cd30bc3912929c6632d1f6a9e1046bac038eed6286
+2026-11-13 08:37:51,805 - INFO - Git diff before:
+
+2026-11-13 08:37:51,815 - INFO - Eval script for mwaskom__seaborn-3187 written to eval.sh, now applying to container...
+2026-11-13 08:38:49,801 - INFO - Test output for mwaskom__seaborn-3187 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/mwaskom__seaborn-3187/test_output.txt
+2026-11-13 08:38:49,913 - INFO - Git diff after:
+diff --git a/seaborn/_core/scales.py b/seaborn/_core/scales.py
+index 55874bf2..c91f6fdc 100644
+--- a/seaborn/_core/scales.py
++++ b/seaborn/_core/scales.py
+@@ -378,6 +378,14 @@ class ContinuousBase(Scale):
+             axis.set_view_interval(vmin, vmax)
+             locs = axis.major.locator()
+             locs = locs[(vmin <= locs) & (locs <= vmax)]
++            # Avoid having an offset / scientific notation in a legend
++            # as we don't represent that anywhere so it ends up incorrect.
++            # This could become an option (e.g. Continuous.label(offset=True))
++            # in which case we would need to figure out how to show it.
++            if hasattr(axis.major.formatter, "set_useOffset"):
++                axis.major.formatter.set_useOffset(False)
++            if hasattr(axis.major.formatter, "set_scientific"):
++                axis.major.formatter.set_scientific(False)
+             labels = axis.major.formatter.format_ticks(locs)
+             new._legend = list(locs), list(labels)
+ 
+diff --git a/seaborn/utils.py b/seaborn/utils.py
+index 2407853c..3cf01755 100644
+--- a/seaborn/utils.py
++++ b/seaborn/utils.py
+@@ -699,6 +699,10 @@ def locator_to_legend_entries(locator, limits, dtype):
+         formatter = mpl.ticker.LogFormatter()
+     else:
+         formatter = mpl.ticker.ScalarFormatter()
++        # Avoid having an offset/scientific notation which we don't currently
++        # have any way of representing in the legend
++        formatter.set_useOffset(False)
++        formatter.set_scientific(False)
+     formatter.axis = dummy_axis()
+ 
+     # TODO: The following two lines should be replaced
+diff --git a/tests/_core/test_plot.py b/tests/_core/test_plot.py
+index e4ba99e1..56fb6c84 100644
+--- a/tests/_core/test_plot.py
++++ b/tests/_core/test_plot.py
+@@ -1,4 +1,5 @@
+ import io
++import re
+ import xml
+ import functools
+ import itertools
+@@ -2051,6 +2052,29 @@ class TestLegend:
+         p = Plot(**xy, color=["a", "b", "c", "d"]).add(NoLegendMark()).plot()
+         assert not p._figure.legends
+ 
++    def test_continuous_legend_large_range(self):
++
++        x = pd.Series([1e6, 1.5e6, 2e6, 2.5e6], name="x")
++        p = Plot(x=[1, 2, 3, 4], y=[1, 2, 3, 4], color=x)
++        p = p.add(MockMark()).plot()
++        legend, = p._figure.legends
++
++        title = legend.get_title().get_text()
++        labels = [t.get_text() for t in legend.get_texts()]
++
++        def has_magnitude(text):
++            # A correct label should retain the formatter's large-value offset,
++            # either by including the offset itself or by expanding the value.
++            text = text.replace(",", "").replace("$", "").replace("\u2212", "-")
++            if re.search(r"10\^\{?0*6\}?|[eE][+-]?0*6\b", text):
++                return True
++            numbers = re.findall(r"\d+(?:\.\d+)?(?:[eE][+-]?\d+)?", text)
++            return any(abs(float(number)) >= 1e6 for number in numbers)
++
++        # The offset may be represented in the title or in every label.
++        assert labels
++        assert has_magnitude(title) or all(map(has_magnitude, labels))
++
+ 
+ class TestDefaultObject:
+2026-11-13 08:38:49,915 - INFO - Git diff changed after running eval script
+2026-11-13 08:38:49,916 - INFO - Attempting to stop container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.125911372153632...
+2026-11-13 08:39:05,151 - INFO - Attempting to remove container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.125911372153632...
+2026-11-13 08:39:05,194 - INFO - Container exec.eval.x86_64.f38d9a116162fe978a8db0.f1e04a496f6eb1c332fab5.125911372153632 removed.
+2026-11-13 08:39:05,196 - WARNING - End of eval at 1794577145.1966188

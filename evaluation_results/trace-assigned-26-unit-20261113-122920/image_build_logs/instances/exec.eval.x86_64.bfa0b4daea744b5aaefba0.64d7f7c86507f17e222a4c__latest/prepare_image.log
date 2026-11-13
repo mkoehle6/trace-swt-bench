@@ -1,0 +1,3 @@
+2026-11-13 08:34:25,071 - INFO - Environment image exec.env.x86_64.bfa0b4daea744b5aaefba0:latest found for pytest-dev__pytest-7432
+Building instance image exec.eval.x86_64.bfa0b4daea744b5aaefba0.64d7f7c86507f17e222a4c:latest for pytest-dev__pytest-7432
+2026-11-13 08:34:25,132 - INFO - Image exec.eval.x86_64.bfa0b4daea744b5aaefba0.64d7f7c86507f17e222a4c:latest already exists, skipping build.

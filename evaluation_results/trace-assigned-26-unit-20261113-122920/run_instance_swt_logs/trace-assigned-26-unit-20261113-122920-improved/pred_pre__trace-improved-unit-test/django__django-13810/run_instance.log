@@ -1,0 +1,33 @@
+2026-11-13 08:47:22,650 - WARNING - Starting evaluation at 1794577642.650816
+2026-11-13 08:47:23,089 - INFO - Creating container for django__django-13810...
+2026-11-13 08:47:23,193 - INFO - Container for django__django-13810 created: c10b77aba258505180782a026673f64fd9f3315f907ead3e49ca0122b5ac6589
+2026-11-13 08:47:23,424 - INFO - Container for django__django-13810 started: c10b77aba258505180782a026673f64fd9f3315f907ead3e49ca0122b5ac6589
+2026-11-13 08:47:24,570 - INFO - Git diff before:
+
+2026-11-13 08:47:24,579 - INFO - Eval script for django__django-13810 written to eval.sh, now applying to container...
+2026-11-13 08:47:33,491 - INFO - Test output for django__django-13810 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/django__django-13810/test_output.txt
+2026-11-13 08:47:33,622 - INFO - Git diff after:
+diff --git a/tests/middleware_exceptions/tests.py b/tests/middleware_exceptions/tests.py
+index 8b019ba524..c152b63c5e 100644
+--- a/tests/middleware_exceptions/tests.py
++++ b/tests/middleware_exceptions/tests.py
+@@ -252,6 +252,14 @@ class MiddlewareSyncAsyncTests(SimpleTestCase):
+             'Payment Required: /middleware_exceptions/view/',
+         )
+ 
++    @override_settings(MIDDLEWARE=[
++        'middleware_exceptions.middleware.async_payment_middleware',
++        'middleware_exceptions.tests.MyMiddleware',
++    ])
++    async def test_middleware_not_used_does_not_break_async_chain(self):
++        response = await self.async_client.get('/middleware_exceptions/view/')
++        self.assertEqual(response.status_code, 402)
++
+     @override_settings(
+         DEBUG=False,
+         MIDDLEWARE=[
+2026-11-13 08:47:33,624 - INFO - Git diff changed after running eval script
+2026-11-13 08:47:33,625 - INFO - Attempting to stop container exec.eval.x86_64.f904a9d2e0f61fc0d70077.70805dd72ec6ff2bc3de1b.125911372157376...
+2026-11-13 08:47:48,920 - INFO - Attempting to remove container exec.eval.x86_64.f904a9d2e0f61fc0d70077.70805dd72ec6ff2bc3de1b.125911372157376...
+2026-11-13 08:47:48,974 - INFO - Container exec.eval.x86_64.f904a9d2e0f61fc0d70077.70805dd72ec6ff2bc3de1b.125911372157376 removed.
+2026-11-13 08:47:48,976 - WARNING - End of eval at 1794577668.9760323

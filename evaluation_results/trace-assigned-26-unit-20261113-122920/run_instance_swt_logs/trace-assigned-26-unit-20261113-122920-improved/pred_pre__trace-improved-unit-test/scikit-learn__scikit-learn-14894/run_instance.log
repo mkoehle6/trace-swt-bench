@@ -1,0 +1,44 @@
+2026-11-13 08:31:09,752 - WARNING - Starting evaluation at 1794576669.7521198
+2026-11-13 08:31:10,108 - INFO - Creating container for scikit-learn__scikit-learn-14894...
+2026-11-13 08:31:10,201 - INFO - Container for scikit-learn__scikit-learn-14894 created: 948a52345188b6a2294ff828c0eb2ca3053b62ea1daba0ccae8293d99e5d293a
+2026-11-13 08:31:10,400 - INFO - Container for scikit-learn__scikit-learn-14894 started: 948a52345188b6a2294ff828c0eb2ca3053b62ea1daba0ccae8293d99e5d293a
+2026-11-13 08:31:11,010 - INFO - Git diff before:
+
+2026-11-13 08:31:11,018 - INFO - Eval script for scikit-learn__scikit-learn-14894 written to eval.sh, now applying to container...
+2026-11-13 08:31:18,963 - INFO - Test output for scikit-learn__scikit-learn-14894 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/scikit-learn__scikit-learn-14894/test_output.txt
+2026-11-13 08:31:19,076 - INFO - Git diff after:
+diff --git a/sklearn/svm/tests/test_sparse.py b/sklearn/svm/tests/test_sparse.py
+index 7cf6e8af2a..9316fa400f 100644
+--- a/sklearn/svm/tests/test_sparse.py
++++ b/sklearn/svm/tests/test_sparse.py
+@@ -360,3 +360,25 @@ def test_consistent_proba():
+     with ignore_warnings(category=ConvergenceWarning):
+         proba_2 = a.fit(X, Y).predict_proba(X)
+     assert_array_almost_equal(proba_1, proba_2)
++
++
++def test_sparse_svr_empty_support_vectors():
++    # Non-regression test for SVR with an empty set of support vectors.
++    X = np.array([[0, 1, 0, 0],
++                  [0, 0, 0, 1],
++                  [0, 0, 1, 0],
++                  [0, 0, 0, 1]])
++    y = np.array([0.04, 0.04, 0.10, 0.16])
++    model = svm.SVR(C=316.227766017, cache_size=200, coef0=0.0, degree=3,
++                    epsilon=0.1, gamma=1.0, kernel='linear', max_iter=15000,
++                    shrinking=True, tol=0.001, verbose=False)
++
++    model.fit(sparse.csr_matrix(X), y)
++
++    expected_dual_coef = sparse.csr_matrix([])
++    assert model.support_vectors_.shape == (0, X.shape[1])
++    assert sparse.issparse(model.dual_coef_)
++    assert model.dual_coef_.shape == expected_dual_coef.shape
++    assert model.dual_coef_.nnz == expected_dual_coef.nnz
++    assert_array_equal(model.dual_coef_.toarray(),
++                       expected_dual_coef.toarray())
+2026-11-13 08:31:19,078 - INFO - Git diff changed after running eval script
+2026-11-13 08:31:19,081 - INFO - Attempting to stop container exec.eval.x86_64.437918b9cd24690e5e9c56.a13a54a72440a3821adc6d.125912509006432...
+2026-11-13 08:31:34,355 - INFO - Attempting to remove container exec.eval.x86_64.437918b9cd24690e5e9c56.a13a54a72440a3821adc6d.125912509006432...
+2026-11-13 08:31:34,394 - INFO - Container exec.eval.x86_64.437918b9cd24690e5e9c56.a13a54a72440a3821adc6d.125912509006432 removed.
+2026-11-13 08:31:34,396 - WARNING - End of eval at 1794576694.39646

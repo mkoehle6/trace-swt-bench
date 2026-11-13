@@ -1,0 +1,3 @@
+2026-11-13 08:35:24,890 - INFO - Environment image exec.env.x86_64.3a9417a9d4b5c62087edb6:latest found for psf__requests-2931
+Building instance image exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d:latest for psf__requests-2931
+2026-11-13 08:35:25,000 - INFO - Image exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d:latest already exists, skipping build.

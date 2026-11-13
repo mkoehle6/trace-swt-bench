@@ -1,0 +1,29 @@
+2026-11-13 07:31:53,860 - WARNING - Starting evaluation at 1794573113.8604927
+2026-11-13 07:31:54,291 - INFO - Creating container for django__django-14089...
+2026-11-13 07:31:54,399 - INFO - Container for django__django-14089 created: a1f5f722141429070fe232e7f31ce65bb6f9736d4e122a0ad8d203ba3f6ff869
+2026-11-13 07:31:54,696 - INFO - Container for django__django-14089 started: a1f5f722141429070fe232e7f31ce65bb6f9736d4e122a0ad8d203ba3f6ff869
+2026-11-13 07:31:57,801 - INFO - Git diff before:
+
+2026-11-13 07:31:57,808 - INFO - Eval script for django__django-14089 written to eval.sh, now applying to container...
+2026-11-13 07:32:05,033 - INFO - Test output for django__django-14089 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/django__django-14089/test_output.txt
+2026-11-13 07:32:05,109 - INFO - Git diff after:
+diff --git a/tests/utils_tests/test_datastructures.py b/tests/utils_tests/test_datastructures.py
+index 45d172f984..47ea49edfa 100644
+--- a/tests/utils_tests/test_datastructures.py
++++ b/tests/utils_tests/test_datastructures.py
+@@ -55,6 +55,11 @@ class OrderedSetTests(SimpleTestCase):
+         s.add(2)
+         self.assertEqual(len(s), 2)
+ 
++    def test_reversed(self):
++        s = OrderedSet([1, 2, 3])
++        self.assertEqual(list(reversed(s)), [3, 2, 1])
++        self.assertEqual(list(reversed(OrderedSet())), [])
++
+ 
+ class MultiValueDictTests(SimpleTestCase):
+2026-11-13 07:32:05,110 - INFO - Git diff changed after running eval script
+2026-11-13 07:32:05,111 - INFO - Attempting to stop container exec.eval.x86_64.ebed327f02c059ebd6024a.e15d0d9867ce4a0466e383.132386099274016...
+2026-11-13 07:32:20,325 - INFO - Attempting to remove container exec.eval.x86_64.ebed327f02c059ebd6024a.e15d0d9867ce4a0466e383.132386099274016...
+2026-11-13 07:32:20,363 - INFO - Container exec.eval.x86_64.ebed327f02c059ebd6024a.e15d0d9867ce4a0466e383.132386099274016 removed.
+2026-11-13 07:32:20,365 - WARNING - End of eval at 1794573140.3657186

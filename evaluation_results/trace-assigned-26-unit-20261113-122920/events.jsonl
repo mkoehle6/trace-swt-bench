@@ -1,0 +1,5 @@
+{"utc": "2026-11-13T12:31:23.352051+00:00", "stage": "evaluation_started", "mode": "baseline", "instances": 26}
+{"utc": "2026-11-13T13:28:29.043589+00:00", "stage": "evaluation_finished", "mode": "baseline", "exit_code": 0, "seconds": 3425.9350949229993}
+{"utc": "2026-11-13T13:28:29.059772+00:00", "stage": "evaluation_started", "mode": "improved", "instances": 26}
+{"utc": "2026-11-13T13:54:18.797349+00:00", "stage": "evaluation_finished", "mode": "improved", "exit_code": 0, "seconds": 1549.8704217509994}
+{"utc": "2026-11-13T13:54:18.843806+00:00", "stage": "both_evaluation_commands_finished"}

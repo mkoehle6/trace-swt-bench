@@ -1,0 +1,137 @@
+2026-11-13 08:49:39,613 - WARNING - Starting evaluation at 1794577779.6137106
+2026-11-13 08:49:40,059 - INFO - Creating container for sphinx-doc__sphinx-8551...
+2026-11-13 08:49:40,179 - INFO - Container for sphinx-doc__sphinx-8551 created: 15ab46d519d655a94b75b012735e32f7bbc1df3b497cef1a8f6668b28bda9168
+2026-11-13 08:49:40,431 - INFO - Container for sphinx-doc__sphinx-8551 started: 15ab46d519d655a94b75b012735e32f7bbc1df3b497cef1a8f6668b28bda9168
+2026-11-13 08:49:40,827 - INFO - Git diff before:
+diff --git a/setup.py b/setup.py
+index 8d40de1a8..03f325278 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,22 +15,22 @@ if sys.version_info < (3, 5):
+     sys.exit(1)
+ 
+ install_requires = [
+-    'sphinxcontrib-applehelp',
+-    'sphinxcontrib-devhelp',
++    'sphinxcontrib-applehelp<=1.0.7',
++    'sphinxcontrib-devhelp<=1.0.5',
+     'sphinxcontrib-jsmath',
+-    'sphinxcontrib-htmlhelp',
+-    'sphinxcontrib-serializinghtml',
+-    'sphinxcontrib-qthelp',
+-    'Jinja2>=2.3',
++    'sphinxcontrib-htmlhelp<=2.0.4',
++    'sphinxcontrib-serializinghtml<=1.1.9',
++    'sphinxcontrib-qthelp<=1.0.6',
++    'Jinja2<3.0',
+     'Pygments>=2.0',
+     'docutils>=0.12',
+     'snowballstemmer>=1.1',
+     'babel>=1.3',
+-    'alabaster>=0.7,<0.8',
++    'alabaster>=0.7,<0.7.12',
+     'imagesize',
+     'requests>=2.5.0',
+     'setuptools',
+-    'packaging',
++    'packaging', 'markupsafe<=2.0.1',
+ ]
+ 
+ extras_require = {
+diff --git a/tox.ini b/tox.ini
+index dbb705a3a..9f4fc3a32 100644
+--- a/tox.ini
++++ b/tox.ini
+@@ -28,7 +28,7 @@ setenv =
+     PYTHONWARNINGS = all,ignore::ImportWarning:importlib._bootstrap_external,ignore::DeprecationWarning:site,ignore::DeprecationWarning:distutils
+     PYTEST_ADDOPTS = {env:PYTEST_ADDOPTS:} --color yes
+ commands=
+-    python -X dev -m pytest --durations 25 {posargs}
++    python -X dev -m pytest -rA --durations 25 {posargs}
+ 
+ [testenv:flake8]
+ basepython = python3
+2026-11-13 08:49:40,842 - INFO - Eval script for sphinx-doc__sphinx-8551 written to eval.sh, now applying to container...
+2026-11-13 08:49:59,030 - INFO - Test output for sphinx-doc__sphinx-8551 written to run_instance_swt_logs/base_post/sphinx-doc__sphinx-8551/0c5a69d97139734e2a10c7e1f99583b1e42b49d78ecae9da5b8e2dacee565466/test_output.txt
+2026-11-13 08:49:59,115 - INFO - Git diff after:
+diff --git a/setup.py b/setup.py
+index 8d40de1a8..03f325278 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,22 +15,22 @@ if sys.version_info < (3, 5):
+     sys.exit(1)
+ 
+ install_requires = [
+-    'sphinxcontrib-applehelp',
+-    'sphinxcontrib-devhelp',
++    'sphinxcontrib-applehelp<=1.0.7',
++    'sphinxcontrib-devhelp<=1.0.5',
+     'sphinxcontrib-jsmath',
+-    'sphinxcontrib-htmlhelp',
+-    'sphinxcontrib-serializinghtml',
+-    'sphinxcontrib-qthelp',
+-    'Jinja2>=2.3',
++    'sphinxcontrib-htmlhelp<=2.0.4',
++    'sphinxcontrib-serializinghtml<=1.1.9',
++    'sphinxcontrib-qthelp<=1.0.6',
++    'Jinja2<3.0',
+     'Pygments>=2.0',
+     'docutils>=0.12',
+     'snowballstemmer>=1.1',
+     'babel>=1.3',
+-    'alabaster>=0.7,<0.8',
++    'alabaster>=0.7,<0.7.12',
+     'imagesize',
+     'requests>=2.5.0',
+     'setuptools',
+-    'packaging',
++    'packaging', 'markupsafe<=2.0.1',
+ ]
+ 
+ extras_require = {
+diff --git a/sphinx/domains/python.py b/sphinx/domains/python.py
+index 79d7e4f46..c4d134d08 100644
+--- a/sphinx/domains/python.py
++++ b/sphinx/domains/python.py
+@@ -272,6 +272,8 @@ class PyXrefMixin:
+         result = super().make_xref(rolename, domain, target,  # type: ignore
+                                    innernode, contnode, env)
+         result['refspecific'] = True
++        result['py:module'] = env.ref_context.get('py:module')
++        result['py:class'] = env.ref_context.get('py:class')
+         if target.startswith(('.', '~')):
+             prefix, result['reftarget'] = target[0], target[1:]
+             if prefix == '.':
+diff --git a/sphinx/util/docfields.py b/sphinx/util/docfields.py
+index 404bb127f..9a57ccff7 100644
+--- a/sphinx/util/docfields.py
++++ b/sphinx/util/docfields.py
+@@ -295,6 +295,7 @@ class DocFieldTransformer:
+                         self.directive.domain,
+                         target,
+                         contnode=content[0],
++                        env=self.directive.state.document.settings.env
+                     )
+                     if _is_single_paragraph(field_body):
+                         paragraph = cast(nodes.paragraph, field_body[0])
+diff --git a/tox.ini b/tox.ini
+index dbb705a3a..9f4fc3a32 100644
+--- a/tox.ini
++++ b/tox.ini
+@@ -28,7 +28,7 @@ setenv =
+     PYTHONWARNINGS = all,ignore::ImportWarning:importlib._bootstrap_external,ignore::DeprecationWarning:site,ignore::DeprecationWarning:distutils
+     PYTEST_ADDOPTS = {env:PYTEST_ADDOPTS:} --color yes
+ commands=
+-    python -X dev -m pytest --durations 25 {posargs}
++    python -X dev -m pytest -rA --durations 25 {posargs}
+ 
+ [testenv:flake8]
+ basepython = python3
+2026-11-13 08:49:59,118 - INFO - Git diff changed after running eval script
+2026-11-13 08:49:59,120 - INFO - Attempting to stop container exec.eval.x86_64.77d82541416cab86d0d86a.f484b979b91a6e0136288c.125911372155168...
+2026-11-13 08:50:14,333 - INFO - Attempting to remove container exec.eval.x86_64.77d82541416cab86d0d86a.f484b979b91a6e0136288c.125911372155168...
+2026-11-13 08:50:14,424 - INFO - Container exec.eval.x86_64.77d82541416cab86d0d86a.f484b979b91a6e0136288c.125911372155168 removed.
+2026-11-13 08:50:14,427 - WARNING - End of eval at 1794577814.4273493
+2026-11-13 08:54:02,513 - INFO - Grading answer for sphinx-doc__sphinx-8551...
+2026-11-13 08:54:02,958 - INFO - report: {'sphinx-doc__sphinx-8551': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'coverage_pred': 0.0, 'coverage_gold': 0.0, 'coverage_base': 0.0, 'coverage_delta_pred': 0.0, 'coverage_delta_gold': 0.0, 'added_f2p': 0, 'tests_base': {'FAIL_TO_PASS': [], 'PASS_TO_PASS': [], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': ['file']}, 'tests_pred': {'FAIL_TO_PASS': [], 'PASS_TO_PASS': ['tests/test_domain_py.py::test_get_full_qualified_name', 'tests/test_domain_py.py::test_function_signatures'], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': ['tests/test_domain_py.py::test_noindexentry', 'tests/test_domain_py.py::test_domain_py_objects', 'tests/test_domain_py.py::test_pyfunction', 'tests/test_domain_py.py::test_pymethod_options', 'tests/test_domain_py.py::test_pyobject_prefix', 'tests/test_domain_py.py::test_pydata', 'tests/test_domain_py.py::test_domain_py_xrefs', 'tests/test_domain_py.py::test_module_index', 'tests/test_domain_py.py::test_resolve_xref_for_properties', 'tests/test_domain_py.py::test_pyclassmethod', 'tests/test_domain_py.py::test_domain_py_find_obj', 'tests/test_domain_py.py::test_pyfunction_signature_full', 'tests/test_domain_py.py::test_warn_missing_reference', 'tests/test_domain_py.py::test_pyexception_signature', 'tests/test_domain_py.py::test_pyattribute', 'tests/test_domain_py.py::test_pystaticmethod', 'tests/test_domain_py.py::test_module_index_submodule', 'tests/test_domain_py.py::test_pyfunction_signature', 'tests/test_domain_py.py::test_pydata_signature_old', 'tests/test_domain_py.py::test_pyfunction_with_number_literals', 'tests/test_domain_py.py::test_exceptions_module_is_ignored', 'tests/test_domain_py.py::test_pyclass_options', 'tests/test_domain_py.py::test_pydecoratormethod_signature', 'tests/test_domain_py.py::test_domain_py_field_type_xrefs', 'tests/test_domain_py.py::test_pydecorator_signature', 'tests/test_domain_py.py::test_parse_annotation', 'tests/test_domain_py.py::test_module_index_not_collapsed', 'tests/test_domain_py.py::test_pyfunction_signature_full_py38', 'tests/test_domain_py.py::test_pydata_signature', 'tests/test_domain_py.py::test_modindex_common_prefix', 'tests/test_domain_py.py::test_optional_pyfunction_signature']}, 'tests_gold': {'FAIL_TO_PASS': [], 'PASS_TO_PASS': ['tests/test_domain_py.py::test_get_full_qualified_name', 'tests/test_domain_py.py::test_function_signatures'], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': ['tests/test_domain_py.py::test_noindexentry', 'tests/test_domain_py.py::test_domain_py_objects', 'tests/test_domain_py.py::test_pyfunction', 'tests/test_domain_py.py::test_pymethod_options', 'tests/test_domain_py.py::test_pyobject_prefix', 'tests/test_domain_py.py::test_pydata', 'tests/test_domain_py.py::test_domain_py_xrefs', 'tests/test_domain_py.py::test_module_index', 'tests/test_domain_py.py::test_resolve_xref_for_properties', 'tests/test_domain_py.py::test_pyclassmethod', 'tests/test_domain_py.py::test_domain_py_find_obj', 'tests/test_domain_py.py::test_pyfunction_signature_full', 'tests/test_domain_py.py::test_warn_missing_reference', 'tests/test_domain_py.py::test_pyexception_signature', 'tests/test_domain_py.py::test_pyattribute', 'tests/test_domain_py.py::test_pystaticmethod', 'tests/test_domain_py.py::test_module_index_submodule', 'tests/test_domain_py.py::test_pyfunction_signature', 'tests/test_domain_py.py::test_pydata_signature_old', 'tests/test_domain_py.py::test_pyfunction_with_number_literals', 'tests/test_domain_py.py::test_exceptions_module_is_ignored', 'tests/test_domain_py.py::test_pyclass_options', 'tests/test_domain_py.py::test_pydecoratormethod_signature', 'tests/test_domain_py.py::test_pydecorator_signature', 'tests/test_domain_py.py::test_parse_annotation', 'tests/test_domain_py.py::test_info_field_list', 'tests/test_domain_py.py::test_pyfunction_signature_full_py38', 'tests/test_domain_py.py::test_pydata_signature', 'tests/test_domain_py.py::test_module_index_not_collapsed', 'tests/test_domain_py.py::test_modindex_common_prefix', 'tests/test_domain_py.py::test_optional_pyfunction_signature']}}}
+Result for sphinx-doc__sphinx-8551: resolved: False

@@ -1,0 +1,48 @@
+2026-11-13 08:33:55,500 - WARNING - Starting evaluation at 1794576835.5008118
+2026-11-13 08:33:55,914 - INFO - Creating container for pytest-dev__pytest-7432...
+2026-11-13 08:33:56,019 - INFO - Container for pytest-dev__pytest-7432 created: 99580ccce2481912463784a5b0b8e962cb1ab77d7052474c7b55e1b567b078de
+2026-11-13 08:33:56,277 - INFO - Container for pytest-dev__pytest-7432 started: 99580ccce2481912463784a5b0b8e962cb1ab77d7052474c7b55e1b567b078de
+2026-11-13 08:33:56,611 - INFO - Git diff before:
+
+2026-11-13 08:33:56,621 - INFO - Eval script for pytest-dev__pytest-7432 written to eval.sh, now applying to container...
+2026-11-13 08:34:09,431 - INFO - Test output for pytest-dev__pytest-7432 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/pytest-dev__pytest-7432/test_output.txt
+2026-11-13 08:34:09,510 - INFO - Git diff after:
+diff --git a/testing/test_skipping.py b/testing/test_skipping.py
+index 0b1c0b49b..c0a48a800 100644
+--- a/testing/test_skipping.py
++++ b/testing/test_skipping.py
+@@ -649,6 +649,29 @@ class TestSkip:
+         result.stdout.fnmatch_lines(["*unconditional skip*", "*1 skipped*"])
+ 
+ 
++def test_skip_report_location_with_runxfail(testdir):
++    testdir.makepyfile(
++        test_foo="""
++        import pytest
++        @pytest.mark.skip
++        def test_skip():
++            assert 0
++        @pytest.mark.skipif(True, reason="condition is true")
++        def test_skipif():
++            assert 0
++        """
++    )
++    result = testdir.runpytest("-rs", "--runxfail")
++    result.stdout.fnmatch_lines(
++        [
++            "SKIPPED [[]1[]] test_foo.py:2: unconditional skip",
++            "SKIPPED [[]1[]] test_foo.py:5: condition is true",
++            "*2 skipped*",
++        ]
++    )
++    assert result.ret == 0
++
++
+ class TestSkipif:
+     def test_skipif_conditional(self, testdir):
+         item = testdir.getitem(
+2026-11-13 08:34:09,511 - INFO - Git diff changed after running eval script
+2026-11-13 08:34:09,512 - INFO - Attempting to stop container exec.eval.x86_64.bfa0b4daea744b5aaefba0.64d7f7c86507f17e222a4c.125911490736688...
+2026-11-13 08:34:24,737 - INFO - Attempting to remove container exec.eval.x86_64.bfa0b4daea744b5aaefba0.64d7f7c86507f17e222a4c.125911490736688...
+2026-11-13 08:34:24,783 - INFO - Container exec.eval.x86_64.bfa0b4daea744b5aaefba0.64d7f7c86507f17e222a4c.125911490736688 removed.
+2026-11-13 08:34:24,784 - WARNING - End of eval at 1794576864.7847557

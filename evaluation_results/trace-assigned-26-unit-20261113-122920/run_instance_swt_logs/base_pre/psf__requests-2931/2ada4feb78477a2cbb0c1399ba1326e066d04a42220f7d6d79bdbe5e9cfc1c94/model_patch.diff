@@ -1,0 +1,18 @@
+diff --git a/test_requests.py b/test_requests.py
+index 137edc08..b2c2710a 100755
+--- a/test_requests.py
++++ b/test_requests.py
+@@ -521,6 +521,13 @@ class TestRequests(object):
+             headers={str('Content-Type'): 'application/octet-stream'},
+             data='\xff')  # compat.str is unicode.
+ 
++    def test_binary_payload(self):
++        data = u'ööö'.encode('utf-8')
++        request = requests.Request('PUT', 'http://httpbin.org/put', data=data)
++        prepared = request.prepare()
++
++        assert prepared.body == data
++
+     def test_pyopenssl_redirect(self, httpsbin_url, httpbin_ca_bundle):
+         requests.get(httpsbin_url('status', '301'), verify=httpbin_ca_bundle)
+ 

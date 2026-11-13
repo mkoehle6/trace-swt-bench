@@ -1,0 +1,45 @@
+diff --git a/tests/migrations/test_commands.py b/tests/migrations/test_commands.py
+index bf78b60a85..e3275452f9 100644
+--- a/tests/migrations/test_commands.py
++++ b/tests/migrations/test_commands.py
+@@ -25,12 +25,40 @@ from .routers import TestRouter
+ from .test_base import MigrationTestBase
+ 
+ 
++class MigrateOnlyDefaultRouter:
++    def allow_migrate(self, db, app_label, model_name=None, **hints):
++        return db == "default"
++
++
+ class MigrateTests(MigrationTestBase):
+     """
+     Tests running the migrate command.
+     """
+     databases = {'default', 'other'}
+ 
++    @override_settings(
++        MIGRATION_MODULES={"migrations": "migrations.test_migrations"},
++        DATABASE_ROUTERS=[MigrateOnlyDefaultRouter()],
++    )
++    def test_migrate_does_not_create_migration_table_when_router_disallows(self):
++        """
++        The migration recorder table isn't created on a database where the
++        router disallows migrations.
++        """
++        recorder = MigrationRecorder(connections["other"])
++        if recorder.has_table():
++            with connections["other"].schema_editor() as editor:
++                editor.delete_model(MigrationRecorder.Migration)
++        try:
++            self.assertFalse(recorder.has_table())
++            call_command("migrate", "migrations", database="other", verbosity=0)
++            self.assertFalse(recorder.has_table())
++        finally:
++            # Restore the table for the test suite's teardown and other tests.
++            if not recorder.has_table():
++                with connections["other"].schema_editor() as editor:
++                    editor.create_model(MigrationRecorder.Migration)
++
+     @override_settings(MIGRATION_MODULES={"migrations": "migrations.test_migrations"})
+     def test_migrate(self):
+         """

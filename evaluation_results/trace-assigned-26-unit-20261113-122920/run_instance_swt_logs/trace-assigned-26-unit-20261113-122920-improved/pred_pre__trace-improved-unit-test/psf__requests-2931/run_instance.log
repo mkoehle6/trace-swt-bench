@@ -1,0 +1,31 @@
+2026-11-13 08:34:59,825 - WARNING - Starting evaluation at 1794576899.82497
+2026-11-13 08:35:00,417 - INFO - Creating container for psf__requests-2931...
+2026-11-13 08:35:00,564 - INFO - Container for psf__requests-2931 created: 9a13e642067a42134283f6e7e99982126e52a3eb7086003b07073de36787eee4
+2026-11-13 08:35:00,881 - INFO - Container for psf__requests-2931 started: 9a13e642067a42134283f6e7e99982126e52a3eb7086003b07073de36787eee4
+2026-11-13 08:35:01,141 - INFO - Git diff before:
+
+2026-11-13 08:35:01,152 - INFO - Eval script for psf__requests-2931 written to eval.sh, now applying to container...
+2026-11-13 08:35:08,931 - INFO - Test output for psf__requests-2931 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/psf__requests-2931/test_output.txt
+2026-11-13 08:35:09,023 - INFO - Git diff after:
+diff --git a/test_requests.py b/test_requests.py
+index 137edc08..b2c2710a 100755
+--- a/test_requests.py
++++ b/test_requests.py
+@@ -521,6 +521,13 @@ class TestRequests(object):
+             headers={str('Content-Type'): 'application/octet-stream'},
+             data='\xff')  # compat.str is unicode.
+ 
++    def test_binary_payload(self):
++        data = u'ööö'.encode('utf-8')
++        request = requests.Request('PUT', 'http://httpbin.org/put', data=data)
++        prepared = request.prepare()
++
++        assert prepared.body == data
++
+     def test_pyopenssl_redirect(self, httpsbin_url, httpbin_ca_bundle):
+         requests.get(httpsbin_url('status', '301'), verify=httpbin_ca_bundle)
+2026-11-13 08:35:09,024 - INFO - Git diff changed after running eval script
+2026-11-13 08:35:09,025 - INFO - Attempting to stop container exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d.125911372153824...
+2026-11-13 08:35:24,300 - INFO - Attempting to remove container exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d.125911372153824...
+2026-11-13 08:35:24,354 - INFO - Container exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d.125911372153824 removed.
+2026-11-13 08:35:24,356 - WARNING - End of eval at 1794576924.356656

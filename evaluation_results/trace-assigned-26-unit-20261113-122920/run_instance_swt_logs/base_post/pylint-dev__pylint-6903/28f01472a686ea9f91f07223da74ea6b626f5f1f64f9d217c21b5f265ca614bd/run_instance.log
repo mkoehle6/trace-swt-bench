@@ -1,0 +1,34 @@
+2026-11-13 07:51:11,368 - WARNING - Starting evaluation at 1794574271.3683472
+2026-11-13 07:51:11,550 - INFO - Creating container for pylint-dev__pylint-6903...
+2026-11-13 07:51:11,601 - INFO - Container for pylint-dev__pylint-6903 created: 65694b85381c3211509a35ca8d2577e798f906996c13b2a57254525dc9e76f30
+2026-11-13 07:51:11,704 - INFO - Container for pylint-dev__pylint-6903 started: 65694b85381c3211509a35ca8d2577e798f906996c13b2a57254525dc9e76f30
+2026-11-13 07:51:11,861 - INFO - Git diff before:
+
+2026-11-13 07:51:11,865 - INFO - Eval script for pylint-dev__pylint-6903 written to eval.sh, now applying to container...
+2026-11-13 07:51:15,674 - INFO - Test output for pylint-dev__pylint-6903 written to run_instance_swt_logs/base_post/pylint-dev__pylint-6903/28f01472a686ea9f91f07223da74ea6b626f5f1f64f9d217c21b5f265ca614bd/test_output.txt
+2026-11-13 07:51:15,756 - INFO - Git diff after:
+diff --git a/pylint/lint/run.py b/pylint/lint/run.py
+index a7e5d5574..27a4d9d84 100644
+--- a/pylint/lint/run.py
++++ b/pylint/lint/run.py
+@@ -58,6 +58,13 @@ def _query_cpu() -> int | None:
+             cpu_shares = int(file.read().rstrip())
+         # For AWS, gives correct value * 1024.
+         avail_cpu = int(cpu_shares / 1024)
++
++    # In K8s Pods also a fraction of a single core could be available
++    # As multiprocessing is not able to run only a "fraction" of process
++    # assume we have 1 CPU available
++    if avail_cpu == 0:
++        avail_cpu = 1
++
+     return avail_cpu
+2026-11-13 07:51:15,757 - INFO - Git diff changed after running eval script
+2026-11-13 07:51:15,758 - INFO - Attempting to stop container exec.eval.x86_64.fc8235bb41fea90b41065e.0e61b8e442dd90882e9ff4.132386095352816...
+2026-11-13 07:51:30,945 - INFO - Attempting to remove container exec.eval.x86_64.fc8235bb41fea90b41065e.0e61b8e442dd90882e9ff4.132386095352816...
+2026-11-13 07:51:30,975 - INFO - Container exec.eval.x86_64.fc8235bb41fea90b41065e.0e61b8e442dd90882e9ff4.132386095352816 removed.
+2026-11-13 07:51:30,977 - WARNING - End of eval at 1794574290.977333
+2026-11-13 08:36:37,604 - WARNING - Starting evaluation at 1794576997.6039574
+2026-11-13 08:53:59,898 - INFO - Grading answer for pylint-dev__pylint-6903...
+2026-11-13 08:54:00,014 - INFO - report: {'pylint-dev__pylint-6903': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'coverage_pred': 1.0, 'coverage_gold': 0.5, 'coverage_base': 0.0, 'coverage_delta_pred': 1.0, 'coverage_delta_gold': 0.5, 'added_f2p': 2, 'tests_base': {'FAIL_TO_PASS': [], 'PASS_TO_PASS': [], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': ['file']}, 'tests_pred': {'FAIL_TO_PASS': ['tests/lint/test_run.py::test_cpu_query_never_returns_zero[cpu_files1]', 'tests/lint/test_run.py::test_cpu_query_never_returns_zero[cpu_files0]'], 'PASS_TO_PASS': [], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': []}, 'tests_gold': {'FAIL_TO_PASS': [], 'PASS_TO_PASS': ['tests/test_pylint_runners.py::test_runner_with_arguments[run_pyreverse]', 'tests/test_pylint_runners.py::test_runner[run_symilar]', 'tests/test_pylint_runners.py::test_runner[run_pyreverse]', 'tests/test_pylint_runners.py::test_runner_with_arguments[run_symilar]'], 'FAIL_TO_FAIL': ['tests/test_pylint_runners.py::test_runner[run_pylint]', 'tests/test_pylint_runners.py::test_runner_with_arguments[run_pylint]', 'tests/test_pylint_runners.py::test_runner_with_arguments[run_epylint]', 'tests/test_pylint_runners.py::test_pylint_run_jobs_equal_zero_dont_crash_with_cpu_fraction', 'tests/test_pylint_runners.py::test_runner[run_epylint]'], 'PASS_TO_FAIL': [], 'UNMATCHED': []}}}
+Result for pylint-dev__pylint-6903: resolved: True

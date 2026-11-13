@@ -1,0 +1,50 @@
+2026-11-13 07:36:38,698 - WARNING - Starting evaluation at 1794573398.6983392
+2026-11-13 07:36:38,890 - INFO - Creating container for scikit-learn__scikit-learn-14894...
+2026-11-13 07:36:38,947 - INFO - Container for scikit-learn__scikit-learn-14894 created: 76dea89c5d97adf7883a68a9c26c9245deb61170dbbe29b6a1b697cdde9a0866
+2026-11-13 07:36:39,058 - INFO - Container for scikit-learn__scikit-learn-14894 started: 76dea89c5d97adf7883a68a9c26c9245deb61170dbbe29b6a1b697cdde9a0866
+2026-11-13 07:36:39,505 - INFO - Git diff before:
+
+2026-11-13 07:36:39,510 - INFO - Eval script for scikit-learn__scikit-learn-14894 written to eval.sh, now applying to container...
+2026-11-13 07:36:45,343 - INFO - Test output for scikit-learn__scikit-learn-14894 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-baseline/pred_pre__trace-baseline-unit-test/scikit-learn__scikit-learn-14894/test_output.txt
+2026-11-13 07:36:45,411 - INFO - Git diff after:
+diff --git a/sklearn/svm/tests/test_sparse.py b/sklearn/svm/tests/test_sparse.py
+index 7cf6e8af2a..ad975d4ca8 100644
+--- a/sklearn/svm/tests/test_sparse.py
++++ b/sklearn/svm/tests/test_sparse.py
+@@ -327,6 +327,31 @@ def test_sparse_realdata():
+     assert_array_equal(clf.dual_coef_, sp_clf.dual_coef_.toarray())
+ 
+ 
++def test_sparse_svr_with_empty_support_vectors():
++    # Non-regression test for SVR fitted on sparse data when the solver
++    # returns no support vectors. The sparse dual coefficients should be
++    # empty, just as they are for the equivalent dense fit.
++    X = np.array([[0, 1, 0, 0],
++                  [0, 0, 0, 1],
++                  [0, 0, 1, 0],
++                  [0, 0, 0, 1]])
++    y = np.array([0.04, 0.04, 0.10, 0.16])
++
++    dense_svr = svm.SVR(C=316.227766017, kernel='linear', gamma=1.0,
++                        epsilon=0.1, max_iter=15000).fit(X, y)
++    sparse_svr = svm.SVR(C=316.227766017, kernel='linear', gamma=1.0,
++                         epsilon=0.1, max_iter=15000).fit(
++                             sparse.csr_matrix(X), y)
++
++    assert sparse.issparse(sparse_svr.support_vectors_)
++    assert (sparse_svr.support_vectors_.shape ==
++            dense_svr.support_vectors_.shape)
++    assert sparse.issparse(sparse_svr.dual_coef_)
++    assert sparse_svr.dual_coef_.shape == dense_svr.dual_coef_.shape
++    assert_array_equal(sparse_svr.dual_coef_.toarray(),
++                       dense_svr.dual_coef_)
++
++
+ def test_sparse_svc_clone_with_callable_kernel():
+     # Test that the "dense_fit" is called even though we use sparse input
+     # meaning that everything works fine.
+2026-11-13 07:36:45,412 - INFO - Git diff changed after running eval script
+2026-11-13 07:36:45,413 - INFO - Attempting to stop container exec.eval.x86_64.437918b9cd24690e5e9c56.a13a54a72440a3821adc6d.132386107151456...
+2026-11-13 07:37:00,660 - INFO - Attempting to remove container exec.eval.x86_64.437918b9cd24690e5e9c56.a13a54a72440a3821adc6d.132386107151456...
+2026-11-13 07:37:00,690 - INFO - Container exec.eval.x86_64.437918b9cd24690e5e9c56.a13a54a72440a3821adc6d.132386107151456 removed.
+2026-11-13 07:37:00,691 - WARNING - End of eval at 1794573420.6918054

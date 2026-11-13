@@ -1,0 +1,55 @@
+2026-11-13 08:50:14,472 - WARNING - Starting evaluation at 1794577814.472227
+2026-11-13 08:50:14,886 - INFO - Creating container for matplotlib__matplotlib-25311...
+2026-11-13 08:50:14,997 - INFO - Container for matplotlib__matplotlib-25311 created: f18279a18170dfb7e227aafa6fe3f1591192b9bed02545f20ce5a63f6c38f24c
+2026-11-13 08:50:15,211 - INFO - Container for matplotlib__matplotlib-25311 started: f18279a18170dfb7e227aafa6fe3f1591192b9bed02545f20ce5a63f6c38f24c
+2026-11-13 08:50:17,064 - INFO - Git diff before:
+
+2026-11-13 08:50:17,071 - INFO - Eval script for matplotlib__matplotlib-25311 written to eval.sh, now applying to container...
+2026-11-13 08:51:46,523 - INFO - Test output for matplotlib__matplotlib-25311 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_pre__trace-improved-unit-test/matplotlib__matplotlib-25311/test_output.txt
+2026-11-13 08:51:46,610 - INFO - Git diff after:
+diff --git a/lib/matplotlib/tests/test_pickle.py b/lib/matplotlib/tests/test_pickle.py
+index ec6bdcc2fe..446459f8e4 100644
+--- a/lib/matplotlib/tests/test_pickle.py
++++ b/lib/matplotlib/tests/test_pickle.py
+@@ -1,6 +1,7 @@
+ from io import BytesIO
+ import ast
+ import pickle
++import threading
+ 
+ import numpy as np
+ import pytest
+@@ -282,3 +283,28 @@ def test_dynamic_norm():
+ def test_vertexselector():
+     line, = plt.plot([0, 1], picker=True)
+     pickle.loads(pickle.dumps(VertexSelector(line)))
++
++
++def test_pickle_draggable_legend():
++    fig, ax = plt.subplots()
++    ax.plot([0, 1], label="speed")
++    legend = ax.legend()
++    legend.set_draggable(True)
++    # GUI backends generally cannot be pickled.  Figure.__getstate__ drops
++    # figure.canvas, but a draggable artist must not keep a reference to it.
++    fig.canvas._unpicklable = threading.Lock()
++
++    loaded = pickle.loads(pickle.dumps(fig))
++    assert loaded.axes[0].get_legend().get_draggable()
++
++
++def test_pickle_draggable_annotation():
++    fig, ax = plt.subplots()
++    annotation = ax.annotate("foo", (0.5, 0.5))
++    annotation.draggable(True)
++    # GUI backends generally cannot be pickled.  Figure.__getstate__ drops
++    # figure.canvas, but a draggable artist must not keep a reference to it.
++    fig.canvas._unpicklable = threading.Lock()
++
++    loaded = pickle.loads(pickle.dumps(fig))
++    assert loaded.axes[0].texts[0]._draggable is not None
+2026-11-13 08:51:46,611 - INFO - Git diff changed after running eval script
+2026-11-13 08:51:46,612 - INFO - Attempting to stop container exec.eval.x86_64.89beb6334e800c4362eea6.a0be8ca4c1490fd9d2a3a4.125911372156992...
+2026-11-13 08:52:01,861 - INFO - Attempting to remove container exec.eval.x86_64.89beb6334e800c4362eea6.a0be8ca4c1490fd9d2a3a4.125911372156992...
+2026-11-13 08:52:01,901 - INFO - Container exec.eval.x86_64.89beb6334e800c4362eea6.a0be8ca4c1490fd9d2a3a4.125911372156992 removed.
+2026-11-13 08:52:01,903 - WARNING - End of eval at 1794577921.9030454

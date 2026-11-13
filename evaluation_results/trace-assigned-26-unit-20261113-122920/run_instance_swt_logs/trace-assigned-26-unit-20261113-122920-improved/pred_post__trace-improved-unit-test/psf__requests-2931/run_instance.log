@@ -1,0 +1,54 @@
+2026-11-13 08:35:24,412 - WARNING - Starting evaluation at 1794576924.4120636
+2026-11-13 08:35:25,006 - INFO - Creating container for psf__requests-2931...
+2026-11-13 08:35:25,129 - INFO - Container for psf__requests-2931 created: 0d198f3ea2293b9a25e387a7301dadc571efdf33f7df19fbc70e993ff3c44162
+2026-11-13 08:35:25,403 - INFO - Container for psf__requests-2931 started: 0d198f3ea2293b9a25e387a7301dadc571efdf33f7df19fbc70e993ff3c44162
+2026-11-13 08:35:25,588 - INFO - Git diff before:
+
+2026-11-13 08:35:25,599 - INFO - Eval script for psf__requests-2931 written to eval.sh, now applying to container...
+2026-11-13 08:35:32,272 - INFO - Test output for psf__requests-2931 written to run_instance_swt_logs/trace-assigned-26-unit-20261113-122920-improved/pred_post__trace-improved-unit-test/psf__requests-2931/test_output.txt
+2026-11-13 08:35:32,404 - INFO - Git diff after:
+diff --git a/requests/models.py b/requests/models.py
+index 9c624d3c..4bcbc548 100644
+--- a/requests/models.py
++++ b/requests/models.py
+@@ -81,7 +81,7 @@ class RequestEncodingMixin(object):
+         """
+ 
+         if isinstance(data, (str, bytes)):
+-            return to_native_string(data)
++            return data
+         elif hasattr(data, 'read'):
+             return data
+         elif hasattr(data, '__iter__'):
+@@ -385,6 +385,9 @@ class PreparedRequest(RequestEncodingMixin, RequestHooksMixin):
+             if isinstance(fragment, str):
+                 fragment = fragment.encode('utf-8')
+ 
++        if isinstance(params, (str, bytes)):
++            params = to_native_string(params)
++
+         enc_params = self._encode_params(params)
+         if enc_params:
+             if query:
+diff --git a/test_requests.py b/test_requests.py
+index 137edc08..b2c2710a 100755
+--- a/test_requests.py
++++ b/test_requests.py
+@@ -521,6 +521,13 @@ class TestRequests(object):
+             headers={str('Content-Type'): 'application/octet-stream'},
+             data='\xff')  # compat.str is unicode.
+ 
++    def test_binary_payload(self):
++        data = u'ööö'.encode('utf-8')
++        request = requests.Request('PUT', 'http://httpbin.org/put', data=data)
++        prepared = request.prepare()
++
++        assert prepared.body == data
++
+     def test_pyopenssl_redirect(self, httpsbin_url, httpbin_ca_bundle):
+         requests.get(httpsbin_url('status', '301'), verify=httpbin_ca_bundle)
+2026-11-13 08:35:32,406 - INFO - Git diff changed after running eval script
+2026-11-13 08:35:32,408 - INFO - Attempting to stop container exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d.125911372153824...
+2026-11-13 08:35:47,663 - INFO - Attempting to remove container exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d.125911372153824...
+2026-11-13 08:35:47,706 - INFO - Container exec.eval.x86_64.3a9417a9d4b5c62087edb6.47caa9b5873c3da266005d.125911372153824 removed.
+2026-11-13 08:35:47,707 - WARNING - End of eval at 1794576947.7078605

@@ -53,7 +53,7 @@
       "limitations": [],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-14089-unit-baseline-20261112-214542",
+          "directory": "/workspace/swt-bench-work/runs/django-14089-unit-baseline-20261112-214542",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -80,7 +80,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-14089-unit-improved-20261112-214542",
+          "directory": "/workspace/swt-bench-work/runs/django-14089-unit-improved-20261112-214542",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -124,7 +124,7 @@
       ],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-unit-baseline-20261111-212132",
+          "directory": "/workspace/swt-bench-work/runs/django-unit-baseline-20261111-212132",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -151,7 +151,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-unit-improved-20261111-211606",
+          "directory": "/workspace/swt-bench-work/runs/django-unit-improved-20261111-211606",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -192,7 +192,7 @@
       "limitations": [],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-baseline",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-baseline",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -219,7 +219,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-improved",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-improved",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -284,7 +284,7 @@
       "limitations": [],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-baseline",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-baseline",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -311,7 +311,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-improved",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-improved",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -352,7 +352,7 @@
       "limitations": [],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-baseline",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-baseline",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -379,7 +379,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-improved",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-improved",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -428,7 +428,7 @@
       "limitations": [],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-baseline",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-baseline",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -455,7 +455,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -496,7 +496,7 @@
       "limitations": [],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-baseline",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-baseline",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -523,7 +523,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-improved",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-improved",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -567,7 +567,7 @@
       "limitations": [],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13513-unit-baseline-20261112-205739",
+          "directory": "/workspace/swt-bench-work/runs/django-13513-unit-baseline-20261112-205739",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -594,7 +594,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13513-unit-improved-20261112-205739-retry1",
+          "directory": "/workspace/swt-bench-work/runs/django-13513-unit-improved-20261112-205739-retry1",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -641,7 +641,7 @@
       ],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13344-unit-baseline-20261112-151544",
+          "directory": "/workspace/swt-bench-work/runs/django-13344-unit-baseline-20261112-151544",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -668,7 +668,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13344-unit-improved-20261112-151925",
+          "directory": "/workspace/swt-bench-work/runs/django-13344-unit-improved-20261112-151925",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -709,7 +709,7 @@
       "limitations": [],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-baseline",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-baseline",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -736,7 +736,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-improved",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-improved",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -780,7 +780,7 @@
       ],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-12155-unit-baseline-20261112-143526",
+          "directory": "/workspace/swt-bench-work/runs/django-12155-unit-baseline-20261112-143526",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -807,7 +807,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-12155-unit-improved-20261112-144127",
+          "directory": "/workspace/swt-bench-work/runs/django-12155-unit-improved-20261112-144127",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -851,7 +851,7 @@
       "limitations": [],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -878,7 +878,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-improved",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-improved",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -919,7 +919,7 @@
       "limitations": [],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-baseline",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-baseline",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -946,7 +946,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-improved",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-improved",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -990,7 +990,7 @@
       "limitations": [],
       "runs": {
         "baseline": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-baseline",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-baseline",
           "checks": {
             "instance_id": true,
             "mode": true,
@@ -1017,7 +1017,7 @@
           "preprocessing_attempts": 0
         },
         "improved": {
-          "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-improved",
+          "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-improved",
           "checks": {
             "instance_id": true,
             "mode": true,

@@ -18,7 +18,7 @@ project = batch.parent.parent
 plan = json.loads((batch / 'plan.json').read_text())
 post = batch / 'completion-pass'
 post.mkdir(exist_ok=False)
-python = '/home/mlkoe/.venvs/se433-swt/bin/python'
+python = '/home/user/.venvs/se433-swt/bin/python'
 sys.path.insert(0, str(project))
 from export_prediction import export_prediction
 

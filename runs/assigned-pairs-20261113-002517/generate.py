@@ -19,7 +19,7 @@ verification = json.loads((case / 'image-verification.json').read_text())
 assert verification['head'] == plan['metadata'][instance]['base_commit'] and verification['clean']
 sys.path.insert(0, str(project))
 import controller
-load_dotenv(Path('/home/mlkoe/.config/mini-swe-agent/.env'), override=False)
+load_dotenv(Path('/home/user/.config/mini-swe-agent/.env'), override=False)
 os.chdir(project)
 controller.main(['--report', str(project / 'data' / instance / 'report.txt'),
                  '--instance', instance, '--mode', mode, '--test-format', 'unit_test',

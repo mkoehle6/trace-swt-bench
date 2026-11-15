@@ -14,6 +14,6 @@ for filename,h in prep['sha256'].items():
 identity=json.loads((prep_dir/'image-identity.json').read_text())
 verification=json.loads((prep_dir/'image-verification.json').read_text())
 assert verification['head']==prep['source']['base_commit'] and verification['clean']
-load_dotenv(Path('/home/mlkoe/.config/mini-swe-agent/.env'),override=False)
+load_dotenv(Path('/home/user/.config/mini-swe-agent/.env'),override=False)
 out=project/'runs'/f"xarray-3677-unit-{mode}-{prep['pair_id']}"
 controller.main(['--report','data/pydata__xarray-3677/report.txt','--instance','pydata__xarray-3677','--mode',mode,'--test-format','unit_test','--out',str(out),'--image',identity['image_id'],'--launch'])

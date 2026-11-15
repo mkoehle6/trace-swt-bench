@@ -6,7 +6,7 @@
     "narrative": "Both methods compare Dataset.merge(DataArray) with the top-level merge result. Both fail with AttributeError because DataArray has no items attribute. Baseline places the test in test_dataset.py; improved uses test_merge.py, where the broader run has one failure and eight passes.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-baseline",
         "status": "Submitted",
         "seconds": 44.97619519800355,
         "attempts": 0,
@@ -28,7 +28,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/pydata__xarray-3677/generation-improved",
         "status": "Submitted",
         "seconds": 60.89984454899968,
         "attempts": 1,
@@ -65,7 +65,7 @@
     "narrative": "Both add an OrderedSet reversal test and encounter TypeError: the object is not reversible. Baseline also includes an empty-set assertion, although execution stops at the first error. Baseline runs seven tests; improved runs 44, each with one error.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-14089-unit-baseline-20261112-214542",
+        "run": "/workspace/swt-bench-work/runs/django-14089-unit-baseline-20261112-214542",
         "status": "Submitted",
         "seconds": 28.376262425997993,
         "attempts": 0,
@@ -96,7 +96,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-14089-unit-improved-20261112-214542",
+        "run": "/workspace/swt-bench-work/runs/django-14089-unit-improved-20261112-214542",
         "status": "Submitted",
         "seconds": 34.7298478379962,
         "attempts": 1,
@@ -128,7 +128,7 @@
     "narrative": "Both submit identical model_to_dict(fields=[]) tests. Each runs 165 tests with one failure: the result contains model fields instead of an empty dictionary.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-unit-baseline-20261111-212132",
+        "run": "/workspace/swt-bench-work/runs/django-unit-baseline-20261111-212132",
         "status": "Submitted",
         "seconds": 28.56759861399769,
         "attempts": 0,
@@ -152,7 +152,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-unit-improved-20261111-211606",
+        "run": "/workspace/swt-bench-work/runs/django-unit-improved-20261111-211606",
         "status": "Submitted",
         "seconds": 41.266308967999066,
         "attempts": 1,
@@ -184,7 +184,7 @@
     "narrative": "Both exercise PolyElement.as_expr() with replacement symbols u, v, w and observe an assertion failure. Baseline adds assertions while preserving the existing symbol case; improved changes the existing case to use different symbols. This distinction matters when reviewing the instruction to preserve existing assertions.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-baseline",
         "status": "Submitted",
         "seconds": 35.37830582600145,
         "attempts": 0,
@@ -205,7 +205,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sympy__sympy-24539/generation-improved",
         "status": "Submitted",
         "seconds": 56.74139194600866,
         "attempts": 1,
@@ -234,7 +234,7 @@
     "narrative": "Both add sparse SVR coverage for empty support vectors and encounter ZeroDivisionError in the sparse fitting path. Each focused run has one failure.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-baseline",
         "status": "Submitted",
         "seconds": 43.98439433600288,
         "attempts": 0,
@@ -256,7 +256,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/scikit-learn__scikit-learn-14894/generation-improved",
         "status": "Submitted",
         "seconds": 68.85709043398674,
         "attempts": 1,
@@ -286,7 +286,7 @@
     "narrative": "Both test extension version comparison with a multi-digit minor version. Baseline has one failing case. Improved adds an older-version rejection control, producing one failure and one pass.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-baseline",
         "status": "Submitted",
         "seconds": 53.33602063100261,
         "attempts": 0,
@@ -308,7 +308,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-improved",
         "status": "Submitted",
         "seconds": 64.42993762900005,
         "attempts": 1,
@@ -338,7 +338,7 @@
     "narrative": "Both construct the reported HIERARCH FITS card with 0.009125 and expect a short float representation that leaves the comment intact. Each focused run fails with VerifyWarning that the card is too long and its comment will be truncated. Baseline also asserts the value and comment. The saved image has prescribed build-time configuration edits; those are separate from the exported test patch.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-baseline",
         "status": "Submitted",
         "seconds": 58.927967356998124,
         "attempts": 0,
@@ -360,7 +360,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/astropy__astropy-14508/generation-improved",
         "status": "Submitted",
         "seconds": 101.87335922700004,
         "attempts": 2,
@@ -390,7 +390,7 @@
     "narrative": "Both add skip-location checks with --runxfail. Baseline adds separate skip and skipif cases; the broader run has two failures and 77 passes. Improved combines checks into a new test and records one failure. Earlier passing exploratory runs are not the final regression outcome.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-baseline",
         "status": "Submitted",
         "seconds": 62.925983627006644,
         "attempts": 0,
@@ -423,7 +423,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pytest-dev__pytest-7432/generation-improved",
         "status": "Submitted",
         "seconds": 84.76840470499883,
         "attempts": 1,
@@ -458,7 +458,7 @@
     "narrative": "Both add an empty Blueprint-name rejection test. The expected ValueError is not raised. Baseline records one failure; improved records one failure and 59 passes in the broader file.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-baseline",
         "status": "Submitted",
         "seconds": 32.08869756499189,
         "attempts": 0,
@@ -479,7 +479,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pallets__flask-5014/generation-improved",
         "status": "Submitted",
         "seconds": 47.99451275600586,
         "attempts": 1,
@@ -508,7 +508,7 @@
     "narrative": "Both test density histogram normalization with an explicit range. Baseline records one assertion failure. Improved parameterizes coverage and records two failing cases. These are generation-time observations, not fixed-version validation.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-baseline",
         "status": "Submitted",
         "seconds": 71.56613941100659,
         "attempts": 0,
@@ -537,7 +537,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/matplotlib__matplotlib-13989/generation-improved",
         "status": "Submitted",
         "seconds": 64.54184348799754,
         "attempts": 1,
@@ -568,7 +568,7 @@
     "narrative": "Both add a request with a non-ASCII binary payload. Execution fails with UnicodeDecodeError because an ASCII conversion is attempted. Each focused run records one failure.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-baseline",
         "status": "Submitted",
         "seconds": 39.364901287990506,
         "attempts": 0,
@@ -590,7 +590,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved",
         "status": "Submitted",
         "seconds": 55.883252425002865,
         "attempts": 1,
@@ -620,7 +620,7 @@
     "narrative": "Both simulate restricted CPU availability and require a positive worker/CPU count. Baseline records one failing case; improved records two. The tests model the Kubernetes symptom rather than launching Kubernetes.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-baseline",
         "status": "Submitted",
         "seconds": 77.7540130349953,
         "attempts": 0,
@@ -647,7 +647,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pylint-dev__pylint-6903/generation-improved",
         "status": "Submitted",
         "seconds": 72.72832317200664,
         "attempts": 1,
@@ -676,7 +676,7 @@
     "narrative": "Baseline checks large-range legend labels in both plotting and utility coverage and records two failures: labels such as 2 or 1.6 do not represent the million-scale values. Improved submits a continuous-legend test with one failure. Improved preprocessing needed three extraction attempts before acceptance. Its trajectory also contains a history-inspection flag.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-baseline",
         "status": "Submitted",
         "seconds": 206.55354263099434,
         "attempts": 0,
@@ -700,7 +700,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/mwaskom__seaborn-3187/generation-improved",
         "status": "Submitted",
         "seconds": 324.77031860100396,
         "attempts": 3,
@@ -751,7 +751,7 @@
     "narrative": "Both add exception-context suppression checks in the debug reporter tests, but both saved generation runs finish with 24 tests passing. These runs do not demonstrate a failing regression on the supplied checkout. Baseline inspected Git history and a historical commit summary; this requires protocol review. The selected improved run is a historical retry; earlier attempts remain preserved.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13513-unit-baseline-20261112-205739",
+        "run": "/workspace/swt-bench-work/runs/django-13513-unit-baseline-20261112-205739",
         "status": "Submitted",
         "seconds": 58.10482601399417,
         "attempts": 0,
@@ -800,7 +800,7 @@
         ]
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13513-unit-improved-20261112-205739-retry1",
+        "run": "/workspace/swt-bench-work/runs/django-13513-unit-improved-20261112-205739-retry1",
         "status": "Submitted",
         "seconds": 71.04312199800916,
         "attempts": 1,
@@ -842,7 +842,7 @@
     "narrative": "Both add inherited-attribute fixtures and autodoc checks. Final focused runs show the inherited attribute missing. Baseline records one failure with five passes in a focused group; improved records a focused failure and broader unrelated failures. Other exploratory runs pass, so the chronological evidence must be interpreted with the command used. Improved also encountered missing roman dependencies and has a history-inspection flag.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-baseline",
         "status": "Submitted",
         "seconds": 156.44238054200832,
         "attempts": 0,
@@ -926,7 +926,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8548/generation-improved",
         "status": "Submitted",
         "seconds": 184.03934364201268,
         "attempts": 1,
@@ -1017,7 +1017,7 @@
     "narrative": "Both exercise async middleware process_response receiving a coroutine instead of HttpResponse. Baseline submits ASGI-suite coverage and records one failure among ten tests. Improved submits middleware-suite coverage and records one failure among 33 tests after exploratory fixtures and an incorrect test-target import attempt.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13344-unit-baseline-20261112-151544",
+        "run": "/workspace/swt-bench-work/runs/django-13344-unit-baseline-20261112-151544",
         "status": "Submitted",
         "seconds": 153.71427780100203,
         "attempts": 0,
@@ -1087,7 +1087,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-13344-unit-improved-20261112-151925",
+        "run": "/workspace/swt-bench-work/runs/django-13344-unit-improved-20261112-151925",
         "status": "Submitted",
         "seconds": 271.1984693370032,
         "attempts": 2,
@@ -1171,7 +1171,7 @@
     "narrative": "Both test locales containing script and region, such as en-latn-us. Baseline observes a 404 instead of 200 and a language-path lookup returning None during exploration. Improved submits both checks and observes two failures; its broader run also has an unrelated tests-module import error and 74 skips. Improved exhausted three preprocessing attempts and fell back to the raw report. Baseline has history-inspection flags.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-baseline",
         "status": "Submitted",
         "seconds": 133.005745344999,
         "attempts": 0,
@@ -1258,7 +1258,7 @@
         ]
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15098/generation-improved",
         "status": "Submitted",
         "seconds": 237.5355483940075,
         "attempts": 3,
@@ -1319,7 +1319,7 @@
     "narrative": "Both add docstring trimming/parsing tests for a first line containing text. Each records two failures caused by retained indentation. Improved additionally checks rendered output and observes a docutils System Message. Baseline focuses on nine utility tests; improved also runs the broader suite.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-12155-unit-baseline-20261112-143526",
+        "run": "/workspace/swt-bench-work/runs/django-12155-unit-baseline-20261112-143526",
         "status": "Submitted",
         "seconds": 64.26030059299956,
         "attempts": 0,
@@ -1352,7 +1352,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/django-12155-unit-improved-20261112-144127",
+        "run": "/workspace/swt-bench-work/runs/django-12155-unit-improved-20261112-144127",
         "status": "Submitted",
         "seconds": 104.22351676899416,
         "attempts": 1,
@@ -1404,7 +1404,7 @@
     "narrative": "Both add cross-reference tests for an instance variable whose name collides with another documented object. Final focused runs fail, with broader runs showing one failure and 34 passes. Exploration includes scratch fixtures, passing alternatives and temporary dependency stubs; improved has a history-inspection flag. Baseline also clones the issue-example repository during exploration. These details limit a clean source-only protocol claim.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-baseline",
         "status": "Submitted",
         "seconds": 184.22521653500735,
         "attempts": 0,
@@ -1451,7 +1451,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638/generation-improved",
         "status": "Submitted",
         "seconds": 296.00968854199164,
         "attempts": 1,
@@ -1571,7 +1571,7 @@
     "narrative": "Baseline tests MigrationRecorder schema creation and applied/unapplied recording under a denying router; its final group has three failures among four tests. Improved tests the migrate command and observes that the migration table is created despite router denial, with one failure among 42 tests. Exploratory target/import and database errors are preserved.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline",
         "status": "Submitted",
         "seconds": 221.30811099499988,
         "attempts": 0,
@@ -1650,7 +1650,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-improved",
         "status": "Submitted",
         "seconds": 161.4466987180058,
         "attempts": 1,
@@ -1712,7 +1712,7 @@
     "narrative": "Both test authenticated-session recovery after secret-key rotation with SECRET_KEY_FALLBACKS. Each finds AnonymousUser instead of the expected user and records one failure. Improved falls back to the original report after three rejected preprocessing attempts. Baseline has a history-inspection flag.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-baseline",
         "status": "Submitted",
         "seconds": 77.60612871299963,
         "attempts": 0,
@@ -1753,7 +1753,7 @@
         ]
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-16631/generation-improved",
         "status": "Submitted",
         "seconds": 185.10919944400666,
         "attempts": 3,
@@ -1807,7 +1807,7 @@
     "narrative": "Both test Python-domain type-field cross-references with colliding class names. Baseline observes a link to mod.A where mod.submod.A is expected; the broader run has one failure and 32 passes. Improved observes an ambiguous-reference warning and records one failure with 32 passes; a later diagnostic run reports 33 passes and must be interpreted with its preceding command rather than treated as official fixed-version validation. Improved falls back after three preprocessing attempts.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-baseline",
         "status": "Submitted",
         "seconds": 177.74125593299686,
         "attempts": 0,
@@ -1881,7 +1881,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8551/generation-improved",
         "status": "Submitted",
         "seconds": 206.29900832500425,
         "attempts": 3,
@@ -1957,7 +1957,7 @@
     "narrative": "Both add async middleware coverage with MiddlewareNotUsed. Baseline records two errors among 34 tests; improved records one error among 33. Both errors are RuntimeError from AsyncToSync being used in a thread with an active event loop. Improved falls back to the original report after three preprocessing attempts.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-baseline",
         "status": "Submitted",
         "seconds": 76.63386596599594,
         "attempts": 0,
@@ -2009,7 +2009,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-13810/generation-improved",
         "status": "Submitted",
         "seconds": 101.43173856000067,
         "attempts": 3,
@@ -2047,7 +2047,7 @@
     "narrative": "Both extend EPUB viewcode coverage across successive builds with viewcode_enable_epub disabled and find unwanted generated pages. Focused runs fail on an assertion that a page should not exist. Missing roman dependencies occur during setup/exploration; improved also runs a broader group with two failures and two passes.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-baseline",
         "status": "Submitted",
         "seconds": 105.15103933899081,
         "attempts": 0,
@@ -2088,7 +2088,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8721/generation-improved",
         "status": "Submitted",
         "seconds": 155.06254208899918,
         "attempts": 1,
@@ -2144,7 +2144,7 @@
     "narrative": "Both extend keyboard-role markup coverage for separator characters used as keys. Baseline records six failures in its first expanded selection and later three failures under a temporary plugin; a modified temporary kbd_fix_plugin then yields nine passes. That plugin is an agent-authored diagnostic change, not an official reference fix or official evaluation. Improved records four failures in the keyboard selection and six failures with 31 passes in the full file, including two PEP-link failures. Both encountered missing roman dependencies. The exported patches contain tests, while diagnostic plugin results require separate interpretation.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-baseline",
         "status": "Submitted",
         "seconds": 109.90486622099706,
         "attempts": 0,
@@ -2199,7 +2199,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8621/generation-improved",
         "status": "Submitted",
         "seconds": 148.4870994380035,
         "attempts": 1,
@@ -2247,7 +2247,7 @@
     "narrative": "Both test pickling figures with draggable legends and annotations while attaching an unpicklable object to the canvas. Baseline uses a helper object; improved uses threading.Lock. Both focused runs have two TypeError failures. Baseline also runs the whole file and records three failures with 182 passes, including an additional subprocess-pickling failure. Setup was recovered only after Docker restart, dependency installation, compilation, and coordinator recovery; baseline then improved ran once on the same immutable image.",
     "methods": {
       "baseline": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-baseline",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-baseline",
         "status": "Submitted",
         "seconds": 127.80059515900007,
         "attempts": 0,
@@ -2286,7 +2286,7 @@
         "review_flags": []
       },
       "improved": {
-        "run": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-improved",
+        "run": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311/generation-improved",
         "status": "Submitted",
         "seconds": 102.95680393300017,
         "attempts": 1,

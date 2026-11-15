@@ -16,7 +16,7 @@
       ]
     },
     "final_outcome": "generation_attempted_after_prescribed_setup_verification",
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pydata__xarray-3677"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/pydata__xarray-3677"
   },
   {
     "instance_id": "scikit-learn__scikit-learn-14894",
@@ -35,7 +35,7 @@
       ]
     },
     "final_outcome": "generation_attempted_after_prescribed_setup_verification",
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/scikit-learn__scikit-learn-14894"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/scikit-learn__scikit-learn-14894"
   },
   {
     "instance_id": "sphinx-doc__sphinx-9711",
@@ -51,7 +51,7 @@
       "timed_out": false
     },
     "final_outcome": "generation_attempted_after_prescribed_setup_verification",
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-9711"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-9711"
   },
   {
     "instance_id": "astropy__astropy-14508",
@@ -67,7 +67,7 @@
       "timed_out": false
     },
     "final_outcome": "generation_attempted_after_prescribed_setup_verification",
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/astropy__astropy-14508"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/astropy__astropy-14508"
   },
   {
     "instance_id": "matplotlib__matplotlib-13989",
@@ -86,7 +86,7 @@
       ]
     },
     "final_outcome": "generation_attempted_after_prescribed_setup_verification",
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/matplotlib__matplotlib-13989"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/matplotlib__matplotlib-13989"
   },
   {
     "instance_id": "sphinx-doc__sphinx-8548",
@@ -102,7 +102,7 @@
       "timed_out": false
     },
     "final_outcome": "generation_attempted_after_prescribed_setup_verification",
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8548"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8548"
   },
   {
     "instance_id": "sphinx-doc__sphinx-8638",
@@ -118,7 +118,7 @@
       "timed_out": false
     },
     "final_outcome": "generation_attempted_after_prescribed_setup_verification",
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8638"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8638"
   },
   {
     "instance_id": "sphinx-doc__sphinx-8551",
@@ -134,7 +134,7 @@
       "timed_out": false
     },
     "final_outcome": "generation_attempted_after_prescribed_setup_verification",
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8551"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8551"
   },
   {
     "instance_id": "sphinx-doc__sphinx-8721",
@@ -150,7 +150,7 @@
       "timed_out": false
     },
     "final_outcome": "generation_attempted_after_prescribed_setup_verification",
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8721"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8721"
   },
   {
     "instance_id": "sphinx-doc__sphinx-8621",
@@ -166,7 +166,7 @@
       "timed_out": false
     },
     "final_outcome": "generation_attempted_after_prescribed_setup_verification",
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8621"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-8621"
   },
   {
     "instance_id": "matplotlib__matplotlib-25311",
@@ -185,7 +185,7 @@
       ]
     },
     "final_outcome": "generation_attempted_after_prescribed_setup_verification",
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/matplotlib__matplotlib-25311"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/matplotlib__matplotlib-25311"
   },
   {
     "instance_id": "matplotlib__matplotlib-25311",
@@ -196,7 +196,7 @@
       "timed_out": false
     },
     "final_outcome": "generation_attempted_after_prescribed_setup_verification",
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311"
   },
   {
     "phase": "coordinator_history",
@@ -206,7 +206,7 @@
       "generation_started": false,
       "replacement": "completion-pass-v2"
     },
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass"
   },
   {
     "phase": "coordinator_history",
@@ -224,6 +224,6 @@
       "artifacts_preserved": true,
       "replacement": "completion-pass-v3"
     },
-    "directory": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v2"
+    "directory": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v2"
   }
 ]

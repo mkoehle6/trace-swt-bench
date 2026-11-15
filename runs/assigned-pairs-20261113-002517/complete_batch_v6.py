@@ -26,7 +26,7 @@ while not (prior_case / 'image-identity.json').exists():
         raise RuntimeError('Surviving build ended without an image identity; inspect preserved logs')
     time.sleep(5)
 post.mkdir(exist_ok=False)
-python = '/home/mlkoe/.venvs/se433-swt/bin/python'
+python = '/home/user/.venvs/se433-swt/bin/python'
 sys.path.insert(0, str(project))
 from export_prediction import export_prediction
 event_lock = threading.Lock()
@@ -151,7 +151,7 @@ try:
             source_case = old
             if item['rebuild']:
                 event('unchanged_recipe_setup_retry_started', instance, setup_timeout_seconds=1800)
-                retry = run(['/mnt/c/Users/mlkoe/projects/swt-bench/.venv/bin/python',
+                retry = run(['/workspace/swt-bench/.venv/bin/python',
                              str(batch / 'retry_prepare_image.py'), str(case), str(old)],
                             case / 'retry-setup.console.log', timeout=1800)
                 save(case / 'retry-setup-timing.json', retry)

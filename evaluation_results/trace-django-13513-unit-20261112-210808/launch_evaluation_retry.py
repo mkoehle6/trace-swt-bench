@@ -1,7 +1,7 @@
 import os,sys,json,time,subprocess
 from pathlib import Path
 root=Path(__file__).resolve().parent
-harness=Path('/mnt/c/Users/mlkoe/projects/swt-bench')
+harness=Path('/workspace/swt-bench')
 mode=sys.argv[1]
 assert mode in ('baseline','improved')
 out=root/(mode+'-retry1')

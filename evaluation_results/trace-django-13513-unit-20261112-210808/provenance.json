@@ -7,8 +7,8 @@
     "revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
     "split": "test"
   },
-  "generation_root": "/mnt/c/Users/mlkoe/projects/swt-bench-work",
-  "harness_root": "/mnt/c/Users/mlkoe/projects/swt-bench",
+  "generation_root": "/workspace/swt-bench-work",
+  "harness_root": "/workspace/swt-bench",
   "harness_commit": "eee38624e36a1b39976fffa2bddbc4c3c754d293",
   "evaluation_only": true,
   "predictions_modified": false

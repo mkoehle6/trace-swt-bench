@@ -1,6 +1,6 @@
 [
-  "/home/mlkoe/.venvs/se433-swt/bin/python",
-  "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/recover_generation.py",
-  "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638",
+  "/home/user/.venvs/se433-swt/bin/python",
+  "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/recover_generation.py",
+  "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-8638",
   "baseline"
 ]

@@ -30,9 +30,9 @@
     "sphinx-doc__sphinx-8621",
     "matplotlib__matplotlib-25311"
   ],
-  "harness_root": "/mnt/c/Users/mlkoe/projects/swt-bench",
+  "harness_root": "/workspace/swt-bench",
   "harness_commit": "eee38624e36a1b39976fffa2bddbc4c3c754d293",
-  "prediction_source": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6",
+  "prediction_source": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6",
   "prediction_sha256": {
     "baseline": "dd7cb6e8da821c81d044c15b9ae7d26a8454ed73016b22f95907b93ac77d3f9a",
     "improved": "e81258a398ccafb8dd4e2c89e1394923e5e98e4a7e08489b88845824b79937d8"

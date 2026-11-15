@@ -1,6 +1,6 @@
 This is mini-swe-agent version 2.4.6.
 Check the v2 migration guide at https://klieret.short.gy/mini-v2-migration
-Loading global config from '/home/mlkoe/.config/mini-swe-agent/.env'
+Loading global config from '/home/user/.config/mini-swe-agent/.env'
 Global cost/call limit: $2.0000 / 0
 minisweagent.environment: DEBUG: Starting container with command: docker run -d 
 --name minisweagent-9f7954e6 -w /testbed --rm                                   
@@ -124,4 +124,4 @@ e8c3b1d3aaf4fd8b96f7237011d54fbb66495949537e901f5e028dd26f063835
 
 [1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
 
-/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline
+/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/django__django-15252/generation-baseline

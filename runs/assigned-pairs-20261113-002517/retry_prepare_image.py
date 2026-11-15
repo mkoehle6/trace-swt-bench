@@ -8,7 +8,7 @@ batch = Path(__file__).resolve().parent
 case = Path(sys.argv[1]).resolve()
 old = Path(sys.argv[2]).resolve()
 metadata = json.loads((case / 'metadata.json').read_text())
-harness = Path('/mnt/c/Users/mlkoe/projects/swt-bench')
+harness = Path('/workspace/swt-bench')
 sys.path[:0] = [str(harness), str(harness / 'src')]
 from src.exec_spec import ExecSpec
 from src.docker_build import build_instance_image_from_exec_spec

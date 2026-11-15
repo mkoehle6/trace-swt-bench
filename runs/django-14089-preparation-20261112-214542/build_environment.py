@@ -1,14 +1,14 @@
 from pathlib import Path
 import os,sys,json
 root=Path(__file__).resolve().parent
-harness=Path('/mnt/c/Users/mlkoe/projects/swt-bench')
+harness=Path('/workspace/swt-bench')
 sys.path[:0]=[str(harness),str(harness/'src')]
 from datasets import Dataset
 from src.exec_spec import ExecSpec
 from src.docker_build import build_env_image_from_exec_spec,build_instance_image_from_exec_spec
 import docker
 prep=json.loads((root/'preparation.json').read_text());source=prep['source']
-cache=Path('/home/mlkoe/.cache/huggingface/datasets/princeton-nlp___swe-bench_verified/default/0.0.0')/source['revision']
+cache=Path('/home/user/.cache/huggingface/datasets/princeton-nlp___swe-bench_verified/default/0.0.0')/source['revision']
 fields=['instance_id','repo','base_commit','version','environment_setup_commit']
 rows=[]
 for p in cache.glob('*test*.arrow'):

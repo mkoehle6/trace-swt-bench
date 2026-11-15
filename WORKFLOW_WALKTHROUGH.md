@@ -464,7 +464,7 @@ for live workflows.
 ## 13. Matched-run example
 
 Run from the repository root in the activated environment. In WSL the original clone
-is `/mnt/c/Users/mlkoe/projects/swt-bench-work`; teammates use their own clone path.
+is `/workspace/swt-bench-work`; teammates use their own clone path.
 Set `IMAGE` to the verified image for this exact issue and configure provider
 credentials in the terminal without committing keys.
 

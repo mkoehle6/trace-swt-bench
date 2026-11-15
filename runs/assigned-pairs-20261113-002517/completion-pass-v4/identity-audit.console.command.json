@@ -1,7 +1,7 @@
 [
-  "/home/mlkoe/.venvs/se433-swt/bin/python",
-  "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/verify_pairs_v4.py",
+  "/home/user/.venvs/se433-swt/bin/python",
+  "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/verify_pairs_v4.py",
   "--final",
   "--outcomes",
-  "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v4/outcomes.json"
+  "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v4/outcomes.json"
 ]

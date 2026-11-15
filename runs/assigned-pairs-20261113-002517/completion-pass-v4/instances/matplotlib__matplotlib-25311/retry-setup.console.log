@@ -1,11 +1,11 @@
 Traceback (most recent call last):
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 239, in _new_conn
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 239, in _new_conn
     sock = connection.create_connection(
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
     for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/mlkoe/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/socket.py", line 978, in getaddrinfo
+  File "/home/user/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/socket.py", line 978, in getaddrinfo
     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 socket.gaierror: [Errno -2] Name or service not known
@@ -13,32 +13,32 @@ socket.gaierror: [Errno -2] Name or service not known
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
     response = self._make_request(
                ^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 494, in _make_request
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 494, in _make_request
     raise new_e
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 470, in _make_request
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 470, in _make_request
     self._validate_conn(conn)
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1125, in _validate_conn
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1125, in _validate_conn
     conn.connect()
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 827, in connect
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 827, in connect
     self.sock = sock = self._new_conn()
                        ^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 246, in _new_conn
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 246, in _new_conn
     raise NameResolutionError(self.host, self, e) from e
 urllib3.exceptions.NameResolutionError: HTTPSConnection(host='raw.githubusercontent.com', port=443): Failed to resolve 'raw.githubusercontent.com' ([Errno -2] Name or service not known)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
     resp = conn.urlopen(
            ^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
     retries = retries.increment(
               ^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 555, in increment
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 555, in increment
     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /matplotlib/matplotlib/0849036fd992a2dd133a0cffc3f84f58ccf1840f/environment.yml (Caused by NameResolutionError("HTTPSConnection(host='raw.githubusercontent.com', port=443): Failed to resolve 'raw.githubusercontent.com' ([Errno -2] Name or service not known)"))
@@ -46,39 +46,39 @@ urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='raw.githubuserconten
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/retry_prepare_image.py", line 19, in <module>
+  File "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/retry_prepare_image.py", line 19, in <module>
     current = {'instance_tag': spec.instance_image_key, 'env_tag': spec.env_image_key,
                                ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/src/exec_spec.py", line 154, in instance_image_key
+  File "/workspace/swt-bench/src/exec_spec.py", line 154, in instance_image_key
     return f"exec.eval.{self.arch}.{self.env_hash}.{self.instance_hash}:latest"
                                     ^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/src/exec_spec.py", line 159, in env_hash
+  File "/workspace/swt-bench/src/exec_spec.py", line 159, in env_hash
     hash_object.update(self.env_script.encode("utf-8"))
                        ^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/src/exec_spec.py", line 120, in env_script
+  File "/workspace/swt-bench/src/exec_spec.py", line 120, in env_script
     return "\n".join(["#!/bin/bash", "set -euxo pipefail"] + self.env_script_list) + "\n"
                                                              ^^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/src/exec_spec.py", line 352, in env_script_list
+  File "/workspace/swt-bench/src/exec_spec.py", line 352, in env_script_list
     reqs_commands += self.req_install_commands
                      ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/src/exec_spec.py", line 310, in req_install_commands
+  File "/workspace/swt-bench/src/exec_spec.py", line 310, in req_install_commands
     reqs = get_environment_yml_by_commit(self.repo, self.environment_setup_commit, self.env_name)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/src/utils.py", line 111, in get_environment_yml_by_commit
+  File "/workspace/swt-bench/src/utils.py", line 111, in get_environment_yml_by_commit
     reqs = requests.get(reqs_url, headers=HEADERS)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/requests/api.py", line 87, in get
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/requests/api.py", line 87, in get
     return request("get", url, params=params, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/requests/api.py", line 71, in request
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/requests/api.py", line 71, in request
     return session.request(method=method, url=url, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
     resp = self.send(prep, **send_kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
     r = adapter.send(request, **kwargs)
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/mnt/c/Users/mlkoe/projects/swt-bench/.venv/lib/python3.12/site-packages/requests/adapters.py", line 729, in send
+  File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/requests/adapters.py", line 729, in send
     raise ConnectionError(e, request=request)
 requests.exceptions.ConnectionError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /matplotlib/matplotlib/0849036fd992a2dd133a0cffc3f84f58ccf1840f/environment.yml (Caused by NameResolutionError("HTTPSConnection(host='raw.githubusercontent.com', port=443): Failed to resolve 'raw.githubusercontent.com' ([Errno -2] Name or service not known)"))

@@ -18,7 +18,7 @@ project = batch.parent.parent
 plan = json.loads((batch / 'plan.json').read_text())
 post = batch / 'completion-pass-v2'
 post.mkdir(exist_ok=False)
-python = '/home/mlkoe/.venvs/se433-swt/bin/python'
+python = '/home/user/.venvs/se433-swt/bin/python'
 sys.path.insert(0, str(project))
 from export_prediction import export_prediction
 
@@ -121,7 +121,7 @@ try:
         source_case = old
         if rebuild:
             event('unchanged_recipe_setup_retry_started', instance, setup_timeout_seconds=1800)
-            retry = run(['/mnt/c/Users/mlkoe/projects/swt-bench/.venv/bin/python',
+            retry = run(['/workspace/swt-bench/.venv/bin/python',
                          str(batch / 'retry_prepare_image.py'), str(case), str(old)],
                         case / 'retry-setup.console.log', timeout=1800)
             save(case / 'retry-setup-timing.json', retry)

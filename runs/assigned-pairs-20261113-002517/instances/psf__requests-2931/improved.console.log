@@ -1,6 +1,6 @@
 This is mini-swe-agent version 2.4.6.
 Check the v2 migration guide at https://klieret.short.gy/mini-v2-migration
-Loading global config from '/home/mlkoe/.config/mini-swe-agent/.env'
+Loading global config from '/home/user/.config/mini-swe-agent/.env'
 Global cost/call limit: $2.0000 / 0
 minisweagent.environment: DEBUG: Starting container with command: docker run -d 
 --name minisweagent-56c33d71 -w /testbed --rm                                   
@@ -49,4 +49,4 @@ minisweagent.environment: INFO: Started container minisweagent-56c33d71 with ID
 
 [1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
 
-/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved
+/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/psf__requests-2931/generation-improved

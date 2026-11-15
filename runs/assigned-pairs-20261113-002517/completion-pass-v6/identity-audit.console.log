@@ -1,8 +1,8 @@
 Traceback (most recent call last):
-  File "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/verify_pairs_v4.py", line 182, in <module>
+  File "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/verify_pairs_v4.py", line 182, in <module>
     with target.open('x') as stream:
          ~~~~~~~~~~~^^^^^
   File "/usr/lib/python3.14/pathlib/__init__.py", line 772, in open
     return io.open(self, mode, buffering, encoding, errors, newline)
            ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-FileExistsError: [Errno 17] File exists: '/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/verification/pair-verification-final-v2.json'
+FileExistsError: [Errno 17] File exists: '/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/verification/pair-verification-final-v2.json'

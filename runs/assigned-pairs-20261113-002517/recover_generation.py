@@ -20,7 +20,7 @@ for filename, expected in plan['workflow_hashes'].items():
     assert hashlib.sha256((project / filename).read_bytes()).hexdigest() == expected
 sys.path.insert(0, str(project))
 import controller
-load_dotenv(Path('/home/mlkoe/.config/mini-swe-agent/.env'), override=False)
+load_dotenv(Path('/home/user/.config/mini-swe-agent/.env'), override=False)
 os.chdir(project)
 controller.main(['--report', str(project / 'data' / metadata['instance_id'] / 'report.txt'),
                  '--instance', metadata['instance_id'], '--mode', mode, '--test-format', 'unit_test',

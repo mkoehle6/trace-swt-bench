@@ -1,9 +1,9 @@
 {
   "status": "generation_attempted_after_prescribed_setup_verification",
   "runs": {
-    "baseline": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-baseline",
-    "improved": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-improved"
+    "baseline": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-baseline",
+    "improved": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/generation-improved"
   },
-  "initial_setup_error": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-9711/setup-failure.json",
-  "prescribed_setup_proof": "/mnt/c/Users/mlkoe/projects/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/setup-check/image-verification.json"
+  "initial_setup_error": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/instances/sphinx-doc__sphinx-9711/setup-failure.json",
+  "prescribed_setup_proof": "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v3/instances/sphinx-doc__sphinx-9711/setup-check/image-verification.json"
 }

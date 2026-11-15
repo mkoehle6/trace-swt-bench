@@ -8,3 +8,5 @@ __pycache__/
 runs/
 sympy/
 *.traj.json
+# Harness-generated local links to Docker image build directories.
+evaluation_results/**/image_build_dir

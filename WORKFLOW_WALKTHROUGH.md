@@ -1,462 +1,508 @@
-# TRACE: from a bug report to an evaluated regression test
+# TRACE workflow walkthrough: how the scripts, mini-SWE-agent, and DeepSeek communicate
 
-This guide explains the current implementation, including every Python file in
-the project root. It describes the unit-test workflow used for the course and
-distinguishes implemented behavior from checks that still need development.
-Run command examples from the repository root in your activated Python environment.
+This guide describes the current four root Python files and the shared native
+unit-test workflow. It distinguishes implemented checks from proposed improvements.
+Historical pilot measurements belong in the experiment reports, not this guide.
 
-## 1. Who does what?
+## 1. The complete picture
+
+TRACE asks whether evidence-grounded analysis of a bug report improves regression
+test generation with a fixed DeepSeek-Flash agent. The hypothesis is that explicitly
+identifying the trigger and expected behavior helps the generator select a relevant
+assertion. Analysis adds runtime and model calls, so benefits must be measured.
+
+```mermaid
+flowchart TD
+    HF["Pinned dataset"] --> F["fetch_report.py"]
+    F --> INPUT["report.txt + source.json"]
+    INPUT --> C["controller.py"]
+    CFG["swt_test.yaml + shared unit_test.yaml"] --> C
+    C --> MODE{Method}
+    MODE -->|baseline| RAW["Original report"]
+    MODE -->|improved| ANALYSIS["Extract, validate, review"]
+    ANALYSIS <-->|Direct HTTPS JSON calls| D1["DeepSeek: analysis conversation"]
+    ANALYSIS --> TASK["Report + accepted specification; raw report on validation exhaustion"]
+    RAW --> A["mini-SWE-agent"]
+    TASK --> A
+    A <-->|Messages, tool calls, observations| D2["DeepSeek: generation conversation"]
+    A <-->|Commands, output, exit status| ENV["Docker: buggy repository + existing tests"]
+    A --> OUT["Run artifacts and submitted test patch"]
+    OUT --> E["export_prediction.py"]
+    E --> P["Prediction JSONL"]
+    P --> H["Official SWT-Bench unit-test evaluator"]
+    H --> R["Before/after outcomes, coverage, logs"]
+```
+
+The two DeepSeek boxes are separate conversations. The controller manages the
+analysis conversation. mini-SWE-agent manages the generation conversation. Accepted
+analysis is transferred as text in the task, not as shared conversation memory.
+
+DeepSeek does not directly open local files or run a terminal. Python reads the
+report. Later, DeepSeek proposes shell commands and mini-SWE-agent executes them
+inside Docker, then sends the observations back to the model.
+
+## 2. What each component owns
 
 | Component | Responsibility |
 | --- | --- |
-| Our Python controller | Reads the report, validates analysis, starts the agent, and saves records |
-| DeepSeek-Flash | Interprets supplied text and repository observations; proposes tests and shell commands |
-| mini-SWE-agent 2.4.6 | Maintains the conversation, sends model requests, executes commands, and feeds results back |
-| Docker benchmark image | Provides the buggy source checkout, dependencies, and native test runner |
-| SWT-Bench evaluator | Applies predictions and checks behavior before and after the reference fix |
-| Researcher | Reviews evidence, preserves failures, and compares both methods across assigned instances |
+| Our scripts | Prepare inputs, optionally analyze reports, launch generation, save records, export predictions |
+| DeepSeek | Interpret supplied text and observations; propose analysis, test code, and shell actions |
+| mini-SWE-agent | Maintain generation messages, call its model adapter, execute requested tools, handle completion |
+| Docker environment | Provide the buggy checkout, dependencies, fixtures, and native test runner |
+| Official evaluator | Measure submitted tests against buggy and reference-fixed code |
+| Researcher | Audit evidence and compare both methods over all assigned instances |
 
-DeepSeek does not open a local file directly. Python reads the issue text and sends
-it to the model. Later, mini-SWE-agent executes shell commands chosen by DeepSeek
-to read source files and existing tests inside the container.
+## 3. `fetch_report.py`: prepare the original issue
 
-## 2. The files and their connections
+`main()` parses the dataset name, required dataset revision, split, instance ID,
+and a new output directory. It calls `datasets.load_dataset()` with that revision,
+requires exactly one matching instance, and writes:
 
-```text
-Hugging Face dataset at a fixed revision
-    |
-    | fetch_report.py (input preparation, not repeated for saved reports)
-    v
-data/<instance>/report.txt + source.json
-    |
-    | controller.py --mode baseline OR --mode improved
-    |
-    +-- baseline: original report ----------------------------+
-    |                                                        |
-    +-- improved: ask DeepSeek to extract                     |
-                  -> Python structure/evidence checks        |
-                  -> DeepSeek semantic review                |
-                  -> accepted specification, revisions,      |
-                     or flagged raw-report fallback          |
-                  -> original report + accepted analysis ----+
-                                                             |
-baseline/swt_test.yaml + profiles/unit_test.yaml               |
-    |                                                        |
-    +-----------------> mini-SWE-agent + DeepSeek <-------------+
-                             |
-                             | read -> write native tests -> run -> observe
-                             v
-                    submitted Git patch + run records
-                             |
-                    export_prediction.py
-                             v
-                    prediction JSONL
-                             |
-                    official SWT-Bench unit-test evaluator
-                             v
-                    evaluation outputs -> research comparison
+- `report.txt`: the original `problem_statement`.
+- `source.json`: instance ID, repository, `base_commit`, dataset name, revision, split.
 
-test_controller.py verifies local logic using mocked model/agent execution.
-```
+It refuses to reuse an output directory. The dataset revision pins the dataset;
+`base_commit` identifies the instance's buggy source checkout. They are different
+commits. This script does not generate tests or call DeepSeek.
 
-The four project-root Python files are `fetch_report.py`, `controller.py`,
-`export_prediction.py`, and `test_controller.py`. Upstream Django/SymPy code and
-the separate SWT-Bench checkout contain their own Python files; they are not
-additional TRACE controller modules.
+The datasets library loads complete rows and may cache the download. This script
+only explicitly exports the issue and listed metadata, not reference fixes or
+reference test patches. Dataset caches and evaluator-only data must not become
+inputs to the generator.
 
-## 3. Input preparation: fetch_report.py
+`controller.py` reads `report.txt`, not `source.json`; it does not automatically
+verify that the supplied Docker image matches the saved `base_commit`. The surrounding
+experiment procedure must establish that match.
 
-This is a standalone command-line program with a `main()` entry point. It is not
-automatically invoked by the controller.
+## 4. How the YAML files control generation
 
-1. Parse the dataset name, immutable revision, split, instance ID, and output path.
-2. Use the `datasets` package to load that revision from Hugging Face.
-3. Find exactly one matching instance; stop if none or multiple are found.
-4. Create a new directory without replacing existing files.
-5. Save the original `problem_statement` as `report.txt`.
-6. Save `instance_id`, `repo`, `base_commit`, dataset name, revision, and split as
-   `source.json`.
+`baseline/swt_test.yaml` is a preserved configuration, not a test or dataset. It defines:
 
-The loader reads dataset rows locally, which contain benchmark fields, but this
-script exports only issue text and public source identifiers. It does not send
-reference fixes or reference test patches to DeepSeek.
+- System/task instructions and observation/error message templates.
+- Agent step limit 100 and cost limit $0.50.
+- Docker execution, `/testbed` working directory, and 60-second command timeout.
+- Shell environment, including `BASH_ENV=/root/.bashrc` for image initialization.
+- Generation model `deepseek/deepseek-v4-flash` and adapter options.
 
-Our 26 reports are already captured in `data/`. `data/easy.txt`, `data/hard.txt`,
-and `data/manifest.json` identify the selection and checksums. Use those saved
-reports for both methods rather than fetching changing inputs during each run.
+The original instructions create a standalone `/testbed/reproduce.py`. For the
+current experiment, `--test-format unit_test` overlays `profiles/unit_test.yaml`
+in memory. That profile replaces the task instructions with native-test requirements
+and sets the shell to `bash -o pipefail -c`. Both methods receive the same overlay.
+The original baseline file stays unchanged on disk and is SHA-256 checked before runs.
 
-Fetching reports does not download a runnable buggy repository or build Docker
-images. Those environments are prepared separately using benchmark tooling.
+| Setting | Baseline arm | Improved arm |
+| --- | --- | --- |
+| Task input | Original issue | Original issue plus accepted analysis, or flagged fallback |
+| Unit-test profile | Same shared profile | Same shared profile |
+| Generation model and agent limits | Same settings | Same settings |
+| Buggy image and issue snapshot | Matched | Matched |
+| Preprocessing model calls | None | Extraction, review, bounded revisions |
 
-## 4. Starting a run: controller.py main()
+Without the unit-test flag, the controller defaults to the older reproduction-script
+format. Script-format runs are not accepted by the unit-test prediction exporter.
 
-`controller.py` is the coordinator. Its `main()` function parses your command and
-controls the sequence; the other functions implement individual steps.
+## 5. Baseline: from report to test patch
 
-Important arguments:
+### Preparation in `controller.py`
 
-| Argument | Meaning |
-| --- | --- |
-| `--report` | Saved UTF-8 original issue text |
-| `--instance` | Instance identifier; defaults to django__django-11163 |
-| `--mode baseline` | Skip preprocessing and pass the original report |
-| `--mode improved` | Extract and validate a specification before generation |
-| `--test-format unit_test` | Generate a native-suite patch for course evaluation |
-| `--out` | New run directory; existing directories are refused |
-| `--image` | Explicit benchmark Docker image |
-| `--launch` | Actually start the agent; omitting it only prepares the task |
-| `--revisions` | Zero, one, or two revisions after the initial extraction |
-| `--extract-model` | Direct-API extraction/review model name |
+`main()` reads the report and baseline configuration, verifies the baseline hash,
+computes the optional profile hash, rejects empty report text, and requires an image
+when `--launch` is requested. It creates a fresh output directory and copies the
+report there. Existing output directories cause `FileExistsError` rather than being
+overwritten.
 
-For instances other than Django 11163, explicitly supply `--instance`; the
-controller does not infer it from the report filename or read `source.json`.
+With `--mode baseline`, it skips `extract()` and writes the original report directly
+to `task.txt`. No analysis API calls are made by the controller. The manifest's
+`attempts=0` and `validated=false` mean preprocessing was skipped; they do not assess
+test quality. Without `--launch`, the run ends at preparation.
 
-Before generation, `main()` verifies the baseline YAML's SHA-256 against the
-recorded original. It records the selected unit-test profile hash, rejects an
-empty report, creates the run directory, and saves the original report.
+### Launching mini-SWE-agent
 
-`digest()` computes SHA-256 values. `save()` writes formatted JSON using exclusive
-creation, so an existing artifact is not silently replaced.
-
-The manifest records report/config hashes, image reference, mode, format, Python
-version, extraction settings, validation/fallback state, and elapsed time. The
-image reference is recorded as supplied; the controller does not automatically
-resolve a mutable image tag to its immutable digest.
-
-## 5. Improved-mode credentials and errors
-
-`require_deepseek_key()` reads and trims `DEEPSEEK_API_KEY` from the environment.
-Missing, empty, or whitespace-only values raise `ConfigurationError`, a dedicated
-operational exception. Improved mode checks this before extraction; `ask()` also
-checks it before sending a request.
-
-A missing key records a configuration failure with zero attempts and no fallback.
-It does not launch the agent. The command-line entry point displays a concise
-configuration error. The key is placed in the HTTP authorization header, not in
-the saved extraction request body.
-
-The baseline does not require this extraction precheck; its model authentication
-is handled by mini-SWE-agent's provider integration. Baseline preparation without
-`--launch` needs no model credentials.
-
-Other HTTP/network failures generally propagate as operational errors. Invalid
-JSON, malformed response shapes, and incomplete model responses can enter the
-bounded revision path. An HTTP 401 is not a semantic rejection. On an operational
-failure partway through extraction, saved attempt artifacts are useful evidence;
-the manifest's attempts counter is updated when `extract()` returns and may still
-be zero if extraction raised before returning.
-
-## 6. DeepSeek extraction: ask() and extract()
-
-`ask()` is the direct DeepSeek HTTP client for preprocessing. It:
-
-1. Builds a system instruction and a user message containing a JSON-encoded payload.
-2. Saves the request body, without the authorization header.
-3. Calls the DeepSeek chat-completions endpoint with JSON-object output requested,
-   a 4,096-token output limit, and a 180-second HTTP timeout.
-4. Saves the provider response, token usage, returned model name, and elapsed time.
-5. Requires a completed response and parses its message as JSON.
-
-`extract()` provides the extraction instructions and controls validation/revisions.
-The model receives only the original report and, on later attempts, validation
-feedback. It is asked for exactly five fields:
-
-| Field | Django example |
-| --- | --- |
-| target_function | model_to_dict |
-| triggering_input | fields=[] |
-| observed_behavior | Returns model fields |
-| expected_behavior | Returns an empty dictionary |
-| suggested_assertion | Compare the returned dictionary with {} |
-
-Each field is an object with `value` and `evidence`. Unknown information uses null
-for both. The assertion is a supported behavioral suggestion, not a complete test.
-The extractor does not inspect the repository or generate the final unit-test patch.
-
-## 7. Local validation: validate()
-
-Python checks facts that do not need a language model:
-
-- The specification has exactly the five expected fields.
-- Each entry has exactly `value` and `evidence`.
-- A known value is a nonempty string with a nonempty supporting quote.
-- The quote occurs verbatim in the original report.
-- Unknown values have null evidence.
-- The entire specification is not unknown.
-
-A structurally valid specification can still be wrong. A real quotation might
-not support the claim attached to it, so quotation matching alone is insufficient.
-
-## 8. Semantic review: a second ask() call and semantic_errors()
-
-If local validation passes, `extract()` makes a separate DeepSeek request with
-the original report and candidate specification. It asks the model to identify
-unsupported fields, contradictions, assumptions, and important missing information.
-
-`semantic_errors()` checks the review's shape and types. Acceptance requires
-`valid: true` and empty `unsupported_fields`, `contradictions`, and
-`missing_information` arrays. Python validates the review format; DeepSeek supplies
-the semantic judgment. Same-model review can repeat the extraction model's mistakes.
-
-On rejection, feedback is supplied to a fresh extraction request. By default there
-are at most three extraction attempts: one initial attempt and two revisions. A
-review call happens only when local validation passes, so there can be at most
-six preprocessing calls. This is a call-count bound, not a preprocessing dollar cap.
-
-On acceptance, save `bug_spec.json`. On validation exhaustion, return no accepted
-specification and mark fallback. The controller then uses the original report.
-This failure remains part of the improved method's recorded outcome.
-
-## 9. Constructing the task
-
-In baseline mode, `task.txt` contains the original report. In improved mode, it
-contains that same report plus the accepted JSON specification. If improved mode
-falls back, it contains only the original report, with fallback recorded separately.
-
-Without `--launch`, processing stops after preparation. Improved preparation still
-makes paid preprocessing calls; it is not an offline dry run.
-
-## 10. Configuration and container launch
-
-`unit_test_profile()` finds `profiles/unit_test.yaml` relative to the script.
-`load_agent_config()` reads the preserved `baseline/swt_test.yaml` and builds an
-in-memory effective configuration.
-
-- The explicit image becomes `environment.image`.
-- Unit-test mode replaces the task template with the shared unit-test instructions.
-- Unit-test mode also sets the Bash interpreter to `bash -o pipefail -c`.
-- The original baseline file is not rewritten.
-
-The YAML retains DeepSeek model settings, a 100-step limit, and a $0.50 agent cost
-limit. That agent limit excludes preprocessing and can be exceeded by the last
-model call. The profile adaptation is used identically in both experimental arms.
-It is a documented format adaptation, not an unchanged replay of the instructor's
-standalone-script protocol.
-
-`launch()` requires installed mini-SWE-agent version 2.4.6, saves the effective
-configuration, and uses its `get_model`, `get_environment`, and `get_agent`
-factories. It selects DefaultAgent without interactive CLI overrides, then calls
-`agent.run(task)`. Docker starts a fresh container with the buggy checkout under
-`/testbed`; this is separate from your local TRACE files.
-
-## 11. The agent/model loop
-
-Inside mini-SWE-agent, DeepSeek proposes shell actions. The environment executes
-them and returns output and status. The next model request includes those
-observations. Typical actions include locating a function, reading source, finding
-existing tests and fixtures, writing a test, and running the native test runner.
-
-Repository contents are read through these commands, not uploaded wholesale by
-`controller.py`. The baseline observation template truncates long outputs, keeping
-the beginning and end. Directory changes and environment exports do not persist
-between commands because each action uses a new subshell.
-
-The model can make mistakes, ignore instructions, or hit limits. Prompt instructions
-are not a mechanical guarantee that every submitted change is valid or test-only.
-
-## 12. Writing a native unit test
-
-The unit-test profile tells the agent to follow the repository's existing test
-framework and fixtures, avoid production changes, preserve assertions, and create
-discoverable tests rather than a standalone reproduction script.
-
-Our actual Django baseline and improved submissions both added:
-
-```python
-class ModelToDictTests(TestCase):
-    def test_empty_fields(self):
-        item = ColourfulItem.objects.create()
-        self.assertEqual(model_to_dict(item, fields=[]), {})
-```
-
-This extends an existing test class in `tests/model_forms/tests.py`, reusing its
-model and Django-managed database setup. It is more appropriate for native test
-collection than a top-level script calling `settings.configure()`.
-
-The profile supplies general repository-aware instructions. It does not hard-code
-this Django patch or repair the agent's output after submission.
-
-## 13. Running the generated tests and interpreting failure
-
-The agent is instructed to run the relevant target on the buggy checkout. In our
-matched unit-test pilot, both runs executed the model_forms suite and reported:
+`launch()` requires installed `mini-swe-agent==2.4.6`. It loads the effective configuration,
+saves it, and uses the package factories:
 
 ```text
-FAIL: test_empty_fields (model_forms.tests.ModelToDictTests)
-AssertionError: {'id': 1, 'name': '', 'colours': []} != {}
-Ran 165 tests
-FAILED (failures=1)
+get_environment(cfg['environment']) -> Docker environment adapter
+get_model(config=cfg['model'])      -> generation model adapter
+get_agent(model, env, cfg['agent']) -> agent
+agent.run(task)                    -> generation conversation and final result
 ```
 
-That is evidence of an issue-relevant failure: setup completed, the new test was
-discovered, and it failed at the expected dictionary comparison. The test did not
-merely fail because of a syntax error, missing import, or misspelled name.
+The agent/environment layer manages Docker execution using the chosen image. The
+controller does not run Django on the Windows host. Repository commands execute
+against `/testbed` inside the container.
 
-Bash pipefail prevents a successful `tail` or `tee` from masking a failed runner.
-If the agent prints a status afterward, it must capture the status immediately
-and exit with it; a later successful command could otherwise overwrite the result.
-The updated profile explains that rule, and both matched pilot executions returned 1.
-
-The separate automated test-quality classifier is still not implemented. Current
-classification is based on human inspection of saved commands, tracebacks, and
-assertions. An AssertionError by itself is not proof of bug relevance.
-
-## 14. Patch submission and saved run records
-
-The profile instructs the agent to inspect its diff, include only native test
-changes, and create a temporary patch. For new test files, intent-to-add makes
-them visible in Git diff. The final submission command prints the completion
-marker followed by the patch. mini-SWE-agent recognizes the marker and ends its loop.
-
-`launch()` saves `agent_result.json`, writes a nonempty submitted patch to
-`submission.patch`, saves the serialized trajectory in a finally block, and calls
-container cleanup. Files created inside the temporary container should not be
-treated as permanent local files; the saved patch preserves the prediction.
-
-| Artifact | Meaning |
-| --- | --- |
-| report.txt | Original issue used for this run |
-| extract-N.request/response/metrics.json | Extraction input, output, usage, timing |
-| candidate-N.json | Parsed candidate specification |
-| review-N.request/response/metrics.json | Semantic review evidence |
-| validation-N.json | Errors for an extraction attempt |
-| bug_spec.json | Accepted specification, if one exists |
-| task.txt | Exact task text supplied to the agent |
-| effective_config.json | In-memory generation configuration |
-| agent.traj.json | Agent messages, actions, observations, and model statistics |
-| agent_result.json | Exit status and submission returned by the agent |
-| submission.patch | Saved generated patch, when nonempty |
-| manifest.json | Run identity, hashes, mode, format, runtime, and outcome metadata |
-
-Not every file exists on every failure path. The controller records a failure
-manifest for errors inside its guarded execution section. Earlier input/config
-checks or failure to create the output directory can stop before a manifest exists.
-`agent_finished` means the loop returned, not that the evaluator accepted the test.
-Check `agent_result.json` for Submitted, limits, or other exit conditions.
-
-These records are written by Python and the agent library; DeepSeek does not
-author an official results report. Extraction metrics leave dollar cost null.
-Compute that overhead from provider usage/rates and add agent cost separately.
-
-## 15. Export: export_prediction.py
-
-This script runs after generation, not inside `controller.py`. Its
-`export_prediction(run, out, label=None)` function:
-
-1. Reads the manifest and requires `test_format: unit_test`.
-2. Reads the agent result if present.
-3. Copies the submitted patch only when exit status is Submitted.
-4. Uses an empty patch for non-submission or a missing agent result.
-5. Writes one JSONL row using exclusive creation.
-
-```json
-{
-  "instance_id": "django__django-11163",
-  "model_patch": "<unchanged submitted unified diff>",
-  "model_name_or_path": "trace-baseline-unit-test"
-}
+```mermaid
+sequenceDiagram
+    actor U as Researcher
+    participant C as controller.py
+    participant A as mini-SWE-agent
+    participant M as DeepSeek generation model
+    participant D as Docker /testbed
+    U->>C: Report, baseline mode, image, unit-test format
+    C->>C: Verify inputs; save report and task
+    C->>A: Create environment/model/agent; run(task)
+    A->>M: System instructions + rendered task
+    loop Until submission or stopping condition
+        M-->>A: Explanation and bash tool call(s)
+        A->>D: Execute requested commands
+        D-->>A: Output, return code, execution error if any
+        A->>M: Append command observations to conversation
+    end
+    A-->>C: Exit status and submitted text
+    C->>C: Save result, patch, trajectory, manifest; clean up
 ```
 
-The method label distinguishes baseline and improved predictions. It is not a
-provider model identifier. `--label` can override it. The exporter does not apply,
-parse, repair, validate, or score the patch, and cannot certify native-test validity.
+### Reading source and generating the test
 
-It rejects old script-format runs and existing export files. Exporting a missing
-result as an empty patch keeps that instance represented, but a full assigned-set
-runner must also account for runs that never produced a manifest. Do not silently
-omit missing predictions from the experiment denominator.
+DeepSeek chooses commands to locate relevant code, inspect existing tests, select
+fixtures, edit tests, and invoke the native runner. Those search/edit decisions are
+not hard-coded into our controller. mini-SWE-agent executes the commands and preserves
+the conversation so the model can respond to their results.
 
-For our current matched pair:
+For `django__django-11163`, a sensible sequence is to locate `model_to_dict`, read
+`ModelToDictTests` and its existing models, then add a test asserting that
+`model_to_dict(item, fields=[])` returns `{}`. An existing fixture must be selected
+from the repository rather than invented from the issue alone.
+
+`tests/model_forms/tests.py` refers to Django's checkout inside the container, not
+a Python file in TRACE. The submitted diff describes edits relative to that checkout.
+Saving the diff does not extract the whole Django source tree to the host.
+
+### Running and interpreting the test
+
+The model requests a native test command and receives its output and return code.
+The observation template shortens output longer than 10,000 characters to its first
+and last 5,000 characters, with an omitted-character count. Important middle output
+may require a more focused follow-up command.
+
+A failing command alone is insufficient. An assertion showing the reported wrong
+behavior is useful evidence; a typo, missing import, bad fixture, or setup failure
+is not reproduction. The shared profile tells the agent to inspect that distinction.
+
+`pipefail` preserves a failed runner's status through `tail` or `tee`. The profile
+also instructs immediate status capture, for example:
 
 ```bash
-python export_prediction.py --run runs/django-unit-baseline-20261111-212132 --out runs/django-unit-baseline-prediction.jsonl
-python export_prediction.py --run runs/django-unit-improved-20261111-211606 --out runs/django-unit-improved-prediction.jsonl
+python tests/runtests.py model_forms --settings=test_sqlite 2>&1 | tail -80
+status=$?; echo "test runner pipeline exit status: $status"; exit "$status"
 ```
 
-## 16. Evaluation is a separate program
+This is a Django example, not a universal test command. Follow-up work must run in
+separate tool calls so a later successful command cannot hide runner failure.
 
-The official SWT-Bench harness lives in a separate checkout, not in these four
-project Python files. Its `src.main` entry point consumes the prediction file.
-Use explicit unit-test mode and consistent dataset/settings for both methods.
+### Submission
 
-For the inspected local harness, changed paths determine test targets. Django
-test paths are converted to dotted module names. A native-suite patch therefore
-lets the harness collect the relevant tests; renaming reproduce.py is insufficient.
+The profile asks for a unified diff containing only native test changes, inspected
+before submission. New files need `git add -N` to appear in the diff. The final
+submission command is:
 
-Evaluation is where reference fixes and evaluator artifacts may be used. They must
-not be returned to the generator for generation or repair. The evaluator checks
-patch applicability and behavior on buggy and fixed code according to its official
-criterion, and produces evaluation logs and metrics.
+```bash
+echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && cat /tmp/trace-unit-test.patch
+```
 
-We have verified issue-relevant failures during generation, but have not yet
-established official before/after success for this matched pair. Do not infer
-fixed-version success merely from a sensible assertion or a Submitted status.
+mini-SWE-agent handles that completion convention and returns a result. The controller
+saves `agent_result.json`, a nonempty submission as `submission.patch`, and the
+serialized conversation as `agent.traj.json` when an agent exists. Cleanup runs in
+`finally` blocks, including after errors.
 
-## 17. Offline verification: test_controller.py
+`Submitted` is an agent outcome, not official benchmark success. The patch has not
+thereby been proven applicable or shown to pass after the reference fix.
 
-This is a unittest suite, not a generated benchmark regression test. Run it with:
+## 6. Improved: the added analysis conversation
+
+The improved method adds preprocessing before the same generation loop. Analysis
+has no shell tools or repository observations: it receives the original report.
+
+```mermaid
+sequenceDiagram
+    participant C as controller.py / extract
+    participant M as DeepSeek analysis API
+    participant V as Python validation
+    participant A as mini-SWE-agent
+    C->>C: Require analysis API key
+    loop Initial extraction plus at most two revisions by default
+        C->>M: Extraction instructions + report + previous errors
+        M-->>C: Candidate specification JSON
+        C->>V: Check fields, types, exact report quotes
+        alt Deterministic checks pass
+            C->>M: Separate review request: report + candidate
+            M-->>C: Valid flag, unsupported claims, contradictions, omissions
+            C->>V: Check review structure and acceptance
+        end
+        C->>C: Save available records; stop on acceptance or retry with errors
+    end
+    alt Accepted analysis
+        C->>A: Original report + accepted specification
+    else Validation exhausted
+        C->>A: Original report only; record fallback
+    end
+    Note over C,A: Operational errors stop rather than trigger this fallback
+```
+
+### `ask()`: one controller-managed model call
+
+`ask(model, system, payload, out, label)` reads `DEEPSEEK_API_KEY`, builds a system
+message plus a user message containing serialized JSON, requests JSON output with
+up to 4,096 tokens, and saves the request body. It sends an HTTPS POST to
+`https://api.deepseek.com/chat/completions` with a bearer authorization header and
+180-second timeout.
+
+It saves the returned response and timing/usage metrics, requires
+`finish_reason == 'stop'`, and parses the message content as JSON. The saved request
+body does not contain the API authorization header. `cost_usd` is currently null;
+this helper records usage but does not calculate dollar cost.
+
+These calls are outside mini-SWE-agent's conversation and its $0.50 cost limit.
+The extraction default is `deepseek-flash`, whereas the generation adapter uses
+`deepseek/deepseek-v4-flash`. These naming strings alone do not prove identical
+backend versions: record and verify the intended fixed implementation. Changing
+`--extract-model` does not change the agent's generation model.
+
+### `extract()`: orchestrating the analysis loop
+
+`extract()` calls `ask()` to request exactly five fields:
+
+| Field | Information sought |
+| --- | --- |
+| `target_function` | Named function or behavior |
+| `triggering_input` | Input/condition exposing the bug |
+| `observed_behavior` | Reported buggy result |
+| `expected_behavior` | Intended result |
+| `suggested_assertion` | Check explicitly supported by the issue |
+
+Each entry contains exactly `value` and `evidence`. Known values need nonempty
+strings and a verbatim contiguous report quote. Unknown values and evidence must
+both be null. The prompt prohibits fabricated details and runnable identifiers.
+The suggested assertion is analysis, not necessarily executable code.
+
+For the Django example, the report can support an empty field list expecting an
+empty dictionary without identifying a valid test fixture. The agent chooses the
+fixture later by reading the repository.
+
+### `validate()`: Python checks the candidate
+
+Python checks the exact five top-level keys, exact entry keys, value types,
+null consistency, nonempty evidence, and that each evidence string occurs in the
+original report. It also rejects a specification with every value unknown.
+It returns errors or an empty list.
+
+These checks establish structure and quoted grounding. A genuine quote can still
+be attached to a wrong interpretation, so they do not establish logical support.
+
+### Semantic review and `semantic_errors()`
+
+After deterministic checks pass, another `ask()` call sends the original report
+and candidate to DeepSeek with review instructions. It asks about unsupported
+claims, contradictions, assumptions, omissions, and information wrongly marked unknown.
+This is a fresh two-message request, not shared memory with extraction.
+
+Acceptance requires this exact review shape, a boolean true, and empty arrays:
+
+```json
+{"valid": true, "unsupported_fields": [], "contradictions": [], "missing_information": []}
+```
+
+`semantic_errors()` checks schema/types and the acceptance decision. DeepSeek
+supplies the substantive judgment. A separate same-model review can repeat the
+extractor's error; it is not independent ground truth.
+
+### Revisions and fallback
+
+The default two revisions permit three extraction attempts. Each can require one
+review, for up to six analysis calls; structurally invalid candidates skip review.
+Errors become feedback for the next extraction alongside the original report.
+The prior candidate is not explicitly passed as a separate next-attempt field.
+
+Acceptance writes `bug_spec.json`. The controller appends it to the original report
+in `task.txt` as supporting analysis and launches the ordinary generation loop.
+The original report is retained in full.
+
+Validation exhaustion returns no specification: the raw report is sent and the
+manifest records `fallback=true`. This remains an improved-arm attempt with fallback,
+not an excluded case or a replacement baseline observation.
+
+Missing credentials raise `ConfigurationError` before extraction/launch. HTTP 401,
+network failures, and other operational exceptions also fail rather than silently
+triggering fallback. Extraction catches content-processing `ValueError`, `KeyError`,
+`IndexError`, and `TypeError` as validation errors eligible for revision.
+
+### Generation after analysis
+
+The launcher, agent, Docker image, native-test profile, test execution feedback,
+and submission process are the same as baseline. Only the task now includes accepted
+supporting analysis. The controller does not call extraction again after a failed
+test. Repairs within generation are choices in the ordinary agent loop, not a separate
+controller-managed execution-feedback repair stage.
+
+## 7. `controller.py` function reference
+
+| Function/class | Purpose |
+| --- | --- |
+| `ConfigurationError` | Identify a configuration failure such as missing analysis credentials |
+| `require_deepseek_key()` | Strip and check the environment key; does not authenticate it with the provider |
+| `digest()` | SHA-256 provenance/configuration checks |
+| `save()` | Exclusive-create JSON writer; refuses overwrites |
+| `validate()` | Deterministic specification schema and quote checks |
+| `semantic_errors()` | Validate semantic review and determine acceptance |
+| `ask()` | One direct, recorded analysis API request |
+| `extract()` | Bounded extraction/validation/review loop |
+| `unit_test_profile()` | Locate shared profile relative to this script |
+| `load_agent_config()` | Load baseline, overlay profile in memory, require Docker, insert image |
+| `launch()` | Construct package objects, run agent, save outputs, clean up |
+| `main()` | Parse arguments, prepare run, choose method, construct task, optionally launch, record status |
+
+The manifest records instance, method, hashes, image string, Python version,
+preprocessing attempts, validation/fallback, elapsed time, status, and whether baseline
+bytes remained unchanged. A supplied image tag is not automatically an immutable
+image digest. Controller elapsed time includes preprocessing and launch/cleanup when
+requested, after initial preparation; it is not evaluation time.
+
+`prepared` means launch was not requested. `agent_finished` means launch returned.
+`validated=true` concerns bug analysis, not generated test quality. Exceptions in
+the protected execution section record failed status and error type; configuration
+errors add stage/message details. Earlier failures such as a bad hash or existing
+output directory may occur before manifest creation.
+
+## 8. Reading the run artifacts
+
+| File | What it tells you |
+| --- | --- |
+| `report.txt` | Original issue supplied for the run |
+| `task.txt` | Exact task handed to generation, including analysis if accepted |
+| `manifest.json` | Settings, provenance, status, timing |
+| `extract-N.request.json` / `.response.json` / `.metrics.json` | Controller-to-DeepSeek extraction communication and usage |
+| `candidate-N.json` | Parsed candidate analysis |
+| `review-N.request.json` / `.response.json` / `.metrics.json` | Review communication and usage |
+| `validation-N.json` | Errors or acceptance for that attempt |
+| `bug_spec.json` | Accepted analysis only |
+| `effective_config.json` | Resolved agent configuration |
+| `agent.traj.json` | Generation messages, commands, observations, package metadata |
+| `agent_result.json` | Agent termination status and submitted text |
+| `submission.patch` | Saved nonempty submission |
+
+Baseline runs lack analysis files. Prepare-only runs lack agent files. Failures may
+leave partial artifacts. Attempt numbers start at zero. To audit communication,
+read requests/responses, task, and trajectory; compare each runner command to its
+observed output/status. Use the final patch rather than an intermediate edit.
+
+## 9. `export_prediction.py`: package the final result
+
+`export_prediction(run, out, label=None)` reads the manifest and requires native
+`unit_test` format. It reads `agent_result.json` when available, using `submission`
+only when `exit_status == 'Submitted'`. Otherwise it emits an empty patch so failure
+can remain represented.
+
+It writes one JSONL row with `instance_id`, `model_patch`, and `model_name_or_path`.
+Default labels are `trace-baseline-unit-test` and `trace-improved-unit-test`; an
+optional label overrides them. It creates output parents and refuses overwrites.
+The prediction text comes from the result JSON, not from `submission.patch`.
+
+This script does not call DeepSeek, run Docker/tests, apply a patch, or determine
+success. Missing run manifests still need full assigned-instance bookkeeping outside
+this function; it does not enumerate the assignment itself.
+
+## 10. Official evaluation and information boundaries
+
+```mermaid
+flowchart LR
+    I["Issue + buggy source + existing tests"] --> G["Generation"]
+    B["Validated analysis, improved only"] --> G
+    G --> P["Frozen prediction patch"]
+    P --> H["Official unit-test evaluator"]
+    F["Reference fix and evaluator-only artifacts"] --> H
+    H --> O["Applicability, before/after outcomes, coverage, logs"]
+```
+
+Evaluation is separate from these four scripts. Use the installed official harness
+and the documented pinned evaluation procedure. It determines whether tests meet
+the official success criterion, including failing before the reference fix and
+passing afterward. Reference fixes/tests and evaluator-only outcomes must not be
+fed back into generation or repair.
+
+Retain missing predictions, generation failures, and method-caused timeouts in the
+assigned denominator. Log infrastructure failures separately and retry unchanged
+predictions after recovery with unchanged settings. For coverage, identify the exact
+harness field, units, aggregation, and available-instance count; unavailable is N/A.
+Do not infer benchmark success from a zero harness process exit code alone.
+
+## 11. What quality checks exist today?
+
+| Question | Current check | Limitation |
+| --- | --- | --- |
+| Does analysis quote the report? | Python schema/substring checks | Quote may not entail the claim |
+| Is analysis logically supported? | Separate DeepSeek review | Same-model judgment may be wrong |
+| Does the generated test have meaningful assertions? | Profile instructions and human patch review | No controller assertion detector |
+| Did the runner fail? | Command observation with pipefail/status instructions | Audit actual command and evidence |
+| Did it fail for the issue rather than a typo? | Agent interpretation plus researcher traceback review | No deterministic controller failure classifier |
+| Does it pass after the fix? | Official evaluation | Not available during generation |
+| Does the patch modify tests only? | Instructions and patch review | No separate controller path-policy gate |
+
+A literal `assert` is not sufficient evidence of quality. Native checks may use
+`self.assertEqual`, `pytest.raises`, or framework equivalents. A future quality stage
+could inspect meaningful checks and classify failures without weakening assertions
+or accessing fixes. That is an additional workflow change to evaluate separately.
+
+## 12. `test_controller.py`: test TRACE itself
+
+This unittest module imports the controller and exporter, uses temporary directories,
+and mocks network/agent execution. Its 11 tests cover grounding/schema, review
+rejection/types, shared profile and exit-status instructions, patch preservation,
+export no-overwrite, failed predictions, script rejection, revision/acceptance,
+validation exhaustion, baseline preparation, missing-key behavior, launcher settings,
+submission collection, baseline preservation, and cleanup.
 
 ```bash
 python -m unittest -v
 ```
 
-The current 11 tests cover:
+These tests do not require live API calls or a running Docker daemon. They do not
+prove provider authentication, actual container execution, or benchmark reproduction.
+See `OFFLINE_TESTS.md` for collaborator dependency/import checks and the pilot guides
+for live workflows.
 
-1. Specification structure and verbatim evidence grounding.
-2. Semantic review shape, types, and rejection.
-3. Shared profile settings and pipeline-failure handling.
-4. Prediction patch preservation and refusal to overwrite exports.
-5. Failed-prediction retention and rejection of script-format exports.
-6. Revision followed by acceptance.
-7. Bounded validation exhaustion.
-8. Baseline preparation and output no-overwrite behavior, without an extraction key.
-9. Missing-key extraction stopping without network calls or revision artifacts.
-10. Missing-key configuration failure without extraction or agent launch.
-11. Launcher configuration, submission saving, and cleanup with mocked execution.
+## 13. Matched-run example
 
-It imports `controller` and `export_prediction`; it mocks model calls and agent
-execution. These tests do not need Docker or API credentials. They do not prove
-that the actual agent package is installed, that provider authentication works,
-or that Bash/Django runs successfully in a real container. Follow
-[OFFLINE_TESTS.md](OFFLINE_TESTS.md) for actual dependency imports and snapshot checks.
+Run from the repository root in the activated environment. In WSL the original clone
+is `/mnt/c/Users/mlkoe/projects/swt-bench-work`; teammates use their own clone path.
+Set `IMAGE` to the verified image for this exact issue and configure provider
+credentials in the terminal without committing keys.
 
-## 18. What the current experiment tells us
+```bash
+python controller.py \
+  --mode baseline --test-format unit_test \
+  --report data/django__django-11163/report.txt \
+  --instance django__django-11163 --image "$IMAGE" --launch \
+  --out runs/django-11163-baseline-new
 
-The updated-profile matched pair is:
+python controller.py \
+  --mode improved --test-format unit_test \
+  --report data/django__django-11163/report.txt \
+  --instance django__django-11163 --image "$IMAGE" --launch \
+  --out runs/django-11163-improved-new
 
-| Item | Baseline | Improved |
-| --- | --- | --- |
-| Run | django-unit-baseline-20261111-212132 | django-unit-improved-20261111-211606 |
-| Accepted preprocessing | Not applicable | First attempt, no fallback |
-| Native patch | Same patch | Same patch |
-| Buggy execution | One intended failure out of 165 tests | One intended failure out of 165 tests |
-| Controller runtime | 28.57 seconds | 41.27 seconds |
-| Agent-only trajectory cost | $0.003609696 | $0.003834948 |
-| Official fixed-version outcome | Not yet evaluated | Not yet evaluated |
+python export_prediction.py \
+  --run runs/django-11163-baseline-new \
+  --out predictions/django-11163-baseline-new.jsonl
 
-The improved method's preprocessing cost is additional. Identical patches on this
-clear issue do not demonstrate a success-rate improvement. Both runs used the same
-recorded report, baseline hash, image tag, and updated unit-test profile hash.
-Record immutable image identity and provider model details for final reproducibility.
+python export_prediction.py \
+  --run runs/django-11163-improved-new \
+  --out predictions/django-11163-improved-new.jsonl
+```
 
-The next steps are official evaluation of both predictions, preserving all outputs,
-then expansion to the full assigned set. Report success/applicability over all
-assigned instances, official coverage delta with its exact field and available
-count, total generation cost, average generation time, and evaluation time. Keep
-configuration failures, missing predictions, and timeouts visible. Classify
-infrastructure failures separately and retry unchanged predictions after recovery.
+Use fresh names. Baseline generation still requires credentials accepted by the
+agent's model adapter even though it skips the controller's analysis-key precheck.
+Export only packages predictions; official evaluation follows separately.
 
-## 19. Supporting files
+For a fair comparison, match snapshots, images, model version, shared profile, and
+limits. Include improved preprocessing in cost/runtime. Preserve failures and all
+outputs. The threat of same-model review errors and variability across repeated
+model runs limits conclusions from isolated examples; examine the full assignment.
 
-- `requirements.txt`: Python dependency ranges and pinned mini-SWE-agent version.
-- `baseline/swt_test.yaml`: preserved original script-generation configuration.
-- `profiles/unit_test.yaml`: shared native-test instructions and Bash pipefail.
-- `.gitattributes`: preserves important report/config bytes across checkouts.
-- `.gitignore`: excludes environments, runs, and unrelated artifacts from normal commits.
-- `README.md`: project overview and setup.
-- `PILOT.md`: original script-format smoke-test instructions.
-- `UNIT_TEST_PILOT.md`: current native unit-test generation/export protocol.
-- `OFFLINE_TESTS.md`: collaborator installation and offline verification.
+## 14. Suggested reading order
 
-`runs/` being ignored means local artifacts are not automatically backed up to
-GitHub. Preserve them explicitly using an agreed private artifact archive.
+Read `fetch_report.py`, then `controller.py` beginning with `main()` and following
+`extract()` and `launch()`, then both YAML files, the exporter, and the offline tests.
+For a run, follow provenance -> report -> manifest -> analysis -> task -> effective
+configuration -> trajectory -> result/patch -> official evaluation. This separates
+what was supplied, inferred, executed, submitted, and measured.

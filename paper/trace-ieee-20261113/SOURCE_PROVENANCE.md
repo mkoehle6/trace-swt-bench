@@ -13,3 +13,9 @@ Accessed November 13, 2026:
 Experimental results are derived from the existing local TRACE generation/evaluation artifacts, not from web summaries or guideline examples. `evidence.json` lists paths and hashes. The draft uses the official template's document class, author-block structure, abstract, keywords, numbered sections, two-column layout, and numbered references; it omits sample template text.
 
 The PDF was compiled in a disposable container using the existing Matplotlib benchmark image solely as a source of installed LaTeX tools, with network disabled and only the paper directory mounted. This did not alter any image, source checkout, generation configuration, or prediction.
+
+## November 16 manuscript refresh
+
+The current eight-page PDF was compiled and exported using the desktop LaTeX editor, not the original container build. Original November 13 logs and auxiliary files are preserved under `historical-build-20261113/`. Current source and PDF hashes are in `draft-validation.json`. The experiment evidence index remains unchanged.
+
+The Astropy FITS card explanation uses https://docs.astropy.org/en/stable/io/fits/usage/headers.html . Provider billing totals were reconciled from the user-supplied `amount-2026-10-18_2026-11-16.csv` and `cost-2026-10-18_2026-11-16.csv` exports; those original exports remain outside this folder. Hardware specifications were inspected on November 16 and historical allocation limits are explicitly unrecorded. The team confirmed shared contributions and complete AI-tool disclosure; GPT-6.1 was confirmed by the project owner. Claude's role is also disclosed in the supplied final presentation.

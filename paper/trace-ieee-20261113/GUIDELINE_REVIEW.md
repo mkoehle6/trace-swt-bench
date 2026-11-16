@@ -9,15 +9,17 @@ Reviewed the [project guidelines](https://github.com/DePaul-SE-Team/SE443-333-fi
 | Missing coverage explanation | Results | Sphinx 8721 has no executable changed-line denominator in harness coverage inputs; N/A |
 | Paired counts and uncertainty | Table II and Results | 15 shared successes, 1 baseline-only, 2 TRACE-only, 8 neither; single-run limitation |
 | Generation time and evaluation time | Table I and Results | Complete for selected runs; cache/order limits disclosed |
-| Complete generation cost | Results and outstanding-information appendix | **Placeholder:** known agent estimates and preprocessing usage are not complete billing |
+| Complete generation cost | Results and outstanding-information appendix | Provider-period billing reconciled to $0.959975793; selected-run agent costs and analysis usage reported separately. Per-method complete costs remain unavailable. |
 | Infrastructure failures and denominator | Experimental Design and Results | Original failures preserved; no unresolved evaluation infrastructure cases |
 | Section 8: six distinct cases | Appendix A, with synthesis in Test Quality Analysis | Two shared successes, two shared failures, two disagreements |
 | Systematic selection | Main Test Quality Analysis and evidence.json | Lexicographic full IDs within categories; no duplication or shortfall |
 | Issue, test, before, after, meaning, implication | Each Appendix A case | Complete; raw/parser discrepancies explicitly distinguished |
 | Threats and future improvement | Main Sections V and VI | Complete; includes protocol deviations and sampling limitations |
-| Section 11: IEEE template and main-text length | PDF and source | IEEEtran conference; approximately 1,630 main prose words, excluding abstract/tables/references/appendices |
-| Contributions and Section 12 AI disclosure | Last appendix | AI assistance disclosed; **placeholder:** team contributions and reviewed outputs |
+| Section 11: IEEE template and main-text length | PDF and source | IEEEtran conference; approximately 2,530 main prose words under the documented current counting rule; final course word-limit compliance requires team review |
+| Contributions and Section 12 AI disclosure | Last appendix | Team effort recorded; all AI tools confirmed disclosed by the team; exact historical versions remain limited where unrecorded |
 
 The original configuration was preserved but adapted to native unit-test output in both arms. The draft explicitly discloses this deviation from a strict “unchanged baseline” reading; it does not claim instructor approval that has not been established. No experiments or assertions were changed to make results fit the guidelines.
 
-The draft follows the required six-section report structure. Detailed case analysis is in an appendix, with the principal findings retained in the main paper. Author details remain omitted by request.
+The draft follows the required six-section report structure. Detailed case analysis is in an appendix, with the principal findings retained in the main paper. Author names, DePaul affiliation, and emails are included. Appendix C records SE 433: Software Testing and Quality Assurance, current host specifications, and the limits of historical resource records.
+
+Updated November 16, 2026 against the revised manuscript. Original guideline review date remains November 13; the online guidelines were not re-reviewed during this refresh. Remaining submission-date and artifact-link TODOs are listed in draft-validation.json.

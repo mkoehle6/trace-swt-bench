@@ -1,0 +1,6 @@
+Current manuscript refresh: November 16, 2026
+Compiler: desktop editor built-in LaTeX compiler
+Result: success
+Exported PDF: 8 pages
+Historical terminal compiler logs: historical-build-20261113/
+Detailed current compiler log/auxiliary files were not exported.

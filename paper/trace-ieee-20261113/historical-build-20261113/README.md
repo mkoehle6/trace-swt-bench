@@ -1,0 +1,1 @@
+Historical compiler outputs from November 13, 2026. These describe the original draft, not the current eight-page manuscript. The current version was compiled and exported using the desktop LaTeX editor.

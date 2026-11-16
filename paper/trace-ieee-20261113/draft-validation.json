@@ -1,30 +1,31 @@
 {
-  "ieee_conference_class": true,
-  "main_sections": [
-    "Research Question and Motivation",
-    "Method and Experimental Design",
-    "Results",
-    "Test Quality Analysis",
-    "Threats to Validity",
-    "Conclusion"
-  ],
-  "approx_main_prose_words": 1631,
-  "pdf_pages": 5,
-  "six_distinct_systematically_selected_cases": true,
+  "updated": "2026-11-16",
+  "compiler": "Desktop LaTeX editor",
+  "compile_result": "success",
+  "pdf_export_verified": true,
+  "pdf_pages": 8,
+  "approx_main_prose_words": 2530,
+  "six_case_studies": true,
+  "trace_quality_assessments": 6,
   "all_26_outcomes_included": true,
-  "official_evidence_hashes_verified": true,
-  "all_citations_resolved": true,
-  "no_overfull_boxes": true,
-  "author_details_omitted_by_request": true,
+  "author_details_present": true,
+  "billing_total_present": true,
   "remaining_placeholders": [
-    "Supply contemporaneous provider pricing, cache accounting, billing reconciliation, and historical-attempt totals.",
-    "Confirm available budget for repeated generation, if any, without retrospectively altering this experiment.",
-    "Record host hardware, resource allocation, course/team identifier, submission date, and artifact archive release/commit containing this paper and evaluation.",
-    "For each team member, specify implementation, evaluation, analysis, and writing contributions. Names and email addresses are intentionally omitted in this draft.",
-    "Confirm the complete AI-tool/model list and identify exactly which code, patches, analyses, and prose the team reviewed or modified.",
-    "reconcile provider rates, cache pricing, preprocessing charges, and historical attempts",
-    "record CPU, memory, and Docker resource limits",
-    "Add immutable artifact release/commit containing the full evaluated record."
+    "Add the submission date and updated artifact archive release/commit containing this paper and evaluation.",
+    "Add updated commit-pinned evaluation artifact snapshot link."
   ],
-  "source_class_sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
+  "source_sha256": {
+    "main.tex": "1dc13dc74661f394149c89ee32c06573d1b64882fc2caa904a39871cd23bab87",
+    "body.tex": "44b966a5c07422cf0e1100fb9356379f6d444228e213708c3c16d8f2a452f4a8",
+    "appendix.tex": "3023fdbd9539fb9563879ae06678e2226d414d45133212a7851bd9d006b7663e",
+    "references.tex": "5115fa9acb0bd94ea5cb1ce3ddff852732507a590ab361368b28172f8d3e12d0",
+    "outcomes-table.tex": "f76e8fd218733574faafc9fe1af88ab9da37f6874b6aa8d408674af6c7241ad7",
+    "IEEEtran.cls": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
+  },
+  "pdf_sha256": "1a8e951e703051c2f4357994af17f8bb96babba8fbf17cb5c184fcea3108bdd8",
+  "notes": [
+    "Compilation tool reported success. Detailed current compiler log, auxiliary files, citation-warning and overfull-box diagnostics were not exported; no claim that these diagnostics were independently checked.",
+    "evidence.json remains the historical experiment evidence index; experimental results were not rerun or changed.",
+    "Historical November 13 compiler files retained in historical-build-20261113/."
+  ]
 }

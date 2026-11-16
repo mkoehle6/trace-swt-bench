@@ -1,45 +1,42 @@
-# TRACE IEEE conference paper draft
+# TRACE IEEE conference paper
 
-Start with [trace_experiment.pdf](trace_experiment.pdf). The manuscript uses `\documentclass[conference]{IEEEtran}` and the official IEEE conference template's structure. The unmodified IEEEtran class is included for portability; its license and copyright notices remain in `IEEEtran.cls`.
+Open [trace_experiment.pdf](trace_experiment.pdf) for the latest compiled paper. Refreshed November 16, 2026: eight pages. `TRACE_paper_20261116.pdf` is an identical dated copy.
 
-The main paper contains the six requested sections. The appendix supplies six distinct case analyses, generated-test excerpts, all 26 paired outcomes, reproducibility notes, contributions placeholders, and AI disclosure. This draft reports the completed official evaluation, superseding the evaluation-pending statements in the older preliminary report without editing that historical file.
+## Current contents
 
-## Files
+- `main.tex`: title, three authors and DePaul affiliation, abstract, packages, document assembly.
+- `body.tex`: six main sections, workflow explanations, results, limitations, and conclusions.
+- `appendix.tex`: six case studies with P1-P4 test-quality assessments; Appendix B outcomes; reproducibility, hardware/course details, billing and AI disclosure.
+- `outcomes-table.tex`: all 26 paired results. Appendix B uses a dedicated full-width page so the heading and table stay together.
+- `references.tex`: bibliography; updated immutable artifact link remains a TODO.
+- `IEEEtran.cls`: unchanged document class; copyright and license retained.
+- `evidence.json`: original experiment evidence index, metrics and provenance; preserved unchanged.
+- `trace_experiment.pdf`, `TRACE_paper_20261116.pdf`: identical current PDFs.
+- `trace_experiment.txt`: text extracted from the current PDF.
+- `preview-page-1.png` through `preview-page-8.png`: current page previews.
+- `word-count.json`: current approximate body-text count; not a formal texcount result.
+- `draft-validation.json`: current source/PDF hashes and checks, with diagnostic limitations.
+- `current-build.txt`: latest compile/export status.
+- `historical-build-20261113/`: preserved original compiler logs and auxiliary files; these are not current diagnostics.
+- `trace_ieee_draft.zip`: refreshed source-and-output package, excluding itself.
 
-- `main.tex`: title, author placeholders, abstract, packages, and document assembly.
-- `body.tex`: six main sections, result and paired-comparison tables.
-- `appendix.tex`: six detailed cases and outstanding information.
-- `outcomes-table.tex`: complete official outcomes.
-- `references.tex`: IEEE-style numbered references.
-- `evidence.json`: computed metrics, case-selection rule, source paths, and source hashes.
-- `word-count.json`: reproducible approximate count of main prose; abstract/tables/references/appendices excluded.
-- `GUIDELINE_REVIEW.md`: requirement-to-manuscript mapping and known gaps.
-- `SOURCE_PROVENANCE.md`: guideline and IEEE template sources.
-- `trace_experiment.pdf`: compiled draft. Build logs are preserved.
+## Build
 
-## Compile
-
-Upload the `.tex` files and `IEEEtran.cls` to Overleaf and choose `main.tex` as the main document, or run locally:
+The current PDF was compiled and downloaded from the desktop LaTeX editor. Open `main.tex` as the project main document. Alternatively, use Overleaf or run twice with a local TeX installation:
 
 ```sh
 pdflatex -interaction=nonstopmode -halt-on-error -jobname=trace_experiment main.tex
 pdflatex -interaction=nonstopmode -halt-on-error -jobname=trace_experiment main.tex
 ```
 
-No BibTeX pass is needed because the draft uses `thebibliography`. Standard LaTeX packages include `booktabs`, `listings`, `hyperref`, and `xcolor`. The compiled document preserves IEEE margins and columns. It does not use manual font/geometry changes to shrink the paper.
+No BibTeX pass is needed. Detailed logs from the latest editor compilation were not exported; historical logs must not be used to certify this build.
 
-## Remaining placeholders
+## Results and scope
 
-- Authors, affiliation, and contact details: intentionally omitted at the user's request.
-- Complete generation spending: reconcile provider billing/rates, cache pricing, preprocessing, and historical attempts. Known agent-only costs and saved preprocessing token totals are reported separately.
-- Host CPU/RAM/Docker allocation and budget for repeats.
-- Team/course identifier, submission date, and immutable final artifact release/commit.
-- Member contributions and the precise list of AI outputs independently reviewed or modified by the team.
+Official outcomes remain baseline 16/26 and TRACE 17/26; applicability is 26/26 for both. The same shared native-test adaptation was used for both methods. No predictions, benchmark data, or outcomes were changed during the manuscript refresh.
 
-The project owner clarified that the guideline's “DeepFlash” baseline refers to DeepSeek. The paper retains the actual recorded generation and preprocessing model identifiers, and does not invent an immutable provider version.
+The provider exports report $0.959975793 in charges across their period; this is not a separate per-method generation total. Hardware and course details are recorded in Appendix C. Contributions are a team effort; DeepSeek, mini-SWE-agent, Codex, ChatGPT GPT-6.1, and Claude are disclosed in Appendix D.
 
-## Interpretation
+## Remaining information
 
-Official outcomes are baseline 16/26 and TRACE 17/26, with paired counts 15/1/2/8 (both/baseline-only/TRACE-only/neither). All predictions apply; all 52 reports exist. The paper reports parser-attribution discrepancies separately from raw pre/post behavior, and discloses protocol and historical-image limitations. Neither a success flag nor a coverage score certifies all agent actions complied with the experimental rules.
-
-This is an AI-assisted draft requiring team review. No experiment was rerun or changed to write it. Evaluation/reference artifacts were read only for analysis, never supplied for generation or repair. No GitHub push was performed while preparing this paper.
+The submission date and updated commit-pinned artifact link remain TODOs. Docker/WSL resource allocations and some historical tool/model versions were not recorded. See the manuscript for these limitations. This folder refresh does not itself commit or push changes to GitHub.

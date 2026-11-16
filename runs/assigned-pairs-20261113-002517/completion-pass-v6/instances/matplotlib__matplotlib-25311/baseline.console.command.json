@@ -1,5 +1,5 @@
 [
-  "/home/user/.venvs/se433-swt/bin/python",
+  "<HOME>/.venvs/se433-swt/bin/python",
   "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/recover_generation.py",
   "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/completion-pass-v6/instances/matplotlib__matplotlib-25311",
   "baseline"

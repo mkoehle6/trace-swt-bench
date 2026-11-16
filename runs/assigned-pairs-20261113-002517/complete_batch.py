@@ -18,7 +18,7 @@ project = batch.parent.parent
 plan = json.loads((batch / 'plan.json').read_text())
 post = batch / 'completion-pass'
 post.mkdir(exist_ok=False)
-python = '/home/user/.venvs/se433-swt/bin/python'
+python = os.environ.get('SWT_AGENT_PYTHON', sys.executable)
 sys.path.insert(0, str(project))
 from export_prediction import export_prediction
 

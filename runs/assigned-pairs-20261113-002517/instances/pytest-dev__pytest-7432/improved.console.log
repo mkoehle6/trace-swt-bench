@@ -1,6 +1,6 @@
 This is mini-swe-agent version 2.4.6.
 Check the v2 migration guide at https://klieret.short.gy/mini-v2-migration
-Loading global config from '/home/user/.config/mini-swe-agent/.env'
+Loading global config from '<HOME>/.config/mini-swe-agent/.env'
 Global cost/call limit: $2.0000 / 0
 minisweagent.environment: DEBUG: Starting container with command: docker run -d 
 --name minisweagent-4e7a5e04 -w /testbed --rm                                   

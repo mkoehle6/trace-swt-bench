@@ -16,7 +16,7 @@
   "checkout_clean": true,
   "container_python": "3.6.13",
   "container_django": "3.2",
-  "host_python": "/home/user/.venvs/se433-swt/bin/python",
+  "host_python": "<HOME>/.venvs/se433-swt/bin/python",
   "packages": {
     "mini-swe-agent": "2.4.6",
     "PyYAML": "6.0.3",

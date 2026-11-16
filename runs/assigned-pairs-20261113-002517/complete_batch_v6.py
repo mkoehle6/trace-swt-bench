@@ -26,7 +26,7 @@ while not (prior_case / 'image-identity.json').exists():
         raise RuntimeError('Surviving build ended without an image identity; inspect preserved logs')
     time.sleep(5)
 post.mkdir(exist_ok=False)
-python = '/home/user/.venvs/se433-swt/bin/python'
+python = os.environ.get('SWT_AGENT_PYTHON', sys.executable)
 sys.path.insert(0, str(project))
 from export_prediction import export_prediction
 event_lock = threading.Lock()

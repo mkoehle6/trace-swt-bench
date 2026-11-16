@@ -14,7 +14,7 @@ from pathlib import Path
 batch = Path(__file__).resolve().parent
 project = batch.parent.parent
 plan = json.loads((batch / 'plan.json').read_text())
-agent_python = '/home/user/.venvs/se433-swt/bin/python'
+agent_python = os.environ.get('SWT_AGENT_PYTHON', sys.executable)
 harness_python = '/workspace/swt-bench/.venv/bin/python'
 sys.path.insert(0, str(project))
 from export_prediction import export_prediction

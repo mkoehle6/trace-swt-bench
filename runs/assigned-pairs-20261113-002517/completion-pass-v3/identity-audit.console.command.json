@@ -1,5 +1,5 @@
 [
-  "/home/user/.venvs/se433-swt/bin/python",
+  "<HOME>/.venvs/se433-swt/bin/python",
   "/workspace/swt-bench-work/runs/assigned-pairs-20261113-002517/verify_pairs_v3.py",
   "--final",
   "--outcomes",

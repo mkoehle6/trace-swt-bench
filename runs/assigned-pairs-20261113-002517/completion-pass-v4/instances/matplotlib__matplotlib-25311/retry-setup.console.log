@@ -5,7 +5,7 @@ Traceback (most recent call last):
   File "/workspace/swt-bench/.venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
     for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/user/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/socket.py", line 978, in getaddrinfo
+  File "<HOME>/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/socket.py", line 978, in getaddrinfo
     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 socket.gaierror: [Errno -2] Name or service not known

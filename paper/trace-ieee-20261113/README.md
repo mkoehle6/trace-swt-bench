@@ -39,7 +39,7 @@ The provider exports report $0.959975793 in charges across their period; this is
 
 ## Remaining information
 
-The submission date and updated commit-pinned artifact link remain TODOs. Docker/WSL resource allocations and some historical tool/model versions were not recorded. See the manuscript for these limitations. This folder refresh does not itself commit or push changes to GitHub.
+Submission date and commit-pinned artifact links are finalized. Docker/WSL resource allocations and some historical tool/model versions were not recorded. See the manuscript for these limitations. This folder refresh does not itself commit or push changes to GitHub.
 
 November 17 proofreading: clarified the measured research question, named fallback and identical-patch instances, reported McNemar exact p=1.0, identified history flags by arm, explained zero coverage delta, standardized outcome labels, and added complete appendix/table pointers. Course information is now a title-page footnote. The earlier dated PDF is retained in `historical-build-20261116/`.
 
@@ -48,3 +48,7 @@ Second November 17 wording pass: parallel P1-P4 definitions, clearer evaluator c
 Second November 17 terminology pass: parallel P1-P4 definitions, clearer evaluator criteria and unit of analysis, consistent issue-specification and input/output-token terminology, explicit rounded billing value, and qualified fallback spending. Sources and PDFs remain synchronized.
 
 Final November 17 clarity review: simplified abstract and evaluation criteria, clarified units and costs, shortened ambiguous implications, and replaced hard-coded section numbers with cross-references. Submission date and Claude Sonnet 5.5 disclosure included. Sources and PDFs remain synchronized.
+
+Final snapshot citation update (November 17, 2026): sources and exported PDF reference commit `a5344b0abf54dcb9674f70261ad1a66d938f8a3f`. Current PDFs and source archive are synchronized; experiment results are unchanged.
+
+Final snapshot citation update (November 17, 2026): sources and exported PDF reference commit `a5344b0abf54dcb9674f70261ad1a66d938f8a3f`. Current PDFs and source archive are synchronized; experiment results are unchanged.

@@ -440,9 +440,11 @@ with mini-SWE-agent and SWT-Bench,” secs. 6, 8, 11, and 12, accessed
 Nov. 17, 2026. The linked repository is named SE443-333; this project
 was completed for SE 433. [Online]. Available: https://github.com/
 DePaul-SE-Team/SE443-333-ﬁnal-project-guideline
-[5] TRACE project, “Generation and ofﬁcial evaluation artifacts,” Nov.
-2026. [Online]. Available: https://github.com/mkoehle6/trace-swt-bench.
-[TODO: Add updated commit-pinned evaluation artifact snapshot link.]
+[5] TRACE project, “Generation and ofﬁcial evaluation artifacts,”
+Nov. 2026. [Online]. Available: https://github.com/mkoehle6/
+trace-swt-bench/tree/a5344b0abf54dcb9674f70261ad1a66d938f8a3f .
+Evaluation results: https://github.com/mkoehle6/trace-swt-bench/tree/
+a5344b0abf54dcb9674f70261ad1a66d938f8a3f/evaluation_results.
 APPENDIX A
 SIX DISTINCT CASE STUDIES
 The cases below use the selection rule in Section IV. “Suc-
@@ -483,10 +485,10 @@ compare its serialized representation with the compact ex-
 pected string. Baseline additionally checks the stored value and
 comment. Before. Both new tests fail with a V erifyWarning
 about comment truncation. After . Each passes, and each
-ofﬁcial report records one added fail-to-pass test without added
-persistent or pass-to-fail failures. Relevance. The tests check
 1Astropy FITS header documentation: https://docs.astropy.org/en/stable/io/
 ﬁts/usage/headers.html.
+ofﬁcial report records one added fail-to-pass test without added
+persistent or pass-to-fail failures. Relevance. The tests check
 that the number is written compactly and the full comment
 is preserved, directly matching the problem described in the
 bug report. Implication. Both methods generate a native
@@ -768,26 +770,30 @@ indexes exact local evidence. Evaluation inputs contain
 reference ﬁelds and must remain outside generation context.
 No report preparation step modiﬁes either workﬂow or
 prediction.
-The nominal agent-cost limit excludes preprocessing and
-does not guarantee a strict cap on spending. Selected pre-
-processing metrics record 69 requests, 49,789 input to-
-kens, and 173,755 output tokens, including reasoning out-
-put reported by the provider. The supplied provider exports,
-amount-2026-10-18_2026-11-16.csv and cost-2026-10-18_
-2026-11-16.csv, record 1,211 requests for deepseek-ﬂash,
-1,118,057 cache-miss input tokens, 20,423,295 cache-hit in-
-put tokens, and 644,720 output tokens. Total billed cost is
-$0.959975793. Summing each token quantity multiplied by
-its listed unit price reproduces both the daily charges and
-the total exactly. Nonzero charges occur on November 3 and
-November 10–13. This export-period total may include pilot
-runs, retries, and other requests; its rows do not identify the
-method, instance, or individual generation run. We therefore
-do not allocate it between baseline and TRACE or treat it
-as the cost of the selected runs alone. No explicit generation
-seed was conﬁgured. The submission date is November 17,
-2026. [TODO: Add the updated artifact archive release/commit
-containing this paper and evaluation.]
+The nominal agent-cost limit excludes preprocessing
+and does not guarantee a strict cap on spending.
+Selected preprocessing metrics record 69 requests, 49,789
+input tokens, and 173,755 output tokens, including
+reasoning output reported by the provider. The supplied
+provider exports, amount-2026-10-18_2026-11-16.csv and
+cost-2026-10-18_2026-11-16.csv, record 1,211 requests for
+deepseek-ﬂash, 1,118,057 cache-miss input tokens, 20,423,295
+cache-hit input tokens, and 644,720 output tokens. Total
+billed cost is $0.959975793. Summing each token quantity
+multiplied by its listed unit price reproduces both the daily
+charges and the total exactly. Nonzero charges occur on
+November 3 and November 10–13. This export-period total
+may include pilot runs, retries, and other requests; its rows do
+not identify the method, instance, or individual generation run.
+We therefore do not allocate it between baseline and TRACE
+or treat it as the cost of the selected runs alone. No explicit
+generation seed was conﬁgured. The submission date is
+November 17, 2026. The submission artifacts are archived at
+commit a5344b0abf54dcb9674f70261ad1a66d938f8a3f:
+https://github.com/mkoehle6/trace-swt-bench/tree/
+a5344b0abf54dcb9674f70261ad1a66d938f8a3f. The
+evaluation results are preserved in its evaluation_results/
+directory.
 APPENDIX D
 CONTRIBUTIONS AND AI D ISCLOSURE
 Mark Koehler, Hikaru McGuan, and Jason Torres completed

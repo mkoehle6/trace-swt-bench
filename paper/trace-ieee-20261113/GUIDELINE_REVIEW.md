@@ -22,6 +22,10 @@ The original configuration was preserved but adapted to native unit-test output 
 
 The draft follows the required six-section report structure. Detailed case analysis is in an appendix, with the principal findings retained in the main paper. Author names, DePaul affiliation, and emails are included. Appendix C records SE 433: Software Testing and Quality Assurance, current host specifications, and the limits of historical resource records.
 
-Updated November 16, 2026 against the revised manuscript. Original guideline review date remains November 13; the online guidelines were not re-reviewed during this refresh. Remaining submission-date and artifact-link TODOs are listed in draft-validation.json.
+Updated November 16, 2026 against the revised manuscript. Original guideline review date remains November 13; the online guidelines were not re-reviewed during this refresh. Submission date and artifact links are finalized; no manuscript TODOs remain.
 
 November 17 check: the linked guideline repository really is named `SE443-333-final-project-guideline`; the manuscript retains that URL and distinguishes it from the user-confirmed SE 433 course. Guideline reference [4] is cited before artifact reference [5]. Appendix B rows retain assignment order and use Success/Unsuccessful.
+
+Final snapshot citation update (November 17, 2026): sources and exported PDF reference commit `a5344b0abf54dcb9674f70261ad1a66d938f8a3f`. Current PDFs and source archive are synchronized; experiment results are unchanged.
+
+Final snapshot citation update (November 17, 2026): sources and exported PDF reference commit `a5344b0abf54dcb9674f70261ad1a66d938f8a3f`. Current PDFs and source archive are synchronized; experiment results are unchanged.

@@ -23,3 +23,7 @@ The Astropy FITS card explanation uses https://docs.astropy.org/en/stable/io/fit
 ## November 17 proofreading refresh
 
 Course guideline URL rechecked November 17; its repository name remains SE443-333, while the course is SE 433 per the project owner. The four fallback instances, two byte-identical patch pairs, Django 13344 analysis acceptance, and six arm-specific command-review flags were checked against the saved manifests, patches, and 26-instance report. Claude paper proofreading is disclosed from the user-supplied feedback. Current PDF exported from the desktop editor; prior dated PDF retained under historical-build-20261116/. No experiment outputs were regenerated.
+
+Final snapshot citation update (November 17, 2026): sources and exported PDF reference commit `a5344b0abf54dcb9674f70261ad1a66d938f8a3f`. Current PDFs and source archive are synchronized; experiment results are unchanged.
+
+Final snapshot citation update (November 17, 2026): sources and exported PDF reference commit `a5344b0abf54dcb9674f70261ad1a66d938f8a3f`. Current PDFs and source archive are synchronized; experiment results are unchanged.

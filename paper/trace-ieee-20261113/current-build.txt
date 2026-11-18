@@ -1,9 +1,2 @@
-Current manuscript refresh: November 17, 2026
-Compiler: desktop LaTeX editor
-Result: success
-PDF pages: 9
-All five bibliography entries are cited; all source cross-reference targets exist; no ?? markers in PDF.
-Detailed current compiler log/auxiliary files not exported.
-Second wording pass compiled successfully and PDF exported; no unresolved-reference markers found.
-Second terminology pass compiled successfully and PDF exported; no unresolved-reference markers found.
-Second wording pass compiled successfully and PDF exported; no unresolved-reference markers found.
+November 17, 2026: built-in compiler succeeded. Export verified: 9 pages, pinned artifact links present, no unresolved-reference markers.
+Snapshot: a5344b0abf54dcb9674f70261ad1a66d938f8a3f

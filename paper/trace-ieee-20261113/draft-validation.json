@@ -10,19 +10,16 @@
   "all_26_outcomes_included": true,
   "author_details_present": true,
   "billing_total_present": true,
-  "remaining_placeholders": [
-    "Add the submission date and updated artifact archive release/commit containing this paper and evaluation.",
-    "Add updated commit-pinned evaluation artifact snapshot link."
-  ],
+  "remaining_placeholders": [],
   "source_sha256": {
     "main.tex": "927757babe57bcb05b6b6e0f7adf0f89031a7f17c8415db10eb157d9ab4a7b3b",
     "body.tex": "78f053f0073aa141e310c472b106fad5ef29d229b56f32dda3ee29bc04e7db3e",
-    "appendix.tex": "930afc5f6419e18f4c8f9c452add575560a04c9e8947505dd4bd3a1b291c1ef8",
-    "references.tex": "168003f52f3eec3dbcf0fcb5a2b89de572016555d73d85c8e7000404ee240cdc",
+    "appendix.tex": "ba88c51f42fe75aaddc18dc59912778f237b9be058db5028d7467f9bbbbc8f68",
+    "references.tex": "049aa29ce82453560006560f5e9a6de7c8f49747191d27a3c8ddf17d08f1152a",
     "outcomes-table.tex": "d7b5fa8385968800d4bca545dc3c863709a774e604a36806fc69245b20a7df27",
     "IEEEtran.cls": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
   },
-  "pdf_sha256": "090cb1c1930af9bda0efe7d8ee52775c9fb9e79ed90003636a3ededef5aa589e",
+  "pdf_sha256": "17793d6a739ad8b24654d244356d3f0675dbd5d46307dbc1c1208a54df267139",
   "notes": [
     "Compilation tool reported success. Detailed current compiler log, auxiliary files, citation-warning and overfull-box diagnostics were not exported; no claim that these diagnostics were independently checked.",
     "evidence.json remains the historical experiment evidence index; experimental results were not rerun or changed.",
@@ -33,5 +30,6 @@
   "no_unresolved_reference_markers_in_export": true,
   "wording_pass_2": "2026-11-17",
   "terminology_pass_3": "2026-11-17",
-  "final_clarity_review": "2026-11-17"
+  "final_clarity_review": "2026-11-17",
+  "artifact_snapshot_commit": "a5344b0abf54dcb9674f70261ad1a66d938f8a3f"
 }

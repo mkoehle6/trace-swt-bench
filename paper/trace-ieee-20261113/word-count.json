@@ -1,5 +1,5 @@
 {
-  "main_prose_words_approx": 2530,
+  "main_prose_words_approx": 2975,
   "rule": "body.tex only; removes table environments and cite/ref/label commands, strips command names, counts alphanumeric word groups. Excludes abstract, references and appendices; not a texcount result.",
-  "updated": "2026-11-16"
+  "updated": "2026-11-17"
 }

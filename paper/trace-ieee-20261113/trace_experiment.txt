@@ -13,21 +13,23 @@ Abstract—Issue-driven regression testing requires translating
 informal reports into executable behavioral checks. TRACE (Test
 Reproduction through Analysis, Checks, and Evidence) adds
 bounded extraction and validation of evidence-grounded issue
-speciﬁcations before a DeepSeek coding agent generates native
-test patches. We compare this workﬂow with a shared native-
-test baseline on 26 assigned SWE-bench V eriﬁed instances using
-the ofﬁcial SWT-Bench unit-test evaluator . Baseline resolves 16
-instances and TRACE resolves 17; both apply all 26 patches.
-The paired outcomes are 15 shared successes, two TRACE-only
-successes, one baseline-only success, and eight shared failures.
-Mean generation time increases from 93.45 to 127.09 seconds.
-Six systematically selected case studies show that speciﬁcation
-acceptance does not guarantee a valid regression oracle or com-
-patibility with the ﬁxed repository. Parser attribution anomalies,
-historical image limitations, diagnostic deviations, incomplete cost
-accounting, and single-run variability constrain interpretation.
-The observed one-instance gain is preliminary evidence rather
-than a demonstrated general improvement.
+speciﬁcations before a DeepSeek-Flash-powered coding agent
+generates native test patches. We compare this workﬂow with
+a shared native-test baseline on 26 assigned SWE-bench V eriﬁed
+instances using the ofﬁcial SWT-Bench unit-test evaluator . Base-
+line succeeds on 16 instances and TRACE on 17; all 26 patches
+from each workﬂow apply successfully. The paired outcomes are
+15 shared successes, two TRACE-only successes, one baseline-
+only success, and eight shared unsuccessful outcomes. Mean
+generation time increases from 93.45 to 127.09 seconds. Six sys-
+tematically selected case studies illustrate that issue-speciﬁcation
+acceptance does not guarantee a test that correctly checks the
+reported behavior or compatibility with the ﬁxed repository.
+Test-name attribution discrepancies, incomplete historical image
+records, diagnostic deviations from the protocol, incomplete
+per-method cost accounting, and single-run variability limit
+interpretation. The observed one-instance gain is preliminary
+evidence rather than a demonstrated general improvement.
 Index Terms—regression testing, test generation, coding agents,
 SWT-Bench, issue speciﬁcations
 I. R ESEARCH QUESTION AND MOTIVATION
@@ -39,20 +41,28 @@ invalid after a legitimate API change. SWT-Bench evaluates
 repository-level generated tests against reference ﬁxes and
 supplies complementary behavioral and coverage evidence [ 1],
 [2].
-We ask: Does evidence-grounded issue-speciﬁcation ex-
-traction and validation improve DeepSeek’s issue reproduc-
-tion success compared with direct report-to-test generation?
+We use DeepSeek-Flash for test generation in both work-
+ﬂows. We ask: Does evidence-grounded issue-speciﬁcation
+extraction and validation improve DeepSeek-Flash’s issue
+reproduction, as measured by ofﬁcial SWT-Bench instance-
+level success, compared with direct report-to-test generation?
 TRACE (Test Reproduction through Analysis, Checks, and
-Evidence) hypothesizes that explicitly identifying a target,
-trigger, observed behavior, expected behavior, and suggested
-assertion will reduce unsupported assumptions. V alidation
-is intended to ﬁlter analysis before generation; it does not
-independently prove test correctness. Our contribution is a
-bounded preprocessing workﬂow, preserved paired artifacts,
-and an empirical examination of where formalized issue un-
-derstanding helps or fails.
+Evidence) is motivated by the hypothesis that explicitly iden-
+tifying a target, trigger, observed behavior, expected behavior,
+and suggested assertion will reduce unsupported assumptions.
+We measure reproduction success, not the number of unsup-
+ported assumptions, so the proposed mechanism is not directly
+tested. V alidation is intended to ﬁlter the issue speciﬁcation
+Course project for SE 433: Software Testing and Quality Assurance, DePaul
+University.
+before generation; it does not independently prove test correct-
+ness. Our contribution is a bounded preprocessing workﬂow,
+preserved paired artifacts, and an empirical examination of
+when structured issue speciﬁcations help or fail.
 II. M ETHOD AND EXPERIMENTAL DESIGN
 A. Two Workﬂows
+In this paper, “DeepSeek” means DeepSeek-Flash; recorded
+provider identiﬁers appear in Appendix D.
 Baseline. Our Python script, controller.py, reads the saved
 issue description from report.txt. It passes that text unchanged
 to mini-SWE-agent 2.4.6 [ 3] by calling agent.run(task). The
@@ -72,84 +82,134 @@ TRACE. Before starting that same agent process, the con-
 troller makes a separate request to DeepSeek to analyze only
 the original issue. It asks for ﬁve items: the target function,
 triggering input, observed behavior, expected behavior, and
-a suggested assertion. Each item must include an exact sup-
-porting quote from the issue; unknown information must be
-marked null. Python checks that the response has the required
-structure, that its quotes occur in the report, and that at least
-one item contains usable information. A second, separate
-DeepSeek request compares the extracted information with the
-original issue description. It checks whether the issue supports
-each item, whether any item contradicts the issue, and whether
-important information was left out. These checks assess the
-analysis, not the generated test.
-If either check rejects the analysis, the controller sends
-the errors back with the original issue and requests another
-extraction. It permits three extraction attempts, each with a
-review if the Python checks pass, for at most six preprocessing
-calls. When analysis is accepted, the controller appends it to
-the original issue and passes both to mini-SWE-agent. If all
-attempts are rejected, it passes only the original issue and
+a suggested assertion. Each known item must include an
+exact supporting quote from the issue; an unknown item
+and its evidence must both be marked null. Python checks
+that the response has the required structure, that its quotes
+occur in the report, and that at least one item contains usable
+information. A second, separate DeepSeek request compares
+the extracted information with the original issue description.
+It checks whether the issue supports each item, whether any
+item contradicts the issue, and whether important information
+was left out. These checks assess the issue speciﬁcation, not
+the generated test.
+If either check rejects the issue speciﬁcation, the controller
+sends the errors back with the original issue and requests
+another extraction. It permits up to three extraction attempts;
+each attempt that passes the Python checks is followed by
+a review, giving at most six preprocessing requests. When
+
+an issue speciﬁcation is accepted, the controller appends it
+to the original issue and passes both to mini-SWE-agent. If
+all attempts are rejected, it passes only the original issue and
 records a fallback. Missing credentials and other operational
 errors stop the run rather than triggering this fallback. The
 agent then uses the same DeepSeek-driven inspection, test-
 writing, execution, and submission process as the baseline.
-The analysis requests and the agent’s generation requests
-
-are separate conversations; only the accepted analysis text is
-handed from one to the other.
-The preserved run records support this procedure [ 5].
-Both methods use the same native-test instructions, buggy
-environment, and generation limits: 100 agent steps and a
-nominal $0.50 agent budget, excluding TRACE preprocessing.
-A ﬁnal call can exceed that budget. The agent’s submitted
-patch is exported unchanged; non-submissions would export
-empty predictions. Neither method receives the reference ﬁx
-or evaluator-only results during generation or repair. Running
-a test on buggy code supplies feedback, but does not establish
-that it passes after the ﬁx. An automatic classiﬁer that dis-
-tinguishes issue-related failures from syntax, import, or setup
-errors is future work, not an implemented controller step.
+The speciﬁcation-extraction and review requests are separate
+from the agent’s generation conversation; only the accepted
+issue speciﬁcation is handed from one to the other.
+The course guidelines require a same-model workﬂow com-
+parison and ofﬁcial unit-test evaluation [ 4]. The preserved run
+records support this procedure [ 5]. Both methods use the same
+native-test instructions, buggy environment, and generation
+limits: 100 agent steps and a nominal $0.50 agent budget,
+excluding TRACE preprocessing. A ﬁnal model request can
+take spending above that nominal limit. The agent’s submitted
+patch is exported unchanged. All 52 selected runs submit-
+ted patches, so no empty predictions occurred in the ﬁnal
+evaluated set; the exporter retains non-submissions as empty
+predictions when they occur. Neither method receives the
+reference ﬁx or evaluator-only results during generation or
+repair. Running a test on buggy code supplies feedback, but
+does not establish that it passes after the ﬁx. An automatic
+classiﬁer that distinguishes issue-related failures from syntax,
+import, or setup errors is future work, not an implemented
+controller step.
 The original agent conﬁguration asks for a standalone script
 that reproduces the bug. For this experiment, both methods
 instead receive the same instructions to add regression tests
-to the repository’s existing test suite. Both also use a shell
-setting that preserves a failing test runner’s exit status when
-its output is piped through another command. These shared
-changes make the outputs suitable for unit-test evaluation and
-keep execution failures visible. The original conﬁguration ﬁle
-is preserved; the controller applies these changes in memory
-for each run. The comparison therefore measures the addition
-of TRACE’s issue analysis to this shared unit-test workﬂow.
+to the repository’s existing test suite. Both also enable Bash’s
+pipefail option, which preserves a failing test runner’s exit
+status when its output is piped through another command.
+These shared changes make the outputs suitable for unit-test
+evaluation and keep execution failures visible. The original
+conﬁguration ﬁle is preserved; the controller applies these
+changes in memory for each run. The comparison therefore
+measures the addition of TRACE’s issue speciﬁcation to this
+shared unit-test workﬂow.
 B. Assignment, Controls, and Evaluation
 The ﬁxed assignment comprises 26 issues, 13 Easy
 and 13 Hard, across 12 Python repositories. These
 are historical assignment labels, not our measured dif-
-ﬁculty classes. We retain SWE-bench V eriﬁed revision
+ﬁculty classes. We use SWE-bench V eriﬁed revision
 c104f840cc67f8b6eec6f759ebc8b2693d585d4a. Both arms use
-the same saved reports and paired environment references. For
-each issue, we compare one baseline run with one TRACE
-run. We reused three such pairs from the pilot phase; for
-the remaining issues, we ran the baseline ﬁrst and TRACE
+the same saved reports and the same Docker image for each
+pair. For each issue, we compare one baseline run with one
+TRACE run. We reused three such pairs from the pilot phase;
+for the remaining issues, we ran the baseline ﬁrst and TRACE
 second. Conﬁguration and report hashes are checked. The
 three pilot pairs recorded Docker image names rather than
 unique image ﬁngerprints, limiting our ability to verify their
 original image contents. We have one selected generation per
-arm per instance, with earlier failures preserved. No explicit
-generation seed was set. We did not repeat each method on
-each issue, so we cannot determine how much the results
-would change across repeated runs. The assignment is the
-unit of analysis, not the number of test methods generated.
+arm per instance, with earlier failed attempts preserved. No
+explicit generation seed was set. We did not repeat each
+method on each issue, so we cannot determine how much
+the results would change across repeated runs. Each assigned
+instance is the unit of analysis, not each generated test method.
 We record problems such as missing API credentials, network
 errors, and environment setup failures separately from rejected
-bug analyses. Fixing these setup problems does not permit
-changing the experimental instructions. For each issue and
-method, we use the generated patch identiﬁed in the saved run-
-selection record. We do not compare evaluation scores from
-earlier attempts and then choose the best-performing patch.
+issue speciﬁcations. Fixing these setup problems does not
+permit changing the experimental instructions. For each issue
+and method, we use the generated patch identiﬁed in the saved
+run-selection record. We do not compare evaluation scores
+from earlier attempts and then choose the best-performing
+patch.
 After test generation, we evaluate the saved patches
 using the ofﬁcial SWT-Bench harness at commit
 eee38624e36a1b39976fffa2bddbc4c3c754d293. The evaluator
-uses unit-test mode with standard patch handling and coverage
+uses unit-test mode with standard patch handling and
+coverage collection enabled. It runs up to two evaluation jobs
+at once, with a 30-minute timeout for each execution. Both
+methods use identical evaluation settings. Dataset reference
+ﬁelds and evaluation outputs remain in an evaluation-only
+directory. All 26 assigned instances remain in the success-
+rate and patch-applicability denominators for each method.
+After infrastructure failures, recovery reuses unchanged
+environment-build recipes or predictions and preserves
+unsuccessful attempts. Candidates are not selected based on
+evaluation outcomes.
+III. R ESULTS
+A. Success, Applicability, and Paired Outcomes
+Table I reports ofﬁcial outcomes over all assignments. Base-
+line succeeds on 16/26 instances (61.54%); TRACE succeeds
+on 17/26 (65.38%). Both methods have 26/26 applicable
+patches (100%): applicability means that the submitted patch
+applies cleanly to the repository. Table III in Appendix B
+lists every paired outcome and coverage value. Appendix C
+provides reproducibility details, and Appendix D records team
+contributions and AI-tool use. All 52 evaluation reports were
+produced—26 per method. No issues were removed from the
+totals because of technical problems. The evaluator reported no
+instance-level errors. Initial image timeouts and setup-check
+failures were resolved before ﬁnal evaluation.
+An evaluator exit code of zero indicates completed eval-
+uation, not that every reproduction succeeded. The harness
+compares runs with the generated patch against a base com-
+parison without that patch. It requires (i) additional fail-to-
+pass tests, (ii) preservation of the base comparison’s fail-
+to-pass tests, and (iii) no additional tests that fail in both
+versions or change from passing to failing. Therefore, a patch
+can introduce a useful fail-to-pass test yet be unsuccessful
+because another assertion introduces a lasting regression. This
+stricter instance-level criterion explains some disagreements
+better than counting isolated failing assertions.
+The paired outcomes are 15 instances where both succeed,
+one where only the baseline succeeds, two where only TRACE
+succeeds, and eight where neither succeeds (Table II). TRACE
+succeeds where the baseline does not on pytest 7432 and
+Django 15098; the baseline alone succeeds on Django 13344.
+
 TABLE I
 OFFICIAL EVALUATION AND SELECTED GENERATION RECORDS
 Measure Baseline TRACE
@@ -157,96 +217,87 @@ Ofﬁcial successes / assigned 16/26 17/26
 Success rate 61.54% 65.38%
 Applicable / assigned 26/26 26/26
 Applicability rate 100% 100%
-Mean coverage delta, available 0.567364 0.602731
+Mean coverage delta (cases with
+coverage)
+0.567364 0.602731
 Coverage availability 25/26 25/26
-Mean delta, successful cases 0.691899 0.726739
-Successful coverage count 16 17
+Mean coverage delta, successful
+cases
+0.691899 0.726739
+Successful cases with coverage 16 17
 Mean generation time (seconds) 93.45 127.09
 Agent-only cost (USD) 0.379072 0.383181
 Evaluation time (seconds) 3425.92 1549.86
-collection enabled. It runs up to two evaluation jobs at once,
-with a 30-minute timeout for each execution. Both methods
-use identical evaluation settings. Dataset reference ﬁelds and
-evaluation outputs remain in an evaluation-only directory. All
-26 assignment IDs remain in both denominators. Infrastructure
-recovery reuses unchanged recipes or predictions, preserves
-unsuccessful attempts, and does not select candidates by
-evaluator outcome.
-III. R ESULTS
-A. Success, Applicability, and Paired Outcomes
-Table I reports ofﬁcial outcomes over all assignments.
-Baseline resolves 16/26 instances (61.54%); TRACE resolves
-17/26 (65.38%). Both apply 26/26 patches (100%). All 52
-evaluation reports were produced—26 per method. No issues
-were removed from the totals because of technical problems.
-The evaluator reported no instance-level errors. Initial image
-timeouts and admission failures were recovered before ﬁnal
-evaluation. An exit code of zero indicates completed evalu-
-ation, not that every reproduction succeeded. The inspected
-harness requires additional fail-to-pass behavior relative to its
-base comparison, preservation of base fail-to-pass behavior,
-and no additional persistent or pass-to-fail failures. Therefore,
-a patch can introduce a useful transitioning test yet remain
-unresolved because another assertion introduces a lasting
-regression. This stricter instance-level criterion explains some
-disagreements better than counting isolated failing assertions.
-The paired counts are 15 both succeed, one baseline only,
-two TRACE only, and eight neither succeed (Table II). TRACE
-gains Pytest 7432 and Django 15098 but loses Django 13344:
-a net gain of one instance, or 3.85 percentage points. The
-methods produced different success outcomes on only three
-issues: two favored TRACE and one favored the baseline. This
-small difference does not provide sufﬁcient statistical evidence
-that either method performs better, nor does it establish that
-they perform equally.
-TRACE accepts 22 speciﬁcations and falls back on four is-
-sues after three attempts each. These fallbacks remain TRACE
-outcomes. Django 15098 is a TRACE-only success despite
-fallback, so that gain cannot be credited directly to accepted
-
 TABLE II
 PAIRED OFFICIAL REPRODUCTION OUTCOMES
-TRACE succeeds TRACE fails
+TRACE succeeds TRACE unsuccessful
 Baseline succeeds 15 1
-Baseline fails 2 8
-speciﬁcation content. Two pairs have byte-identical submitted
-patches. Overall counts therefore describe the complete work-
-ﬂow, including fallback and sampling variation, rather than
-isolating the causal contribution of extraction.
+Baseline unsuccessful 2 8
+The net difference is one instance, or 3.85 percentage points.
+The methods produced different success outcomes on only
+three issues: two favored TRACE and one favored the baseline.
+An exact two-sided McNemar test on the two TRACE-only
+and one baseline-only successes gives p = 1 .0. This small
+difference does not provide sufﬁcient statistical evidence that
+either method performs better, nor does it establish that they
+perform equally.
+TRACE accepts 22 issue speciﬁcations and falls back after
+three attempts on Django 15098, Django 16631, Sphinx 8551,
+and Django 13810. These fallbacks remain TRACE outcomes.
+Django 15098 is a TRACE-only success despite fallback,
+so that gain cannot be credited directly to the accepted
+issue speciﬁcation. Django 11163 and Flask 5014 have byte-
+identical baseline/TRACE patches. TRACE accepts the issue
+speciﬁcation for Django 13344 on its second extraction at-
+tempt, without fallback. Overall counts therefore describe the
+complete workﬂow, including fallback and sampling variation,
+rather than establishing whether speciﬁcation extraction caused
+the difference.
 B. Coverage, Cost, and Runtime
-We report the ofﬁcial ﬁeld coverage_delta_pred, a unitless
-fraction over executable lines changed by the reference ﬁx
-whose execution counts increase relative to the harness base
-comparison. It is not whole-repository coverage. Arithmetic
-means exclude unavailable values and are not weighted by
-repository size or changed-line count. Overall means in-
-clude all cases with coverage, regardless of success; success-
-conditioned means use each method’s own successful subset
-and therefore compare different subsets.
+We report the ofﬁcial ﬁeld coverage_delta_pred, the fraction
+of executable lines changed by the reference ﬁx whose execu-
+tion counts increase relative to the harness base comparison.
+This fraction is unitless. It is not whole-repository coverage.
+Arithmetic means exclude unavailable values and are not
+weighted by repository size or changed-line count. Overall
+means include all cases with available coverage, regardless
+of success. Success-only means use each method’s successful
+cases with available coverage, so the two methods are averaged
+over different subsets.
 Sphinx 8721 has N/A coverage in both arms because the
 harness ﬁnds no executable changed lines in its coverage
-inputs. N/A is excluded, not replaced with zero. The exact
-implementation and counts accompany the artifacts. Identi-
-cal Django 11163 patches receive different coverage deltas,
-demonstrating that these measurements can vary even when
-submitted content matches.
-Selected-run agent costs sum to $0.379071900 baseline
-and $0.383181006 TRACE. TRACE additionally makes 69
-preprocessing calls, recording 49,789 prompt and 173,755
-completion tokens. The amounts above are agent-reported
-costs for the selected runs only, not the total experiment cost.
-We report the recorded preprocessing token usage separately
-without assigning it a dollar amount. DeepSeek billing ex-
-ports for October 18–November 16, 2026 show total charges
-of $0.959975793 (approximately $0.96) across the exported
-period. These charges are not limited to the selected 52
-generation runs and cannot be separated reliably into baseline
-and TRACE totals from the daily billing records alone. They
-are reported separately, not added to the agent-reported costs,
-because the records overlap. Mean controller generation time
-rises by 33.64 seconds, approximately 36%, including TRACE
-preprocessing but excluding image preparation. Evaluation
-takes 57.10 minutes baseline and 25.83 minutes TRACE.
+inputs. N/A is excluded, not replaced with zero. The per-
+instance coverage values and aggregation counts are indexed in
+evidence.json; the metric implementation is in src/grading.py
+at the recorded SWT-Bench harness commit. A zero coverage
+delta means that no counted changed line has a positive
+execution-count increase relative to the base comparison; it
+does not mean that those lines were never executed. Success
+uses test outcomes rather than this coverage measure, so
+TRACE can succeed on Django 15098 and SymPy 24539 with
+zero delta. Baseline Django 15098 also has zero delta, but is
+unsuccessful. Identical Django 11163 patches receive different
+coverage deltas, showing that these measurements can vary
+even when submitted content matches.
+Agent-reported costs for the selected runs total $0.379072
+for baseline and $0.383181 for TRACE. TRACE additionally
+makes 69 preprocessing requests, recording 49,789 input and
+173,755 output tokens. These costs exclude preprocessing and
+are not the total experiment cost. We report the recorded
+preprocessing token usage separately without assigning it a
+dollar amount.
+DeepSeek billing exports for October 18–November 16,
+2026 show total charges of $0.959976 (rounded) across the
+exported period. These charges are not limited to the selected
+52 generation runs and cannot be separated reliably into base-
+line and TRACE totals from the daily billing records alone.
+They are reported separately, not added to the agent-reported
+costs, because adding them would double-count charges for
+the selected runs.
+Mean generation time recorded by the controller increases
+by 33.64 seconds, approximately 36%, including TRACE pre-
+processing but excluding image preparation. Evaluation takes
+57.10 minutes for baseline and 25.83 minutes for TRACE.
 TRACE runs second and reuses comparison caches, so evalu-
 ation timing is not evidence of workﬂow efﬁciency.
 IV. T EST QUALITY ANALYSIS
@@ -261,11 +312,13 @@ stance IDs within each category, take the ﬁrst two shared
 successes, ﬁrst two shared failures, then ﬁrst two disagree-
 ments, without duplication. This yields Astropy 14508, Django
 11163, Django 12155, Django 13513, Django 13344, and
-Django 15098. No category shortfall occurs. Appendix A
-discusses the issue, generated check, both execution states,
-semantic relevance, and method implication for each.
+Django 15098. Each category contains at least two cases, so no
+additional cases are needed. Appendix A discusses the issue,
+generated check, both execution states, semantic relevance,
+and method implication for each.
 The successful cases check clear expected behaviors: writ-
 ing decimal numbers compactly in astronomy ﬁle headers
+
 without truncating comments, and returning an empty dic-
 tionary when no ﬁelds are requested. Both methods capture
 these behaviors; additional structure offers no demonstrated
@@ -274,98 +327,109 @@ For Django 12155, both methods produced assertions that
 exposed the indentation problem before the ﬁx. However, the
 reference ﬁx removed a helper function that the existing test
 module imported. This prevented the module from loading
-afterward, so neither method demonstrated a passing test
-on the ﬁxed code. For Django 13513, both methods added
-tests checking that Django’s debug report hides an explicitly
-suppressed exception. These tests passed before and after the
-ﬁx because that behavior already worked. They did not exer-
-cise the scenario addressed by the ofﬁcial ﬁx—an exception
-without a traceback—and therefore did not reproduce the bug.
-Accepted preprocessing does not guarantee compatibility or
-discrimination.
-The disagreements show why suite and parser evidence
-matter. Django 13344 shows that validating an issue analysis
-does not guarantee a correct test setup: TRACE reproduced a
-similar symptom in a different middleware arrangement, but its
-test still failed after the ﬁx. For Django 15098, both methods
-generated URL tests that failed before the ﬁx and passed
-afterward. However, the baseline also added a language-lookup
-assertion that continued failing after the ﬁx, causing its overall
-evaluation to fail. TRACE avoided that additional persistent
-failure and succeeded. Because TRACE used the original
-report after its analysis failed validation, this result does not
-demonstrate a beneﬁt from the extracted analysis. Several
-ofﬁcial transition labels do not align cleanly with raw test-
-name lines; we report the ofﬁcial score and raw observations
-separately rather than silently correcting either.
+afterward, so neither method demonstrated a passing test on
+the ﬁxed code. For Django 13513, both methods added tests
+checking that Django’s debug report hides an earlier exception
+explicitly suppressed with raise...fromNone. These tests passed
+before and after the ﬁx because that behavior already worked.
+They did not exercise the scenario addressed by the ofﬁcial
+ﬁx—an exception without a traceback—and therefore did not
+reproduce the bug. An accepted issue speciﬁcation does not
+guarantee compatibility with the ﬁxed code or the ability to
+distinguish buggy from ﬁxed code.
+The disagreement cases illustrate that an added persistent
+failure can make an instance unsuccessful even when new
+tests go from failing to passing. They also show that parsed
+test labels can differ from raw execution logs. Django 13344
+shows that validating an issue speciﬁcation does not guarantee
+a correct test setup: TRACE reproduced a similar symptom in
+a different middleware arrangement, but its test still failed after
+the ﬁx. For Django 15098, both methods generated URL tests
+that failed before the ﬁx and passed afterward. However, the
+baseline also added a language-lookup assertion that continued
+failing after the ﬁx, causing its overall evaluation to fail.
+TRACE avoided that additional persistent failure and suc-
+ceeded. Because TRACE used the original report after its issue
+speciﬁcation failed validation, this result does not demonstrate
+a beneﬁt from the extracted issue speciﬁcation. Several ofﬁcial
+transition labels do not align cleanly with raw test-name lines;
+we report the ofﬁcial score and raw observations separately
+rather than silently correcting either.
 V. T HREATS TO VALIDITY
 Several factors limit our ability to attribute the observed
 improvement to TRACE. We selected one run per method for
 each issue, reused three pilot pairs, and ran the baseline before
 TRACE for the remaining issues. We did not measure variation
 across repeated runs or changes in the hosted model. The same
-model also extracted and reviewed the analysis, so both steps
-could share the same misunderstanding.
+model also extracted and reviewed the issue speciﬁcation, so
+both steps could share the same misunderstanding.
 Some recorded agent actions require additional review. Six
-runs were ﬂagged for inspecting repository history. Other
-diagnostic actions included a temporary plugin that changed
-software behavior and stand-in code for missing dependencies.
-For Sphinx 8621, the baseline agent created a temporary pytest
-
-plugin that replaced the keyboard-formatting function in mem-
-ory to try its own proposed ﬁx; passing tests under that plugin
-were not results from the ofﬁcial reference ﬁx. For Sphinx
-8638, the TRACE agent supplied a temporary replacement
-for the missing roman dependency, whose toRoman() function
-returned ordinary number strings instead of Roman numerals.
-This allowed diagnostic tests to run, but did not reproduce the
-real dependency’s behavior. Although the submitted patches
-contain only test changes, this does not prove that every action
-taken during generation followed the experiment’s restrictions.
+selected runs were ﬂagged for inspecting repository history:
+baseline on Django 13513, Django 15098, and Django 16631;
+TRACE on Seaborn 3187, Sphinx 8548, and Sphinx 8638.
+These are command-review ﬂags, not proof that a reference
+ﬁx was accessed or used. Other diagnostic actions included a
+temporary plugin that changed software behavior and stand-
+in code for missing dependencies. For Sphinx 8621, the
+baseline agent created a temporary pytest plugin that replaced
+the keyboard-formatting function in memory to try out its
+own proposed ﬁx; passing tests under that plugin were not
+results from the ofﬁcial reference ﬁx. For Sphinx 8638, the
+TRACE agent supplied a temporary replacement for the miss-
+ing roman dependency, whose toRoman() function returned
+ordinary number strings instead of Roman numerals. This
+allowed diagnostic tests to run, but did not reproduce the
+real dependency’s behavior. The submitted patches contain
+only test changes, but the patches alone do not establish
+that all actions during generation followed the experiment’s
+restrictions.
 The reported results depend on which tests the evaluator
 runs and how it reads their output. Some test names could
 not be matched between the before-ﬁx and after-ﬁx logs, and
-some recorded transitions belonged to existing tests rather than
-newly generated ones. These issues can affect the reported suc-
-cess counts. Coverage measures execution of lines changed by
-the reference ﬁx, not whether an assertion correctly represents
-the issue. We report the ofﬁcial results for all 26 issues and
-document discrepancies found in the raw logs. For three pilot
-pairs, we recorded Docker image names but not unique image
-ﬁngerprints, so we cannot fully verify their original contents.
+some recorded before/after transitions belonged to existing
+tests rather than newly generated ones. These issues can affect
+the reported success counts. Coverage measures execution of
+lines changed by the reference ﬁx, not whether an assertion
+correctly represents the issue. We report the ofﬁcial results for
+all 26 issues and document discrepancies found in the raw
+logs. For three pilot pairs, we recorded Docker image names
+but not unique image ﬁngerprints, so we cannot fully verify
+their original contents.
 Our ﬁndings apply to a small set of assigned Python issues.
-The assignment’s Easy and Hard labels and TRACE’s one-
-issue advantage do not establish how either method would
-perform on other projects. Provider billing totals are available
-for the exported period, but the records do not separate charges
-by workﬂow or selected run, so they cannot establish which
-method is more cost-effective.
-A follow-up study should decide how many repeated runs
-to perform and how to handle violations of the experiment’s
-rules before reviewing results. Human reviewers could also
-independently check whether each test captures the reported
-behavior and whether its failure comes from the bug rather
-than an environment problem. Measuring how often reviewers
-agree would provide an additional check beyond DeepSeek
-reviewing its own analysis.
+Neither the Easy/Hard labels nor TRACE’s one-instance ad-
+vantage indicates how either method would perform on other
+projects. Provider billing totals are available for the exported
+period, but the records do not separate charges by workﬂow or
+selected run, so they cannot establish which method is more
+cost-effective.
+A follow-up study should specify the number of repeated
+runs and how rule violations will be handled before reviewing
+any results. Human reviewers could also independently check
+whether each test captures the reported behavior and whether
+its failure comes from the bug rather than an environment
+problem. Measuring how often reviewers agree would provide
+an additional check beyond DeepSeek reviewing its own issue
+speciﬁcation.
 VI. C ONCLUSION
 TRACE achieves 17/26 ofﬁcial successes versus 16/26 for
-the baseline, with universal patch applicability and increased
+the baseline, with 100% patch applicability and increased
 mean generation time. The paired evidence supports a modest
-observed difference, not a dependable superiority claim. Future
-work should repeat generation under recorded seeds where
-supported, isolate preprocessing through controlled ablations,
-audit raw-to-parsed transitions, and add a shared quality
-checker for issue relevance and setup failures. Such a checker
-should initially measure both methods without evaluator-
-guided repair. Any later sensitivity analysis must accompany
-the full assigned-set results rather than discard inconvenient
-cases.
+observed difference, not a reliable advantage for TRACE.
+Future work should repeat generation under recorded seeds
+where supported, compare extraction with and without review,
+check how raw test results are converted into parsed transi-
+tions, and add a shared quality checker for issue relevance
+and setup failures. Such a checker should initially assess both
+methods without using evaluator-only results to repair tests.
+Any later analysis of how the ﬁndings change under alternative
+assumptions should supplement the full assigned-set results
+rather than discard unfavorable cases.
 REFERENCES
 [1] N. Mündler, M. N. Müller, J. He, and M. V echev, “SWT-Bench:
 Testing and validating real-world bug-ﬁxes with code agents,” in
 Advances in Neural Information Processing Systems , 2024, doi:
 10.48550/arXiv.2406.12952.
+
 [2] SWT-Bench contributors, “SWT-Bench evaluation harness,” source re-
 vision eee38624e36a1b39976fffa2bddbc4c3c754d293. [Online]. Avail-
 able: https://github.com/logic-star-ai/SWT-Bench
@@ -373,63 +437,70 @@ able: https://github.com/logic-star-ai/SWT-Bench
 line]. Available: https://github.com/SWE-agent/mini-swe-agent
 [4] DePaul SE Team, “Final project: Improving DeepFlash test generation
 with mini-SWE-agent and SWT-Bench,” secs. 6, 8, 11, and 12, accessed
-Nov. 13, 2026. [Online]. Available: https://github.com/DePaul-SE-Team/
-SE443-333-ﬁnal-project-guideline
-[5] TRACE project, “Generation and ofﬁcial evaluation artifacts,’ Nov.
+Nov. 17, 2026. The linked repository is named SE443-333; this project
+was completed for SE 433. [Online]. Available: https://github.com/
+DePaul-SE-Team/SE443-333-ﬁnal-project-guideline
+[5] TRACE project, “Generation and ofﬁcial evaluation artifacts,” Nov.
 2026. [Online]. Available: https://github.com/mkoehle6/trace-swt-bench.
 [TODO: Add updated commit-pinned evaluation artifact snapshot link.]
 APPENDIX A
 SIX DISTINCT CASE STUDIES
-The cases below use the selection rule in Section IV . “Suc-
-cess” denotes the ofﬁcial instance-level result. Raw pre/post
-observations are reported separately where parser attribution
-differs. Source paths and complete transition sets are indexed
-in evidence.json beside the paper.
+The cases below use the selection rule in Section IV. “Suc-
+cess” denotes the ofﬁcial instance-level result. Raw before-ﬁx
+and after-ﬁx observations are reported separately when the log
+parser assigns results to different test names. Source paths and
+complete transition sets are indexed in evidence.json beside the
+paper.
 We assess TRACE’s generated tests using four properties:
-P1, meaningful assertions : explicitly check an expected out-
-come; P2, issue-related failure: fail on buggy code because of
-the reported problem, not a typo, import error, or setup failure;
-P3, passes after the ﬁx : the same generated test executes and
-passes after the reference ﬁx; and P4, requirement alignment:
-the test setup and assertions represent the behavior requested in
-the issue. These are retrospective assessments from submitted
-patches and saved execution evidence, not outputs of an
-implemented automatic quality checker. A passing post-ﬁx
-test alone does not establish issue reproduction. “Partial”
-indicates that only part of the reported scenario is represented;
-“not established” indicates insufﬁcient evidence, rather than a
-conﬁrmed negative result.
+P1, meaningful assertions : the test explicitly checks an
+expected outcome; P2, issue-related failure : the test fails
+on buggy code because of the reported problem, not a typo,
+import error, or setup failure; P3, passes after the ﬁx : the
+same test executes and passes after the reference ﬁx; and P4,
+requirement alignment : the test uses a setup and assertions
+that represent the behavior requested in the issue. These are
+retrospective assessments from submitted patches and saved
+execution evidence, not outputs of an implemented automatic
+quality checker. P1–P4 are scored only for TRACE to assess
+the proposed workﬂow; baseline behavior is described for
+comparison but was not separately scored with this rubric.
+A passing post-ﬁx test alone does not establish issue re-
+production. “Partial” indicates that only part of the reported
+scenario is represented; “not established” indicates insufﬁcient
+evidence, rather than a conﬁrmed negative result.
 A. Shared Success: Astropy 14508
 Issue. FITS (Flexible Image Transport System) is a ﬁle
 format used in astronomy. Its header stores metadata in 80-
 character records called cards, containing a keyword, a value,
-and an optional comment. The HIERARCH convention al-
-lows keyword names longer than the usual eight characters,
-while retaining the 80-character record limit. 1 In this issue,
-a decimal value is written with unnecessarily many digits,
-leaving too little space for the comment and causing it to be cut
-off. Generated checks. Both methods construct the reported
-card using the value 0.009125 and compare its serialized
-representation with the compact expected string. Baseline
-additionally checks the stored value and comment. Before.
-Both new tests fail with a V erifyWarning about comment
-truncation. After .Each passes, and each ofﬁcial report records
-one added fail-to-pass test without added persistent or pass-
-to-fail failures. Relevance. The tests check that the number is
-written compactly and the full comment is preserved, directly
-matching the problem described in the bug report. Implica-
-tion. Both methods ﬁnd an effective native oracle; TRACE’s
-accepted speciﬁcation does not produce an observable success
-advantage.
+and an optional comment. The HIERARCH convention allows
+keyword names longer than the usual eight characters, while
+retaining the 80-character record limit. 1
+In this issue, a decimal value is written with unnecessarily
+many digits, leaving too little space for the comment and
+causing it to be cut off. Generated checks. Both methods
+construct the reported card using the value 0.009125 and
+compare its serialized representation with the compact ex-
+pected string. Baseline additionally checks the stored value and
+comment. Before. Both new tests fail with a V erifyWarning
+about comment truncation. After . Each passes, and each
+ofﬁcial report records one added fail-to-pass test without added
+persistent or pass-to-fail failures. Relevance. The tests check
 1Astropy FITS header documentation: https://docs.astropy.org/en/stable/io/
 ﬁts/usage/headers.html.
-
+that the number is written compactly and the full comment
+is preserved, directly matching the problem described in the
+bug report. Implication. Both methods generate a native
+test that checks the expected behavior; TRACE’s accepted
+issue speciﬁcation does not produce an observable success
+advantage.
 Listing 1. Shared Astropy oracle, condensed from the submitted tests.
 c = fits.Card("HIERARCH ESO IFM CL RADIUS", 0.009125,
 "[m] radius arround actuator to avoid")
 assert str(c) == _pad(
 "HIERARCH ESO IFM CL RADIUS = 0.009125 / "
 "[m] radius arround actuator to avoid")
+The comment spelling arround is reproduced verbatim from
+the issue example.
 TRACE quality assessment. P1 met: the test explicitly
 compares the serialized card with the compact expected rep-
 resentation. P2 met: the buggy run encounters the reported
@@ -440,8 +511,9 @@ failure, not a setup error. P3 met: the test passes after the
 the reported formatting problem.
 B. Shared Success: Django 11163
 Issue. An explicitly empty ﬁelds list should produce an
-empty dictionary. Generated checks. Both submit the same
-addition to an existing database-backed test class.
+empty dictionary. Generated checks. Both workﬂows add
+the same test method to an existing test class that uses the
+database.
 Listing 2. Identical submitted Django 11163 addition.
 def test_empty_fields(self):
 item = ColourfulItem.objects.create()
@@ -450,28 +522,26 @@ Before. On buggy code, model_to_dict(item,ﬁelds=[]) returns
 a dictionary containing model ﬁelds instead of an empty
 dictionary, so the assertion fails. After .The added test passes
 after the reference ﬁx, and the ofﬁcial evaluator marks both
-workﬂows successful. It lists two fail-to-pass test entries, but
-only one is the newly generated test; the other is an existing
-many-to-many test. The reported count therefore does not
-mean that either agent wrote two tests. Relevance. The asser-
-tion checks exactly the behavior requested in the issue and uses
-a model already available in Django’s test suite. Implication.
-Both workﬂows produced the same test patch, so TRACE’s
-extra analysis showed no beneﬁt for this clear report in the
-observed runs. Nevertheless, the harness reported coverage
-changes of 0.5 for baseline and 1.0 for TRACE. Because the
-patches are identical, differences in their text cannot explain
-these coverage results. These pilot runs also recorded Docker
-image names rather than unique image ﬁngerprints, so we
-cannot fully verify their original image contents.
+workﬂows successful. It lists two fail-to-pass test entries,
+but only one is the newly generated test; the other is an
+existing many-to-many test. The reported count therefore does
+not mean that either agent wrote two tests. Relevance. The
+assertion checks exactly the behavior requested in the issue
+and uses a model already available in Django’s test suite.
+Implication. Both workﬂows produced the same test patch, so
+TRACE’s additional issue-speciﬁcation step showed no beneﬁt
+for this clear report in the observed runs. Nevertheless, the
+harness reported coverage deltas of 0.5 for baseline and 1.0 for
+TRACE. Because the patches are identical, patch differences
+cannot explain these coverage results.
 TRACE quality assessment. P1 met: assertEqual checks
 for an empty dictionary. P2 met: the assertion fails because
 buggy code returns model ﬁelds for an explicitly empty ﬁeld
 list. P3 met: the added test passes after the ﬁx, as shown in the
 raw execution evidence. P4 met: the input and expected result
 directly match the issue. Parser attribution to an additional
-existing test does not change this assessment of the new
-method.
+existing test does not change this assessment of the new test.
+
 C. Shared Failure: Django 12155
 Issue. When a docstring starts with text rather than a blank
 line, Django leaves extra indentation on later lines. This can
@@ -494,10 +564,10 @@ assertions target the reported problem, but the tests rely on a
 helper that is no longer available after the ﬁx. Implication.
 Exposing the bug before the ﬁx is only part of a successful
 reproduction: the same test must also run and pass on the ﬁxed
-code. Neither workﬂow demonstrated that here. V alidating the
-issue analysis did not prevent this test-compatibility problem,
-and the reference ﬁx was not available to the agents during
-generation.
+code. Neither workﬂow demonstrated that here. V alidating
+the issue speciﬁcation did not prevent this test-compatibility
+problem, and the reference ﬁx was not available to the agents
+during generation.
 TRACE quality assessment. P1 met: the generated tests
 check whitespace handling and reject rendering-error output.
 P2 met for the observed new failures: retained indentation
@@ -508,13 +578,14 @@ new tests is demonstrated. P4 met for the intended indentation
 and rendering requirements, but reliance on the helper makes
 the submitted tests incompatible with the ﬁxed repository.
 D. Shared Failure: Django 13513
-Issue. The report concerns which exception details Django
-displays on its debugging error page when an earlier excep-
-tion has been deliberately hidden. Generated checks. Both
-workﬂows create one exception while handling another and
-use raise...fromNone to request that the earlier exception not
-be displayed. They then check the exception information
-collected for the debug report. Before and after .The new tests
+Issue. The report states that Django’s debugging error
+page displays an earlier exception even when raise...fromNone
+explicitly requests that it be hidden. This concerns Python’s
+exception-context suppression. Generated checks. Both work-
+ﬂows create one exception while handling another and use
+raise...fromNone to request that the earlier exception not be
+displayed. They then check the exception information col-
+lected for the debug report. Before and after . The new tests
 pass on both buggy and ﬁxed code because Django already
 handles the particular scenario they check. Neither workﬂow
 produces a new test that fails before the ﬁx and passes
@@ -523,22 +594,21 @@ failure in an existing debug-template test is not a failure of
 these newly generated checks. Relevance. The tests address
 exception hiding, which is related to the report, but miss the
 speciﬁc case addressed by the ofﬁcial ﬁx: an exception without
-a traceback, the record of where the exception occurred. This
-detail was identiﬁed during evaluation analysis and was not
-supplied to the agents for generation or repair. Implication.
-A test can contain sensible assertions about the right general
-topic yet fail to exercise the actual bug. TRACE’s accepted
-analysis did not prevent that outcome. Both methods receive a
-coverage-change value of about 0.647 for this issue despite
-failing to reproduce it; executing relevant code is not the
-same as checking the broken behavior. The baseline agent also
-inspected repository history, which requires review against the
-experiment’s restrictions.
-
+a traceback, meaning that it carries no record of where it was
+raised. This detail was identiﬁed in our post-hoc review of
+the evaluation results and was not supplied to the agents for
+generation or repair. Implication. A test can contain sensible
+assertions about the right general topic yet fail to exercise
+the actual bug. TRACE’s accepted issue speciﬁcation did not
+prevent that outcome. Both methods receive a coverage delta
+of 0.647059 for this issue despite failing to reproduce it;
+executing relevant code is not the same as checking the broken
+behavior. The baseline agent also inspected repository history,
+which requires review against the experiment’s restrictions.
 TRACE quality assessment. P1 met: explicit assertions
 check the exception information. P2 not met: the generated
 tests pass on buggy code instead of exposing the bug. P3
-met only in the literal sense that the tests pass after the ﬁx;
+met as an execution observation: the tests pass after the ﬁx;
 because they also pass before it, this does not show successful
 reproduction. P4 partial: the tests check related exception-
 hiding behavior but omit the exception-without-a-traceback
@@ -558,7 +628,8 @@ SecurityMiddleware, following the report’s example. TRACE
 instead places its helper before a new async-only middleware
 written by the agent. TRACE chose that setup after temporary
 experiments showed that it produced the reported coroutine
-symptom.
+symptom. Its issue speciﬁcation had been accepted on the
+second extraction attempt, so this was not a fallback run.
 Listing 3. Expected response type checked by both workﬂows, simpliﬁed.
 self.assertIsInstance(response, HttpResponse)
 Before. Both new tests fail because their recording helpers
@@ -576,14 +647,12 @@ the raw logs.
 Relevance. Both tests check the expected response type, but
 they use different middleware setups. TRACE reproduced a
 similar symptom without demonstrating that its setup exercised
-the same underlying bug. Its continued failure after the ﬁx
-does not by itself identify the precise cause. Implication.
-Checking that the issue analysis is supported by the report does
-not guarantee that the agent will build a faithful executable
-test. The response assertion and the surrounding setup both
-matter. These pilot runs also saved image names rather than
-unique image ﬁngerprints, limiting veriﬁcation of their original
-Docker image contents.
+the same underlying bug. Its continued failure after the ﬁx does
+not by itself identify the precise cause. Implication. Checking
+that the issue speciﬁcation is supported by the report does not
+
+guarantee that the agent will build a faithful executable test.
+The response assertion and the surrounding setup both matter.
 TRACE quality assessment. P1 met: the test explicitly
 checks for an HttpResponse. P2 not established: it fails with
 the reported symptom, but the evidence does not establish that
@@ -604,26 +673,32 @@ Django recognizes the language code. The baseline adds a
 language-lookup assertion to an existing test. TRACE creates
 a separate lookup test that also checks codes with mixed
 uppercase and lowercase letters. Before generation, TRACE
-tries three times to extract an analysis that passes validation.
-None is accepted, so the agent receives only the original report,
-just as in the baseline. This run still counts as a TRACE result
-and includes the unsuccessful analysis attempts. Before. Both
-URL checks fail, and each method’s lookup assertion fails.
-After . Both URL checks pass. Baseline’s modiﬁed existing
-lookup test still fails; TRACE’s new lookup method is logged
-as passing. Both suites retain additional existing failures/errors.
-The ofﬁcial baseline report records two added fail-to-pass
-entries but also an additional persistent failure relative to
-base, yielding unresolved status. TRACE records three added
-fail-to-pass entries without an added persistent failure and
-resolves. Its new lookup name is unmatched in the parsed
-transition sets despite the raw passing post-ﬁx line. Relevance.
-URL checks meaningfully represent the report; the additional
-lookup assertions differ in scope. Implication. The harness
-checks regression safety relative to base, not simply whether
-any new test improves. This TRACE-only success occurred
-without accepted analysis and therefore cannot demonstrate
-that speciﬁcation content caused the gain. Baseline’s history
+tries three times to extract an issue speciﬁcation that passes
+validation. None is accepted, so the agent receives only the
+original report, just as in the baseline. This run still counts
+as a TRACE result. Its recorded generation time includes the
+unsuccessful preprocessing attempts, and their API charges
+contribute to workﬂow spending; the agent-only cost ﬁgures
+exclude those requests. Before. The URL tests and language-
+lookup assertions generated by both workﬂows fail. After .
+Both URL checks pass. The existing lookup test modiﬁed by
+baseline still fails, while TRACE’s new lookup test passes in
+the raw log. Both suites retain additional existing failures or
+errors. The ofﬁcial baseline report records two added fail-to-
+pass entries but also an additional persistent failure relative
+to base, yielding an unsuccessful result. TRACE records three
+added fail-to-pass entries without an added persistent failure
+and succeeds. The parser cannot match TRACE’s new lookup
+test name between runs, even though the raw after-ﬁx log
+records it as passing. Relevance. The URL tests directly check
+the reported behavior, while the additional language-lookup
+assertions check different aspects of language-code handling.
+Implication. The harness checks whether the generated patch
+introduces additional failures relative to its base comparison,
+not simply whether a new test changes from failing to pass-
+ing. This TRACE-only success occurred without an accepted
+issue speciﬁcation and therefore cannot demonstrate that an
+accepted issue speciﬁcation caused the gain. Baseline’s history
 inspection remains a separate limitation.
 TRACE quality assessment. P1 met: explicit checks cover
 language-preﬁxed URLs and language lookup. P2 met for
@@ -634,10 +709,12 @@ lookup method pass after the ﬁx; parsed attribution of the
 lookup method remains uncertain. P4 met for the reported lan-
 guage/script/region behavior. TRACE receives ofﬁcial success,
 but because preprocessing fell back to the original report, these
-properties cannot be credited to accepted analysis.
+properties cannot be credited to an accepted issue speciﬁcation.
 
 APPENDIX B
 FULL PAIRED OUTCOMES
+Table III retains the ﬁxed assignment order used in the saved instance list, rather than sorting by repository or result. Success
+and Unsuccessful denote ofﬁcial instance-level outcomes.
 TABLE III
 ALL ASSIGNED INSTANCES : O FFICIAL OUTCOMES AND COVERAGE DELTA
 Instance Baseline TRACE Delta baseline Delta TRACE
@@ -648,39 +725,38 @@ sympy__sympy-24539 Success Success 0.285714 0.000000
 scikit-learn__scikit-learn-14894 Success Success 0.416667 0.416667
 sphinx-doc__sphinx-9711 Success Success 0.583333 0.583333
 astropy__astropy-14508 Success Success 0.785714 0.785714
-pytest-dev__pytest-7432 Unresolved Success 1.000000 1.000000
+pytest-dev__pytest-7432 Unsuccessful Success 1.000000 1.000000
 pallets__ﬂask-5014 Success Success 1.000000 1.000000
 matplotlib__matplotlib-13989 Success Success 0.500000 1.000000
 psf__requests-2931 Success Success 0.750000 0.750000
 pylint-dev__pylint-6903 Success Success 1.000000 1.000000
 mwaskom__seaborn-3187 Success Success 1.000000 0.666667
-django__django-13513 Unresolved Unresolved 0.647059 0.647059
-sphinx-doc__sphinx-8548 Unresolved Unresolved 0.000000 0.000000
-django__django-13344 Success Unresolved 0.096774 0.000000
-django__django-15098 Unresolved Success 0.000000 0.000000
-django__django-12155 Unresolved Unresolved 0.466667 0.466667
-sphinx-doc__sphinx-8638 Unresolved Unresolved 1.000000 1.000000
-django__django-15252 Unresolved Unresolved 0.000000 0.600000
+django__django-13513 Unsuccessful Unsuccessful 0.647059 0.647059
+sphinx-doc__sphinx-8548 Unsuccessful Unsuccessful 0.000000 0.000000
+django__django-13344 Success Unsuccessful 0.096774 0.000000
+django__django-15098 Unsuccessful Success 0.000000 0.000000
+django__django-12155 Unsuccessful Unsuccessful 0.466667 0.466667
+sphinx-doc__sphinx-8638 Unsuccessful Unsuccessful 1.000000 1.000000
+django__django-15252 Unsuccessful Unsuccessful 0.000000 0.600000
 django__django-16631 Success Success 0.652174 0.652174
-sphinx-doc__sphinx-8551 Unresolved Unresolved 0.000000 0.000000
+sphinx-doc__sphinx-8551 Unsuccessful Unsuccessful 0.000000 0.000000
 django__django-13810 Success Success 1.000000 1.000000
-sphinx-doc__sphinx-8721 Unresolved Unresolved N/A N/A
-sphinx-doc__sphinx-8621 Unresolved Unresolved 0.000000 0.000000
+sphinx-doc__sphinx-8721 Unsuccessful Unsuccessful N/A N/A
+sphinx-doc__sphinx-8621 Unsuccessful Unsuccessful 0.000000 0.000000
 matplotlib__matplotlib-25311 Success Success 1.000000 1.000000
 
 APPENDIX C
 REPRODUCIBILITY AND OUTSTANDING INFORMATION
-This project was conducted for SE 433: Software Testing
-and Quality Assurance at DePaul University. The host com-
-puter is an ASUS Zenbook UX8402VV with a 13th-generation
-Intel Core i9-13900H processor, 20 logical processors, and
-approximately 32 GB of RAM. These speciﬁcations were
-veriﬁed after the experiment; the saved run records do not
-independently establish the historical hardware conﬁguration.
-The workﬂow used Ubuntu/WSL and Docker, but the CPU
-and memory allocations available to those environments during
-execution were not recorded. DeepSeek inference used the
-hosted API rather than running locally on this hardware.
+The host computer is an ASUS Zenbook UX8402VV with
+a 13th-generation Intel Core i9-13900H processor, 20 logical
+processors, and approximately 32 GB of RAM. These spec-
+iﬁcations were veriﬁed after the experiment; the saved run
+records do not independently establish the historical hardware
+conﬁguration. The workﬂow used Ubuntu/WSL and Docker,
+but the CPU and memory allocations available to those en-
+vironments during execution were not recorded. DeepSeek
+inference used the hosted API rather than running locally on
+this hardware.
 The evaluation directory is evaluation_results/
 trace-assigned-26-unit-20261113-122920/; ﬁnal selected gen-
 eration records are in runs/assigned-pairs-20261113-002517/
@@ -692,25 +768,26 @@ indexes exact local evidence. Evaluation inputs contain
 reference ﬁelds and must remain outside generation context.
 No report preparation step modiﬁes either workﬂow or
 prediction.
-A nominal agent-cost limit does not cap preprocessing
-or guarantee a total spend. Selected preprocessing metrics
-record 69 requests, 49,789 input tokens, and 173,755 out-
-put tokens, including provider-reported reasoning output. The
-supplied provider exports, amount-2026-10-18_2026-11-16.
-csv and cost-2026-10-18_2026-11-16.csv, record 1,211 re-
-quests for deepseek-ﬂash, 1,118,057 cache-miss input tokens,
-20,423,295 cache-hit input tokens, and 644,720 output tokens.
-Total billed cost is $0.959975793. Summing each token quan-
-tity multiplied by its listed unit price reproduces both the
-daily charges and the total exactly. Nonzero charges occur on
-November 3 and November 10–13. This export-period total
-may include pilot runs, retries, and other calls; its rows do not
-identify the method, instance, or individual generation run.
-We therefore do not allocate it between baseline and TRACE
-or treat it as the cost of the selected runs alone. No explicit
-generation seed was conﬁgured. [TODO: Add the submission
-date and updated artifact archive release/commit containing
-this paper and evaluation.]
+The nominal agent-cost limit excludes preprocessing and
+does not guarantee a strict cap on spending. Selected pre-
+processing metrics record 69 requests, 49,789 input to-
+kens, and 173,755 output tokens, including reasoning out-
+put reported by the provider. The supplied provider exports,
+amount-2026-10-18_2026-11-16.csv and cost-2026-10-18_
+2026-11-16.csv, record 1,211 requests for deepseek-ﬂash,
+1,118,057 cache-miss input tokens, 20,423,295 cache-hit in-
+put tokens, and 644,720 output tokens. Total billed cost is
+$0.959975793. Summing each token quantity multiplied by
+its listed unit price reproduces both the daily charges and
+the total exactly. Nonzero charges occur on November 3 and
+November 10–13. This export-period total may include pilot
+runs, retries, and other requests; its rows do not identify the
+method, instance, or individual generation run. We therefore
+do not allocate it between baseline and TRACE or treat it
+as the cost of the selected runs alone. No explicit generation
+seed was conﬁgured. The submission date is November 17,
+2026. [TODO: Add the updated artifact archive release/commit
+containing this paper and evaluation.]
 APPENDIX D
 CONTRIBUTIONS AND AI D ISCLOSURE
 Mark Koehler, Hikaru McGuan, and Jason Torres completed
@@ -738,22 +815,26 @@ do not establish an exact immutable model release for
 every request.
 • OpenAI Codex: assisted with implementation and work-
 ﬂow orchestration, artifact inspection, evaluation support,
-analysis, diagrams, and manuscript drafting and revision.
-The historical Codex application/CLI version and under-
-lying model identiﬁer were not consistently recorded and
-cannot be speciﬁed reliably from the experiment artifacts.
-A current installation version would not establish the
-version used for earlier work.
+analysis, workﬂow diagrams for presentation slides, and
+manuscript drafting and revision. The historical Codex
+application/CLI version and underlying model identiﬁer
+were not consistently recorded and cannot be speciﬁed
+reliably from the experiment artifacts. A current instal-
+lation version would not establish the version used for
+earlier work.
 • ChatGPT (GPT-6.1): supported initial project planning,
 workﬂow discussions, troubleshooting, and explanations.
 The GPT-6.1 model designation was conﬁrmed by the
 project owner. ChatGPT was not an additional benchmark
 test-generation arm.
-• Claude: assisted with reviewing the repository and draft-
-ing presentation slides, which the team reviewed and
-revised. The exact model version was not recorded.
+• Claude Sonnet 5.5: assisted with reviewing the repos-
+itory, drafting presentation slides, and proofreading the
+paper; the team reviewed and revised the resulting mate-
+rial. The model designation was conﬁrmed by the project
+owner.
 The team conﬁrms that all AI tools used for this project have
-been disclosed above. This draft does not claim independent
-human validation of every generated assertion or protocol
-compliance. AI-assisted project work and writing are disclosed
-separately from the evaluated test-generation methods.
+been disclosed above. This paper does not claim that humans
+independently validated every generated assertion or veriﬁed
+every action against the experiment’s rules. AI-assisted project
+work and writing are disclosed separately from the evaluated
+test-generation methods.

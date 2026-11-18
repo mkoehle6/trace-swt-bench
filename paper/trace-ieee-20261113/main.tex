@@ -1,5 +1,6 @@
 % IEEE conference draft. Original results and experimental workflows are unchanged.
 \documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
 \usepackage[T1]{fontenc}
 \usepackage{cite}
 \usepackage{amsmath,amssymb}
@@ -20,11 +21,12 @@
 \and
 \IEEEauthorblockN{Jason Torres}
 \IEEEauthorblockA{DePaul University\\jtorr138@depaul.edu}
+\thanks{Course project for SE 433: Software Testing and Quality Assurance, DePaul University.}
 }
 \begin{document}
 \maketitle
 \begin{abstract}
-Issue-driven regression testing requires translating informal reports into executable behavioral checks. TRACE (Test Reproduction through Analysis, Checks, and Evidence) adds bounded extraction and validation of evidence-grounded issue specifications before a DeepSeek coding agent generates native test patches. We compare this workflow with a shared native-test baseline on 26 assigned SWE-bench Verified instances using the official SWT-Bench unit-test evaluator. Baseline resolves 16 instances and TRACE resolves 17; both apply all 26 patches. The paired outcomes are 15 shared successes, two TRACE-only successes, one baseline-only success, and eight shared failures. Mean generation time increases from 93.45 to 127.09 seconds. Six systematically selected case studies show that specification acceptance does not guarantee a valid regression oracle or compatibility with the fixed repository. Parser attribution anomalies, historical image limitations, diagnostic deviations, incomplete cost accounting, and single-run variability constrain interpretation. The observed one-instance gain is preliminary evidence rather than a demonstrated general improvement.
+Issue-driven regression testing requires translating informal reports into executable behavioral checks. TRACE (Test Reproduction through Analysis, Checks, and Evidence) adds bounded extraction and validation of evidence-grounded issue specifications before a DeepSeek-Flash-powered coding agent generates native test patches. We compare this workflow with a shared native-test baseline on 26 assigned SWE-bench Verified instances using the official SWT-Bench unit-test evaluator. Baseline succeeds on 16 instances and TRACE on 17; all 26 patches from each workflow apply successfully. The paired outcomes are 15 shared successes, two TRACE-only successes, one baseline-only success, and eight shared unsuccessful outcomes. Mean generation time increases from 93.45 to 127.09 seconds. Six systematically selected case studies illustrate that issue-specification acceptance does not guarantee a test that correctly checks the reported behavior or compatibility with the fixed repository. Test-name attribution discrepancies, incomplete historical image records, diagnostic deviations from the protocol, incomplete per-method cost accounting, and single-run variability limit interpretation. The observed one-instance gain is preliminary evidence rather than a demonstrated general improvement.
 \end{abstract}
 \begin{IEEEkeywords}
 regression testing, test generation, coding agents, SWT-Bench, issue specifications

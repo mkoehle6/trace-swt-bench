@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-17",
+  "fallbacks": [
+    "django__django-15098",
+    "django__django-16631",
+    "sphinx-doc__sphinx-8551",
+    "django__django-13810"
+  ],
+  "byte_identical_pairs": [
+    "django__django-11163",
+    "pallets__flask-5014"
+  ],
+  "django_13344_analysis": {
+    "accepted": true,
+    "attempts": 2,
+    "fallback": false
+  },
+  "history_review_flags": {
+    "baseline": [
+      "django__django-13513",
+      "django__django-15098",
+      "django__django-16631"
+    ],
+    "TRACE": [
+      "mwaskom__seaborn-3187",
+      "sphinx-doc__sphinx-8548",
+      "sphinx-doc__sphinx-8638"
+    ]
+  },
+  "mcnemar_exact_two_sided": {
+    "TRACE_only": 2,
+    "baseline_only": 1,
+    "p": 1.0
+  },
+  "clarification": "Baseline Django 15098 is unsuccessful, not successful. It has zero coverage delta. Zero-delta success examples are TRACE Django 15098 and TRACE SymPy 24539.",
+  "guideline_url_verified": "https://github.com/DePaul-SE-Team/SE443-333-final-project-guideline",
+  "course": "SE 433: Software Testing and Quality Assurance, DePaul University",
+  "evidence_sources": [
+    "Selected manifests and patch bytes linked from TRACE_26_INSTANCE_REPORT_20261113.md",
+    "Official evaluation evidence.json and source grading.py",
+    "User-supplied proofreading feedback for Claude disclosure"
+  ],
+  "experimental_predictions_changed": false,
+  "second_wording_pass": {
+    "applied": true,
+    "cost_qualification": "Fallback preprocessing runtime included; agent-only costs exclude analysis calls.",
+    "docker_qualification": "Same specified image per pair; historical pilot image identity remains limited.",
+    "fits_footnote_spacing": "Explicit TeX space after footnote."
+  }
+}

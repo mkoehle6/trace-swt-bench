@@ -15,7 +15,7 @@ Reviewed the [project guidelines](https://github.com/DePaul-SE-Team/SE443-333-fi
 | Systematic selection | Main Test Quality Analysis and evidence.json | Lexicographic full IDs within categories; no duplication or shortfall |
 | Issue, test, before, after, meaning, implication | Each Appendix A case | Complete; raw/parser discrepancies explicitly distinguished |
 | Threats and future improvement | Main Sections V and VI | Complete; includes protocol deviations and sampling limitations |
-| Section 11: IEEE template and main-text length | PDF and source | IEEEtran conference; approximately 2,530 main prose words under the documented current counting rule; final course word-limit compliance requires team review |
+| Section 11: IEEE template and main-text length | PDF and source | IEEEtran conference; approximately 2,975 main prose words under the documented current counting rule; final course word-limit compliance requires team review |
 | Contributions and Section 12 AI disclosure | Last appendix | Team effort recorded; all AI tools confirmed disclosed by the team; exact historical versions remain limited where unrecorded |
 
 The original configuration was preserved but adapted to native unit-test output in both arms. The draft explicitly discloses this deviation from a strict “unchanged baseline” reading; it does not claim instructor approval that has not been established. No experiments or assertions were changed to make results fit the guidelines.
@@ -23,3 +23,5 @@ The original configuration was preserved but adapted to native unit-test output 
 The draft follows the required six-section report structure. Detailed case analysis is in an appendix, with the principal findings retained in the main paper. Author names, DePaul affiliation, and emails are included. Appendix C records SE 433: Software Testing and Quality Assurance, current host specifications, and the limits of historical resource records.
 
 Updated November 16, 2026 against the revised manuscript. Original guideline review date remains November 13; the online guidelines were not re-reviewed during this refresh. Remaining submission-date and artifact-link TODOs are listed in draft-validation.json.
+
+November 17 check: the linked guideline repository really is named `SE443-333-final-project-guideline`; the manuscript retains that URL and distinguishes it from the user-confirmed SE 433 course. Guideline reference [4] is cited before artifact reference [5]. Appendix B rows retain assignment order and use Success/Unsuccessful.

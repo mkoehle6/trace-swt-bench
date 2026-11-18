@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "compiler": "Desktop LaTeX editor",
   "compile_result": "success",
   "pdf_export_verified": true,
-  "pdf_pages": 8,
-  "approx_main_prose_words": 2530,
+  "pdf_pages": 9,
+  "approx_main_prose_words": 2975,
   "six_case_studies": true,
   "trace_quality_assessments": 6,
   "all_26_outcomes_included": true,
@@ -15,17 +15,23 @@
     "Add updated commit-pinned evaluation artifact snapshot link."
   ],
   "source_sha256": {
-    "main.tex": "1dc13dc74661f394149c89ee32c06573d1b64882fc2caa904a39871cd23bab87",
-    "body.tex": "44b966a5c07422cf0e1100fb9356379f6d444228e213708c3c16d8f2a452f4a8",
-    "appendix.tex": "3023fdbd9539fb9563879ae06678e2226d414d45133212a7851bd9d006b7663e",
-    "references.tex": "5115fa9acb0bd94ea5cb1ce3ddff852732507a590ab361368b28172f8d3e12d0",
-    "outcomes-table.tex": "f76e8fd218733574faafc9fe1af88ab9da37f6874b6aa8d408674af6c7241ad7",
+    "main.tex": "927757babe57bcb05b6b6e0f7adf0f89031a7f17c8415db10eb157d9ab4a7b3b",
+    "body.tex": "78f053f0073aa141e310c472b106fad5ef29d229b56f32dda3ee29bc04e7db3e",
+    "appendix.tex": "930afc5f6419e18f4c8f9c452add575560a04c9e8947505dd4bd3a1b291c1ef8",
+    "references.tex": "168003f52f3eec3dbcf0fcb5a2b89de572016555d73d85c8e7000404ee240cdc",
+    "outcomes-table.tex": "d7b5fa8385968800d4bca545dc3c863709a774e604a36806fc69245b20a7df27",
     "IEEEtran.cls": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
   },
-  "pdf_sha256": "1a8e951e703051c2f4357994af17f8bb96babba8fbf17cb5c184fcea3108bdd8",
+  "pdf_sha256": "090cb1c1930af9bda0efe7d8ee52775c9fb9e79ed90003636a3ededef5aa589e",
   "notes": [
     "Compilation tool reported success. Detailed current compiler log, auxiliary files, citation-warning and overfull-box diagnostics were not exported; no claim that these diagnostics were independently checked.",
     "evidence.json remains the historical experiment evidence index; experimental results were not rerun or changed.",
     "Historical November 13 compiler files retained in historical-build-20261113/."
-  ]
+  ],
+  "all_bibliography_entries_cited": true,
+  "all_source_cross_reference_targets_present": true,
+  "no_unresolved_reference_markers_in_export": true,
+  "wording_pass_2": "2026-11-17",
+  "terminology_pass_3": "2026-11-17",
+  "final_clarity_review": "2026-11-17"
 }

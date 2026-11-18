@@ -1,6 +1,6 @@
 # TRACE IEEE conference paper
 
-Open [trace_experiment.pdf](trace_experiment.pdf) for the latest compiled paper. Refreshed November 16, 2026: eight pages. `TRACE_paper_20261116.pdf` is an identical dated copy.
+Open [trace_experiment.pdf](trace_experiment.pdf) for the latest compiled paper. Refreshed November 17, 2026: 9 pages. `TRACE_paper_20261117.pdf` is an identical dated copy.
 
 ## Current contents
 
@@ -11,9 +11,9 @@ Open [trace_experiment.pdf](trace_experiment.pdf) for the latest compiled paper.
 - `references.tex`: bibliography; updated immutable artifact link remains a TODO.
 - `IEEEtran.cls`: unchanged document class; copyright and license retained.
 - `evidence.json`: original experiment evidence index, metrics and provenance; preserved unchanged.
-- `trace_experiment.pdf`, `TRACE_paper_20261116.pdf`: identical current PDFs.
+- `trace_experiment.pdf`, `TRACE_paper_20261117.pdf`: identical current PDFs.
 - `trace_experiment.txt`: text extracted from the current PDF.
-- `preview-page-1.png` through `preview-page-8.png`: current page previews.
+- `preview-page-1.png` through `preview-page-9.png`: current page previews.
 - `word-count.json`: current approximate body-text count; not a formal texcount result.
 - `draft-validation.json`: current source/PDF hashes and checks, with diagnostic limitations.
 - `current-build.txt`: latest compile/export status.
@@ -40,3 +40,11 @@ The provider exports report $0.959975793 in charges across their period; this is
 ## Remaining information
 
 The submission date and updated commit-pinned artifact link remain TODOs. Docker/WSL resource allocations and some historical tool/model versions were not recorded. See the manuscript for these limitations. This folder refresh does not itself commit or push changes to GitHub.
+
+November 17 proofreading: clarified the measured research question, named fallback and identical-patch instances, reported McNemar exact p=1.0, identified history flags by arm, explained zero coverage delta, standardized outcome labels, and added complete appendix/table pointers. Course information is now a title-page footnote. The earlier dated PDF is retained in `historical-build-20261116/`.
+
+Second November 17 wording pass: parallel P1-P4 definitions, clearer evaluator criteria and unit of analysis, consistent issue-specification and input/output-token terminology, explicit rounded billing value, and qualified fallback spending. Sources and PDFs remain synchronized.
+
+Second November 17 terminology pass: parallel P1-P4 definitions, clearer evaluator criteria and unit of analysis, consistent issue-specification and input/output-token terminology, explicit rounded billing value, and qualified fallback spending. Sources and PDFs remain synchronized.
+
+Final November 17 clarity review: simplified abstract and evaluation criteria, clarified units and costs, shortened ambiguous implications, and replaced hard-coded section numbers with cross-references. Submission date and Claude Sonnet 5.5 disclosure included. Sources and PDFs remain synchronized.
